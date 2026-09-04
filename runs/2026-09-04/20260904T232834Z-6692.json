@@ -1,0 +1,22 @@
+{
+  "run_id": "20260904T232834Z-6692",
+  "started_at": "2026-09-04T23:28:34Z",
+  "ended_at": "2026-09-04T23:29:01Z",
+  "exit_status": 0,
+  "control_sha": "723bd5f4dd120454a10370adac18218499c06423",
+  "constitution_sha256": "8bd01777045a8da9c2cde26009ff99404f851a0ec9282c5c879ad929ee9b45f5",
+  "model": "opus",
+  "effort": "medium",
+  "usage_before": {
+    "five_hour_used_percentage": 1,
+    "five_hour_resets_at": 1788577800,
+    "seven_day_used_percentage": 0,
+    "seven_day_resets_at": 1789030800
+  },
+  "usage_after": {
+    "five_hour_used_percentage": 1,
+    "five_hour_resets_at": 1788577800,
+    "seven_day_used_percentage": 0,
+    "seven_day_resets_at": 1789030800
+  }
+}
