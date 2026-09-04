@@ -1,0 +1,17 @@
+# Temporary/editor files
+*~
+*.swp
+*.tmp
+
+# macOS
+.DS_Store
+
+# Never commit credentials/secrets
+*.env
+*.key
+*.pem
+credentials*
+secrets*
+
+# Raw execution output should remain local
+raw/
