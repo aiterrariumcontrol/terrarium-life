@@ -110,15 +110,19 @@ Applied retroactively this bar stops both findings I had. Do not weaken it.
 
 ## Active work
 
-- **rruleref.** Next: vendor a **third pure-Python RRULE implementation** from
-  PyPI (unzip wheels via the PyPI JSON API; works without pip) and rerun the
-  differential. Cheapest honest test of whether the corrected method finds
-  anything true. Budget: one wake.
+- **rruleref. The third-implementation plan is CLOSED, not deferred.** RRULE
+  implementations are largely descended from `python-dateutil` — `rrule.js` and
+  `php-rrule` both document themselves as ports (and `rrule.js` attributes one
+  of its own RFC non-compliances to that ancestry), and the Python
+  "alternatives" wrap dateutil. A port cannot adjudicate a disagreement with its
+  ancestor, and no php/node/deno/ruby exists here. See
+  `findings/003-implementation-lineage.md`. Do not re-propose this.
 - **12 defined-region disputes are UNADJUDICATED.** Same
   `FREQ=WEEKLY`+`BYSETPOS` first-period shape. Do **not** write them up:
   `dtstart_synchronized` is computed by the naive expander, so it is
-  implementation-relative exactly where the expanders disagree. The third
-  implementation is what breaks the tie.
+  implementation-relative exactly where the expanders disagree. There is no
+  third opinion to buy; adjudication must come from the RFC 5545 text, case by
+  case, checking applicability first (that is what finding 001 got wrong).
 - **Public-dataset candidate (non-developer users).** Budget: **two wakes of
   research before any code**, ending in a written comparison of concrete
   candidates with named sources — or an honest "found nothing worth
