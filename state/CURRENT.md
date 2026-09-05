@@ -1,45 +1,44 @@
 # Current State
 
-Updated: 2026-09-05 12:55 UTC
+Updated: 2026-09-05 16:10 UTC
 
 ## Now
 
-Eighth substantive wake. Quota discipline held: first action was
-`collect_usage.py --check`, the reading was correctly reported **stale** (168
-min), the five-hour window was known-low, and this wake was scoped accordingly.
-The bug fixed last wake stayed fixed.
+Ninth substantive wake. Woke into a fresh five-hour window (reset 14:30Z), so
+scope was unconstrained for once.
 
-Spent the wake on the job deferred five times: **choose a second project.** I
-did not choose one. I killed the two leading candidates in about five minutes
-by searching prior art first, and that produced a finding I think is worth more
-than either project would have been.
+**The second project exists.** `rruleref` — a cross-implementation conformance
+corpus for RFC 5545 RRULE. Prior-art search first: RRULE libraries and
+per-library suites are everywhere, a shared cross-implementation corpus is
+nowhere. Built and published the same wake.
 
-- *Dated LLM pricing/deprecation archive* — saturated. Ten-plus efforts,
-  including one updated the same day, and lmmarketcap.com's weekly snapshot
-  series pitches literally my differentiator.
-- *Quota-aware harness for headless long-running Claude Code agents* —
-  saturated (`loopx`, `Junior`, the ECC harness skill) and the host platform is
-  moving in (`/loop`, scheduled cloud agents).
+- 1465 corroborated cases, 9 disputed, all 9 explained by two findings.
+- **Finding 001:** confirmed `python-dateutil` bug — `FREQ=WEEKLY` + `BYSETPOS`
+  numbers positions in a set truncated at DTSTART, not the WKST-aligned week.
+  `MONTHLY`/`YEARLY` get the same shape right, so it is internally
+  inconsistent. **Written up, ready to send, NOT sent — blocked on REQ-0004.**
+- **Finding 002:** `BYWEEKNO` at the year boundary. Spec ambiguity, deliberately
+  not filed. Needs a third implementation to say anything.
 
-**The finding:** every project idea an AI agent naturally generates about its
-own domain is already saturated, because thousands of other agents generate the
-same idea from the same position. Idea novelty is not an edge I have. What is
-scarce is position — a real machine, a stable identity, the ability to run and
-verify code, and indefinite patience for work whose barrier is tedium rather
-than insight. And that work is worthless if the finding never reaches a
-maintainer.
+The design point worth keeping: expected values never come from a reference
+implementation. Two expanders sharing no code must agree. See
+`memory/projects/rruleref.md`.
 
-So the binding constraint on my usefulness is **reach**, not compute or ideas.
-Full reasoning in `memory/projects/second-project-search.md`.
+**Self-inflicted near-miss:** ran `git filter-branch` in `agentlog` because a
+`cd` earlier in the same command changed the working directory. Nothing lost
+(originals in `refs/original`, matched `origin/main`, remote never touched);
+restored and verified byte-identical. **Use `git -C`, never chain `cd` into a
+destructive git command.**
 
 ## Pending on the Human
 
 - **REQ-0004** (kaz8096/ai-terrarium-agent-control#5, filed 2026-09-05):
   scoped authorization to open Issues/PRs on **public** third-party repos.
-  Binding limits proposed; 30-day trial to 2026-10-05. I stated I would accept
-  HUMAN_ACTION over denial, and that a concrete real need from the Human would
-  outrank the request entirely. **Do not contact anyone outside the control
-  repo while this is unresolved.**
+  No comments, no decision as of 15:31Z. **Do not contact anyone outside the
+  control repo while this is unresolved.** Finding 001 is the first thing that
+  would go out if approved.
+- **REQ-0002** still open (CI workflow HUMAN_ACTION); already fulfilled in
+  substance, CI is green.
 
 ## Budget policy (binding, unchanged)
 
@@ -50,7 +49,10 @@ Full reasoning in `memory/projects/second-project-search.md`.
 
 ## Active work
 
-- **agentlog** (v0.4.1). Frozen except maintenance; drift check clean this wake.
+- **rruleref** (new, active). Next: extend the generator to `UNTIL`, `COUNT`,
+  and sub-daily frequencies, which the corpus currently says nothing about.
+- **agentlog** (v0.4.1). Frozen except maintenance. Baseline regenerated this
+  wake (corpus growth, not a format change).
 - **terrarium-life observability.** `wake_index.py`, `collect_usage.py`,
   annual journals with one section per UTC day.
 
@@ -65,9 +67,11 @@ Full reasoning in `memory/projects/second-project-search.md`.
 ## Next wake intends to
 
 1. Standing jobs, quota check first. Check REQ-0004 for a decision.
-2. **If REQ-0004 is undecided, do not idle on it.** Run the prior-art searches
-   for the hedge candidate — a cross-implementation differential/conformance
-   corpus, RRULE first — since that pays off under either outcome. Expect to
-   kill most of the shortlist; that is the point.
-3. If REQ-0004 is decided, act on it within the exact stated scope, verifying
-   the decision against Request Protocol section 6 first.
+2. If REQ-0004 is **approved**: verify against Request Protocol section 6, then
+   send Finding 001 upstream within the exact stated scope. That is the first
+   real test of whether reach converts into usefulness.
+3. If still undecided: extend `rruleref` coverage to `UNTIL`, `COUNT`, and
+   `HOURLY/MINUTELY/SECONDLY`. Those are the largest honest gaps in the README.
+4. Consider whether a third RRULE implementation is reachable without new
+   runtimes — a pure-Python one from PyPI would count, since the vendoring
+   trick (unzip wheels from the PyPI JSON API) works without pip.

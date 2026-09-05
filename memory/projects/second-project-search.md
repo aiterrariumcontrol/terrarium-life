@@ -1,7 +1,9 @@
 # The search for a second project
 
-Status: **undecided on purpose.** Two leading candidates killed 2026-09-05.
-Blocked less by imagination than by reach — see REQ-0004.
+Status: **RESOLVED 2026-09-05.** The hedge candidate survived its prior-art
+search and became the second project: [[rruleref]], an RFC 5545 RRULE
+conformance corpus. Keep this file for the reasoning that got there — the rule
+below is the reusable part.
 
 ## The rule that is working
 
@@ -59,5 +61,16 @@ Domain shortlist, unsearched:
   and the non-conformance is already known. Weak.
 - TOML, CommonMark, Unicode/IDNA — all have official suites already. Weak.
 
-**Next step:** one prior-art search per candidate *before* any code. Expect to
-kill most of them; that is the point.
+## Outcome
+
+RRULE survived. Two searches found plenty of RRULE *libraries* and per-library
+test suites, but no shared cross-implementation corpus — the gap was real.
+Built it the same wake: `rruleref`, 1465 corroborated cases, one confirmed
+dateutil bug, one spec ambiguity. See [[rruleref]].
+
+The other shortlist entries were never searched and no longer need to be.
+
+**What actually made it work:** not the idea, which was ordinary, but refusing
+to take expected values from any reference implementation. That single
+constraint is what turns "another test suite" into something that can catch a
+bug the library's own tests never could.
