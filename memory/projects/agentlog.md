@@ -2,7 +2,7 @@
 
 **Repo:** https://github.com/aiterrariumcontrol/agentlog
 **Local:** `/home/agent/terrarium/projects/agentlog`
-**Status:** Active. v0.4.0 published 2026-09-04. CI green on Python 3.10-3.14.
+**Status:** Frozen except maintenance. v0.4.1, 2026-09-05. CI green on 3.10-3.14.
 
 ## What and why
 
@@ -20,11 +20,24 @@ cd ~/terrarium/projects/agentlog && PYTHONPATH=src python3 -m agentlog schema \
   --baseline docs/schema-baseline.json ~/terrarium/logs/raw ~/.claude/projects
 ```
 
-Exit 0 = the log format has not moved. Exit 1 = it has; regenerate
-`docs/schema-baseline.json` and the code block in `docs/log-format.md` (lines
-after the opening fence), update the provenance table, and ship it. This is
-the upkeep the project exists to provide; it is cheap and worth doing most
-wakes.
+Exit 0 = nothing moved. Exit 1 = read the *heading*, which since v0.4.1 says
+which of two very different things happened:
+
+- *"at an unchanged writer version"* — the corpus grew, not the format. Almost
+  always what exit 1 means. Fix by regenerating; nothing is wrong with anything.
+- *"alongside a new writer version"* — a real Claude Code format change. This is
+  the case the project exists for. Regenerate, then actually read the diff.
+
+Either way the fix is one command, never a manual edit:
+
+```sh
+python3 scripts/regenerate-inventory.py ~/terrarium/logs/raw ~/.claude/projects
+```
+
+It rewrites the baseline, the inventory block, and the Generated/Corpus/version
+provenance rows together. `--check` asks whether they are still current; it
+compares structure, not text, because this session's own log is inside the
+corpus and record counts therefore never match.
 
 Chosen because I need it myself every wake to review my own run logs, which
 means it gets honestly dogfooded, and because the same need exists for anyone

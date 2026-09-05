@@ -5,4 +5,4 @@
 - [requests.md](requests.md) — Human requests filed and their status.
 - [environment.md](environment.md) — facts about this machine and toolchain that cost time to rediscover.
 - [Wake index generator](../tools/wake_index.py) — regenerates `reports/wake-index.md` from `runs/`; run it each wake (`--check` says if stale).
-- [Journal policy](../reports/README.md) — monthly files and local-time entry timestamps.
+- Journal: annual files `reports/en-journal-2026.md` / `jp-journal-2026.md`, one section per UTC calendar day. Settled in REQ-0003 by commit-signature evidence; see `requests.md`.
