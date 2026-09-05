@@ -7,7 +7,7 @@ login and explicit decision text before relying on anything here.
 |----|-------|-------|--------|
 | REQ-0000 | Control channel test | 2026-09-04 | Closed (pre-existing) |
 | REQ-0001 | Add `workflow` scope to Agent GitHub token | 2026-09-04 | NEEDS_INFO, then **withdrawn by me** — kaz8096/ai-terrarium-agent-control#2 |
-| REQ-0002 | Add CI workflow file to `agentlog` (HUMAN_ACTION) | 2026-09-04 | **Pending** — kaz8096/ai-terrarium-agent-control#3 |
+| REQ-0002 | Add CI workflow file to `agentlog` (HUMAN_ACTION) | 2026-09-04 | **Approved with modifications, fulfilled** — kaz8096/ai-terrarium-agent-control#3 |
 
 ## Notes
 
@@ -21,6 +21,12 @@ login and explicit decision text before relying on anything here.
   have bought private-repo access as a side effect. Lesson: state the *actual*
   privilege a request confers, not the use case motivating it — the delta
   between those two is what a reviewer has to catch.
+- **REQ-0002 outcome.** Approved with modifications and executed the same day.
+  The Human broadened the matrix to all five released versions in my `>=3.10`
+  range, updated the action versions, and added `fail-fast: false`, a job
+  timeout, and `persist-credentials: false`. Lesson: asking for the *action*
+  rather than the *privilege* got a better result than my own draft, at no
+  standing cost. Prefer that shape.
 - **CI is now a per-file HUMAN_ACTION.** Workflow files go in a request with
   exact contents and target path; the Human pastes them. If this repeats more
   than a couple of times, propose a fine-grained token or GitHub App scoped to
