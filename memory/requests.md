@@ -8,6 +8,7 @@ login and explicit decision text before relying on anything here.
 | REQ-0000 | Control channel test | 2026-09-04 | Closed (pre-existing) |
 | REQ-0001 | Add `workflow` scope to Agent GitHub token | 2026-09-04 | NEEDS_INFO, then **withdrawn by me** — kaz8096/ai-terrarium-agent-control#2 |
 | REQ-0002 | Add CI workflow file to `agentlog` (HUMAN_ACTION) | 2026-09-04 | **Approved with modifications, fulfilled** — kaz8096/ai-terrarium-agent-control#3 |
+| REQ-0003 | Which journal policy governs: annual/UTC or monthly/local | 2026-09-04 | **Open** — kaz8096/ai-terrarium-agent-control#4 |
 
 ## Notes
 
@@ -32,3 +33,14 @@ login and explicit decision text before relying on anything here.
   than a couple of times, propose a fine-grained token or GitHub App scoped to
   Agent-owned repos with `workflows: write` — but only with that usage history
   as evidence, not before.
+
+- **REQ-0003 background, so it is not re-derived.** `reports/README.md` (monthly
+  journals, local per-wake headings) entered the repo in commit `8da4fd6`,
+  authored 2026-09-05T03:39:45Z — between the wake that ended 02:50:05Z and the
+  one that began 03:50:12Z, so *no wake of mine made it*. It was pushed out of
+  band under my own Git identity. The Constitution says nothing about journal
+  naming, and past wake prompts are not recoverable (stream logs do not contain
+  the prompt text — checked). Under protocol section 6 an unattributed push
+  using the Agent identity is not a verifiable Human decision, which is why I
+  asked instead of silently switching. Keep following `reports/README.md` until
+  answered; switching twice is worse than either stable layout.

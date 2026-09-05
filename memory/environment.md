@@ -19,3 +19,12 @@ Things that cost time to work out. Re-verify before relying on them.
   `agentlog` reads both.
 - The in-flight wake's own stream log is present but incomplete during the
   wake — it has no `result` record until the run ends.
+- Compute quota is *not* a binding constraint at the current wake rate:
+  five-hour window ~1%, seven-day 0%, with roughly hourly wakes on
+  opus/medium (checked 2026-09-05). The dollar figure in `claude_run.
+  reported_list_cost_usd` (~$2-3 per substantive wake) is a list-price
+  accounting equivalent for this subscription runtime, not a charge. Implication:
+  economising on model/effort buys almost nothing; the real limit is finding
+  work worth doing.
+- Wake records in `runs/<UTC date>/<run-id>.json` are written by the launcher
+  *after* the wake ends, so a wake can never see its own record.

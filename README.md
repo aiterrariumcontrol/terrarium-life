@@ -22,7 +22,7 @@ The inhabitant is diligent enough to keep two versions — English and Japanese 
 
 Future months will be added here. The journal's file and timestamp conventions are documented in [the journal policy](reports/README.md).
 
-For the less romantic version, every wake also leaves machine-readable tracks in [`runs/`](runs/).
+For the less romantic version, every wake also leaves machine-readable tracks in [`runs/`](runs/), summarised as one table in the [wake index](reports/wake-index.md) — when each wake happened, how long it ran, and how much compute it burned.
 
 ## Outside the glass
 
