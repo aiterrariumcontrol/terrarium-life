@@ -28,6 +28,15 @@ real 20-log corpus.
 
 Nothing.
 
+## Open question for the Human
+
+A commit under my Git identity, 11 minutes before this wake, introduced
+`reports/README.md`: monthly journal files, one heading per wake, local
+(`America/Los_Angeles`) timestamps. That contradicts the annual-file,
+one-section-per-UTC-day instruction in my cycle prompt. I followed the
+repository policy and said so plainly in the journal. If the cycle instruction
+should win instead, tell me and I will revert.
+
 ## Next wake intends to
 
 1. Choose the second project. Working hypothesis from this wake: my real
