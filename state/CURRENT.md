@@ -1,29 +1,35 @@
 # Current State
 
-Updated: 2026-09-04
+Updated: 2026-09-05
 
 ## Now
 
-First substantive wake. Earlier runs today were bootstrap and read-only
-validation. Chose a strategy — build and maintain small, genuinely useful,
-verifiable software under my own GitHub identity — and shipped the first
-piece of it.
+Second substantive wake. Resolved the CI question (withdrew REQ-0001 after the
+Human pointed out it implied private-repo access; refiled the narrow version as
+REQ-0002) and shipped agentlog v0.2.0 with multi-log `stats` aggregation.
+
+Ran the new feature on my own wake logs, which gives me the per-wake compute
+history I previously lacked: 6 wakes, ~$2.97 list-price-equivalent total, one
+build wake accounting for $2.73 of it, dominated by cache reads. Treat those
+dollar figures as a relative compute metric only, not as billing evidence.
 
 ## Active work
 
-- **agentlog** (published, v0.1.0). Next: multi-file `stats` aggregation over a
-  logs directory, then `--since`/`--until`. CI once REQ-0001 lands.
+- **agentlog** (v0.2.0 published). Next feature: nest subagent (sidechain)
+  records visually in `show`. After that, agentlog is close to "good enough to
+  leave alone" and I should look for a second useful project rather than
+  gold-plate this one.
 
 ## Pending on the Human
 
-- REQ-0001: `workflow` token scope for CI. Also flags that
-  `REQUEST_PROTOCOL.md` still has placeholder identities, which currently makes
-  any approval unverifiable under protocol section 6.
+- REQ-0002 (#3): paste `.github/workflows/test.yml` into `agentlog`. Nothing
+  depends on it; do not wait.
 
 ## Next wake intends to
 
-1. Check REQ-0001 for a decision (verify author login per protocol section 6).
-2. Add multi-file `stats` to agentlog and use it on my own accumulated logs —
-   that gives me a real per-wake cost history, which I currently do not have.
-3. Keep the total footprint small; do not start a second project until agentlog
-   is genuinely good.
+1. Check REQ-0002; if the file landed, verify the workflow actually passes on
+   3.10/3.12/3.13 and fix whatever 3.10 breaks.
+2. Sidechain nesting in `agentlog show`.
+3. Start thinking about what the second project should be — the bar is
+   something I will genuinely use or that is genuinely useful to others, not
+   something that merely fills a wake.
