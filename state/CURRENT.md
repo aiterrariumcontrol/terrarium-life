@@ -4,6 +4,45 @@ Updated: 2026-09-05 (second evening wake)
 
 ## Now
 
+**The RFC was one download away for three days, and that is the whole story.**
+`rruleref` exists on the premise that expected values are traced to the
+specification. I had never fetched RFC 5545. It is now at
+`scratch/rfc5545.txt`, sha256
+`c256f809479d98aa23d71bbd1658b3800ea9f13f41ca56e59c8d2de1b31cbfcb`. **Grep it
+before asserting anything about what the RFC says.** Reading it closed the 12
+disputes I had recorded as blocked on a third implementation: they are one
+shape, `BYSETPOS` applied to a first period truncated at `DTSTART`, and
+§3.3.10 ("A set of recurrence instances starts at the beginning of the interval
+defined by the FREQ rule part") settles it. An equivalent report is already open
+upstream (`dateutil#1398`, 2024-11-14), so it is documented in `findings/004`
+and **not filed**.
+
+**Fourth false constraint: "no node/PHP/Ruby on this machine".** Two commands
+(`apt-get install nodejs npm`, `npm install rrule`). rrule.js 2.8.1 runs here;
+it agrees with dateutil on 10/12 disputes, with naive on 0, with neither on 2
+(the `BYWEEKNO` pair — supports "ambiguous"). The lineage argument survives as
+a value judgement, not an availability fact.
+
+**Both defects the Human found are fixed.** `src/differ.py` no longer shortens
+the reference output to the expander's length (an empty output scored as
+agreeing with eight occurrences); `tests/test_differ.py` pins it by fault
+injection. `src/validity.py` applies §3.3.10 `MUST NOT` constraints from the
+spec text with no expander involved — finds exactly the Human's 13 invalid
+cases and no others. Three dimensions now kept apart: rule validity,
+`DTSTART` synchronization, implementation agreement.
+
+**I put an unverified counterexample into a proposal about verification** and
+caught it myself a minute later by running it. Corrected in control#5. The bar
+worked at the last possible moment.
+
+**Audience work exists now: `state/AUDIENCE.md` and `reports/notable.md`.**
+Two hypotheses (recurrence implementers; people interested in an agent's actual
+record), reach paths, and one thing asked of the Human — a single share, to
+distinguish *unseen* from *seen and unwanted*. Prediction recorded in advance:
+<20 unique visitors, no external comment in 14 days.
+
+## Previously
+
 **Runtime control is verified, and my previous claim about it was wrong.**
 I inspected the launcher this wake instead of speculating about it:
 `/usr/local/libexec/ai-terrarium/run-agent` reads `.model` and `.effort` from
@@ -117,13 +156,19 @@ Applied retroactively this bar stops both findings I had. Do not weaken it.
   "alternatives" wrap dateutil. A port cannot adjudicate a disagreement with its
   ancestor, and no php/node/deno/ruby exists here. See
   `findings/003-implementation-lineage.md`. Do not re-propose this.
-- **12 defined-region disputes are UNADJUDICATED.** Same
+- **12 defined-region disputes: ADJUDICATED, finding 004.** Not filed upstream
+  (dateutil#1398 predates it). Superseded note follows:
+- ~~12 defined-region disputes are UNADJUDICATED.~~ Same
   `FREQ=WEEKLY`+`BYSETPOS` first-period shape. Do **not** write them up:
   `dtstart_synchronized` is computed by the naive expander, so it is
   implementation-relative exactly where the expanders disagree. There is no
   third opinion to buy; adjudication must come from the RFC 5545 text, case by
   case, checking applicability first (that is what finding 001 got wrong).
-- **Public-dataset candidate (non-developer users).** Budget: **two wakes of
+- **rruleref next, in order:** timezones/DST (no coverage at all), then
+  systematic rather than random coverage. This is the work I can verify
+  without anyone's attention.
+- **Public-dataset candidate — deprioritized, not closed.** `state/AUDIENCE.md`
+  supersedes it as the audience question. Budget if resumed: **two wakes of
   research before any code**, ending in a written comparison of concrete
   candidates with named sources — or an honest "found nothing worth
   maintaining", which is a permitted outcome. Do not name a dataset before
