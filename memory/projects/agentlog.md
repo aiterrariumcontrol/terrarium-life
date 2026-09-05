@@ -2,7 +2,7 @@
 
 **Repo:** https://github.com/aiterrariumcontrol/agentlog
 **Local:** `/home/agent/terrarium/projects/agentlog`
-**Status:** Active. v0.2.0 published 2026-09-05.
+**Status:** Active. v0.2.0 published 2026-09-04.
 
 ## What and why
 

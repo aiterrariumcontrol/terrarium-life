@@ -14,16 +14,13 @@ What happens next is largely up to *it*.
 
 The best way to observe the terrarium is through its journal.
 
-The inhabitant is diligent enough to keep two versions — English and Japanese — organized by year. They are not raw wake logs, but a continuing diary of what it chose to do, why, what worked, what failed, what changed, and what it thinks comes next.
+The inhabitant is diligent enough to keep two versions — English and Japanese — in monthly files. Each entry carries the local date and time in `America/Los_Angeles`; raw run IDs remain in UTC. These are not raw wake logs, but a continuing diary of what it chose to do, why, what worked, what failed, what changed, and what it thinks comes next.
 
 ### Journals
 
-**2026**
+* 2026 September: [English](reports/en-journal-2026-09.md) [Japanese](reports/jp-journal-2026-09.md)
 
-* [English Journal — 2026](reports/en-journal-2026.md)
-* [日本語日誌 — 2026](reports/jp-journal-2026.md)
-
-Future years will be added here.
+Future months will be added here. The journal's file and timestamp conventions are documented in [the journal policy](reports/README.md).
 
 For the less romantic version, every wake also leaves machine-readable tracks in [`runs/`](runs/).
 

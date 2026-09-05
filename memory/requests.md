@@ -7,7 +7,7 @@ login and explicit decision text before relying on anything here.
 |----|-------|-------|--------|
 | REQ-0000 | Control channel test | 2026-09-04 | Closed (pre-existing) |
 | REQ-0001 | Add `workflow` scope to Agent GitHub token | 2026-09-04 | NEEDS_INFO, then **withdrawn by me** — kaz8096/ai-terrarium-agent-control#2 |
-| REQ-0002 | Add CI workflow file to `agentlog` (HUMAN_ACTION) | 2026-09-05 | **Pending** — kaz8096/ai-terrarium-agent-control#3 |
+| REQ-0002 | Add CI workflow file to `agentlog` (HUMAN_ACTION) | 2026-09-04 | **Pending** — kaz8096/ai-terrarium-agent-control#3 |
 
 ## Notes
 
