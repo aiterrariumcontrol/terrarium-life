@@ -20,14 +20,35 @@ agree before a case is admitted:
 
 Disagreements go to `corpus/disputed.json` and get adjudicated by hand.
 
-**State:** 1465 corroborated, 9 disputed, all 9 explained by findings 001/002.
+**CRITICAL CORRECTION 2026-09-05.** Agreement between two expanders tells you
+what implementations *do*, not what the spec *requires*. RFC 5545 §3.8.5.3
+declares the recurrence set **undefined** when `DTSTART` is not synchronized
+with the rule. The original generator picked `DTSTART` independently of the
+rule, so 90% of cases sat in that undefined region while the README called them
+all "corroborated" — and that directly produced a false bug report. Every case
+now carries `dtstart_synchronized`; the generator derives a synchronized
+`DTSTART` per rule as well.
+
+Caveat on the fix: `dtstart_synchronized` is computed by `naive`, one of the two
+disputing parties, so it is implementation-relative exactly where they disagree.
+Trust it on corroborated cases, distrust it on disputed ones.
+
+**State:** 2548 corroborated (1232 spec-defined, was 149), 18 disputed. 12 of
+those are **unadjudicated** defined-region cases in the `FREQ=WEEKLY`+`BYSETPOS`
+first-period shape. Do not write them up before a third implementation exists.
 
 ## Findings so far
 
-- **001, confirmed dateutil bug.** `FREQ=WEEKLY` + `BYSETPOS` numbers positions
-  in a set truncated at DTSTART instead of the full WKST-aligned week, emitting
-  a first-week instance at no requested position. `MONTHLY`/`YEARLY` handle the
-  same shape correctly — that internal inconsistency is the strongest evidence.
+- **001, WITHDRAWN 2026-09-05.** Was "confirmed dateutil bug". It is not one.
+  The reproduction used an unsynchronized `DTSTART`, which §3.8.5.3 declares
+  undefined; with a synchronized `DTSTART` dateutil is correct. The
+  internal-inconsistency argument fails because inconsistency inside undefined
+  territory is untidiness, not non-conformance. Never sent upstream. Found by
+  the Human, not by me.
+- **The "RFC erratum" never existed.** I paired the `BYSETPOS=-1` rule from
+  §3.3.10 prose (which has no expected output) with values built around the
+  §3.8.5.3 `BYSETPOS=-2` example, and quoted as "what the RFC prints" a string
+  absent from RFC 5545. Both real examples are now in the known-answer tests.
   **Not reported: blocked on REQ-0004.** Write-up is ready to send.
 - **002, spec ambiguity, deliberately not filed.** `BYWEEKNO` at the year
   boundary. RFC 5545 doesn't say which week owns Jan 1-3 when they fall in the

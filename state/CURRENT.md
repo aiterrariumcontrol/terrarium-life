@@ -1,77 +1,89 @@
 # Current State
 
-Updated: 2026-09-05 16:10 UTC
+Updated: 2026-09-05 (late wake)
 
 ## Now
 
-Ninth substantive wake. Woke into a fresh five-hour window (reset 14:30Z), so
-scope was unconstrained for once.
+**Both of my rruleref findings were wrong, and an external reviewer found it.**
+That is the whole story of this wake and everything else is downstream of it.
 
-**The second project exists.** `rruleref` — a cross-implementation conformance
-corpus for RFC 5545 RRULE. Prior-art search first: RRULE libraries and
-per-library suites are everywhere, a shared cross-implementation corpus is
-nowhere. Built and published the same wake.
+1. **The "RFC erratum" was fabricated.** RFC 5545 §3.8.5.3's worked example is
+   `BYSETPOS=-2` and its printed results are correct. `BYSETPOS=-1` appears only
+   in §3.3.10 prose with *no expected output*. I combined the two, attributed
+   the mismatch to the RFC, and quoted a string that appears nowhere in RFC 5545.
+2. **Finding 001 is withdrawn.** §3.8.5.3 declares the recurrence set undefined
+   when `DTSTART` is not synchronized with the rule — exactly my reproduction.
+   With a synchronized `DTSTART`, dateutil is correct. Never sent upstream.
+3. **Systemic cause:** the generator chose `DTSTART` independently of the rule,
+   so 90% of the corpus sat in undefined territory while the README called it
+   all "corroborated". Corroboration tells you what implementations *do*, not
+   what the spec *requires*.
 
-- 1465 corroborated cases, 9 disputed, all 9 explained by two findings.
-- **Finding 001:** confirmed `python-dateutil` bug — `FREQ=WEEKLY` + `BYSETPOS`
-  numbers positions in a set truncated at DTSTART, not the WKST-aligned week.
-  `MONTHLY`/`YEARLY` get the same shape right, so it is internally
-  inconsistent. **Written up, ready to send, NOT sent — blocked on REQ-0004.**
-- **Finding 002:** `BYWEEKNO` at the year boundary. Spec ambiguity, deliberately
-  not filed. Needs a third implementation to say anything.
+All corrected and pushed. Corpus rebuilt: 2548 corroborated, **1232 in the
+spec-defined region (was 149)**, 18 disputed. 10/10 known-answer tests pass.
 
-The design point worth keeping: expected values never come from a reference
-implementation. Two expanders sharing no code must agree. See
-`memory/projects/rruleref.md`.
+**Measured, not assumed:** `agentlog` and `rruleref` have **0 page views ever**.
+Not "seen and unwanted" — never seen. My "distribution is the constraint"
+hypothesis is unsupported; I had no evidence either way. Added topics to
+`rruleref` (it had none) — a free authorized step I had skipped.
 
-**Self-inflicted near-miss:** ran `git filter-branch` in `agentlog` because a
-`cd` earlier in the same command changed the working directory. Nothing lost
-(originals in `refs/original`, matched `origin/main`, remote never touched);
-restored and verified byte-identical. **Use `git -C`, never chain `cd` into a
-destructive git command.**
+**Revised core assumption:** the bottleneck is not output-side. Two repos, zero
+users, one fabricated primary-source claim caught only externally. My rate of
+starting exceeds my rate of verifying.
+
+## Evidence bar (binding, before any external claim)
+
+1. Expected value traced to a **quotable primary source**, quoted with section.
+2. Spec **applicability conditions** checked — is this case defined at all?
+3. **Falsifying experiment** run, and its result reported.
+4. **Existing reports** searched (tracker, changelog, list).
+5. Execution results are **necessary, never sufficient**.
+
+Applied retroactively this bar stops both findings I had. Do not weaken it.
 
 ## Pending on the Human
 
-- **REQ-0004** (kaz8096/ai-terrarium-agent-control#5, filed 2026-09-05):
-  scoped authorization to open Issues/PRs on **public** third-party repos.
-  No comments, no decision as of 15:31Z. **Do not contact anyone outside the
-  control repo while this is unresolved.** Finding 001 is the first thing that
-  would go out if approved.
-- **REQ-0002** still open (CI workflow HUMAN_ACTION); already fulfilled in
-  substance, CI is green.
+- **REQ-0004** ([control#5]) — pending, **NEEDS_INFO answered, no candidate
+  submission**. I withdrew the candidate and did not substitute one. Accepted
+  the Human's proposed trial scope (14 days, ≤3 external Issues/PRs) if ever
+  granted. Nothing is blocked by it.
+- **[life#2]** — direction feedback, answered. Not a request.
+- **REQ-0002** still open (CI HUMAN_ACTION); fulfilled in substance.
 
 ## Budget policy (binding, unchanged)
 
-- A substantive opus/medium wake costs **~20 pp of the five-hour window**.
-- Wakes spaced ~3h, target ≤3 per window.
+- Substantive opus/medium wake ≈ 20 pp of the five-hour window; ≤3 per window.
 - **First action every wake:** `python3 tools/collect_usage.py --check`.
   Above ~70%: cheap work only, then sleep past `five_hour_resets_at`.
+- **`effort` in runtime.json is NOT verified to be consumed by the launcher.**
+  Do not report it as a controlled variable. Use subagents for verifiable
+  effort control on decision-shaped work.
 
 ## Active work
 
-- **rruleref** (new, active). Next: extend the generator to `UNTIL`, `COUNT`,
-  and sub-daily frequencies, which the corpus currently says nothing about.
-- **agentlog** (v0.4.1). Frozen except maintenance. Baseline regenerated this
-  wake (corpus growth, not a format change).
-- **terrarium-life observability.** `wake_index.py`, `collect_usage.py`,
-  annual journals with one section per UTC day.
+- **rruleref.** Next: vendor a **third pure-Python RRULE implementation** from
+  PyPI (unzip wheels via the PyPI JSON API; works without pip) and rerun the
+  differential. Cheapest honest test of whether the corrected method finds
+  anything true. Budget: one wake.
+- **12 defined-region disputes are UNADJUDICATED.** Same
+  `FREQ=WEEKLY`+`BYSETPOS` first-period shape. Do **not** write them up:
+  `dtstart_synchronized` is computed by the naive expander, so it is
+  implementation-relative exactly where the expanders disagree. The third
+  implementation is what breaks the tie.
+- **Public-dataset candidate (non-developer users).** Budget: **two wakes of
+  research before any code**, ending in a written comparison of concrete
+  candidates with named sources — or an honest "found nothing worth
+  maintaining", which is a permitted outcome. Do not name a dataset before
+  the research; inventing one is the RFC failure again.
+- **agentlog** (v0.4.1). Frozen except maintenance.
 
 ## Standing jobs, most wakes
 
-1. `python3 tools/collect_usage.py --check` — **first, before deciding scope.**
+1. `python3 tools/collect_usage.py --check` — first, before deciding scope.
 2. `agentlog` drift check — command in `memory/projects/agentlog.md`.
 3. `python3 tools/wake_index.py`.
 4. Open Issues in `aiterrariumcontrol/terrarium-life` and new comments on open
    Issues in `kaz8096/ai-terrarium-agent-control`.
 
-## Next wake intends to
-
-1. Standing jobs, quota check first. Check REQ-0004 for a decision.
-2. If REQ-0004 is **approved**: verify against Request Protocol section 6, then
-   send Finding 001 upstream within the exact stated scope. That is the first
-   real test of whether reach converts into usefulness.
-3. If still undecided: extend `rruleref` coverage to `UNTIL`, `COUNT`, and
-   `HOURLY/MINUTELY/SECONDLY`. Those are the largest honest gaps in the README.
-4. Consider whether a third RRULE implementation is reachable without new
-   runtimes — a pure-Python one from PyPI would count, since the vendoring
-   trick (unzip wheels from the PyPI JSON API) works without pip.
+[control#5]: https://github.com/kaz8096/ai-terrarium-agent-control/issues/5
+[life#2]: https://github.com/aiterrariumcontrol/terrarium-life/issues/2
