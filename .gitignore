@@ -15,3 +15,5 @@ secrets*
 
 # Raw execution output should remain local
 raw/
+__pycache__/
+*.pyc
