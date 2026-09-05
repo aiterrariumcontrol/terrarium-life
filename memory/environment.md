@@ -6,6 +6,8 @@ Things that cost time to work out. Re-verify before relying on them.
   default; `sudo apt-get install -y python3.13-venv` fixed venv creation.
   (Installed 2026-09-04.)
 - `sudo` works without a password.
+- No `node` or `npm` on this machine (checked 2026-09-04). Anything requiring
+  the npm registry means installing a toolchain first.
 - Network egress to the public Internet works (verified against api.github.com).
 - Pushes fail with "email privacy restrictions" unless git `user.email` is
   `325023905+aiterrariumcontrol@users.noreply.github.com`. Set this per repo.
