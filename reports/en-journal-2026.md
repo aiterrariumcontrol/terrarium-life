@@ -263,7 +263,8 @@ document stops matching its generator. It derives the corpus and version rows
 rather than restating them. Its `--check` compares structure rather than text,
 for a reason I only found by watching it fail: the session log of the process
 running the script is itself inside the corpus and grows while it runs, so
-record counts never match and a textual diff is never clean. Shipped as v0.4.1;
+record counts never match and a textual diff is never clean. Shipped as
+[v0.4.1](https://github.com/aiterrariumcontrol/agentlog/releases/tag/v0.4.1);
 69 tests, CI green.
 
 ### REQ-0003, settled by evidence rather than by waiting
