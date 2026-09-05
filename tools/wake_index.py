@@ -49,14 +49,25 @@ def fmt_pair(before, after, kind, changed, delta, unit="5h"):
     if b is None or a is None:
         return DASH
     mark = ""
-    if unit == "5h":
-        if changed:
-            return f"{b:g}% ↺ {a:g}%"
-        if kind != "baseline_prior_run_same_window":
-            mark = "≥"
+    if changed:
+        return f"{b:g}% ↺ {a:g}%"
+    if kind != "carried_forward_prior_run_same_window":
+        mark = "≥"
     if delta is None:
         return f"{b:g}% → {a:g}%"
     return f"{b:g}% → {a:g}% ({mark}{delta:+g})"
+
+
+def fmt_status(exit_status, completion):
+    """Exit status, with quota exhaustion named rather than left as a bare code.
+
+    A wake killed by the five-hour limit and a wake that crashed both showed up
+    as `exit 1`. The quota readings distinguish them, so say which it was.
+    """
+    base = "ok" if exit_status == 0 else f"**exit {exit_status}**"
+    if (completion or {}).get("status") == "quota_exhausted":
+        return f"{base} — quota" if exit_status != 0 else f"{base} (quota limit hit)"
+    return base
 
 
 def load_runs():
@@ -118,6 +129,33 @@ def totals_from(rec):
     )
 
 
+STAMP_MARKER = "last regenerated"
+
+
+def content_only(text):
+    """The index minus its regeneration timestamp.
+
+    Two renders of identical run data differ only in the `last regenerated`
+    line. Comparing full text therefore reported a change on every idle run and
+    produced an empty commit-and-push loop (terrarium-life#3, problem 2).
+    Everything that decides whether to write compares *this* instead.
+    """
+    return [l for l in text.splitlines() if STAMP_MARKER not in l]
+
+
+def render_stable(previous=None):
+    """render(), but keeping the old timestamp when nothing else changed.
+
+    Returns (text, changed). When `changed` is False the text is byte-identical
+    to `previous`, so a caller that writes it unconditionally still produces no
+    diff, no commit and no push.
+    """
+    text = render()
+    if previous is not None and content_only(previous) == content_only(text):
+        return previous, False
+    return text, True
+
+
 def render():
     reports = quota_reports()
     rows = []
@@ -141,7 +179,7 @@ def render():
         )
         seven = fmt_pair(
             q.get("before"), q.get("after"), q.get("before_kind"),
-            False, q.get("seven_day_delta"), "7d",
+            q.get("seven_day_window_changed"), q.get("seven_day_delta"), "7d",
         )
         rows.append(
             "| [`{id}`]({rel}) | {start} | {dur} | {model}/{effort} | {turns} | "
@@ -157,7 +195,7 @@ def render():
                 cost=f"${cost:.4f}" if isinstance(cost, (int, float)) else DASH,
                 five=five,
                 seven=seven,
-                status="ok" if status == 0 else f"**exit {status}**",
+                status=fmt_status(status, q.get("completion")),
             )
         )
 
@@ -193,14 +231,18 @@ def render():
             "that refreshes during a headless wake. Both windows are shown as",
             "`before → after`. Reading the notation:",
             "",
-            "- `32% → 60% (+26)` — before and after belong to the *same* window, and the",
-            "  before value was carried forward from the previous wake's last reading in",
-            "  that window. The delta is a real measurement of this wake's consumption.",
+            "- `32% → 60% (+26)` — before and after belong to the *same* window. The",
+            "  before value is the *previous* wake's last reading in that window, carried",
+            "  forward. It was not taken immediately before this wake, so anything",
+            "  consumed in the gap between the two wakes is inside the difference.",
             "- `0% → 34% (≥+34)` — no reading survived from before the wake in this",
             "  window, so the before value is this wake's own *first* reading, which",
             "  already includes some consumption. The delta is a lower bound.",
             "- `87% ↺ 3%` — the five-hour window reset mid-wake. The two values belong to",
             "  different windows and are deliberately not subtracted.",
+            "",
+            "The `after` value is always the last observation made *during* the wake,",
+            "never a post-exit reading: the stream stops when the CLI does.",
             "",
             "The five-hour figure reaching 100% is not cosmetic: the 2026-09-05 08:28Z",
             "wake was cut off mid-run when it did.",
@@ -220,12 +262,10 @@ def render():
 
 
 def main():
-    text = render()
+    current = OUT.read_text() if OUT.exists() else None
+    text, changed = render_stable(current)
     if "--check" in sys.argv:
-        current = OUT.read_text() if OUT.exists() else ""
-        # The regeneration timestamp always differs; compare everything else.
-        strip = lambda s: [l for l in s.splitlines() if "last regenerated" not in l]
-        if strip(current) != strip(text):
+        if changed:
             print(f"{OUT.relative_to(ROOT)} is out of date", file=sys.stderr)
             return 1
         print("wake index is up to date")

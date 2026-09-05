@@ -101,13 +101,64 @@ def observation_bounds(stream_path):
     return not_before, not_after
 
 
+def run_completion(run_id, events, stream_path):
+    """How this run ended, so a delta is never presented as if the run finished.
+
+    Requested in terrarium-life#3: "having more than one event does not justify
+    `measurement: complete`". Completion is a property of the *run*, read from
+    the launcher's own `run.json`, and is reported separately from the quality
+    of the before/after span.
+    """
+    out = {
+        "exit_status": None,
+        "terminal_reason": None,
+        "quota_rejected": any(e.get("status") == "rejected" for e in events),
+        "five_hour_exhausted": any(
+            isinstance(e.get("five_hour_used_percentage"), (int, float))
+            and e["five_hour_used_percentage"] >= 100
+            for e in events
+        ),
+        "status": "unknown",
+    }
+    try:
+        rec = json.loads((pathlib.Path(stream_path).parent / "run.json").read_text())
+    except (OSError, ValueError):
+        # No run.json: either the run is still going or it died before writing one.
+        out["status"] = "in_progress_or_no_record"
+        return out
+    out["exit_status"] = rec.get("exit_status")
+    out["terminal_reason"] = (rec.get("claude_run") or {}).get("terminal_reason")
+    if out["quota_rejected"] or out["five_hour_exhausted"]:
+        out["status"] = "quota_exhausted"
+    elif out["exit_status"] == 0:
+        out["status"] = "ok"
+    elif out["exit_status"] is None:
+        out["status"] = "unknown"
+    else:
+        out["status"] = "failed_or_interrupted"
+    return out
+
+
+def _provenance(reading, run_id, not_before, not_after):
+    """Attach where a reading came from, so a carried-forward value stays traceable."""
+    if reading is None:
+        return None
+    out = dict(reading)
+    out.setdefault("from_run", run_id)
+    out.setdefault("observed_not_before", not_before)
+    out.setdefault("observed_not_after", not_after)
+    return out
+
+
 def run_report(run_id, stream_path=None, prior=None):
     """Full before/after quota picture for one run.
 
-    `prior` is the last reading from the preceding run, if any. It is used as a
-    genuine baseline only when it belongs to the *same* five-hour window as this
-    run's first own reading; otherwise this run's first own reading is reported
-    as `first_observed`, which is a value already reflecting some consumption.
+    `prior` is the last reading from the preceding run, carrying its own run id
+    and observation bounds. It is used as a baseline only when it belongs to the
+    *same* five-hour window as this run's first own reading. Even then it is not
+    a measurement taken immediately before this run: it is the last observation
+    of an *earlier* run, and anything consumed between the two runs is inside the
+    difference. The report says so rather than calling it exact.
     """
     stream_path = stream_path or (RAW / run_id / "claude-stream.jsonl")
     events = read_events(stream_path)
@@ -121,46 +172,64 @@ def run_report(run_id, stream_path=None, prior=None):
         "before": None,
         "before_kind": "unavailable",
         "after": None,
+        "after_kind": "unavailable",
         "five_hour_window_changed": None,
+        "seven_day_window_changed": None,
         "five_hour_delta": None,
         "seven_day_delta": None,
+        "five_hour_delta_kind": "unavailable",
+        "seven_day_delta_kind": "unavailable",
         "measurement": "no_rate_limit_events",
+        "completion": run_completion(run_id, events, stream_path),
     }
     if not events:
         return rep
 
     first, last = events[0], events[-1]
-    rep["after"] = last
+    rep["after"] = _provenance(last, run_id, not_before, not_after)
+    # There is no post-exit observation available: the stream stops when the CLI
+    # does. Name the value for what it is.
+    rep["after_kind"] = "last_observation_during_run"
     win = first.get("five_hour_resets_at")
 
     if prior and prior.get("five_hour_resets_at") == win and win is not None:
-        rep["before"] = prior
-        rep["before_kind"] = "baseline_prior_run_same_window"
+        rep["before"] = dict(prior)
+        rep["before_kind"] = "carried_forward_prior_run_same_window"
     else:
-        rep["before"] = first
+        rep["before"] = _provenance(first, run_id, not_before, not_after)
         rep["before_kind"] = (
             "first_observed_during_run" if len(events) > 1 else "single_reading"
         )
 
-    rep["five_hour_window_changed"] = (
-        last.get("five_hour_resets_at") != rep["before"].get("five_hour_resets_at")
-    )
-
-    if not rep["five_hour_window_changed"]:
-        a, b = rep["before"].get("five_hour_used_percentage"), last.get(
-            "five_hour_used_percentage"
+    def span(unit):
+        key = f"{unit}_resets_at"
+        pct = f"{unit}_used_percentage"
+        changed = last.get(key) != rep["before"].get(key)
+        if changed:
+            return True, None, "window_reset_within_span"
+        a, b = rep["before"].get(pct), last.get(pct)
+        if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+            return False, None, "unavailable"
+        kind = (
+            "lower_bound_baseline_within_run"
+            if rep["before_kind"] != "carried_forward_prior_run_same_window"
+            else "spans_gap_since_prior_run"
         )
-        if isinstance(a, (int, float)) and isinstance(b, (int, float)):
-            rep["five_hour_delta"] = round(b - a, 2)
+        return False, round(b - a, 2), kind
 
-    if rep["before"].get("seven_day_resets_at") == last.get("seven_day_resets_at"):
-        a, b = rep["before"].get("seven_day_used_percentage"), last.get(
-            "seven_day_used_percentage"
-        )
-        if isinstance(a, (int, float)) and isinstance(b, (int, float)):
-            rep["seven_day_delta"] = round(b - a, 2)
+    for unit, short in (("five_hour", "five_hour"), ("seven_day", "seven_day")):
+        changed, delta, kind = span(unit)
+        rep[f"{short}_window_changed"] = changed
+        rep[f"{short}_delta"] = delta
+        rep[f"{short}_delta_kind"] = kind
 
-    rep["measurement"] = "complete" if len(events) > 1 else "single_reading_only"
+    # Span quality and run completion are different things and are kept apart.
+    if rep["before_kind"] == "carried_forward_prior_run_same_window":
+        rep["measurement"] = "spans_gap_since_prior_run"
+    elif len(events) > 1:
+        rep["measurement"] = "lower_bound_baseline_within_run"
+    else:
+        rep["measurement"] = "single_reading_only"
     return rep
 
 
@@ -174,6 +243,7 @@ def all_run_reports():
         rep = run_report(run_id, stream, prior)
         reports[run_id] = rep
         if rep["after"]:
+            # Carries from_run + observation bounds with it.
             prior = rep["after"]
     return reports
 

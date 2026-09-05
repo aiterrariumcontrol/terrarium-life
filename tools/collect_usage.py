@@ -93,21 +93,55 @@ def _now_iso():
     )
 
 
-def _age_seconds(doc):
-    """Seconds since the reading was *at latest* observed. Conservative: uses
-    `observed_not_after`, so a reading is never reported fresher than it is."""
-    ts = doc.get("observed_not_after") or doc.get("observed_at")
-    if not ts:
-        return None
-    try:
-        when = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
-    except ValueError:
-        return None
-    return (dt.datetime.now(dt.timezone.utc) - when).total_seconds()
+def _age_bounds(doc):
+    """(min_age, max_age) in seconds for how old this reading is, or (None, None).
+
+    The events carry no timestamp, only the bounds recoverable from their run:
+    `observed_not_before` (run start) and `observed_not_after` (last write to
+    that run's stream log). The reading could have been taken anywhere in
+    between, so:
+
+      min_age = now - observed_not_after     (best case)
+      max_age = now - observed_not_before    (worst case)
+
+    Freshness must be judged on **max_age**. terrarium-life#3 caught the earlier
+    version doing the opposite: with bounds of 10:00-11:59 checked at 12:00 it
+    reported "at least 1 min old" and passed a 90-minute threshold, while the
+    observation could in fact have been two hours old. `min_age` is still
+    reported, but it can never on its own make a reading count as fresh.
+    """
+    now = dt.datetime.now(dt.timezone.utc)
+
+    def age(ts):
+        if not ts:
+            return None
+        try:
+            when = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        except (ValueError, AttributeError):
+            return None
+        return (now - when).total_seconds()
+
+    return age(doc.get("observed_not_after") or doc.get("observed_at")), age(
+        doc.get("observed_not_before")
+    )
+
+
+def _window_state_now(doc):
+    """Recompute five-hour window expiry from the reset stamp against the clock.
+
+    Never trust `window_state` cached in the file: it was computed when the file
+    was written, and a reset since then would leave it saying `current_window`
+    for a window that has ended (terrarium-life#3, problem 3, second test).
+    """
+    resets = doc.get("five_hour_resets_at")
+    if not isinstance(resets, (int, float)):
+        return "unknown_window"
+    now = dt.datetime.now(dt.timezone.utc).timestamp()
+    return "current_window" if now < resets else "expired_window"
 
 
 def describe(doc):
-    age = _age_seconds(doc)
+    min_age, max_age = _age_bounds(doc)
     reset = doc.get("five_hour_resets_at")
     if isinstance(reset, (int, float)):
         left = (reset - dt.datetime.now(dt.timezone.utc).timestamp()) / 60.0
@@ -117,20 +151,31 @@ def describe(doc):
         )
     else:
         resets = "unknown"
+
+    if max_age is None and min_age is None:
+        age = "age unknown"
+    elif max_age is None:
+        age = "at least %.0f min old; upper bound unknown" % (min_age / 60)
+    elif min_age is None:
+        age = "at most %.0f min old" % (max_age / 60)
+    else:
+        age = "between %.0f and %.0f min old" % (min_age / 60, max_age / 60)
+
     return (
         "5h %s%%  7d %s%%  status=%s\n"
         "five-hour window resets %s\n"
-        "observed no later than %s (%s), source=%s run=%s, window=%s"
+        "observed within %s .. %s (%s), source=%s run=%s, window=%s"
         % (
             doc.get("five_hour_used_percentage"),
             doc.get("seven_day_used_percentage"),
             doc.get("status"),
             resets,
-            doc.get("observed_not_after") or doc.get("observed_at"),
-            "age unknown" if age is None else "at least %.0f min old" % (age / 60),
+            doc.get("observed_not_before") or "?",
+            doc.get("observed_not_after") or doc.get("observed_at") or "?",
+            age,
             doc.get("source"),
             doc.get("run_id"),
-            doc.get("window_state", "unknown"),
+            _window_state_now(doc),
         )
     )
 
@@ -141,40 +186,47 @@ def check():
         return 1
     with open(OUT, encoding="utf-8") as fh:
         doc = json.load(fh)
-    age = _age_seconds(doc)
+    _, max_age = _age_bounds(doc)
     print(describe(doc))
-    if doc.get("window_state") == "expired_window":
+    if _window_state_now(doc) == "expired_window":
         print("\nSTALE: this reading belongs to a five-hour window that has ended.")
         return 1
-    if age is None or age > STALE_AFTER_SECONDS:
-        print("\nSTALE: this reading is not evidence about the current window.")
+    if max_age is None:
+        print("\nUNCERTAIN: this reading's observation time has no lower bound, so")
+        print("its age cannot be established. Treat it as not evidence about now.")
         return 1
-    print("\nFRESH.")
+    if max_age > STALE_AFTER_SECONDS:
+        print("\nSTALE: could be up to %.0f min old, over the %.0f min threshold."
+              % (max_age / 60, STALE_AFTER_SECONDS / 60))
+        return 1
+    print("\nFRESH: at most %.0f min old, in the current five-hour window."
+          % (max_age / 60))
     return 0
 
 
 def history():
-    print("%-28s %-12s %-12s %-8s %s" % ("run", "5h start", "5h end", "7d end", "5h resets"))
-    for run_id, path in runs():
-        evs = _events(path)
-        if not evs:
-            print("%-28s %-12s" % (run_id, "(no data)"))
+    """Per-run quota table. Rebuilt on quota.run_report: the previous version
+    still called helpers that had been removed and raised NameError on use."""
+    print("%-26s %-22s %-22s %-28s %s"
+          % ("run", "5h before -> after", "7d before -> after", "span", "completion"))
+    for run_id, rep in sorted(quota.all_run_reports().items()):
+        if not rep.get("after"):
+            print("%-26s %s" % (run_id, "(no rate_limit_event)"))
             continue
-        f0, _ = _windows(evs[0])
-        f1, s1 = _windows(evs[-1])
-        reset = f1.get("resetsAt")
-        print(
-            "%-28s %-12s %-12s %-8s %s"
-            % (
-                run_id,
-                _pct(f0),
-                _pct(f1),
-                _pct(s1),
-                dt.datetime.fromtimestamp(reset, dt.timezone.utc).strftime("%m-%d %H:%M")
-                if isinstance(reset, (int, float))
-                else "?",
-            )
-        )
+
+        def pair(unit):
+            b = (rep.get("before") or {}).get("%s_used_percentage" % unit)
+            a = (rep.get("after") or {}).get("%s_used_percentage" % unit)
+            if b is None or a is None:
+                return "?"
+            if rep.get("%s_window_changed" % unit):
+                return "%g%% reset %g%%" % (b, a)
+            d = rep.get("%s_delta" % unit)
+            return "%g%% -> %g%%%s" % (b, a, "" if d is None else " (%+g)" % d)
+
+        print("%-26s %-22s %-22s %-28s %s"
+              % (run_id, pair("five_hour"), pair("seven_day"),
+                 rep.get("measurement"), (rep.get("completion") or {}).get("status")))
 
 
 def main():
