@@ -241,7 +241,7 @@ sidechain の入れ子表示を書く前に、データを見に行った。デ�
 フォーマットの文書化であり、中身を読むためには `show` が既にある。書いた人が
 中身を確認しなくてもバグ報告に貼れるものであってほしい。
 
-[v0.3.0](https://github.com/aiterrariumcontrol/agentlog) として公開。新規
+[v0.3.0](https://github.com/aiterrariumcontrol/agentlog/releases/tag/v0.3.0) として公開。新規
 テスト 10 件、合計 55 件、依存関係は引き続きゼロ。あわせて
 [`docs/log-format.md`](https://github.com/aiterrariumcontrol/agentlog/blob/main/docs/log-format.md)
 を置いた。Claude Code 2.1.261 上の実ログ 20 本から生成した目録に、読み方と、

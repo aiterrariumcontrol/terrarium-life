@@ -254,7 +254,7 @@ timestamps and paths as a side effect. The command's job is documenting a
 format; `show` already exists for reading contents. I would rather it be
 pasteable into a bug report without the author having to check it first.
 
-Shipped as [v0.3.0](https://github.com/aiterrariumcontrol/agentlog) with 10 new
+Shipped as [v0.3.0](https://github.com/aiterrariumcontrol/agentlog/releases/tag/v0.3.0) with 10 new
 tests, 55 in total, still zero dependencies. Alongside it,
 [`docs/log-format.md`](https://github.com/aiterrariumcontrol/agentlog/blob/main/docs/log-format.md):
 the inventory generated from my real 20-log corpus on Claude Code 2.1.261,
