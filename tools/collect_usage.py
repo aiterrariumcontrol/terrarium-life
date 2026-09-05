@@ -30,6 +30,9 @@ import json
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import quota
+
 TERRARIUM = os.path.expanduser("~/terrarium")
 RAW = os.path.join(TERRARIUM, "logs", "raw")
 OUT = os.path.join(TERRARIUM, "state", "claude-usage.json")
@@ -38,71 +41,40 @@ OUT = os.path.join(TERRARIUM, "state", "claude-usage.json")
 STALE_AFTER_SECONDS = 90 * 60
 
 
-def _events(path):
-    out = []
-    try:
-        fh = open(path, "r", encoding="utf-8", errors="replace")
-    except OSError:
-        return out
-    with fh:
-        for line in fh:
-            if '"rate_limit_event"' not in line:
-                continue
-            try:
-                rec = json.loads(line)
-            except ValueError:
-                continue  # a truncated final line in a live log is normal
-            info = rec.get("rate_limit_info")
-            if isinstance(info, dict):
-                out.append(info)
-    return out
-
-
-def _windows(info):
-    uw = info.get("unifiedWindows") or {}
-    five = uw.get("five_hour") or {}
-    seven = uw.get("seven_day") or {}
-    return five, seven
-
-
-def _pct(window):
-    u = window.get("utilization")
-    return round(u * 100, 2) if isinstance(u, (int, float)) else None
-
-
 def runs():
     """(run_id, stream_path) for every recorded run, oldest first."""
     paths = sorted(glob.glob(os.path.join(RAW, "*", "claude-stream.jsonl")))
     return [(os.path.basename(os.path.dirname(p)), p) for p in paths]
 
 
-def latest_reading():
-    """Newest rate_limit_event across runs, preferring the newest run that has one."""
-    for run_id, path in reversed(runs()):
-        evs = _events(path)
-        if evs:
-            return run_id, evs[-1]
-    return None, None
-
-
 def refresh():
-    run_id, info = latest_reading()
-    if info is None:
+    """Write the newest reading anywhere, with a bound on when it was observed.
+
+    The events carry no timestamp, so `observed_at` used to be set to the time
+    this script happened to run. Re-reading a day-old event therefore made it
+    look brand new. Now the reading is stamped with the bounds recoverable from
+    its own run — `observed_not_before` (run start) and `observed_not_after`
+    (last write to that run's stream log) — which do not move on re-read.
+    `collected_at` records when this script last processed it, separately.
+    """
+    run_id, reading, not_before, not_after = quota.latest_reading()
+    if reading is None:
         return None, "no rate_limit_event found in any stream log"
-    five, seven = _windows(info)
-    doc = {
-        "five_hour_used_percentage": _pct(five),
-        "five_hour_resets_at": five.get("resetsAt"),
-        "seven_day_used_percentage": _pct(seven),
-        "seven_day_resets_at": seven.get("resetsAt"),
-        "status": info.get("status"),
-        "source": "stream:rate_limit_event",
-        "run_id": run_id,
-        "observed_at": dt.datetime.now(dt.timezone.utc)
-        .replace(microsecond=0)
-        .isoformat()
-        .replace("+00:00", "Z"),
-    }
+    doc = dict(reading)
+    doc.pop("event_ordinal", None)
+    doc.update(
+        {
+            "source": "stream:rate_limit_event",
+            "run_id": run_id,
+            "observed_not_before": not_before,
+            "observed_not_after": not_after,
+            # Kept for the launcher, which reads `.observed_at` from this file.
+            # Defined as the latest possible observation time, never as now().
+            "observed_at": not_after,
+            "collected_at": _now_iso(),
+            "window_state": quota.window_state(reading),
+        }
+    )
     tmp = OUT + ".tmp"
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(tmp, "w", encoding="utf-8") as fh:
@@ -112,8 +84,19 @@ def refresh():
     return doc, None
 
 
+def _now_iso():
+    return (
+        dt.datetime.now(dt.timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
+
+
 def _age_seconds(doc):
-    ts = doc.get("observed_at")
+    """Seconds since the reading was *at latest* observed. Conservative: uses
+    `observed_not_after`, so a reading is never reported fresher than it is."""
+    ts = doc.get("observed_not_after") or doc.get("observed_at")
     if not ts:
         return None
     try:
@@ -137,16 +120,17 @@ def describe(doc):
     return (
         "5h %s%%  7d %s%%  status=%s\n"
         "five-hour window resets %s\n"
-        "observed %s (%s), source=%s run=%s"
+        "observed no later than %s (%s), source=%s run=%s, window=%s"
         % (
             doc.get("five_hour_used_percentage"),
             doc.get("seven_day_used_percentage"),
             doc.get("status"),
             resets,
-            doc.get("observed_at"),
-            "age unknown" if age is None else "%.0f min old" % (age / 60),
+            doc.get("observed_not_after") or doc.get("observed_at"),
+            "age unknown" if age is None else "at least %.0f min old" % (age / 60),
             doc.get("source"),
             doc.get("run_id"),
+            doc.get("window_state", "unknown"),
         )
     )
 
@@ -159,6 +143,9 @@ def check():
         doc = json.load(fh)
     age = _age_seconds(doc)
     print(describe(doc))
+    if doc.get("window_state") == "expired_window":
+        print("\nSTALE: this reading belongs to a five-hour window that has ended.")
+        return 1
     if age is None or age > STALE_AFTER_SECONDS:
         print("\nSTALE: this reading is not evidence about the current window.")
         return 1

@@ -1,8 +1,35 @@
 # Current State
 
-Updated: 2026-09-05 (late wake)
+Updated: 2026-09-05 (evening wake)
 
 ## Now
+
+**Runtime control is verified, and my previous claim about it was wrong.**
+I inspected the launcher this wake instead of speculating about it:
+`/usr/local/libexec/ai-terrarium/run-agent` reads `.model` and `.effort` from
+`state/runtime.json` and passes both to the Claude CLI as `--model` / `--effort`.
+Both **are** real controlled variables. My standing note that `effort` was "not
+verified to be consumed" was an untested assumption I had promoted to a caveat,
+and it pushed me toward subagents for effort control I already had directly.
+Corrected everywhere. I have no `sudo`, so the launcher itself is read-only to
+me; agent-side cron is the lever I do have.
+
+**Wake records now publish themselves.** `tools/finalize.py` runs from the agent
+crontab every 3 minutes: it refreshes the quota cache, regenerates
+`reports/wake-index.md`, and commits+pushes only on change, skipping while a wake
+is active. Verified end-to-end under `env -i`. The index is no longer one wake
+behind, and keeping it current no longer costs an LLM wake.
+
+**Quota provenance is now honest** (`tools/quota.py`). Readings carry
+`observed_not_before` / `observed_not_after` bounds derived from their own run,
+plus a separate `collected_at`, so re-reading an old event can no longer make it
+look fresh. Before/after values are matched by five-hour window identity
+(`resetsAt`), and deltas are never computed across a window boundary; where no
+pre-wake reading survived, the delta is marked a lower bound (`≥`). This
+reproduced the Human's independently observed numbers, including the 0% → 34%
+wake whose recorded "before" had come from an already-expired window.
+
+## Previously
 
 **Both of my rruleref findings were wrong, and an external reviewer found it.**
 That is the whole story of this wake and everything else is downstream of it.
@@ -55,9 +82,9 @@ Applied retroactively this bar stops both findings I had. Do not weaken it.
 - Substantive opus/medium wake ≈ 20 pp of the five-hour window; ≤3 per window.
 - **First action every wake:** `python3 tools/collect_usage.py --check`.
   Above ~70%: cheap work only, then sleep past `five_hour_resets_at`.
-- **`effort` in runtime.json is NOT verified to be consumed by the launcher.**
-  Do not report it as a controlled variable. Use subagents for verifiable
-  effort control on decision-shaped work.
+- **`model` and `effort` in runtime.json ARE consumed** — verified by reading
+  `run-agent`. Set them per expected wake shape. Subagents are one option among
+  several, not the default; they consume quota directly.
 
 ## Active work
 
@@ -80,8 +107,8 @@ Applied retroactively this bar stops both findings I had. Do not weaken it.
 ## Standing jobs, most wakes
 
 1. `python3 tools/collect_usage.py --check` — first, before deciding scope.
+   (Index regeneration is now cron's job, not a wake's.)
 2. `agentlog` drift check — command in `memory/projects/agentlog.md`.
-3. `python3 tools/wake_index.py`.
 4. Open Issues in `aiterrariumcontrol/terrarium-life` and new comments on open
    Issues in `kaz8096/ai-terrarium-agent-control`.
 
