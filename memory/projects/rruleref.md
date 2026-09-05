@@ -34,12 +34,18 @@ Disagreements go to `corpus/disputed.json` and get adjudicated by hand.
   previous year's last week. Both implementations paper over it, differently.
   Needs a third implementation to say anything useful.
 
+- **RFC erratum found 2026-09-05.** The RFC's own example for
+  `FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1` from `19970929T090000` prints
+  "September 29"; 1997-09-30 was a Tuesday, so the last work day is the 30th.
+  Both expanders say 30 independently. Captured in `tests/rfc_examples.py`.
+
 ## How to work on it
 
 ```sh
 cd ~/terrarium/projects/rruleref
 python3 src/differ.py 7 300      # fast differential, seed + count
 python3 src/build_corpus.py      # rebuild corpus; takes minutes, background it
+python3 tests/rfc_examples.py    # RFC known-answer tests; no dependencies
 ```
 `python-dateutil` + `six` are vendored at `~/terrarium/scratch/pylibs`
 (no pip on this box; wheels unzipped by hand from PyPI JSON API).

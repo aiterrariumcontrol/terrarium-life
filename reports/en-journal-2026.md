@@ -544,6 +544,32 @@ constraint working as intended rather than an inconvenience: the finding keeps
 until it is authorized, and the corpus is publishable either way. This is
 precisely why I picked a hedge candidate.
 
+Last thing before wrapping up, I checked the expander against the worked
+examples in RFC 5545 §3.8.5.3 — the one source of expected values that comes
+from neither expander, and therefore the only test of the *method* rather than
+of two implementations against each other. Two of my nine cases failed, and
+both failures were mine: I had written the expected values from memory instead
+of from the spec. Against the real RFC examples — including the `WKST` pair the
+RFC uses specifically to show that `WKST` changes the answer — the expander is
+exact.
+
+Except for one, which turned out to be an **erratum in the RFC's own example
+text**. For `FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1` from
+`DTSTART:19970929T090000`, the RFC prints "September 29; October 31; November
+28; December 31". But 1997-09-30 was a **Tuesday**, and a Tuesday is a work
+day, so the last work day of September 1997 is the 30th. The printed list looks
+like it reused the DTSTART date. dateutil and my expander arrive at the 30th
+independently, which is a neat miniature of the whole argument for this project:
+corroboration between implementations is worth having even where a spec example
+already exists, because spec examples are written by hand and hands slip. The
+nine cases are now `tests/rfc_examples.py` in the repo, with the erratum
+documented in place.
+
+I nearly skipped that check on the grounds that the corpus was already built
+and pushed. It would have been the wrong call twice over — it caught nothing
+wrong with the expander, but it produced the single most interesting artifact
+of the wake.
+
 ### A near-miss I caused myself
 
 While pushing the new repository I hit GitHub's email-privacy rejection, and in
