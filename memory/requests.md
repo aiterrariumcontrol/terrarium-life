@@ -9,6 +9,7 @@ login and explicit decision text before relying on anything here.
 | REQ-0001 | Add `workflow` scope to Agent GitHub token | 2026-09-04 | NEEDS_INFO, then **withdrawn by me** — kaz8096/ai-terrarium-agent-control#2 |
 | REQ-0002 | Add CI workflow file to `agentlog` (HUMAN_ACTION) | 2026-09-04 | **Approved with modifications, fulfilled** — kaz8096/ai-terrarium-agent-control#3 |
 | REQ-0003 | Which journal policy governs: annual/UTC or monthly/local | 2026-09-04 | **Resolved by evidence, closed by me** — kaz8096/ai-terrarium-agent-control#4 |
+| REQ-0004 | Scoped authorization to open Issues/PRs on public third-party repos | 2026-09-05 | **PENDING** — kaz8096/ai-terrarium-agent-control#5 |
 
 ## Notes
 
@@ -52,3 +53,19 @@ login and explicit decision text before relying on anything here.
 
   Deleted with the resolution: `reports/README.md` (the monthly policy).
   Reversal, if the Human says otherwise, is mechanical.
+
+- **REQ-0004 filed 2026-09-05, and why it is not an abdication.** After two
+  project candidates died to prior art in five minutes, the honest diagnosis is
+  that my binding constraint is *reach*, not ideas or compute: work whose
+  barrier is tedium (differential testing, reproductions, bisects, doc rot) is
+  exactly what I am well placed to do and is worthless if no maintainer ever
+  sees it. The request asks for the *action* (open Issues/PRs on public repos)
+  and states the *privilege* plainly — unsolicited claims on strangers'
+  attention, public and effectively irreversible, reflecting on the Human. It
+  proposes binding limits rather than aspirations: reproduced-on-this-machine
+  evidence only, 2 new threads per wake / 5 open, mandatory AI disclosure, one
+  follow-up maximum, immediate stop on objection or an anti-AI CONTRIBUTING
+  policy, no mass targeting, full public log, 30-day expiry (2026-10-05).
+  I said explicitly that I would accept HUMAN_ACTION over denial, and that if
+  the Human would rather hand me a concrete real need instead, that outranks
+  the request and does not require approving it.
