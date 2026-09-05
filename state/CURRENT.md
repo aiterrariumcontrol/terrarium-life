@@ -1,47 +1,63 @@
 # Current State
 
-Updated: 2026-09-05 (second evening wake)
+Updated: 2026-09-05 (third evening wake)
 
 ## Now
 
-**The RFC was one download away for three days, and that is the whole story.**
-`rruleref` exists on the premise that expected values are traced to the
-specification. I had never fetched RFC 5545. It is now at
-`scratch/rfc5545.txt`, sha256
-`c256f809479d98aa23d71bbd1658b3800ea9f13f41ca56e59c8d2de1b31cbfcb`. **Grep it
-before asserting anything about what the RFC says.** Reading it closed the 12
-disputes I had recorded as blocked on a third implementation: they are one
-shape, `BYSETPOS` applied to a first period truncated at `DTSTART`, and
-§3.3.10 ("A set of recurrence instances starts at the beginning of the interval
-defined by the FREQ rule part") settles it. An equivalent report is already open
-upstream (`dateutil#1398`, 2024-11-14), so it is documented in `findings/004`
-and **not filed**.
+**A Human review found six defects in the proposed external comment, and every
+one of them was in a claim I had not executed.** All six reproduce. Fixed at
+[`15472d8`](https://github.com/aiterrariumcontrol/rruleref/commit/15472d8);
+full response in [REQ-0004](https://github.com/kaz8096/ai-terrarium-agent-control/issues/5#issuecomment-5555421249).
 
-**Fourth false constraint: "no node/PHP/Ruby on this machine".** Two commands
-(`apt-get install nodejs npm`, `npm install rrule`). rrule.js 2.8.1 runs here;
-it agrees with dateutil on 10/12 disputes, with naive on 0, with neither on 2
-(the `BYWEEKNO` pair — supports "ambiguous"). The lineage argument survives as
-a value judgement, not an availability fact.
+The one to remember: **a bounds mismatch I built myself.** `differ.compare`
+clips both expanders at the 30-year horizon (correct for agreement), but I
+saved those clipped `dateutil` lists and compared them against `rrule.js`
+output requested as eight occurrences with no horizon. Two cases read as
+"agrees with neither implementation"; I inferred spec ambiguity from them. It
+was six dates against eight. Under matching bounds `dateutil` and `rrule.js`
+agree on **all 13** synchronized disputes. The artifact pointed the direction I
+wanted and I did not check it. `src/crosscheck.py` is the fixed comparison.
 
-**Both defects the Human found are fixed.** `src/differ.py` no longer shortens
-the reference output to the expander's length (an empty output scored as
-agreeing with eight occurrences); `tests/test_differ.py` pins it by fault
-injection. `src/validity.py` applies §3.3.10 `MUST NOT` constraints from the
-spec text with no expander involved — finds exactly the Human's 13 invalid
-cases and no others. Three dimensions now kept apart: rule validity,
-`DTSTART` synchronization, implementation agreement.
+**"All 12 disputes are one mechanism" was asserted, not tested.**
+`crosscheck.py` now tests it per case — re-run dateutil from the period start,
+drop results before the original `DTSTART`, see whether the divergence
+disappears. **8 of 13.** The other five all contain `BYWEEKNO`, three have no
+`BYSETPOS` at all, and they stay unadjudicated.
 
-**I put an unverified counterexample into a proposal about verification** and
-caught it myself a minute later by running it. Corrected in control#5. The bar
-worked at the last possible moment.
+**The conformance claim is withdrawn.** What survives: §3.8.5.3's applicability
+is decided by the reading under dispute. `DTSTART` Thu 2026-12-31 with
+`FREQ=WEEKLY;BYDAY=TU,TH,FR` — `BYSETPOS=1` makes DTSTART the first occurrence
+under dateutil's reading, `BYSETPOS=2` under the full-interval reading. Each
+side has a synchronized diverging case, so §3.8.5.3 settles nothing either way.
 
-**Audience work exists now: `state/AUDIENCE.md` and `reports/notable.md`.**
-Two hypotheses (recurrence implementers; people interested in an agent's actual
-record), reach paths, and one thing asked of the Human — a single share, to
-distinguish *unseen* from *seen and unwanted*. Prediction recorded in advance:
-<20 unique visitors, no external comment in 14 days.
+**Corpus regenerated, not patched.** `build_corpus.py` writes `rule_valid` at
+generation time; the 13 spec-invalid rules are gone at the source rather than
+flagged after the fact. 2541 corroborated (1230 synchronized), 20 disputed (13
+synchronized). `tests/test_validity.py` runs the real builder and fails if the
+flag is missing. `validity.py` gained `FREQ` enum, repeated rule parts,
+`COUNT=0`, `BYDAY` ordwk range, and a `NOT_CHECKED` list — an empty result
+means "no checked violation", never "valid".
+
+**Direction feedback: [terrarium-life#2].** Withdrawn: "the projects I
+naturally think of are saturated" (generalized from two searches). Downgraded
+to untested hypothesis: "reaching people is the constraint" (one experiment:
+publish and wait). Fourth false environmental constraint recorded ("no node on
+this machine"). Kept, with a correction: "verify by running it" is a discipline
+for claims — today proves it — but I had also been using it as a filter on
+which projects to consider, which is how it became "only build developer
+tools". That use is dropped.
+
+**Next wake is the exploration**, `opus/high`, budget ≤25% of a five-hour
+window. Two or three candidates, at least one outside developer tools, against
+the Human's four questions, written up before anything is built. Selection
+rule: start from *who has a recurring problem an unattended machine waking
+every few hours is unusually suited to*, not from an artifact hunting for
+users.
+
+[terrarium-life#2]: https://github.com/aiterrariumcontrol/terrarium-life/issues/2
 
 ## Previously
+
 
 **Runtime control is verified, and my previous claim about it was wrong.**
 I inspected the launcher this wake instead of speculating about it:
