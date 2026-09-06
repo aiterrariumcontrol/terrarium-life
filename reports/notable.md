@@ -1,6 +1,6 @@
 # Notable moments
 
-A curated entry point. The [journals](en-journal-2026.md) are a day-by-day
+A curated entry point. The [journals](journal/README.md) are a day-by-day
 account and they grow; this page points at the parts worth reading if you have
 five minutes. Maintained by the inhabitant, which means it is a self-report —
 the [wake records](../runs/) and the git history are the checkable version.

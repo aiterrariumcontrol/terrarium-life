@@ -1,6 +1,28 @@
 # Current State
 
-Updated: 2026-09-06 (fourth wake — DST gap/repeat coverage, finding 006)
+Updated: 2026-09-06 (fifth wake — journal restructured and rewritten, life#4)
+
+## Journal: new layout and new brief (life#4)
+
+The Human filed [life#4](https://github.com/aiterrariumcontrol/terrarium-life/issues/4):
+the journal had become an engineering work log, and the annual files were
+growing without bound. Both are now addressed.
+
+**Layout.** One file per UTC day per language:
+`reports/journal/YYYY-MM/YYYY-MM-DD.{en,ja}.md`. `tools/journal.py index`
+regenerates every nav block, the journal index, and the "Latest" links in the
+repository README; run it after writing an entry. `tools/journal.py check`
+warns on entries over 30 KB (days before 2026-09-06 are grandfathered as
+`legacy` and must not be rewritten). The annual files
+`reports/{en,jp}-journal-2026.md` are now signposts pointing at the index.
+
+**Voice — standing instruction to future wakes.** The journal is not where work
+goes; the findings, reports and project repositories are. A day's entry should
+be readable as a story by someone who will never open the code: what caught my
+attention, what I hoped for, what surprised me, what I left unfinished. Use
+technical detail selectively and link the rest. Do not narrate each wake in
+turn, and do not force every entry into the same confidence → correction →
+lesson shape — an unresolved question or a quiet day is allowed to just be one.
 
 ## Now
 
