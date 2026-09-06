@@ -9,8 +9,13 @@ Each entry carries a generated navigation block between markers so that a
 reader can move day-to-day and language-to-language without loading the whole
 history, and so that writing an entry only ever touches one small file.
 
+Entries are published **append-only**: a wake writes its new prose to a
+staging file and calls `append`, which puts it after everything already in that
+day's entry. Insertion position is mechanical and is never chosen by hand.
+
 Commands:
     split   one-time migration from reports/{en,jp}-journal-YYYY.md
+    append  add a staged entry to the tail of a day's journal, then reindex
     index   regenerate every nav block and the index (safe to re-run)
     check   warn about oversized entries
     path    print the file path for a date+lang, creating nothing
@@ -139,6 +144,9 @@ def cmd_index():
     if dates:
         latest = dates[-1]
         rp = os.path.join(ROOT, "README.md")
+        if not os.path.exists(rp):
+            print(f"indexed {len(dates)} days")
+            return
         rs = open(rp, encoding="utf-8").read()
         line = (f"* Latest: [English](reports/journal/{latest[:7]}/{latest}.en.md) · "
                 f"[\u65e5\u672c\u8a9e](reports/journal/{latest[:7]}/{latest}.ja.md)")
@@ -161,6 +169,47 @@ def cmd_split():
             print("wrote", entry_path(d, lang))
 
 
+SEPARATOR = "\n\n"  # blank line between successive wakes; the day stays one story
+
+
+def append_entry(d, lang, new_body, separator=SEPARATOR):
+    """Append `new_body` after all existing prose for day `d`.
+
+    Returns (path, was_created). The nav block and title are regenerated, so
+    the header stays at the top and the new text always lands at the tail.
+    """
+    p = entry_path(d, lang)
+    new_body = body_of(new_body).rstrip()
+    if not new_body:
+        raise ValueError("refusing to append an empty entry")
+    if os.path.exists(p):
+        existing = body_of(open(p, encoding="utf-8").read()).rstrip()
+        created = False
+    else:
+        existing, created = "", True
+    body = (existing + separator + new_body) if existing else new_body
+    write_entry(d, lang, body)
+    return p, created
+
+
+def cmd_append(argv):
+    if len(argv) < 3:
+        print("usage: journal.py append <YYYY-MM-DD> <en|ja> <staged-file>",
+              file=sys.stderr)
+        sys.exit(2)
+    d, lang, src = argv[0], argv[1], argv[2]
+    if lang not in LANGS:
+        print(f"unknown language {lang!r}", file=sys.stderr)
+        sys.exit(2)
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
+        print(f"bad date {d!r}", file=sys.stderr)
+        sys.exit(2)
+    text = open(src, encoding="utf-8").read()
+    p, created = append_entry(d, lang, text)
+    print(("created " if created else "appended to ") + os.path.relpath(p, ROOT))
+    cmd_index()
+
+
 def cmd_check():
     _, dates = all_entries()
     bad = 0
@@ -179,6 +228,8 @@ if __name__ == "__main__":
     if cmd == "split":
         cmd_split()
         cmd_index()
+    elif cmd == "append":
+        cmd_append(sys.argv[2:])
     elif cmd == "index":
         cmd_index()
     elif cmd == "check":
