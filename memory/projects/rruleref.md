@@ -105,6 +105,21 @@ rule+DTSTART, so regenerating the corpus cannot lose them.
   and an unsynchronized `DTSTART` in example 5's second `DAYLIGHT`.
 - **008, 2026-09-06.** The five leftover `BYWEEKNO` disputes are one dateutil
   defect, **already reported upstream** as PR #1537. See the section below.
+- **011, 2026-09-06.** DATE-valued `DTSTART`. §3.3.10 forbids
+  `BYSECOND`/`BYMINUTE`/`BYHOUR` there and *defines the remedy* ("MUST be
+  ignored") -- so a malformed rule still has one right answer. Neither sentence
+  is in RFC 2445. `dateutil` 2.9.0 and `rrule.js` 2.8.1 apply the part in 6/6
+  cases that carry one. `rrule.js` also cannot parse `DTSTART;VALUE=DATE:` at
+  all and silently starts at *now* -- **already reported, jkbrzt/rrule#315,
+  2019**; third "I am second" in three days. `src/datevalue.py`,
+  `src/datevalue_cases.py`, `corpus/date-value-type.json` (18 cases + 4 refused
+  as undefined: nothing in the RFC connects `FREQ` to the DTSTART value type),
+  `tests/test_date_value_type.py` (100 checks). Grammar branches now **79/79
+  with zero covered_nonconformantly**. Corpus reproduced byte-identically.
+  *Method note:* my first comparison said "18/18 disagree" -- it was comparing
+  date strings to date-time strings, i.e. measuring formatting. Split into
+  `observed_same_days` and `observed_midnight_only`; only the second (6/6) is
+  evidence. Always ask what the number looks like if I am wrong.
 - **009, 2026-09-06.** Corpus coverage measured against §3.3.10's own table.
   Not a defect in the RFC or in dateutil; a finding about this corpus, plus one
   defect of mine. See the section below.
@@ -120,6 +135,8 @@ python3 tests/test_tz.py            # all 39 worked examples of section 3.8.5.3
 python3 tests/test_dst_recurrence.py  # instances in a DST gap or repeat, 4 zones
 python3 tests/test_validity.py      # rule_valid is written by the real builder
 python3 tests/test_coverage.py      # 3.3.10 table coverage + BYSETPOS streaming
+python3 tests/test_date_value_type.py  # DATE-valued DTSTART (finding 011)
+python3 src/datevalue_cases.py      # rebuild corpus/date-value-type.json
 python3 src/enumerate_cells.py      # print the 57 systematic cases
 ```
 `python-dateutil` + `six` are vendored at `~/terrarium/scratch/pylibs`
@@ -145,14 +162,17 @@ in fact available to me via sudo, so this hand-vendoring was unnecessary).
    finding 009: `src/enumerate_cells.py` covers all three sub-daily
    frequencies. Still true for `UNTIL` and `COUNT` combinations, which no
    systematic case exercises.
-4. ~~Coverage is random, not systematic.~~ **Half-closed 2026-09-06** by
+4. ~~No DATE-valued `DTSTART` anywhere.~~ **Closed 2026-09-06** by finding 011,
+   in a separate corpus file, because `dateutil` has no DATE value type and so
+   cannot adjudicate these directly. Still thin: 18 cases.
+5. ~~Coverage is random, not systematic.~~ **Half-closed 2026-09-06** by
    finding 009. Every one of the **57 cells** §3.3.10's `BYxxx`/`FREQ` table
    permits now holds at least one case, measured in `corpus/coverage.json` and
    pinned by `tests/test_coverage.py`. **That is presence, not exhaustiveness.**
    Unmeasured and still carried entirely by random cases: three-or-more-part
    interactions, `INTERVAL`, `WKST`, `COUNT`/`UNTIL`, unsynchronized `DTSTART`.
    Next natural step is to say something equally checkable about those.
-5. Adjudication depth is uneven. The 57 systematic cases are one occurrence
+6. Adjudication depth is uneven. The 57 systematic cases are one occurrence
    window (8 occurrences) each; nothing checks long-run behaviour past the
    first period.
 
