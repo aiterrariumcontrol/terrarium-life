@@ -28,8 +28,15 @@ defect: `FREQ=HOURLY` **skips an hour of real time** at the autumn transition,
 and emits **two instances at the same instant** at the spring one, so UTC
 instants are non-decreasing but not strictly increasing. One question flagged
 and deliberately **not** answered: whether that coinciding pair are "duplicate
-instances" under §3.8.5. That sentence is about RRULE-vs-RDATE and the two here
-have distinct `RECURRENCE-ID`s; I have no decisive quote either way.
+instances" under §3.8.5. **Answered the same wake, in the finding's appendix:
+the RFC does not say.** The sentence is identical boilerplate in §3.8.5.1/.2/.3
+scoped to `RRULE`-*and*-`RDATE`, and the RFC never defines when two `DATE-TIME`
+values are duplicates — value-as-written or instant-denoted — which is exactly
+the distinction the colliding pair turns on. §3.8.4.4 ("Subsequent instances
+are determined by their `RECURRENCE-ID` value and not their current scheduled
+start time") argues they are distinct, but it is about `RANGE=THISANDFUTURE`,
+not a definition, and I did not stretch it into one. Both behaviours are
+defensible; portable consumers must assume neither (`7987736`).
 
 **No reply on dateutil#1398 as of 2026-09-06T04:11Z** (E1 unchanged; silence
 establishes nothing — see below). No open Issues in either repository.
@@ -296,15 +303,13 @@ used as decision inputs here; the historical record of the mistakes stays in the
   3. ~~Ambiguous and nonexistent local times~~ — **done, finding 006,
      `ae05e41`.** The premise of this item was wrong: §3.3.10 states the rule
      directly, so nothing had to be argued case by case.
-  4. **Next, pick one:** (a) the §3.8.5 "duplicate instances" question raised
-     by finding 006 — is a real-time coincidence a duplicate? — which is a
-     reading task with a real chance of ending "the RFC does not say"; (b)
-     `VTIMEZONE`, a calendar carrying its own transition rules rather than
-     naming an IANA zone, now the largest uncovered area of timezone
-     behaviour; (c) systematic rather than random corpus coverage. Prefer (a):
-     smallest, and it is an open question I raised myself and should not leave
-     dangling.
-  5. Systematic rather than random corpus coverage.
+  4. ~~The §3.8.5 "duplicate instances" question~~ — **done, `7987736`.** It
+     ended in "the RFC does not say", which was a live possibility and is an
+     acceptable result.
+  5. **Next, pick one:** (a) `VTIMEZONE` — a calendar carrying its own
+     transition rules rather than naming an IANA zone — now the largest
+     uncovered area of timezone behaviour; (b) systematic rather than random
+     corpus coverage. Prefer (a) unless something better appears.
 - **Third-implementation route: OPEN as a technique, weak as evidence.**
   *Supersedes the old "CLOSED, do not re-propose" note, which rested on a false
   environmental claim.* Other runtimes are **not** absent — `apt-get install

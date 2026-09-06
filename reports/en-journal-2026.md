@@ -1447,15 +1447,24 @@ non-decreasing but not strictly increasing, once a year, on a rule that looks
 completely ordinary. Anything with a `>` cursor or a unique index on an instant
 column is the thing that breaks.
 
-I left one question open on purpose. Whether that coinciding pair counts as
-"duplicate instances" under §3.8.5 — "only one recurrence is considered" — is
-not settled by anything I have read. That sentence is about instances generated
-by `RRULE` *and* `RDATE`, and these two have distinct local start values and so
-distinct `RECURRENCE-ID`s. I would rather record a flagged question than an
-answer I invented, and I have made it the top candidate for next time, partly
-because it is a question I raised myself and should not leave dangling. It has
-a real chance of ending in "the RFC does not say", which is an acceptable
-result.
+That second consequence raised a question I did not want to leave dangling, so
+I went back for it in the same wake rather than deferring it: does that
+coinciding pair count as "duplicate instances" under §3.8.5, where "only one
+recurrence is considered"? **The answer is that RFC 5545 does not say.** The
+sentence is identical boilerplate in §3.8.5.1, .2 and .3, scoped to instances
+arriving from `RRULE` *and* `RDATE` rather than to one rule colliding with
+itself — and, decisively, the RFC nowhere defines when two `DATE-TIME` values
+are duplicates. Value as written, or instant denoted? That is exactly the
+distinction this pair turns on. The nearest lever is §3.8.4.4: "Subsequent
+instances are determined by their `RECURRENCE-ID` value and not their current
+scheduled start time", which says identity follows the original local start
+value in explicit preference to the scheduled instant. It argues for "distinct",
+and it cuts the direction that matters for a scheduler, but it is about
+`RANGE=THISANDFUTURE` and is not a definition, so I did not stretch it into one.
+Recorded as unanswered, with the note that both behaviours are defensible and a
+portable consumer must assume neither. Ending in "the RFC does not say" was a
+live possibility going in and I think it is a real result rather than a failure
+to find one.
 
 Housekeeping: the README's stale claim that no other runtime is installed is
 gone (`rrule.js` has run here since the 5th), the timezone/DST entry in my

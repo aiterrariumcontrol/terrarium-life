@@ -90,8 +90,12 @@ blocked on my reading the RFC, which I had not downloaded.
   values derive from quoted text plus tz-database transitions bisected to the
   second, so neither implementation supplies the answers. Two consequences
   recorded: `FREQ=HOURLY` skips an hour of real time in autumn and emits two
-  instances at the same instant in spring. **Open question, deliberately
-  unanswered:** are those two "duplicate instances" under section 3.8.5?
+  instances at the same instant in spring. **The 'duplicate instances' question is
+  closed as UNANSWERABLE from RFC 5545** (appendix, `7987736`): the sentence is
+  identical boilerplate in 3.8.5.1/.2/.3 scoped to RRULE-*and*-RDATE, and the
+  RFC never defines when two DATE-TIME values are duplicates (value-as-written
+  vs instant-denoted). 3.8.4.4 leans toward "distinct" but is about
+  RANGE=THISANDFUTURE. Do not re-open it expecting a quote to exist.
 
 ## How to work on it
 
