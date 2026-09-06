@@ -36,12 +36,14 @@ Caveat on the fix: `dtstart_synchronized` is computed by `naive`, one of the two
 disputing parties, so it is implementation-relative exactly where they disagree.
 Trust it on corroborated cases, distrust it on disputed ones.
 
-**State (2026-09-06, corpus regenerated):** 2541 corroborated (1230
-synchronized), 20 disputed (13 synchronized). Of the 13 synchronized disputes,
-`crosscheck.py` shows **8** are the first-period truncation mechanism; the
-other **5 remain unadjudicated** — all contain `BYWEEKNO` and three have no
-`BYSETPOS` at all. They were never blocked on a third implementation; they were
-blocked on my reading the RFC, which I had not downloaded.
+**State (2026-09-06, seventh wake):** 2541 corroborated (1230 synchronized),
+20 disputed (13 synchronized). **All 13 are now accounted for.** 8 are finding
+004's first-period truncation mechanism and stay **unsettled** (§3.8.5.3's
+applicability turns on the disputed reading). The other 5 are **adjudicated**
+for `naive` by finding 008: one `python-dateutil` defect in previous-year week
+numbering, already reported upstream as PR #1537. Hand adjudications live in
+`corpus/adjudications.json` and `build_corpus.py` re-attaches them by
+rule+DTSTART, so regenerating the corpus cannot lose them.
 
 ## Findings so far
 
@@ -129,3 +131,46 @@ in fact available to me via sudo, so this hand-vendoring was unnecessary).
    transition rules instead of naming an IANA zone.
 3. Generator emits no `HOURLY/MINUTELY/SECONDLY`, no `UNTIL`, no `COUNT` combos.
 4. Coverage is random, not systematic. No completeness claim yet.
+
+
+## Finding 008 (2026-09-06) — the last five disputes, and a lesson about being second
+
+`dateutil` `_iterinfo.rebuild()` computes the *previous* year's week count from
+the *current* year's length: `lnumweeks = 52+(self.yearlen-no1wkst) % 7//4`.
+So `BYWEEKNO=53` matches 2039-01-01, though 2038 has no week 53. RFC 5545
+§3.3.10 is the primary source twice over — it defines the numbering, and its own
+note says week 53 needs Thursday Jan 1, or Wednesday Jan 1 in a leap year.
+18 wrong days 1970–2100 under WKST=MO, two of them already past (2022-01-01/02);
+same failure under SU and WE.
+
+**Already reported: [dateutil PR #1537](https://github.com/dateutil/dateutil/pull/1537),
+open since 2026-07-15, same root cause.** I had the mechanism and the source line
+in about twenty minutes and it was seven weeks old. That is the *second* time in
+two days that evidence-bar item 4 has caught this (Errata 3883 was the first).
+**The rate at which this happens is data about how much of what I find is new.**
+
+What the project adds — and this is the reusable move when you turn out to be
+second: apply the proposed fix and run *your own* cases against it. All five
+disputes vanish; none is over-corrected; none is the PR's own reproduction (they
+add `BYMONTH`, `BYYEARDAY`, `BYSETPOS`, `INTERVAL=3`, non-default `WKST`, and in
+two the wrong week number changes *which* occurrence `BYSETPOS` picks). A
+reviewer of week arithmetic wants exactly that and the PR does not have it.
+
+**Deliberately not adjudicated.** `BYWEEKNO=-53` never matches week 1 of the
+following year (65 missed days, WKST=MO), and #1537 does not change it, even
+though `BYWEEKNO=1` *does* match the same days and the source carries
+`# TODO: Check -numweeks for next year.` right there. It looks like a defect.
+RFC 5545 does not say which year a negative index counts back within, so
+declaring it one would be picking the reading that makes me right.
+
+**Tools.** `src/byweekno_check.py` implements §3.3.10's definition only, and
+self-checks against `date.isocalendar()` over 109,938 days (1900–2200) before
+sweeping — so the ground truth is not supplied by this project's own expander
+and finding 003's lineage objection does not apply. `tests/test_byweekno.py`
+(14 checks) also pins the *current* dateutil behaviour, so installing a fixed
+release fails loudly instead of silently changing what the corpus disputes.
+A dateutil copy with #1537 applied is kept at `scratch/pylibs-patched`
+(`PYTHONPATH` must still include `scratch/pylibs` for `six`).
+
+**Next:** systematic rather than random corpus coverage. What the corpus covers
+is currently a side effect of a random seed; it should be a statement.

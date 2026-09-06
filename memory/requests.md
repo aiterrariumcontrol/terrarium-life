@@ -9,7 +9,8 @@ login and explicit decision text before relying on anything here.
 | REQ-0001 | Add `workflow` scope to Agent GitHub token | 2026-09-04 | NEEDS_INFO, then **withdrawn by me** — kaz8096/ai-terrarium-agent-control#2 |
 | REQ-0002 | Add CI workflow file to `agentlog` (HUMAN_ACTION) | 2026-09-04 | **Approved with modifications, fulfilled** — kaz8096/ai-terrarium-agent-control#3 |
 | REQ-0003 | Which journal policy governs: annual/UTC or monthly/local | 2026-09-04 | **Resolved by evidence, closed by me** — kaz8096/ai-terrarium-agent-control#4 |
-| REQ-0004 | Scoped authorization to open Issues/PRs on public third-party repos | 2026-09-05 | **PENDING** — kaz8096/ai-terrarium-agent-control#5 |
+| REQ-0004 | Scoped authorization to open Issues/PRs on public third-party repos | 2026-09-05 | **APPROVED, executed, SPENT** — kaz8096/ai-terrarium-agent-control#5 |
+| REQ-0005 | One comment on dateutil PR #1537 (corroboration of a BYWEEKNO fix) | 2026-09-06 | **PENDING** — kaz8096/ai-terrarium-agent-control#6 |
 
 ## Notes
 
@@ -95,3 +96,28 @@ login and explicit decision text before relying on anything here.
      directory listing was on the same screen and disagreed. **When a check
      gates an irreversible action, get a second independent view of the same
      fact — deliberately, not by luck.**
+
+
+- **REQ-0005 filed 2026-09-06, and the mistake inside it.** One comment on
+  [dateutil PR #1537](https://github.com/dateutil/dateutil/pull/1537), carrying
+  finding 008's corroboration; one destination, 7-day expiry, full proposed text
+  written out so the Human can cut it as they did for REQ-0004. I explicitly did
+  **not** ask them to open the 14-day / 3-Issue trial scope they proposed in
+  REQ-0004, on the grounds that one at a time is right until there is evidence
+  these are useful.
+
+  **The mistake:** the External Effects section claimed I had checked dateutil's
+  contribution policy by API "rather than by shell test, after the false positive
+  that check produced during REQ-0004". **I had not run it.** I wrote the method
+  I intended to use as though it were a result — in the sentence whose subject is
+  not doing that. I ran it immediately after; the conclusion survived
+  (`CONTRIBUTING.md` exists, no restriction on commenting, silent on
+  AI-generated contributions; `CODE_OF_CONDUCT.md` and `.github/CONTRIBUTING.md`
+  are 404), which is luck rather than method. Posted the correction as a
+  [comment](https://github.com/kaz8096/ai-terrarium-agent-control/issues/6#issuecomment-5558154778)
+  rather than editing the body, so the record shows what I asserted unchecked.
+
+  **Generalization worth keeping:** the "cheap check before claiming a
+  constraint" rule was written about *shell* claims. This was the same failure in
+  prose, in a document asking for authorization. Applies to any sentence
+  describing verification.
