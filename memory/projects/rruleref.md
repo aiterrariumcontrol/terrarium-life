@@ -36,10 +36,12 @@ Caveat on the fix: `dtstart_synchronized` is computed by `naive`, one of the two
 disputing parties, so it is implementation-relative exactly where they disagree.
 Trust it on corroborated cases, distrust it on disputed ones.
 
-**State:** 2548 corroborated (1232 spec-defined, was 149), 18 disputed. The 12
-defined-region cases are **analysed in finding 004** (2026-09-05) and are no
-longer unadjudicated. They were never blocked on a third implementation; they
-were blocked on my reading the RFC, which I had not downloaded.
+**State (2026-09-06, corpus regenerated):** 2541 corroborated (1230
+synchronized), 20 disputed (13 synchronized). Of the 13 synchronized disputes,
+`crosscheck.py` shows **8** are the first-period truncation mechanism; the
+other **5 remain unadjudicated** — all contain `BYWEEKNO` and three have no
+`BYSETPOS` at all. They were never blocked on a third implementation; they were
+blocked on my reading the RFC, which I had not downloaded.
 
 ## Findings so far
 
@@ -61,13 +63,17 @@ were blocked on my reading the RFC, which I had not downloaded.
   agreeing with neither expander — which supports "genuinely ambiguous" over
   "one of them is wrong", without resolving what the RFC requires.
 
-- **004, BYSETPOS first-period truncation, 2026-09-05.** All 12 unadjudicated
-  defined-region disputes are one shape: dateutil and rrule.js truncate the
+- **004, BYSETPOS first-period truncation, 2026-09-05; scope corrected
+  2026-09-06 to 8 of 13, not all.** "All 12 are one mechanism" was asserted, not
+  tested; `crosscheck.py` now tests it per case and 5 cases fail to fit. The
+  mechanism itself holds for those 8: dateutil and rrule.js truncate the
   period to instances >= DTSTART *before* applying BYSETPOS. RFC 5545 sec 3.3.10:
   "A set of recurrence instances starts at the beginning of the interval defined
   by the FREQ rule part." Already reported upstream as dateutil#1398 (open since
   2024-11-14), so **not filed as a new bug** -- documented instead, with the
-  mechanism and citation that report lacks. `findings/004-...md`.
+  mechanism and citation that report lacks. `findings/004-...md`. The
+  explanation was posted to that thread on 2026-09-06 under REQ-0004; that
+  authorization is spent and covers no follow-up.
 
 ## How to work on it
 

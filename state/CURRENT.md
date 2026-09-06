@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-06 (second wake — REQ-0004 executed, exploration done)
+Updated: 2026-09-06 (third wake — state reconciled after [life#2] review)
 
 ## Now
 
@@ -16,10 +16,17 @@ and it says explicitly that a direct question from a maintainer does *not*
 authorize another response. **If anyone replies in that thread, report it in
 [control#5] and ask. Do not answer without a fresh APPROVED.**
 
-**Watch for a response — this is E1, with a pre-registered prediction.** Any
-reply within 30 days (by 2026-10-06) counts as success, including a rejection.
-Silence is the informative outcome and would mean the work needs to be better,
-not that distribution needs to be wider.
+**Watch for a response — this is E1.** Check the thread each wake. The
+pre-registered observation is narrow: *did any reply appear in that thread by
+2026-10-06?* A reply is informative and its content more so. **Silence is not.**
+If nothing arrives, the only thing established is that this comment received no
+response in this thread in this period — a dormant thread (one comment in the
+22 months before mine), busy or inactive maintainers, a reporter who moved on,
+an explanation that needed no reply, an unclear comment, and an unwanted problem
+all produce the same null. Do **not** report silence as evidence that the work
+must be better, that distribution would not help, or that the audience is
+wrong. E1 is not a completion criterion for any direction and no allocation
+decision depends on it (`state/AUDIENCE.md`).
 
 **Three corrections the Human kept as separate work** (not claimed anywhere,
 not in the posted comment):
@@ -39,9 +46,12 @@ people with standing I lack (dataindex.us's *verified* tracker) and the
 uncurated half needs ~1M repeating requests to federal servers, which is
 abusive scanning from the receiving end. **Deferred, not killed**; a narrower
 target with a named beneficiary would revive it. Winner on the merits is
-rruleref DST/timezone coverage (currently zero), but the real reason not to
-start anything new is that E1 went live today and starting before it returns is
-the exact pattern the Human named.
+rruleref DST/timezone coverage (currently zero). *Corrected 2026-09-06:* I
+first justified "no new repository" by E1 being in flight. That was the wrong
+justification — it makes an allocation decision hostage to a null result. The
+decision stands on its own: my rate of starting exceeds my rate of verifying,
+and rruleref has real unfinished verifiable work. It would be the same decision
+if E1 had never been authorized.
 
 **Still withdrawn: "everything I think of is saturated."** Four candidates dead
 across four searches does not establish it; the two this wake did not even fail
@@ -220,31 +230,52 @@ Applied retroactively this bar stops both findings I had. Do not weaken it.
 
 ## Active work
 
-- **rruleref. The third-implementation plan is CLOSED, not deferred.** RRULE
-  implementations are largely descended from `python-dateutil` — `rrule.js` and
-  `php-rrule` both document themselves as ports (and `rrule.js` attributes one
-  of its own RFC non-compliances to that ancestry), and the Python
-  "alternatives" wrap dateutil. A port cannot adjudicate a disagreement with its
-  ancestor, and no php/node/deno/ruby exists here. See
-  `findings/003-implementation-lineage.md`. Do not re-propose this.
-- **12 defined-region disputes: ADJUDICATED, finding 004.** Not filed upstream
-  (dateutil#1398 predates it). Superseded note follows:
-- ~~12 defined-region disputes are UNADJUDICATED.~~ Same
-  `FREQ=WEEKLY`+`BYSETPOS` first-period shape. Do **not** write them up:
-  `dtstart_synchronized` is computed by the naive expander, so it is
-  implementation-relative exactly where the expanders disagree. There is no
-  third opinion to buy; adjudication must come from the RFC 5545 text, case by
-  case, checking applicability first (that is what finding 001 got wrong).
-- **rruleref next, in order:** timezones/DST (no coverage at all), then
-  systematic rather than random coverage. This is the work I can verify
-  without anyone's attention.
-- **Public-dataset candidate — deprioritized, not closed.** `state/AUDIENCE.md`
-  supersedes it as the audience question. Budget if resumed: **two wakes of
-  research before any code**, ending in a written comparison of concrete
-  candidates with named sources — or an honest "found nothing worth
-  maintaining", which is a permitted outcome. Do not name a dataset before
-  the research; inventing one is the RFC failure again.
+*Reconciled 2026-09-06 after [life#2]. Superseded instructions were still being
+used as decision inputs here; the historical record of the mistakes stays in the
+`Previously` sections above, but the directives below are the current ones.*
+
+- **rruleref is the active project.** Next, in order:
+  1. **Timezone / DST coverage — currently zero.** This is the work chosen for
+     the next wake, and it is chosen on its own merits: it is verifiable
+     against the spec without anyone's attention.
+  2. The three outstanding corrections the Human kept as separate work (listed
+     at the top of this file): the `crosscheck` naive-expander horizon, 8-of-13
+     rather than 13, and the original example's unsynchronized Sunday `DTSTART`.
+  3. Systematic rather than random corpus coverage.
+- **Third-implementation route: OPEN as a technique, weak as evidence.**
+  *Supersedes the old "CLOSED, do not re-propose" note, which rested on a false
+  environmental claim.* Other runtimes are **not** absent — `apt-get install
+  nodejs npm` worked, rrule.js 2.8.1 runs on this machine, and its output is in
+  `rruleref/findings/data/`. What survives is only the lineage argument: most
+  RRULE implementations are ports of or wrappers around `python-dateutil`, so a
+  second implementation agreeing is weak evidence about the *spec*
+  (`findings/003-implementation-lineage.md`). Use them as cross-checks; do not
+  use agreement as adjudication. Proposing a genuinely independent
+  implementation is allowed.
+- **Disputes: 8 of 13 adjudicated, 5 open.** *Supersedes "12 defined-region
+  disputes: ADJUDICATED".* `crosscheck.py` tests the first-period mechanism per
+  case; it explains 8 of the 13 synchronized disputes. The other five all
+  contain `BYWEEKNO`, three have no `BYSETPOS`, and they remain unadjudicated.
+  Adjudication comes from the RFC 5545 text case by case, applicability first.
+- **Choosing the next project: use the corrected method.** Observe people and
+  the problems they describe in their own words first → find *recurring* unmet
+  needs → only then consider an artifact. Not artifact-first (that biases the
+  answer to "someone built it" / "nobody built it"), not invented personas, and
+  **not** waiting to be handed a user by the Human — public trackers, forums,
+  Q&A archives and mailing lists are readable and reading them is searching.
+  Full note in `state/AUDIENCE.md`.
+- **Public-dataset candidate: superseded** by
+  [`state/EXPLORATION-2026-09-06.md`](EXPLORATION-2026-09-06.md). Both
+  candidates examined there failed, for different reasons; public-record decay
+  is deferred, not killed. The old rule "do not name a dataset before the
+  research" has served its purpose — the research happened — and is retired as
+  a directive. The principle behind it stands and is already covered by the
+  evidence bar: do not name a specific source you have not checked.
+- **No new repository this month.** A resource-allocation decision, independent
+  of E1: my rate of starting exceeds my rate of verifying, and rruleref has
+  unfinished verifiable work.
 - **agentlog** (v0.4.1). Frozen except maintenance.
+
 
 ## Standing jobs, most wakes
 

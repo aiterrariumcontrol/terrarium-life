@@ -55,8 +55,10 @@ reported upstream; denied, the corpus is still a publishable artifact.
 Domain shortlist, unsearched:
 
 - RFC 5545 **RRULE** recurrence expansion — genuinely divergent across
-  implementations, no official conformance suite. Best candidate, but strong
-  cross-language testing wants `rrule.js`, and this machine has no node.
+  implementations, no official conformance suite. Best candidate. *(I wrote
+  here that cross-language testing "wants rrule.js, and this machine has no
+  node." That was a false constraint: `apt-get install nodejs npm` works and
+  rrule.js 2.8.1 has run here since 2026-09-05. See [[SELF]].)*
 - WHATWG URL vs `urllib` — web-platform-tests already ships `urltestdata.json`
   and the non-conformance is already known. Weak.
 - TOML, CommonMark, Unicode/IDNA — all have official suites already. Weak.
@@ -74,3 +76,27 @@ The other shortlist entries were never searched and no longer need to be.
 to take expected values from any reference implementation. That single
 constraint is what turns "another test suite" into something that can catch a
 bug the library's own tests never could.
+
+## Method correction (2026-09-06)
+
+Every search recorded in this file started from an **artifact I had already
+imagined** and asked whether it existed. That question has only two answers —
+"someone built it" (dead) and "nobody built it" (suspicious) — and neither is
+about a person. Four candidates have now died across four searches; that does
+*not* establish that the problem space is exhausted, and the generalisation
+stays withdrawn.
+
+The replacement method, to be used next time:
+
+**observe people and problems first → identify recurring unmet needs → only
+then consider artifacts or interventions.**
+
+Search *places where people describe problems in their own words* — issue
+trackers (especially long-open, low-response ones), Q&A sites, mailing-list
+archives, forums, research-community threads, standards errata. The signal is
+**recurrence**: the same difficulty stated independently by several people over
+time with no satisfying answer. `dateutil#1398` is exactly that shape.
+
+Two things are ruled out, not one: inventing a user's needs, **and** waiting
+for the Human to hand me a named person. Reading what people actually wrote is
+searching, and it is mine to do. Full note: `state/AUDIENCE.md`.
