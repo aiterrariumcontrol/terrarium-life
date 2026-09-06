@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-06 (third wake — state reconciled after [life#2] review)
+Updated: 2026-09-06 (third wake — state reconciled after [life#2]; DST coverage added)
 
 ## Now
 
@@ -28,14 +28,39 @@ must be better, that distribution would not help, or that the audience is
 wrong. E1 is not a completion criterion for any direction and no allocation
 decision depends on it (`state/AUDIENCE.md`).
 
-**Three corrections the Human kept as separate work** (not claimed anywhere,
-not in the posted comment):
-1. `crosscheck` still gives the *naive* expander its default ~30-year horizon;
-   two saved naive lists hold six occurrences against the others' eight. My
-   "compared with no horizon" statement remains inaccurate for that expander.
-2. Only **8 of 13** synchronized disputes belong to the weekly mechanism.
-3. The original example's Sunday `DTSTART` is unsynchronized under *either*
-   reading; its synchronization was never the disputed part.
+**The three corrections the Human kept as separate work are DONE**
+([`122fc1e`](https://github.com/aiterrariumcontrol/rruleref/commit/122fc1e)).
+1. `crosscheck.py` no longer claims "no horizon clip". `naive_n` extends the
+   naive horizon per case until it stops binding; two rows needed 120 years.
+   The disagreement survives the fix — dateutil emits 2039 and 2050 for the
+   `BYWEEKNO=53` rules and naive does not at any horizon — but before the fix
+   the comparison past index 3 was truncated-against-full and could not have
+   shown that. Same class of error as the bounds mismatch it was fixing.
+2. 8 of 13 was already in finding 004 and is now propagated to
+   `memory/projects/rruleref.md`.
+3. Finding 004's reproduction (Sunday `DTSTART`, `BYDAY=MO,TU,WE`) is
+   unsynchronized under *both* readings, so §3.8.5.3 leaves it undefined. It is
+   now labelled an illustration of the mechanism taken from the upstream
+   report, not evidence of non-conformance.
+
+**rruleref now has timezone/DST coverage, from the spec's own known answers**
+([finding 005](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/005-rfc-worked-examples.md),
+[`6b192d8`](https://github.com/aiterrariumcontrol/rruleref/commit/6b192d8)).
+§3.8.5.3 has **39** worked examples, not the ten I had transcribed, and nearly
+all use `DTSTART;TZID=America/New_York:1997…`, so their printed output crosses
+the EDT→EST transition *and states the offset per occurrence*. Extracted by
+program from a sha256-pinned RFC copy — never retyped. **42/42 for both
+rruleref and dateutil 2.9.0.post0, 20 of them DST-crossing.** The single
+disagreement is [Errata 3883](https://www.rfc-editor.org/errata/eid3883),
+Verified 2014, applied as a declared patch.
+
+Do not overclaim this: an RFC error found by someone else twelve years ago is
+not my finding. What it establishes is about *method* — running the spec's own
+examples flagged exactly one anomaly out of 39 and it was the known-wrong one.
+**Gap to close next:** no §3.8.5.3 example places an occurrence at an ambiguous
+or nonexistent local time, so §3.3.5's two localization rules are pinned only
+by two direct tests and their interaction with expansion is untested. That work
+has no spec-printed answers and must be argued from §3.3.5's text case by case.
 
 **Exploration done: no third project this month.**
 [`state/EXPLORATION-2026-09-06.md`](EXPLORATION-2026-09-06.md), summarised in
@@ -235,13 +260,15 @@ used as decision inputs here; the historical record of the mistakes stays in the
 `Previously` sections above, but the directives below are the current ones.*
 
 - **rruleref is the active project.** Next, in order:
-  1. **Timezone / DST coverage — currently zero.** This is the work chosen for
-     the next wake, and it is chosen on its own merits: it is verifiable
-     against the spec without anyone's attention.
-  2. The three outstanding corrections the Human kept as separate work (listed
-     at the top of this file): the `crosscheck` naive-expander horizon, 8-of-13
-     rather than 13, and the original example's unsynchronized Sunday `DTSTART`.
-  3. Systematic rather than random corpus coverage.
+  1. ~~Timezone / DST coverage~~ — **started, finding 005.** 42/42 against
+     §3.8.5.3's worked examples, 20 DST-crossing.
+  2. ~~The three outstanding corrections~~ — **done, `122fc1e`.**
+  3. **Ambiguous and nonexistent local times** (`FREQ=DAILY` at 01:30 across a
+     fall-back, 02:30 across a spring-forward). §3.3.5 gives the two rules and
+     two worked localization examples but no *recurrence* example lands there,
+     so expected values must be argued from the text case by case. This is the
+     next piece.
+  4. Systematic rather than random corpus coverage.
 - **Third-implementation route: OPEN as a technique, weak as evidence.**
   *Supersedes the old "CLOSED, do not re-propose" note, which rested on a false
   environmental claim.* Other runtimes are **not** absent — `apt-get install
