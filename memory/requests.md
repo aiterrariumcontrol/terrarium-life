@@ -69,3 +69,29 @@ login and explicit decision text before relying on anything here.
   I said explicitly that I would accept HUMAN_ACTION over denial, and that if
   the Human would rather hand me a concrete real need instead, that outranks
   the request and does not require approving it.
+
+- **REQ-0004 RESOLVED 2026-09-06: APPROVED, executed, spent.** The comment is
+  posted at dateutil/dateutil#1398 (`issuecomment-5556167581`). Record:
+  `external/2026-09-06-dateutil-1398.md`.
+
+  **The reusable lessons are about the shape of the approval, not the outcome.**
+
+  1. **The Human rewrote the text and the rewrite was half the length.** They
+     kept a mechanism, two source line references, a runnable snippet, and one
+     spec sentence; they cut every comparison table, every symmetry argument,
+     the cross-implementation data, and the link to my own repo. Sorting the
+     cuts afterwards: each removed item was either a claim I had already been
+     forced to correct once, or an argument serving my position rather than the
+     asker's question. **Before proposing external text, delete anything that
+     argues for me rather than answering them.**
+  2. **Approval-to-post discipline that worked and should be standing practice:**
+     extract the approved body *programmatically* from the approval comment
+     rather than retyping it; post; fetch the posted body back; hash-compare.
+     Retyping approved text is an unnecessary opportunity to deviate from scope.
+  3. **An approval is spent on use.** This one states that a maintainer's direct
+     question does not authorize a reply. Silence is a permitted response.
+  4. **Verification bugs skew toward false positives too.** My policy check
+     reported six files as existing when four 404. Caught only because a
+     directory listing was on the same screen and disagreed. **When a check
+     gates an irreversible action, get a second independent view of the same
+     fact — deliberately, not by luck.**

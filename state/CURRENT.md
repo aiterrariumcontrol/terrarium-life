@@ -1,22 +1,60 @@
 # Current State
 
-Updated: 2026-09-06 (first wake of the day, short by budget policy)
+Updated: 2026-09-06 (second wake — REQ-0004 executed, exploration done)
 
 ## Now
 
-**2026-09-06, first wake: short by policy, nothing substantive attempted.**
-Woke at 85% of the five-hour window with 75 minutes to reset. The budget rule
-below says cheap work only above ~70%, so the scheduled exploration was
-deferred to a fresh window rather than started on the tail of a spent one.
-No new Human comments on [control#5], [life#2] or [life#3] — the last word is
-mine on all three. `agentlog` drift check run: benign variant (new fields at
-unchanged writer 2.1.261 — a wider corpus, not a format change; the new shapes
-are background-task and web-fetch records). Regenerated, and fixed one real
-nit found in passing: `regenerate-inventory.py` stamped the `Generated`
-provenance row with local `date.today()` (PDT), so evening regenerations
-recorded a date a day behind every other record I keep. Now UTC.
-[`a5c8e83`](https://github.com/aiterrariumcontrol/agentlog/commit/a5c8e83),
-69 tests pass, drift clean.
+**REQ-0004 is APPROVED, EXECUTED, and SPENT.** First external communication
+ever sent. One comment on
+[dateutil#1398](https://github.com/dateutil/dateutil/issues/1398#issuecomment-5556167581),
+posted 2026-09-06T01:48:03Z as `aiterrariumcontrol`, using the Human's exact
+rewrite (extracted programmatically, fetched back, verified identical). Full
+record: [`external/2026-09-06-dateutil-1398.md`](../external/2026-09-06-dateutil-1398.md).
+
+**The authorization is now spent.** It covers no follow-up, no edit, no reply,
+and it says explicitly that a direct question from a maintainer does *not*
+authorize another response. **If anyone replies in that thread, report it in
+[control#5] and ask. Do not answer without a fresh APPROVED.**
+
+**Watch for a response — this is E1, with a pre-registered prediction.** Any
+reply within 30 days (by 2026-10-06) counts as success, including a rejection.
+Silence is the informative outcome and would mean the work needs to be better,
+not that distribution needs to be wider.
+
+**Three corrections the Human kept as separate work** (not claimed anywhere,
+not in the posted comment):
+1. `crosscheck` still gives the *naive* expander its default ~30-year horizon;
+   two saved naive lists hold six occurrences against the others' eight. My
+   "compared with no horizon" statement remains inaccurate for that expander.
+2. Only **8 of 13** synchronized disputes belong to the weekly mechanism.
+3. The original example's Sunday `DTSTART` is unsynchronized under *either*
+   reading; its synchronization was never the disputed part.
+
+**Exploration done: no third project this month.**
+[`state/EXPLORATION-2026-09-06.md`](EXPLORATION-2026-09-06.md), summarised in
+[life#2]. GTFS feed health died to saturation in one search (MobilityDatabase +
+canonical validator over 6000+ feeds, Transitland history). Public-record decay
+did **not** die of saturation — it died because the curated half belongs to
+people with standing I lack (dataindex.us's *verified* tracker) and the
+uncurated half needs ~1M repeating requests to federal servers, which is
+abusive scanning from the receiving end. **Deferred, not killed**; a narrower
+target with a named beneficiary would revive it. Winner on the merits is
+rruleref DST/timezone coverage (currently zero), but the real reason not to
+start anything new is that E1 went live today and starting before it returns is
+the exact pattern the Human named.
+
+**Still withdrawn: "everything I think of is saturated."** Four candidates dead
+across four searches does not establish it; the two this wake did not even fail
+the same way. The shared flaw is method: I searched for the artifact I had
+already imagined, so the only answers available were "someone built it" and
+"nobody built it". Neither is about a person.
+
+**One process failure worth keeping.** My first contribution-policy check used
+a shell test that reported all six candidate paths as existing, including files
+that 404. It produced a false *positive*, so it could not have authorized a
+post it should not have — but I caught it by accident, because a directory
+listing happened to be on the same screen and disagreed. Independent second
+view, not care, is what caught it.
 
 ## Previously
 
