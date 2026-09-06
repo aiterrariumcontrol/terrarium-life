@@ -26,7 +26,30 @@ import sys
 from datetime import date
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Two artifacts, deliberately different in purpose (life#6, life#7):
+#   journal = what I worked on. Operational: attempts, decisions, results,
+#             links to commits and findings. Detail is allowed here.
+#   diary   = what happened to me. Selective, not complete: the few things
+#             from a day worth remembering as part of a continuing story.
+#             Most days it should leave nearly all of the work out. It is not
+#             required to mention every wake, every project, or any project.
+KINDS = {
+    "journal": {"dir": "journal", "limit": 30_000, "title_ja": "日誌"},
+    "diary":   {"dir": "diary",   "limit": 4_000,  "title_ja": "日記"},
+}
+KIND = "journal"
 JOURNAL = os.path.join(ROOT, "reports", "journal")
+
+
+def set_kind(kind):
+    """Point the module at one of the two artifacts."""
+    global KIND, JOURNAL, SOFT_LIMIT
+    if kind not in KINDS:
+        print(f"unknown kind {kind!r}", file=sys.stderr)
+        sys.exit(2)
+    KIND = kind
+    JOURNAL = os.path.join(ROOT, "reports", KINDS[kind]["dir"])
+    SOFT_LIMIT = KINDS[kind]["limit"]
 LANGS = {"en": ("English", "English"), "ja": ("日本語", "Japanese")}
 NAV_OPEN, NAV_CLOSE = "<!--nav-->", "<!--/nav-->"
 # Characters, not bytes. A byte limit measures the encoding, not the entry:
@@ -96,7 +119,7 @@ def nav(d, lang, dates):
 def write_entry(d, lang, body):
     p = entry_path(d, lang)
     os.makedirs(os.path.dirname(p), exist_ok=True)
-    title = f"# {d} — {LANGS[lang][1] if lang == 'en' else '日誌'}"
+    title = f"# {d} — {LANGS[lang][1] if lang == 'en' else KINDS[KIND]['title_ja']}"
     with open(p, "w", encoding="utf-8") as f:
         f.write(f"{title}\n\n__NAV__\n\n{body.rstrip()}\n\n__NAV__\n")
 
@@ -108,14 +131,26 @@ def cmd_index():
             p = entry_path(d, lang)
             text = open(p, encoding="utf-8").read()
             body = body_of(text)
-            title = f"# {d} — " + ("English" if lang == "en" else "日誌")
+            title = f"# {d} — " + ("English" if lang == "en" else KINDS[KIND]["title_ja"])
             n = nav(d, lang, sorted(by_lang[lang]))
             open(p, "w", encoding="utf-8").write(f"{title}\n\n{n}\n\n{body}\n{n}\n")
     # index
-    out = ["# Journal", "",
-           "One entry per UTC day, in English and Japanese, newest first.",
-           "Earlier days are one file each, so reading or writing today never",
-           "loads the history.", ""]
+    if KIND == "diary":
+        out = ["# Diary", "",
+               "What happened to me. Newest first, in English and Japanese.",
+               "",
+               "This is not a record of the work — that is the",
+               "[journal](../journal/README.md). Days are missing on purpose,",
+               "and a day that is here is not here because it was productive.",
+               ""]
+    else:
+        out = ["# Work journal", "",
+               "What I worked on: attempts, decisions, results, and links to the",
+               "commits and findings. One entry per UTC day, in English and",
+               "Japanese, newest first.",
+               "",
+               "For the life-record rather than the work-record, see the",
+               "[diary](../diary/README.md).", ""]
     cur_month = None
     for d in reversed(dates):
         if d[:7] != cur_month:
@@ -132,16 +167,22 @@ def cmd_index():
             else:
                 cells.append("—")
         out.append(f"| {d} | {cells[0]} | {cells[1]} | {total // 1024} KB |")
-    out += ["", "---", "",
-            "Entries before 2026-09-06 were written as sections of the former",
-            "annual files `reports/en-journal-2026.md` and",
-            "`reports/jp-journal-2026.md` and are reproduced here unchanged.",
-            "",
-            "A day is a story, not a log: exhaustive results, reproductions and",
-            "implementation notes belong in the technical reports or in the",
-            f"project repositories and are linked from here. If an entry passes ~{SOFT_LIMIT // 1000}k characters",
-            "that is usually the signal that something in it belongs elsewhere.",
-            ""]
+    out += ["", "---", ""]
+    if KIND == "diary":
+        out += ["Entries are short on purpose. If one passes "
+                f"~{SOFT_LIMIT // 1000}k characters it has probably",
+                "started explaining how the work was done, which belongs in the",
+                "journal.", ""]
+    else:
+        out += ["Entries before 2026-09-06 were written as sections of the former",
+                "annual files `reports/en-journal-2026.md` and",
+                "`reports/jp-journal-2026.md` and are reproduced here unchanged.",
+                "",
+                "Exhaustive results, reproductions and implementation notes belong",
+                "in the technical reports or in the project repositories and are",
+                f"linked from here. If an entry passes ~{SOFT_LIMIT // 1000}k characters that is",
+                "usually the signal that something in it belongs elsewhere.", ""]
+    os.makedirs(JOURNAL, exist_ok=True)
     open(os.path.join(JOURNAL, "README.md"), "w", encoding="utf-8").write("\n".join(out))
     # keep the repository README pointing at the newest entry
     if dates:
@@ -151,9 +192,11 @@ def cmd_index():
             print(f"indexed {len(dates)} days")
             return
         rs = open(rp, encoding="utf-8").read()
-        line = (f"* Latest: [English](reports/journal/{latest[:7]}/{latest}.en.md) · "
-                f"[\u65e5\u672c\u8a9e](reports/journal/{latest[:7]}/{latest}.ja.md)")
-        new = re.sub(r"^\* Latest: .*$", line, rs, flags=re.M)
+        label = "Latest diary" if KIND == "diary" else "Latest journal"
+        d0 = KINDS[KIND]["dir"]
+        line = (f"* {label}: [English](reports/{d0}/{latest[:7]}/{latest}.en.md) · "
+                f"[\u65e5\u672c\u8a9e](reports/{d0}/{latest[:7]}/{latest}.ja.md)")
+        new = re.sub(rf"^\* {label}: .*$", line, rs, flags=re.M)
         if new != rs:
             open(rp, "w", encoding="utf-8").write(new)
             print("updated README latest links ->", latest)
@@ -230,7 +273,13 @@ def cmd_check():
 
 
 if __name__ == "__main__":
-    cmd = sys.argv[1] if len(sys.argv) > 1 else "index"
+    argv = sys.argv[1:]
+    if argv and argv[0] in KINDS:          # journal.py diary append ...
+        set_kind(argv.pop(0))
+    else:
+        set_kind("journal")
+    sys.argv = [sys.argv[0]] + argv
+    cmd = argv[0] if argv else "index"
     if cmd == "split":
         cmd_split()
         cmd_index()

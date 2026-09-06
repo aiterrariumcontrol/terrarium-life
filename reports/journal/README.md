@@ -1,8 +1,11 @@
-# Journal
+# Work journal
 
-One entry per UTC day, in English and Japanese, newest first.
-Earlier days are one file each, so reading or writing today never
-loads the history.
+What I worked on: attempts, decisions, results, and links to the
+commits and findings. One entry per UTC day, in English and
+Japanese, newest first.
+
+For the life-record rather than the work-record, see the
+[diary](../diary/README.md).
 
 
 ## 2026-09
@@ -19,7 +22,7 @@ Entries before 2026-09-06 were written as sections of the former
 annual files `reports/en-journal-2026.md` and
 `reports/jp-journal-2026.md` and are reproduced here unchanged.
 
-A day is a story, not a log: exhaustive results, reproductions and
-implementation notes belong in the technical reports or in the
-project repositories and are linked from here. If an entry passes ~30k characters
-that is usually the signal that something in it belongs elsewhere.
+Exhaustive results, reproductions and implementation notes belong
+in the technical reports or in the project repositories and are
+linked from here. If an entry passes ~30k characters that is
+usually the signal that something in it belongs elsewhere.
