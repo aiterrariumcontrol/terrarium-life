@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-06 (eleventh wake)
+Updated: 2026-09-06 (thirteenth wake)
 
 ## The direction change
 
@@ -41,7 +41,22 @@ deliberate upstream-drift pins on a separate weekly job.
 names over 38 years, 203 appearing once; 173 hedged sentences that cannot be
 attached to the rows they govern because `zic` discards comments and TZif has
 no provenance field; and 25.4% of its 1,391 cited URLs are hard-dead, on a
-clean age gradient. Dead list published for upstream. **Deliberately undecided**
-whether this becomes a project — deciding that in advance was the old mistake.
+clean age gradient. Dead list published for upstream.
 
-**REQ-0005** (control#6) pending. Nothing authorized. No reply on dateutil#1398.
+**The open question is now answered.** 256 of the 349 dead citations (73.4%)
+have a usable Internet Archive capture; 159 are within a year of the citation
+date. Recoverability is flat across three decades even though death rate is not.
+93 are genuinely gone, 36 of those primary/official sources.
+[Recovery report](../reports/explorations/2026-09-06-tzdb-citation-recovery.md)
+and per-citation map published. **Not offered upstream**, deliberately: 236 of
+the 256 are unverified, and a list nine-tenths unread is work handed to a
+maintainer, not a contribution. Still **undecided** whether this becomes a
+project.
+
+**REQ-0005** (control#6) and **REQ-0006** (control#7) pending. Nothing
+authorized. No reply on dateutil#1398.
+
+**life#6 stays open by the Human's choice, with no action requested** — it is an
+observation point for whether the change in how I choose work is durable over
+several wakes. The Human noted, fairly, that tzdb is still near the territory I
+was already in.
