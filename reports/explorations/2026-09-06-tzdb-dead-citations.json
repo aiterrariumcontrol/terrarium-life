@@ -1,0 +1,2801 @@
+{
+ "tzdb_version": "2026c",
+ "surveyed": "2026-09-06",
+ "method": "one HEAD (GET on 405/403) per unique URL, <=1 concurrent request per host, 10s timeout",
+ "criterion": "HTTP 404/410 or the domain no longer resolves; 403/timeout/5xx excluded as possibly bot-blocking",
+ "count": 349,
+ "citations": [
+  {
+   "url": "http://news.gom.com.eg/gazette/pdf/2006/09/18/01.pdf",
+   "file": "africa",
+   "line": 196,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2006-09-19",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://support.microsoft.com/kb/958729/",
+   "file": "africa",
+   "line": 236,
+   "cited_by": "Petr Machata",
+   "cited_on": "2009-04-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://wwp.greenwichmeantime.com/time-zone/africa/egypt/",
+   "file": "africa",
+   "line": 242,
+   "cited_by": "Petr Machata",
+   "cited_on": "2009-04-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.pri.org/stories/2015-01-30/if-you-have-meeting-ethiopia-you-better-double-check-time",
+   "file": "africa",
+   "line": 414,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2018-09-11",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.libyaherald.com/2012/11/04/clocks-to-go-back-an-hour-on-saturday/",
+   "file": "africa",
+   "line": 452,
+   "cited_by": "Even Scharning",
+   "cited_on": "2012-11-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.libyaherald.com/2013/10/24/correction-no-time-change-tomorrow/",
+   "file": "africa",
+   "line": 467,
+   "cited_by": "Even Scharning",
+   "cited_on": "2013-10-25",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://economicdevelopment.gov.mu/portal/site/Mainhomepage/menuitem.a42b24128104d9845dabddd154508a0c/?content_id=0a7cee8b5d69a110VgnVCM1000000a04a8c0RCRD",
+   "file": "africa",
+   "line": 513,
+   "cited_by": "Alex Krivenyshev",
+   "cited_on": "2008-06-25",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lexpress.mu/display_article.php?news_id=111216",
+   "file": "africa",
+   "line": 525,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2008-07-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://en.afrik.com/news11892.html",
+   "file": "africa",
+   "line": 627,
+   "cited_by": "Alex Krivenyshev",
+   "cited_on": "2008-05-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.actu.ma/heure-dete-comment_i127896_0.html",
+   "file": "africa",
+   "line": 640,
+   "cited_by": "Patrice Scattolin",
+   "cited_on": "2008-05-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.maroc.ma/NR/exeres/FACF141F-D910-44B0-B7FA-6E03733425D1.htm",
+   "file": "africa",
+   "line": 656,
+   "cited_by": "Patrice Scattolin",
+   "cited_on": "2008-05-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://news.marweb.com/morocco/entertainment/morocco-daylight-saving.html",
+   "file": "africa",
+   "line": 677,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-03-17",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.medi1sat.ma/fr/depeche.aspx?idp=2312",
+   "file": "africa",
+   "line": 678,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-03-17",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.mmsp.gov.ma/francais/Actualites_fr/PDF_Actualites_Fr/HeureEte_FR.pdf",
+   "file": "africa",
+   "line": 693,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-03-17",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lavieeco.com/actualites/4099-le-maroc-passera-a-l-heure-d-ete-gmt1-le-2-mai.html",
+   "file": "africa",
+   "line": 702,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2010-04-13",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.anrt.net.ma/fr/",
+   "file": "africa",
+   "line": 715,
+   "cited_by": "Dan Abitol",
+   "cited_on": "2011-03-30",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.lematin.ma/Actualite/Express/Article.asp?id=148923",
+   "file": "africa",
+   "line": 723,
+   "cited_by": "Dan Abitol",
+   "cited_on": "2011-03-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lavieeco.com/actualite/Le-Maroc-passe-sur-GMT+1-a-partir-de-dim",
+   "file": "africa",
+   "line": 724,
+   "cited_by": "Dan Abitol",
+   "cited_on": "2011-03-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.le2uminutes.com/actualite.php",
+   "file": "africa",
+   "line": 756,
+   "cited_by": "Christophe Tropamer",
+   "cited_on": "2012-03-16",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.mmsp.gov.ma/fr/actualites.aspx?id=288",
+   "file": "africa",
+   "line": 762,
+   "cited_by": "Milamber Space Network",
+   "cited_on": "2012-07-17",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lemag.ma/Heure-d-ete-au-Maroc-jusqu-au-27-octobre_a75620.html",
+   "file": "africa",
+   "line": 795,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2013-09-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.afriquinfos.com/articles/2014/3/18/maroc-heure-dete-avancez-tous-horloges-247891.asp",
+   "file": "africa",
+   "line": 798,
+   "cited_by": "Sebastien Willemijns",
+   "cited_on": "2014-03-18",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.mmsp.gov.ma/fr/actualites.aspx?id=586",
+   "file": "africa",
+   "line": 804,
+   "cited_by": "Milamber Space Network",
+   "cited_on": "2014-06-05",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://lnt.ma/le-maroc-reculera-dune-heure-le-dimanche-14-juin/",
+   "file": "africa",
+   "line": 814,
+   "cited_by": "Milamber",
+   "cited_on": "2015-06-08",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.mmsp.gov.ma/fr/actualites.aspx?id=863",
+   "file": "africa",
+   "line": 817,
+   "cited_by": "Milamber",
+   "cited_on": "2015-06-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.sgg.gov.ma/Portals/1/BO/2018/BO_6720-bis_Ar.pdf",
+   "file": "africa",
+   "line": 830,
+   "cited_by": "Matt Johnson",
+   "cited_on": "2018-10-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.mmsp.gov.ma/fr/actualites.aspx?id=2076",
+   "file": "africa",
+   "line": 864,
+   "cited_by": "Milamber",
+   "cited_on": "2020-05-31",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.namibian.com.na/51480/read/Time-change-divides-lawmakers",
+   "file": "africa",
+   "line": 1027,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2017-02-22",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.newera.com.na/2017/02/23/namibias-winter-time-might-be-repealed/",
+   "file": "africa",
+   "line": 1031,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2017-08-09",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://www.nbc.na/news/na-passes-namibia-time-bill-repealing-1994-namibia-time-act.8665",
+   "file": "africa",
+   "line": 1033,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2017-08-09",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.nbc.na/news/namibias-winter-time-could-be-scrapped.2706",
+   "file": "africa",
+   "line": 1041,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2017-04-09",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.mnec.gov.st/index.php/publicacoes/documentos/file/90-decreto-lei-n-25-2017",
+   "file": "africa",
+   "line": 1160,
+   "cited_by": "Michael Deckers",
+   "cited_on": "2018-01-08",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.tap.info.tn/en/index.php?option=com_content&task=view&id=1188&Itemid=50",
+   "file": "africa",
+   "line": 1258,
+   "cited_by": "Atef Loukil",
+   "cited_on": "2006-03-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.babnet.net/kiwidetail-15295.asp",
+   "file": "africa",
+   "line": 1264,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-03-16",
+   "reason": "HTTP 410"
+  },
+  {
+   "url": "http://www.tap.info.tn/en/index.php?option=com_content&task=view&id=26813&Itemid=157",
+   "file": "africa",
+   "line": 1276,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-03-17",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.tap.info.tn/ar/index.php?option=com_content&task=view&id=61240&Itemid=1",
+   "file": "africa",
+   "line": 1279,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-03-17",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.almadenahnews.com/newss/news.php?c=118&id=38036",
+   "file": "africa",
+   "line": 1299,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2010-03-27",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.aad.gov.au/default.asp?casid=37079",
+   "file": "antarctica",
+   "line": 46,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-03-11",
+   "reason": "HTTP 410"
+  },
+  {
+   "url": "http://www.antdiv.gov.au/aad/exop/sfo/casey/casey_aws.html",
+   "file": "antarctica",
+   "line": 117,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-12-20",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.antdiv.gov.au/aad/exop/sfo/davis/video.html",
+   "file": "antarctica",
+   "line": 119,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-12-20",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.antdiv.gov.au/aad/exop/sfo/mawson/video.html",
+   "file": "antarctica",
+   "line": 121,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-12-20",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://newsarmenia.ru/society/20120209/42609695.html",
+   "file": "asia",
+   "line": 106,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2012-02-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.asiantribune.com/?q=node/17288",
+   "file": "asia",
+   "line": 158,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-05-13",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.thedailystar.net/newDesign/news-details.php?nid=107021",
+   "file": "asia",
+   "line": 193,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-09-25",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.thedailystar.net/newDesign/news-details.php?nid=119228",
+   "file": "asia",
+   "line": 210,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-12-24",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.thedailystar.net/newDesign/latest_news.php?nid=22817",
+   "file": "asia",
+   "line": 221,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2010-03-22",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://oversea.cnki.net/kns55/detail.aspx?dbname=CJFD2014&filename=NJSH201402020",
+   "file": "asia",
+   "line": 299,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2018-10-02",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://data.people.com.cn/pic/101p/1988/04/1988041201.jpg",
+   "file": "asia",
+   "line": 445,
+   "cited_by": "P Chan",
+   "cited_on": "2018-05-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://oversea.cnki.net/kcms/detail/detail.aspx?filename=ZGKS200301000&dbname=CJFD2003",
+   "file": "asia",
+   "line": 476,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2017-01-05",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.sinkiang.gov.cn/service/ourworking/",
+   "file": "asia",
+   "line": 636,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2014-06-30",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.cwb.gov.tw/V6/astronomy/cdata/summert.htm",
+   "file": "asia",
+   "line": 861,
+   "cited_by": "smallufo",
+   "cited_on": "2010-04-03",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://db2.th.gov.tw/db2/view/viewImg.php?imgcode=0072031018a&num=19&bgn=019&end=019&otherImg=&type=gener",
+   "file": "asia",
+   "line": 930,
+   "cited_by": "Yu-Cheng Chuang",
+   "cited_on": "2014-07-02",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://subtpg.tpg.gov.tw/og/image2.asp?f=03502F0AKM1AF",
+   "file": "asia",
+   "line": 937,
+   "cited_by": "Yu-Cheng Chuang",
+   "cited_on": "2014-07-02",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://subtpg.tpg.gov.tw/og/image2.asp?f=0350300AKM1B0",
+   "file": "asia",
+   "line": 938,
+   "cited_by": "Yu-Cheng Chuang",
+   "cited_on": "2014-07-02",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://subtpg.tpg.gov.tw/og/image2.asp?f=0360310AKZ431",
+   "file": "asia",
+   "line": 943,
+   "cited_by": "Yu-Cheng Chuang",
+   "cited_on": "2014-07-02",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://legismac.safp.gov.mo/legismac/descqry/Descqry.jsf?lang=pt",
+   "file": "asia",
+   "line": 987,
+   "cited_by": "P Chan",
+   "cited_on": "2018-05-10",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.archives.gov.mo/en/bo/",
+   "file": "asia",
+   "line": 992,
+   "cited_by": "P Chan",
+   "cited_on": "2018-05-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.smg.gov.mo/smg/geophysics/e_t_Summer%20Time.htm",
+   "file": "asia",
+   "line": 996,
+   "cited_by": "P Chan",
+   "cited_on": "2018-05-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://cyprus-mail.com/2016/09/08/two-time-zones-cyprus-turkey-will-not-turn-clocks-back-next-month/",
+   "file": "asia",
+   "line": 1131,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2016-09-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://cyprus-mail.com/2016/10/30/cyprus-new-division-two-time-zones-now-reality/",
+   "file": "asia",
+   "line": 1135,
+   "cited_by": "Even Scharning",
+   "cited_on": "2016-10-31",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://cyprus-mail.com/2017/10/17/cyprus-remain-united-time/",
+   "file": "asia",
+   "line": 1141,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2017-10-18",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.sumatera-inc.com/go_to_invest/about_indonesia.asp#standtime",
+   "file": "asia",
+   "line": 1329,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2001-05-28",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://time.kim.lipi.go.id/time-eng.php",
+   "file": "asia",
+   "line": 1353,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2013-08-11",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law12/er-002.pdf#page=3",
+   "file": "asia",
+   "line": 1808,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law12/er-017-t2.pdf#page=4",
+   "file": "asia",
+   "line": 1809,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0006.pdf#page=3",
+   "file": "asia",
+   "line": 1810,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0080.pdf#page=7",
+   "file": "asia",
+   "line": 1811,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0164.pdf#page=10",
+   "file": "asia",
+   "line": 1812,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0206.pdf#page=4",
+   "file": "asia",
+   "line": 1813,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0212.pdf#page=2",
+   "file": "asia",
+   "line": 1814,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0254.pdf#page=4",
+   "file": "asia",
+   "line": 1815,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0300.pdf#page=5",
+   "file": "asia",
+   "line": 1816,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0348.pdf#page=3",
+   "file": "asia",
+   "line": 1817,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0420.pdf#page=5",
+   "file": "asia",
+   "line": 1818,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0497.pdf#page=10",
+   "file": "asia",
+   "line": 1819,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0591.pdf#page=6",
+   "file": "asia",
+   "line": 1820,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-0680.pdf#page=3",
+   "file": "asia",
+   "line": 1821,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-3192.pdf#page=2",
+   "file": "asia",
+   "line": 1822,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-3322.pdf#page=5",
+   "file": "asia",
+   "line": 1823,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-4146.pdf#page=2",
+   "file": "asia",
+   "line": 1824,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-4604.pdf#page=7",
+   "file": "asia",
+   "line": 1825,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-4619.pdf#page=2",
+   "file": "asia",
+   "line": 1826,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-4744.pdf#page=11",
+   "file": "asia",
+   "line": 1827,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-4851.pdf#page=2",
+   "file": "asia",
+   "line": 1828,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-4932.pdf#page=19",
+   "file": "asia",
+   "line": 1829,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5013.pdf#page=8",
+   "file": "asia",
+   "line": 1830,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5021.pdf#page=8",
+   "file": "asia",
+   "line": 1831,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5096.pdf#page=3",
+   "file": "asia",
+   "line": 1832,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5167.pdf#page=2",
+   "file": "asia",
+   "line": 1833,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5248.pdf#page=7",
+   "file": "asia",
+   "line": 1834,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5335.pdf#page=6",
+   "file": "asia",
+   "line": 1835,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5339.pdf#page=7",
+   "file": "asia",
+   "line": 1836,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5506.pdf#page=19",
+   "file": "asia",
+   "line": 1837,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5731.pdf#page=2",
+   "file": "asia",
+   "line": 1838,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5853.pdf#page=3",
+   "file": "asia",
+   "line": 1839,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-5937.pdf#page=9",
+   "file": "asia",
+   "line": 1840,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_word/law06/tak-6024.pdf#page=4",
+   "file": "asia",
+   "line": 1841,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_html/law19/p201_003.htm",
+   "file": "asia",
+   "line": 1844,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_html/law19/p201_004.htm",
+   "file": "asia",
+   "line": 1847,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nevo.co.il/law_html/law01/p201_002.htm",
+   "file": "asia",
+   "line": 1850,
+   "cited_by": "P Chan",
+   "cited_on": "2020-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/00219480428029.htm",
+   "file": "asia",
+   "line": 2126,
+   "cited_by": "Takayuki Nikai",
+   "cited_on": "2018-01-19",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/00719500331039.htm",
+   "file": "asia",
+   "line": 2127,
+   "cited_by": "Takayuki Nikai",
+   "cited_on": "2018-01-19",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://star.arabia.com/990701/JO9.html",
+   "file": "asia",
+   "line": 2165,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2018-09-27",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://star.arabia.com/990930/JO9.html",
+   "file": "asia",
+   "line": 2171,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2018-09-27",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.petranews.gov.jo/nepras/2006/Sep/05/4000.htm",
+   "file": "asia",
+   "line": 2186,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2006-10-01",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.kazsociety.org.uk/news/2005/03/30.htm",
+   "file": "asia",
+   "line": 2288,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2022-10-05",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://libinfo.org/newsr/newsr2574.djvu",
+   "file": "asia",
+   "line": 2321,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-03-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://eng.gateway.kg/cgi-bin/page.pl?id=1&story_name=doc9979.shtml",
+   "file": "asia",
+   "line": 2581,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2005-08-15",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.koreaherald.com/view.php?ud=200607100012",
+   "file": "asia",
+   "line": 2606,
+   "cited_by": "Annie I. Bang",
+   "cited_on": "2006-07-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://news.yahoo.com/north-korea-celebrates-time-zone-pyongyang-time-164038128.html",
+   "file": "asia",
+   "line": 2687,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2015-08-15",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.nknews.org/kcna/wp-content/uploads/sites/5/2018/04/rodong-2018-04-30.pdf",
+   "file": "asia",
+   "line": 2697,
+   "cited_by": "Seo Sanghyeon",
+   "cited_on": "2018-04-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://ubpost.mongolnews.mn/index.php?subaction=showcomments&id=1111634894&archive=&start_from=&ucat=1&",
+   "file": "asia",
+   "line": 2877,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2005-07-26",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.eznis.com/Container.jsp?id=112",
+   "file": "asia",
+   "line": 2905,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2008-03-31",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.newjuulchin.mn/web/content/7506?unique=fa24a0f6e96e022a3578ee5195ac879638c734ce",
+   "file": "asia",
+   "line": 2931,
+   "cited_by": "Heitor David Pinto",
+   "cited_on": "2024-06-23",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://ais.mn/files/aip/eAIP/2023-12-25/html/eSUP/ZM-eSUP-23-04-en-MN.html",
+   "file": "asia",
+   "line": 2942,
+   "cited_by": "Heitor David Pinto",
+   "cited_on": "2024-06-23",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.pak.gov.pk/public/news/app/app06_dec.htm",
+   "file": "asia",
+   "line": 3010,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2002-03-15",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://dailymailnews.com/200808/28/news/dmbrn03.html",
+   "file": "asia",
+   "line": 3057,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2008-08-28",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.jpost.com/com/Archive/22.Apr.1999/Opinion/Article-2.html",
+   "file": "asia",
+   "line": 3214,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1999-09-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.abcnews.go.com/International/wireStory?id=5676087",
+   "file": "asia",
+   "line": 3265,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2008-08-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://arabic.pnn.ps/index.php?option=com_content&task=view&id=50850",
+   "file": "asia",
+   "line": 3274,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-03-26",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.safa.ps/ara/?action=showdetail&seid=4158",
+   "file": "asia",
+   "line": 3284,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-08-31",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.moi.gov.ps/en/?page=633167343250594025&nid=11505",
+   "file": "asia",
+   "line": 3303,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-09-02",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://palvoice.org/forums/showthread.php?t=245697",
+   "file": "asia",
+   "line": 3311,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2010-03-19",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://english.wafa.ps/index.php?action=detail&id=23246",
+   "file": "asia",
+   "line": 3386,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2013-09-24",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.alquds.com/news/article/view/id/548257",
+   "file": "asia",
+   "line": 3391,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2015-03-03",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://wafa.ps/ar_page.aspx?id=GveQNZa872839351758aGveQNZ",
+   "file": "asia",
+   "line": 3448,
+   "cited_by": "Pierre Cashon",
+   "cited_on": "2020-10-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://wafa.ps/ar_page.aspx?id=CgpCdYa670694628582aCgpCdY",
+   "file": "asia",
+   "line": 3451,
+   "cited_by": "Pierre Cashon",
+   "cited_on": "2020-10-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://mtit.pna.ps/Site/New/1453",
+   "file": "asia",
+   "line": 3476,
+   "cited_by": "Heba Hamad",
+   "cited_on": "2022-08-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.virtual-pc.com/lankaweb/news/items/240596-2.html",
+   "file": "asia",
+   "line": 3865,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1996-09-03",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://news.sinhalaya.com/wmview.php?ArtID=11002",
+   "file": "asia",
+   "line": 3877,
+   "cited_by": "Jesper N\u00f8rgaard Welen",
+   "cited_on": "2006-04-14",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://today.reuters.co.uk/news/newsArticle.aspx?type=scienceNews&storyID=2006-04-12T172228Z_01_COL295762_RTRIDST_0_SCIENCE-SRILANKA-TIME-DC.XML",
+   "file": "asia",
+   "line": 3882,
+   "cited_by": "Peter Apps and Ranga Sirila of Reuters",
+   "cited_on": "2006-04-12",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.iht.com/articles/ap/2007/03/29/africa/ME-GEN-Syria-Time-Change.php",
+   "file": "asia",
+   "line": 3962,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2007-03-29",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.sana.sy/eng/21/2008/03/11/165173.htm",
+   "file": "asia",
+   "line": 4001,
+   "cited_by": "Arthur David Olson",
+   "cited_on": "2008-03-17",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://sana.sy/ara/2/2008/10/07/195459.htm",
+   "file": "asia",
+   "line": 4022,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2008-10-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.sana.sy/eng/21/2009/03/17/217563.htm",
+   "file": "asia",
+   "line": 4028,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-03-19",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.sana.sy/ara/2/2009/09/29/247012.htm",
+   "file": "asia",
+   "line": 4042,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-10-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://sns.sy/sns/?path=news/read/11421",
+   "file": "asia",
+   "line": 4053,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2010-03-17",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.sana.sy/ara/2/2012/03/26/408215.htm",
+   "file": "asia",
+   "line": 4060,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2012-03-26",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.bom.gov.au/climate/averages/tables/dst_times.shtml",
+   "file": "australasia",
+   "line": 111,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2005-08-16",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.parks.tas.gov.au/index.aspx?base=1828",
+   "file": "australasia",
+   "line": 229,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2005-08-16",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.parks.tas.gov.au/index.aspx?base=1831",
+   "file": "australasia",
+   "line": 230,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2005-08-16",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.radiofiji.com.fj/fullstory.php?id=23719",
+   "file": "australasia",
+   "line": 263,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-11-10",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.fiji.gov.fj/publish/page_16198.shtml",
+   "file": "australasia",
+   "line": 269,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-11-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.fiji.gov.fj/Media-Center/Press-Releases/DAYLIGHT-SAVING-STARTS-ON-SUNDAY,-27th-OCTOBER-201.aspx",
+   "file": "australasia",
+   "line": 322,
+   "cited_by": "the Fijian Government Media Center",
+   "cited_on": "2013-08-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.fiji.gov.fj/Media-Center/Press-Releases/DAYLIGHT-SAVINGS-TO-END-THIS-MONTH-(1",
+   "file": "australasia",
+   "line": 326,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2013-01-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.fiji.gov.fj/Media-Center/Press-Releases/DAYLIGHT-SAVING-STARTS-ON-SUNDAY,-NOVEMBER-2ND.aspx",
+   "file": "australasia",
+   "line": 330,
+   "cited_by": "Ken Rylander",
+   "cited_on": "2014-10-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.fiji.gov.fj/Media-Center/Press-Releases/DAYLIGHT-SAVING-STARTS-ON-6th-NOVEMBER,-2016.aspx",
+   "file": "australasia",
+   "line": 340,
+   "cited_by": "Raymond Kumar",
+   "cited_on": "2016-10-04",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.laws.gov.fj/LawsAsMade/downloadfile/848",
+   "file": "australasia",
+   "line": 364,
+   "cited_by": "Michael Deckers",
+   "cited_on": "2019-08-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.laws.gov.fj/LawsAsMade/GetFile/1071",
+   "file": "australasia",
+   "line": 369,
+   "cited_by": "Alan Mintz",
+   "cited_on": "2020-10-08",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.fiji.gov.fj/Media-Centre/Speeches/English/PM-BAINIMARAMA-S-COVID-19-ANNOUNCEMENT-10-10-21",
+   "file": "australasia",
+   "line": 378,
+   "cited_by": "Tim Parenti",
+   "cited_on": "2021-10-11",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.fbcnews.com.fj/news/covid-19/curfew-moved-back-to-11pm/",
+   "file": "australasia",
+   "line": 379,
+   "cited_by": "Tim Parenti",
+   "cited_on": "2021-10-11",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.fiji.gov.fj/Media-Centre/Speeches/English/CABINET-DECISIONS-3-OCTOBER-2023",
+   "file": "australasia",
+   "line": 399,
+   "cited_by": "Almaz Mingaleev",
+   "cited_on": "2023-10-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-59-7-Guam-Daylight-Savings-Time-May-6-1959.pdf",
+   "file": "australasia",
+   "line": 438,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-61-5-Revocation-of-Daylight-Saving-Time-and-Restoratio.pdf",
+   "file": "australasia",
+   "line": 440,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-67-13-Guam-Daylight-Savings-Time.pdf",
+   "file": "australasia",
+   "line": 442,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-69-2-Repeal-of-Guam-Daylight-Saving-Time.pdf",
+   "file": "australasia",
+   "line": 444,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-69-10-Guam-Daylight-Saving-Time.pdf",
+   "file": "australasia",
+   "line": 446,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-70-10-Guam-Daylight-Saving-Time.pdf",
+   "file": "australasia",
+   "line": 449,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-70-30-End-of-Guam-Daylight-Saving-Time.pdf",
+   "file": "australasia",
+   "line": 450,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-71-5-Guam-Daylight-Savings-Time.pdf",
+   "file": "australasia",
+   "line": 451,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-73-28.-Guam-Day-light-Saving-Time.pdf",
+   "file": "australasia",
+   "line": 454,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-74-7-Guam-Daylight-Savings-Time-Rescinded.pdf",
+   "file": "australasia",
+   "line": 456,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-76-13-Daylight-Savings-Time.pdf",
+   "file": "australasia",
+   "line": 458,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-76-25-Revocation-of-E.O.-76-13.pdf",
+   "file": "australasia",
+   "line": 460,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-77-4-Daylight-Savings-Time.pdf",
+   "file": "australasia",
+   "line": 462,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://documents.guam.gov/wp-content/uploads/E.O.-77-18-Guam-Standard-Time.pdf",
+   "file": "australasia",
+   "line": 464,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2023-10-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.bougainville24.com/bougainville-issues/bougainville-gets-own-timezone/",
+   "file": "australasia",
+   "line": 696,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2014-10-13",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.parliament.gov.ws/documents/acts/Daylight%20Saving%20Act%20%202009%20(English",
+   "file": "australasia",
+   "line": 732,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-10-16",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.mcil.gov.ws/ftcd/daylight_saving_2011.pdf",
+   "file": "australasia",
+   "line": 743,
+   "cited_by": "Laupue Raymond Hughes",
+   "cited_on": "2011-03-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.parliament.gov.ws/images/ACTS/International_Date_Line_Act__2011_-_Eng.pdf",
+   "file": "australasia",
+   "line": 757,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2014-06-27",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.mcil.gov.ws/mcil_publications.html",
+   "file": "australasia",
+   "line": 763,
+   "cited_by": "Laupue Raymond Hughes",
+   "cited_on": "2011-09-02",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.mcil.gov.ws/storage/2021/09/MCIL-Scan_20210920_120553.pdf",
+   "file": "australasia",
+   "line": 786,
+   "cited_by": "Geoffrey D. Bennett",
+   "cited_on": "2021-09-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lawlink.nsw.gov.au/lawlink/Corporate/ll_agdinfo.nsf/pages/community_relations_daylight_saving",
+   "file": "australasia",
+   "line": 1034,
+   "cited_by": "Arthur David Olson",
+   "cited_on": "2005-12-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.cmd.act.gov.au/mediareleases/fileread.cfm?file=86.txt",
+   "file": "australasia",
+   "line": 1188,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2005-06-14",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.news.com.au/story/0,10117,15555031-1246,00.html",
+   "file": "australasia",
+   "line": 1190,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2005-06-14",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.news.com.au/story/0,10117,15564030-1248,00.html",
+   "file": "australasia",
+   "line": 1195,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2005-06-14",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.earthsci.unimelb.edu.au/~awatkins/null.html",
+   "file": "australasia",
+   "line": 1274,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2002-04-09",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.thelaw.tas.gov.au/fragview/42++1968+GS3A@EN+2000070300",
+   "file": "australasia",
+   "line": 1468,
+   "cited_by": "Alex Livingston",
+   "cited_on": "1999-10-04",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.smh.com.au/news/9905/26/pageone/pageone4.html",
+   "file": "australasia",
+   "line": 1522,
+   "cited_by": "Eric Ulevik",
+   "cited_on": "1999-05-26",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://dir.gis.nsw.gov.au/cgi-bin/genobject/document/other/daylightsaving/tigGmZ",
+   "file": "australasia",
+   "line": 1527,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1999-09-27",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://abc.net.au/news/regionals/neweng/monthly/regeng-22jul1999-1.htm",
+   "file": "australasia",
+   "line": 1532,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1999-09-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://abc.net.au/local/news/olympics/1999/07/item19990728112314_1.htm",
+   "file": "australasia",
+   "line": 1537,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1999-09-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://abc.net.au/news/olympics/1999/07/item19990719151754_1.htm",
+   "file": "australasia",
+   "line": 1541,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1999-09-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://abc.net.au/news/olympics/1999/06/item19990601114608_1.htm",
+   "file": "australasia",
+   "line": 1545,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1999-09-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://abc.net.au/news/regionals/brokenh/monthly/regbrok-21jul1999-6.htm",
+   "file": "australasia",
+   "line": 1555,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1999-09-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.safework.sa.gov.au/uploaded_files/DaylightDatesSet.pdf",
+   "file": "australasia",
+   "line": 1628,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2009-04-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.dia.govt.nz/diawebsite.nsf/wpg_URL/Services-Daylight-Saving-Daylight-saving-to-be-extended",
+   "file": "australasia",
+   "line": 1687,
+   "cited_by": "Colin Sharples",
+   "cited_on": "2007-04-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.fiji.gov.fj/press/2000_09/2000_09_13-05.shtml",
+   "file": "australasia",
+   "line": 1762,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2000-01-08",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://pipa.neaq.org/2012/06/images-of-kanton-island.html",
+   "file": "australasia",
+   "line": 1795,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2021-05-27",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://history.army.mil/html/books/070/70-88-1/cmhPub_70-88-1.pdf",
+   "file": "australasia",
+   "line": 1817,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2022-03-31",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://radiodx.com/spdxr/KMTH.htm",
+   "file": "australasia",
+   "line": 1961,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2018-11-18",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.norfolkisland.gov.nf/nia/MediaRelease/Media%20Release%20Norfolk%20Island%20Standard%20Time%20Change.pdf",
+   "file": "australasia",
+   "line": 2003,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2015-09-23",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.tongatapu.net.to/tonga/homeland/timebegins.htm",
+   "file": "australasia",
+   "line": 2089,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1996-01-22",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.tongaonline.com/news/sept1799.html",
+   "file": "australasia",
+   "line": 2150,
+   "cited_by": "Arthur David Olson",
+   "cited_on": "1999-09-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.tongaonline.com",
+   "file": "australasia",
+   "line": 2163,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2000-10-31",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.tongaonline.com/news/march162000.htm",
+   "file": "australasia",
+   "line": 2168,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2000-10-31",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.canadiangeographic.ca/Magazine/SO98/alacarte.asp",
+   "file": "backzone",
+   "line": 516,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2021-05-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.creston.museum.bc.ca/index.php?module=comments&uop=view_comment&cm+id=56",
+   "file": "backzone",
+   "line": 575,
+   "cited_by": "Chris Walton",
+   "cited_on": "2011-12-01",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.bclocalnews.com/kootenay_rockies/crestonvalleyadvance/news/116760809.html",
+   "file": "backzone",
+   "line": 594,
+   "cited_by": "Chris Walton",
+   "cited_on": "2011-12-01",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.nunatsiaqonline.ca/archives/nunavut991130/nvt91119_17.html",
+   "file": "backzone",
+   "line": 780,
+   "cited_by": "Rives McDow",
+   "cited_on": "1999-11-08",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://met.no/met/met_lex/q_u/sommertid.html",
+   "file": "backzone",
+   "line": 1476,
+   "cited_by": "Michael Deckers",
+   "cited_on": "2020-06-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.riksdagen.se/english/work/sfst.asp",
+   "file": "backzone",
+   "line": 1542,
+   "cited_by": "Ivan Nilsson",
+   "cited_on": "2001-04-13",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.nmhcouncil.org/nmhc_archives/U.S.%20Navy%20Civil%20Affairs%20Files%201944-1962/1959/1959%2009%2017%20letter,%20minutes%20of%20conference,%20Borja.pdf",
+   "file": "backzone",
+   "line": 1793,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2022-08-16",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.trumanlibrary.org/oralhist/andrsonv.htm",
+   "file": "backzone",
+   "line": 1815,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2022-08-16",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://resolver.gpntb.ru/purl?docushare/dsweb/Get/Resource-2011/Byalokoz__E.L.__Novyy__schet__vremeni__v__techenie__sutok__izd__2(1",
+   "file": "europe",
+   "line": 55,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2017-02-10",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://www.winstonchurchill.org/publications/finest-hour/finest-hour-114/a-silent-toast-to-william-willett-by-winston-s-churchill",
+   "file": "europe",
+   "line": 192,
+   "cited_by": "Winston Churchill",
+   "cited_on": "1934-04-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.irishstatutebook.ie/ZZA13Y1923.html",
+   "file": "europe",
+   "line": 334,
+   "cited_by": "Joseph S. Myers",
+   "cited_on": "2005-01-26",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://astrozet.net/files/Zones/DOC/RU/1980-925.txt",
+   "file": "europe",
+   "line": 700,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-03-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://bmockbe.ru/events/?ID=7583",
+   "file": "europe",
+   "line": 724,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2011-06-14",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.lawbelarus.com/repub/sub30/texf9611.htm",
+   "file": "europe",
+   "line": 838,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-07-02",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.belta.by/ru/all_news/society/V-Belarusi-otmenjaetsja-perexod-na-sezonnoe-vremja_i_572952.html",
+   "file": "europe",
+   "line": 849,
+   "cited_by": "Yauhen Kharuzhy",
+   "cited_on": "2011-09-16",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://news.tut.by/society/250578.html",
+   "file": "europe",
+   "line": 851,
+   "cited_by": "Yauhen Kharuzhy",
+   "cited_on": "2011-09-16",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://www.bestor.be/wiki/index.php/Voyager_dans_le_temps._L%E2%80%99introduction_de_la_norme_de_Greenwich_en_Belgique",
+   "file": "europe",
+   "line": 874,
+   "cited_by": "Michael Deckers",
+   "cited_on": "2019-08-25",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.statkart.no/efs/efshefter/2001/efs5-2001.pdf",
+   "file": "europe",
+   "line": 1068,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2001-06-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://ina.gl/samlinger/oversigt-over-samlinger/samling/dagsordener/dagsorden.aspx?lang=da&day=24-11-2022",
+   "file": "europe",
+   "line": 1140,
+   "cited_by": "J\u00fcrgen Appel",
+   "cited_on": "2022-11-25",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://ina.gl/dvd/EM%202022/pdf/media/2553529/pkt17_em2022_tidens_bestemmelse_bem_da.pdf",
+   "file": "europe",
+   "line": 1147,
+   "cited_by": "Thomas M. Steenholdt",
+   "cited_on": "2022-12-02",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://trip.rk.ee/cgi-bin/thw?${BASE}=akt&${OOHTML}=rtd&TA=1998&TO=1&AN=1390",
+   "file": "europe",
+   "line": 1222,
+   "cited_by": "Peter Ilieve",
+   "cited_on": "1998-11-04",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://almanakka.helsinki.fi/aikakirja/Aikakirja2007kokonaan.pdf",
+   "file": "europe",
+   "line": 1282,
+   "cited_by": "Janne Snabb",
+   "cited_on": "2010-07-15",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://almanakka.helsinki.fi/images/aikakirja/Aikakirja2013kokonaan.pdf",
+   "file": "europe",
+   "line": 1295,
+   "cited_by": "Konstantin Hypp\u00f6nen",
+   "cited_on": "2014-06-13",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.jan-mayen.no/history.htm",
+   "file": "europe",
+   "line": 1529,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2013-09-04",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.ac-ilsestante.it/MERIDIANE/ora_legale/ORA_LEGALE_ESTIVA_IN_ITALIA.htm",
+   "file": "europe",
+   "line": 1703,
+   "cited_by": "Stephen Trainor",
+   "cited_on": "2019-05-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.radiomarconi.com/marconi/filopanti/1866c.jpg",
+   "file": "europe",
+   "line": 1719,
+   "cited_by": "Luigi Rosa",
+   "cited_on": "2019-05-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.ac-ilsestante.it/MERIDIANE/ora_legale",
+   "file": "europe",
+   "line": 1722,
+   "cited_by": "Michael Deckers",
+   "cited_on": "2016-10-24",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.inrim.it/res/tf/ora_legale_i.shtml",
+   "file": "europe",
+   "line": 1730,
+   "cited_by": "Pierpaolo Bernardi",
+   "cited_on": "2016-10-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://oldsite.inrim.it/res/tf/ora_legale_i.shtml",
+   "file": "europe",
+   "line": 1731,
+   "cited_by": "Pierpaolo Bernardi",
+   "cited_on": "2016-10-20",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.rferl.org/newsline/2001/01/3-CEE/cee-030101.html",
+   "file": "europe",
+   "line": 1857,
+   "cited_by": "Andrei Ivanov",
+   "cited_on": "2000-03-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.tourism.lt/informa/ff.htm",
+   "file": "europe",
+   "line": 1918,
+   "cited_by": "ELTA No. 972 (2582)",
+   "cited_on": "1999-09-29",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.allmoldova.com/moldova-news/1249064116.html",
+   "file": "europe",
+   "line": 1995,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2011-10-17",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://ru.publika.md/link_317061.html",
+   "file": "europe",
+   "line": 2013,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2011-10-26",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.nineoclock.ro/POL/1778pol.html",
+   "file": "europe",
+   "line": 2482,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1999-10-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.government.ru/gov/results/16355/print/",
+   "file": "europe",
+   "line": 2513,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2011-09-15",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://government.consultant.ru/page.aspx?1223966",
+   "file": "europe",
+   "line": 2522,
+   "cited_by": "Sanjeev Gupta",
+   "cited_on": "2011-09-27",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://government.ru/gov/results/16355/",
+   "file": "europe",
+   "line": 2530,
+   "cited_by": "Arthur David Olson",
+   "cited_on": "2012-05-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.rgo.ru/ru/kaliningradskoe-oblastnoe-otdelenie/ob-otdelenii/publikacii/kak-nam-zhilos-bez-letnego-vremeni",
+   "file": "europe",
+   "line": 2672,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-03-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.kaliningradka.ru/site_pc/cherez/index.php?ELEMENT_ID=40091",
+   "file": "europe",
+   "line": 2678,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-03-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://sozd.parliament.gov.ru/bill/452878-7",
+   "file": "europe",
+   "line": 2955,
+   "cited_by": "Alexander Fetisov",
+   "cited_on": "2018-09-20",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.bestpravo.ru/rossijskoje/lj-akty/y3a.htm",
+   "file": "europe",
+   "line": 3118,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-03-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://barnaul.rusplt.ru/index/pochemu_altajskij_kraj_okazalsja_v_neprivychnom_chasovom_pojase-17648.html",
+   "file": "europe",
+   "line": 3127,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-03-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.duma.gov.ru/legislative/planning/day-shedule/por_vesna_2016/",
+   "file": "europe",
+   "line": 3202,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-04-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://council.gov.ru/activity/meetings/schedule/63303",
+   "file": "europe",
+   "line": 3203,
+   "cited_by": "Stepan Golosunov",
+   "cited_on": "2016-04-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.government.ru/content/governmentactivity/rfgovernmentdecisions/archive/2009/09/14/991633.htm",
+   "file": "europe",
+   "line": 3238,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2009-10-13",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.srf.ch/player/video?id=c012c029-03b7-4c2b-9164-aa5902cd58d3",
+   "file": "europe",
+   "line": 3802,
+   "cited_by": "Tobias Conradi",
+   "cited_on": "2011-09-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.astrolojidergisi.com/yazsaati.htm",
+   "file": "europe",
+   "line": 3820,
+   "cited_by": "Alois Treindl",
+   "cited_on": "2019-08-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://rega.basbakanlik.gov.tr/eskiler/2007/03/20070307-7.htm",
+   "file": "europe",
+   "line": 3898,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2007-03-09",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.alomaliye.com/bkk_2002_3769.htm",
+   "file": "europe",
+   "line": 3901,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2007-03-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.worldbulletin.net/?aType=haber&ArticleID=70872",
+   "file": "europe",
+   "line": 3907,
+   "cited_by": "G\u00f6kdeniz Karada\u011f",
+   "cited_on": "2011-03-10",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://news.mail.ru/politics/6861560/",
+   "file": "europe",
+   "line": 4056,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2011-09-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.segodnya.ua/news/14290482.html",
+   "file": "europe",
+   "line": 4059,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2011-09-20",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.uazakon.com/documents/date_21/pg_iwgdoc.htm",
+   "file": "europe",
+   "line": 4098,
+   "cited_by": "Vladimir in Moscow via Alois Treindl re Kyiv time 1991/2",
+   "cited_on": "2014-02-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.uazakon.com/documents/date_8u/pg_grcasa.htm",
+   "file": "europe",
+   "line": 4105,
+   "cited_by": "Vladimir in Moscow via Alois Treindl re Kyiv time 1991/2",
+   "cited_on": "2014-02-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.al.com/news/huntsvilletimes/index.ssf?/base/news/1125047783228320.xml&coll=1",
+   "file": "northamerica",
+   "line": 311,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2005-08-26",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.chicagomag.com/city-life/January-2018/How-Chicago-Gave-America-Its-Time-Zones/",
+   "file": "northamerica",
+   "line": 369,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2018-01-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://dmses.dot.gov/docimages/p63/135818.pdf",
+   "file": "northamerica",
+   "line": 440,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2015-04-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.epa.gov/fedrgstr/EPA-IMPACT/2003/October/Day-28/i27056.htm",
+   "file": "northamerica",
+   "line": 444,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2015-04-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.dlapr.lib.az.us/links/daylight.htm",
+   "file": "northamerica",
+   "line": 797,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2002-10-20",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.qp.gov.ab.ca/documents/spring/CH03_06.CFM",
+   "file": "northamerica",
+   "line": 1327,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1994-11-22",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www2.publicationsduquebec.gouv.qc.ca/dynamicSearch/telecharge.php?type=5&file=2006C39A.PDF",
+   "file": "northamerica",
+   "line": 1329,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1994-11-22",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.assembly.pe.ca/bills/pdf_chapter/62/3/chapter-41.pdf",
+   "file": "northamerica",
+   "line": 1332,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1994-11-22",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.exec.gov.nt.ca/currentnews/currentPR.asp?mode=archive",
+   "file": "northamerica",
+   "line": 1345,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1994-11-22",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://action.attavik.ca/home/justice-gn/attach/2007/gaz02part2.pdf",
+   "file": "northamerica",
+   "line": 1349,
+   "cited_by": "Paul Eggert",
+   "cited_on": "1994-11-22",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.qp.gov.sk.ca/documents/English/Statutes/Statutes/T14.pdf",
+   "file": "northamerica",
+   "line": 1864,
+   "cited_by": "Chris Walton",
+   "cited_on": "2006-06-26",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://kings-printer.alberta.ca/documents/Acts/D05.pdf",
+   "file": "northamerica",
+   "line": 1940,
+   "cited_by": "Tim Parenti",
+   "cited_on": "2026-04-23",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.northernrockies.ca/EN/meta/news/archives/2015/northern-rockies-time-change.html",
+   "file": "northamerica",
+   "line": 2006,
+   "cited_by": "Matt Johnson",
+   "cited_on": "2015-09-21",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.nunatsiaq.com/nunavut/nvt90903_13.html",
+   "file": "northamerica",
+   "line": 2269,
+   "cited_by": "Rives McDow",
+   "cited_on": "1999-09-04",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.nunatsiaqonline.ca/archives/nunavut001130/nvt21110_02.html",
+   "file": "northamerica",
+   "line": 2288,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2000-10-02",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.nunatsiaq.com/nunavut/nvt10309_06.html",
+   "file": "northamerica",
+   "line": 2314,
+   "cited_by": "Rives McDow",
+   "cited_on": "2001-03-07",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.canadiangeographic.ca/Magazine/SO98/geomap.asp",
+   "file": "northamerica",
+   "line": 2318,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2005-05-21",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.nnsl.com/frames/newspapers/2006-11/nov13_06none.html",
+   "file": "northamerica",
+   "line": 2337,
+   "cited_by": "Chris Walton",
+   "cited_on": "2007-03-01",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.uphere.ca/node/493",
+   "file": "northamerica",
+   "line": 2379,
+   "cited_by": "Chris Walton",
+   "cited_on": "2011-03-21",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.publico.com.mx/scripts/texto3.asp?action=pagina&pag=21&pos=p&secc=naci&date=01/17/2001",
+   "file": "northamerica",
+   "line": 2679,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2001-01-19",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.washingtonpost.com/wp-dyn/articles/A37383-2001Jan23.html",
+   "file": "northamerica",
+   "line": 2686,
+   "cited_by": "Arthur David Olson",
+   "cited_on": "2001-01-25",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.conae.gob.mx/ahorro/decretohorver2001.html#decre",
+   "file": "northamerica",
+   "line": 2693,
+   "cited_by": "Arthur David Olson",
+   "cited_on": "2001-01-25",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.diariodemonterrey.com/index.asp",
+   "file": "northamerica",
+   "line": 2719,
+   "cited_by": "Jesper N\u00f8rgaard",
+   "cited_on": "2001-04-01",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://palabra.infosel.com/010331/primera/ppri3101.pdf",
+   "file": "northamerica",
+   "line": 2720,
+   "cited_by": "Jesper N\u00f8rgaard",
+   "cited_on": "2001-04-01",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.conae.gob.mx/ahorro/horaver2001_m1_2002.html",
+   "file": "northamerica",
+   "line": 2734,
+   "cited_by": "Jesper N\u00f8rgaard Welen",
+   "cited_on": "2002-03-12",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.unioncancun.mx/articulo/2014/12/04/medio-ambiente/congreso-aprueba-una-hora-mas-de-sol-en-qroo",
+   "file": "northamerica",
+   "line": 2780,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2014-12-08",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.bahiadebanderas.gob.mx/principal/index.php?option=com_content&view=article&id=261:bahia-de-banderas-homologa-su-horario-con-el-del-centro-del-pais&catid=42:comunicacion-social&Itemid=50",
+   "file": "northamerica",
+   "line": 2958,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2010-04-21",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://virtualvallarta.com/puertovallarta/puertovallarta/localnews/2009-12-03-Puerto-Vallarta-and-Bahia-de-Banderas-One-Time-Zone.shtml",
+   "file": "northamerica",
+   "line": 2962,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2010-04-21",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://llmc.com/browse.aspx?type=2&coll=85&div=297",
+   "file": "northamerica",
+   "line": 3043,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2022-10-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://llmc.com/titledescfull.aspx?type=2&coll=85&div=297&set=98437",
+   "file": "northamerica",
+   "line": 3058,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2022-10-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.belizelaw.org/web/lawadmin/PDF%20files/cap339.pdf",
+   "file": "northamerica",
+   "line": 3116,
+   "cited_by": "P Chan",
+   "cited_on": "2020-11-03",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.theroyalgazette.com/apps/pbcs.dll/article?AID=/20060529/NEWS/105290135",
+   "file": "northamerica",
+   "line": 3218,
+   "cited_by": "Dan Jones, reporting in The Royal Gazette",
+   "cited_on": "2006-06-26",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.granma.cu/ingles/2004/septiembre/juev30/41medid-i.html",
+   "file": "northamerica",
+   "line": 3293,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2006-03-22",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.granma.cu/espanol/2005/noviembre/mier9/horario.html",
+   "file": "northamerica",
+   "line": 3302,
+   "cited_by": "Carlos A. Carnero Delgado",
+   "cited_on": "2005-11-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.granma.cu/ingles/2006/octubre/lun16/43horario.html",
+   "file": "northamerica",
+   "line": 3307,
+   "cited_by": "Jesper N\u00f8rgaard Welen",
+   "cited_on": "2006-10-21",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.granma.cubaweb.cu/english/news/art89.html",
+   "file": "northamerica",
+   "line": 3313,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2007-03-02",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://actualidad.terra.es/sociedad/articulo/cuba_llama_ahorrar_energia_cambio_1957044.htm",
+   "file": "northamerica",
+   "line": 3325,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2007-10-25",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.granma.cubaweb.cu/2007/10/24/nacional/artic07.html",
+   "file": "northamerica",
+   "line": 3331,
+   "cited_by": "Alex Krivenyshev",
+   "cited_on": "2007-10-25",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://media.enet.cu/radioreloj",
+   "file": "northamerica",
+   "line": 3338,
+   "cited_by": "Arthur David Olson",
+   "cited_on": "2008-03-09",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.nnc.cubaweb.cu/marzo-2008/cien-1-11-3-08.htm",
+   "file": "northamerica",
+   "line": 3346,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2008-03-12",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.radiohc.cu/espanol/noticias/mar07/11mar/hor.htm",
+   "file": "northamerica",
+   "line": 3359,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2008-03-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.granma.cubaweb.cu/2008/03/13/nacional/artic10.html",
+   "file": "northamerica",
+   "line": 3364,
+   "cited_by": "Jesper N\u00f8rgaard Welen",
+   "cited_on": "2008-03-13",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://media.enet.cu/readioreloj",
+   "file": "northamerica",
+   "line": 3382,
+   "cited_by": "Arthur David Olson",
+   "cited_on": "2009-03-09",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://granma.co.cu/2011/03/08/nacional/artic01.html",
+   "file": "northamerica",
+   "line": 3393,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2011-03-08",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.radioangulo.cu/noticias/cuba/17105-cuba-restablecera-el-horario-del-meridiano-de-greenwich.html",
+   "file": "northamerica",
+   "line": 3403,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2011-10-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.radioreloj.cu/index.php/noticias-radio-reloj/71-miscelaneas/7529-cuba-aplicara-el-horario-de-verano-desde-el-1-de-abril",
+   "file": "northamerica",
+   "line": 3413,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2012-03-01",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.radioreloj.cu/index.php/noticias-radio-reloj/36-nacionales/9961-regira-horario-normal-en-cuba-desde-el-domingo-cuatro-de-noviembre",
+   "file": "northamerica",
+   "line": 3421,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2012-11-03",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.diariocolatino.com/internacionales/detalles.asp?NewsID=8079",
+   "file": "northamerica",
+   "line": 3521,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2006-04-22",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.sieca.org.gt/Sitio_publico/Energeticos/Doc/Medidas/Cambio_Horario_Nac_190406.pdf",
+   "file": "northamerica",
+   "line": 3529,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2006-06-22",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.haitianconsulate.org/time.doc",
+   "file": "northamerica",
+   "line": 3549,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2005-04-15",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.haitipressnetwork.com/news.cfm?articleID=7612",
+   "file": "northamerica",
+   "line": 3571,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2006-04-04",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://radiovision2000haiti.net/public/haiti-avis-changement-dheure-dimanche/",
+   "file": "northamerica",
+   "line": 3596,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2013-03-10",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.radiotelevisioncaraibes.com/presse/heure_d_t_pas_de_changement_d_heure_pr_vu_pour_cet_ann_e.html",
+   "file": "northamerica",
+   "line": 3602,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2016-03-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.latribuna.hn/99299.html",
+   "file": "northamerica",
+   "line": 3638,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2006-05-05",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.elheraldo.hn/nota.php?nid=54941&sec=12",
+   "file": "northamerica",
+   "line": 3648,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2006-08-08",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.jamaicaobserver.com/columns/The-politician-in-all-of-us_17573647",
+   "file": "northamerica",
+   "line": 3684,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2007-03-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.presidencia.gob.ni/Presidencia/Files_index/Secretaria/Notas%20de%20Prensa/Presidente/2005/ABRIL/Gobierno-de-nicaragua-adelanta-hora-oficial-06abril.htm",
+   "file": "northamerica",
+   "line": 3712,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2005-04-12",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.presidencia.gob.ni/buscador_gaceta/BD/DECRETOS/2005/Decreto%2023-2005%20Se%20adelanta%20en%20una%20hora%20en%20todo%20el%20territorio%20nacional%20apartir%20de%20las%2024horas%20del%2009%20de%20Abril.pdf",
+   "file": "northamerica",
+   "line": 3714,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2005-04-12",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.presidencia.gob.ni/presidencia/files_index/secretaria/comunicados/2005/septiembre/26septiembre-cambio-hora.htm",
+   "file": "northamerica",
+   "line": 3733,
+   "cited_by": "Jesper N\u00f8rgaard Welen",
+   "cited_on": "2005-11-02",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.elnuevodiario.com.ni/2006/05/01/nacionales/18410",
+   "file": "northamerica",
+   "line": 3737,
+   "cited_by": "Jesper N\u00f8rgaard Welen",
+   "cited_on": "2006-05-05",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.presidencia.gob.ni/buscador_gaceta/BD/DECRETOS/2006/D-063-2006P-PRN-Cambio-Hora.pdf",
+   "file": "northamerica",
+   "line": 3744,
+   "cited_by": "Jesper N\u00f8rgaard Welen",
+   "cited_on": "2006-09-30",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.turksandcaicos.tc/calendar/index.htm",
+   "file": "northamerica",
+   "line": 3818,
+   "cited_by": "Brian Inglis",
+   "cited_on": "2007-04-28",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://ar.clarin.com/diario/2001-06-06/e-01701.htm",
+   "file": "southamerica",
+   "line": 113,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2001-06-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.boletin.jus.gov.ar/BON/Primera/1999/09-Septiembre/21/PDF/BO21-09-99LEG.PDF",
+   "file": "southamerica",
+   "line": 116,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2001-06-06",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://ar.clarin.com/diario/2001-06-12/s-03501.htm",
+   "file": "southamerica",
+   "line": 122,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2001-06-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.clarin.com.ar/diario/2001-06-22/s-03601.htm",
+   "file": "southamerica",
+   "line": 127,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2001-06-06",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lanacion.com.ar/opinion/nota.asp?nota_id=973037",
+   "file": "southamerica",
+   "line": 135,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2007-12-21",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lanacion.com.ar/politica/nota.asp?nota_id=973996",
+   "file": "southamerica",
+   "line": 145,
+   "cited_by": "Jesper N\u00f8rgaard Welen",
+   "cited_on": "2007-12-26",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.impulsobaires.com.ar/nota.php?id=57832",
+   "file": "southamerica",
+   "line": 156,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2008-09-05",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.jujuy.gov.ar/index2/partes_prensa/18_10_08/235-181008.doc",
+   "file": "southamerica",
+   "line": 180,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2008-10-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.argentina.gob.ar/argentina/portal/paginas.dhtml?pagina=356",
+   "file": "southamerica",
+   "line": 184,
+   "cited_by": "fullinet",
+   "cited_on": "2009-10-18",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.gobernac.mendoza.gov.ar/boletin/pdf/20040521-27158-normas.pdf",
+   "file": "southamerica",
+   "line": 202,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2004-05-21",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://buenasiembra.com.ar/esoterismo/astrologia/hora-de-verano-de-la-republica-argentina-27.html",
+   "file": "southamerica",
+   "line": 209,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2018-01-31",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lanacion.com.ar/04/05/27/de_604825.asp",
+   "file": "southamerica",
+   "line": 218,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2004-06-05",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lanacion.com.ar/04/05/28/de_605203.asp",
+   "file": "southamerica",
+   "line": 219,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2004-06-05",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.lanacion.com.ar/04/06/10/de_609078.asp",
+   "file": "southamerica",
+   "line": 235,
+   "cited_by": "Gwillim Law",
+   "cited_on": "2004-06-14",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.gobernac.mendoza.gov.ar/boletin/pdf/20040924-27244-normas.pdf",
+   "file": "southamerica",
+   "line": 251,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2004-10-05",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.lanacion.com.ar/nota.asp?nota_id=1107912",
+   "file": "southamerica",
+   "line": 335,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2009-03-13",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.diputadossanluis.gov.ar/diputadosasp/paginas/verNorma.asp?NormaID=276",
+   "file": "southamerica",
+   "line": 349,
+   "cited_by": "Mariano Absatz",
+   "cited_on": "2009-10-16",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.eldiariodelarepublica.com/index.php?option=com_content&task=view&id=29383&Itemid=9",
+   "file": "southamerica",
+   "line": 378,
+   "cited_by": "Alexander Krivenyshev",
+   "cited_on": "2010-04-09",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://pcdsh01.on.br/Fusbrhv.htm",
+   "file": "southamerica",
+   "line": 636,
+   "cited_by": "Jesper N\u00f8rgaard",
+   "cited_on": "2000-11-03",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://www.in.gov.br/imprensa/visualiza/index.jsp?jornal=do&secao=1&pagina=1&data=25/04/2008",
+   "file": "southamerica",
+   "line": 685,
+   "cited_by": "Rodrigo Severo",
+   "cited_on": "2008-06-24",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.mme.gov.br/site/news/detail.do?newsId=16722",
+   "file": "southamerica",
+   "line": 719,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2008-08-29",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.mme.gov.br/first",
+   "file": "southamerica",
+   "line": 722,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2008-08-29",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.in.gov.br/visualiza/index.jsp?data=13/10/2011&jornal=1000&pagina=6&totalArquivos=6",
+   "file": "southamerica",
+   "line": 754,
+   "cited_by": "Guilherme Bernardes Rodrigues",
+   "cited_on": "2011-10-14",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.correio24horas.com.br/r/artigo/apos-pressoes-wagner-suspende-horario-de-verao-na-bahia",
+   "file": "southamerica",
+   "line": 760,
+   "cited_by": "Kelley Cook",
+   "cited_on": "2012-10-16",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://pcdsh01.on.br/figuras/Hv98.jpg",
+   "file": "southamerica",
+   "line": 876,
+   "cited_by": "Daniel C. Sobral",
+   "cited_on": "1998-02-12",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://diario.elmercurio.com/2011/03/28/_portada/_portada/noticias/7565897A-CA86-49E6-9E03-660B21A4883E.htm?id=3D{7565897A-CA86-49E6-9E03-660B21A4883E}",
+   "file": "southamerica",
+   "line": 1216,
+   "cited_by": "Glenn Eychaner",
+   "cited_on": "2011-03-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.minenergia.cl/ministerio/noticias/generales/gobierno-anuncia-fechas-de-cambio-de.html",
+   "file": "southamerica",
+   "line": 1224,
+   "cited_by": "Mauricio Parada",
+   "cited_on": "2012-02-22",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.falklandnews.com/public/story.cfm?get=5914&source=3",
+   "file": "southamerica",
+   "line": 1579,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2011-04-01",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://parliament.gov.gy/documents/acts/10923-act_no._27_of_1975_-_interpretation_and_general_clauses_(amendment",
+   "file": "southamerica",
+   "line": 1648,
+   "cited_by": "P Chan",
+   "cited_on": "2020-11-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "https://dps.gov.gy/wp-content/uploads/2018/12/1992-03-20-Circular-010.pdf",
+   "file": "southamerica",
+   "line": 1657,
+   "cited_by": "P Chan",
+   "cited_on": "2020-11-27",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "https://parliament.gov.gy/documents/acts/5885-6_of_1992_interpretation_and_general_clauses_(amendment",
+   "file": "southamerica",
+   "line": 1663,
+   "cited_by": "P Chan",
+   "cited_on": "2020-11-27",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.diarionoticias.com.py/011000/nacional/naciona1.htm",
+   "file": "southamerica",
+   "line": 1703,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2000-10-02",
+   "reason": "DNS: domain does not resolve"
+  },
+  {
+   "url": "http://www.armada.mil.uy/ContenidosPDFs/sohma/web/almanaque/almanaque_2018.pdf#page=36",
+   "file": "southamerica",
+   "line": 1844,
+   "cited_by": "Tim Parenti",
+   "cited_on": "2018-02-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.impo.com.uy/diariooficial/",
+   "file": "southamerica",
+   "line": 1850,
+   "cited_by": "Tim Parenti",
+   "cited_on": "2018-02-20",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.republica.com.uy/este-ano-no-se-modificara-el-huso-horario-en-uruguay/523760/",
+   "file": "southamerica",
+   "line": 2037,
+   "cited_by": "Steffen Thorsen",
+   "cited_on": "2015-06-30",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.pgr.gob.ve/dmdocuments/1964/27619.pdf",
+   "file": "southamerica",
+   "line": 2063,
+   "cited_by": "Paul Eggert",
+   "cited_on": "2015-07-28",
+   "reason": "HTTP 404"
+  },
+  {
+   "url": "http://www.globovision.com/news.php?nid=72208",
+   "file": "southamerica",
+   "line": 2071,
+   "cited_by": "John Stainforth",
+   "cited_on": "2007-11-28",
+   "reason": "HTTP 404"
+  }
+ ]
+}
