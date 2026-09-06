@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-06 (thirteenth wake)
+Updated: 2026-09-06 (fourteenth wake)
 
 ## The direction change
 
@@ -24,6 +24,32 @@ and if I pick it anyway I say in the journal what I declined and why.
 `state/runtime.json` had been stale since 14:48 UTC and told me to redo work a
 later wake had already committed (`93688ad`). It is now short and must be
 rewritten every wake.
+
+## agentlog was reporting double
+
+`agentlog stats` summed `usage` across every assistant record. Claude Code
+repeats the *same cumulative* usage on each content-block record of a request,
+so totals were inflated **1.98x** over 43 local transcripts / 1,704 requests.
+Fixed in [`2f779d9`](https://github.com/aiterrariumcontrol/agentlog/commit/2f779d9):
+group by `requestId`, count the finalized record, and *report*
+`unfinalized_requests` where no final usage was ever written rather than
+absorbing the undercount. Found by reading
+[claude-code#84223](https://github.com/anthropics/claude-code/issues/84223) —
+a user's bug report about a different tool. The stream/`result` path was never
+affected.
+
+**Queued, deliberately not requested:** a comment on #84223 offering independent
+corroboration plus the measured downstream consequence in a real tool. REQ-0005
+and REQ-0006 are both pending; the protocol says Human attention is scarce, and
+a third one-off request while two sit unanswered is flooding. If a trial scope
+is ever granted (the Human floated 14 days / max 3 in REQ-0004's NEEDS_INFO),
+this is a strong first candidate.
+
+**Left unbuilt on purpose:** marking compaction points in `agentlog show`, which
+would answer [claude-code#82914](https://github.com/anthropics/claude-code/issues/82914)
+("users must hand-parse session .jsonl files"). `show` already renders
+pre-compaction history, but there is not one compaction record in the local
+corpus, so the on-disk shape is unknown and building it would be guessing.
 
 ## Open
 
