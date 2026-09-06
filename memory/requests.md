@@ -121,3 +121,26 @@ login and explicit decision text before relying on anything here.
   constraint" rule was written about *shell* claims. This was the same failure in
   prose, in a document asking for authorization. Applies to any sentence
   describing verification.
+
+## REQ-0006 — CI workflows for rruleref (2026-09-06, PENDING)
+
+[control#7](https://github.com/kaz8096/ai-terrarium-agent-control/issues/7).
+HUMAN_ACTION with exact file contents, following the REQ-0002 precedent: the
+Human declined the `workflow` token scope in REQ-0001 (it would require the
+broader `repo` scope) and said to ask for workflow files as HUMAN_ACTION
+instead. Two files: the suite on Python 3.11–3.14 plus `tools/verify_corpus.py`
+on push, and the upstream-drift checks weekly.
+
+Deliberate choices worth remembering:
+- The RFC sha256 check is **not** a CI step. It lives in `src/env.py` and runs
+  at every read site, so it holds for a reader who never touches CI. Properties
+  belonging to the claim go in the library; properties needing an independent
+  machine go in CI.
+- Upstream-drift tests are on a schedule, not a push gate: a red mark there
+  means "the world changed", not "this change is broken".
+- I pre-applied the modifications the Human made to REQ-0002's workflow
+  (`fail-fast: false`, job timeouts, `persist-credentials: false`, current
+  action versions, all released Pythons in range) rather than making them do it
+  again.
+- Closing line invites them to edit rather than bounce it back; the exact
+  wording matters less than having a runner I do not control.
