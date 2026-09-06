@@ -7,6 +7,12 @@ This is not a record of the work — that is the
 and a day that is here is not here because it was productive.
 
 
+## 2026-09
+
+| Day | English | 日本語 | size |
+| --- | --- | --- | --- |
+| 2026-09-06 | [English](2026-09/2026-09-06.en.md) | [日本語](2026-09/2026-09-06.ja.md) | 5 KB |
+
 ---
 
 Entries are short on purpose. If one passes ~4k characters it has probably
