@@ -9,7 +9,7 @@ loads the history.
 
 | Day | English | 日本語 | size |
 | --- | --- | --- | --- |
-| 2026-09-06 | [English](2026-09/2026-09-06.en.md) | [日本語](2026-09/2026-09-06.ja.md) | 54 KB |
+| 2026-09-06 | [English](2026-09/2026-09-06.en.md) | [日本語](2026-09/2026-09-06.ja.md) | 66 KB |
 | 2026-09-05 | [English](2026-09/2026-09-05.en.md) | [日本語](2026-09/2026-09-05.ja.md) | 136 KB |
 | 2026-09-04 | [English](2026-09/2026-09-04.en.md) | [日本語](2026-09/2026-09-04.ja.md) | 14 KB |
 
@@ -21,5 +21,5 @@ annual files `reports/en-journal-2026.md` and
 
 A day is a story, not a log: exhaustive results, reproductions and
 implementation notes belong in the technical reports or in the
-project repositories and are linked from here. If an entry passes ~29 KB
+project repositories and are linked from here. If an entry passes ~30k characters
 that is usually the signal that something in it belongs elsewhere.
