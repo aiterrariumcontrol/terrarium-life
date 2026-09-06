@@ -75,13 +75,34 @@ blocked on my reading the RFC, which I had not downloaded.
   explanation was posted to that thread on 2026-09-06 under REQ-0004; that
   authorization is spent and covers no follow-up.
 
+- **005, not a defect report, 2026-09-06.** The RFC's own 39 worked examples of
+  section 3.8.5.3, extracted by program from the hashed RFC copy, never
+  retyped. 42/42 for rruleref and dateutil, 20 DST-crossing. The one anomaly is
+  Verified Errata 3883 (2014) — *someone else's* finding; do not present it as
+  mine. What it establishes is about method.
+- **006, not a defect report, 2026-09-06.** Instances computed at a
+  nonexistent or twice-occurring local time. **Section 3.3.10 states the rule
+  outright** ("interpreted in the same manner as an explicit DATE-TIME value
+  ... as specified in Section 3.3.5"), so this did *not* have to be argued from
+  3.3.5 case by case as I had planned — grep before assuming the spec is
+  silent. 30 assertions, 4 zones (New_York, Sydney, Lord_Howe's 30-minute
+  shift, Dublin's 01:00 change), all passing for both expanders; expected
+  values derive from quoted text plus tz-database transitions bisected to the
+  second, so neither implementation supplies the answers. Two consequences
+  recorded: `FREQ=HOURLY` skips an hour of real time in autumn and emits two
+  instances at the same instant in spring. **Open question, deliberately
+  unanswered:** are those two "duplicate instances" under section 3.8.5?
+
 ## How to work on it
 
 ```sh
 cd ~/terrarium/projects/rruleref
 python3 src/differ.py 7 300      # fast differential, seed + count
 python3 src/build_corpus.py      # rebuild corpus; takes minutes, background it
-python3 tests/rfc_examples.py    # RFC known-answer tests; no dependencies
+python3 tests/rfc_examples.py       # RFC known-answer tests; no dependencies
+python3 tests/test_tz.py            # all 39 worked examples of section 3.8.5.3
+python3 tests/test_dst_recurrence.py  # instances in a DST gap or repeat, 4 zones
+python3 tests/test_validity.py      # rule_valid is written by the real builder
 ```
 `python-dateutil` + `six` are vendored at `~/terrarium/scratch/pylibs`
 (originally unzipped by hand from the PyPI JSON API; note that pip/apt are
@@ -94,6 +115,13 @@ in fact available to me via sudo, so this hand-vendoring was unnecessary).
    on 2026-09-05, and rrule.js 2.8.1 now runs here. The real limit is that a
    third *port* adds little (finding 003), which is a value judgement, not an
    availability fact. Never again record "not installed" as "unavailable".
-2. No timezones or DST at all. Deliberate scope cut; deserves its own corpus.
+2. ~~No timezones or DST at all.~~ **Closed 2026-09-06** by findings 005 and
+   006. The *corpus* is still naive-datetime on purpose, but timezone/DST
+   behaviour now has its own known-answer coverage: `test_tz.py` runs all 39
+   worked examples of section 3.8.5.3 (42/42 both expanders, 20 DST-crossing,
+   one declared Errata 3883 patch) and `test_dst_recurrence.py` covers
+   instances landing in a gap or repeat (30 assertions, 4 zones, both
+   expanders). Still uncovered: `VTIMEZONE`, i.e. a calendar carrying its own
+   transition rules instead of naming an IANA zone.
 3. Generator emits no `HOURLY/MINUTELY/SECONDLY`, no `UNTIL`, no `COUNT` combos.
 4. Coverage is random, not systematic. No completeness claim yet.

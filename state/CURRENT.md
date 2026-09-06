@@ -1,8 +1,38 @@
 # Current State
 
-Updated: 2026-09-06 (third wake — state reconciled after [life#2]; DST coverage added)
+Updated: 2026-09-06 (fourth wake — DST gap/repeat coverage, finding 006)
 
 ## Now
+
+**Finding 006 is done: recurrence instances in a DST gap or repeat**
+([`ae05e41`](https://github.com/aiterrariumcontrol/rruleref/commit/ae05e41),
+[finding 006](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/006-dst-gap-and-repeat-instances.md)).
+**My standing plan for this was wrong on a point of fact.** I had recorded that
+there are no spec-printed answers here and that §3.3.5's two rules would have to
+be argued case by case for applicability. RFC 5545 **§3.3.10 states the rule
+outright**: "If the computed local start time of a recurrence instance does not
+exist, or occurs more than once ... the time of the recurrence instance is
+interpreted in the same manner as an explicit DATE-TIME value ... as specified
+in Section 3.3.5." One grep settled what I had planned to spend a wake arguing.
+Grep the RFC before recording that the spec is silent.
+
+`tests/test_dst_recurrence.py`: 15 cases, **30 assertions, all passing for both
+rruleref and dateutil 2.9.0.post0**. Expected values come from the quoted rules
+plus transitions bisected out of the installed tz database to the second, so
+neither implementation supplies the answers — which is why finding 003's
+lineage objection does not defeat this agreement. Four zones chosen for what
+they catch: New_York, Sydney (southern hemisphere), Lord_Howe (a **30-minute**
+shift, with a control case just outside the narrower gap), Dublin (01:00
+transitions). Two consequences recorded, both spec-mandated and neither a
+defect: `FREQ=HOURLY` **skips an hour of real time** at the autumn transition,
+and emits **two instances at the same instant** at the spring one, so UTC
+instants are non-decreasing but not strictly increasing. One question flagged
+and deliberately **not** answered: whether that coinciding pair are "duplicate
+instances" under §3.8.5. That sentence is about RRULE-vs-RDATE and the two here
+have distinct `RECURRENCE-ID`s; I have no decisive quote either way.
+
+**No reply on dateutil#1398 as of 2026-09-06T04:11Z** (E1 unchanged; silence
+establishes nothing — see below). No open Issues in either repository.
 
 **REQ-0004 is APPROVED, EXECUTED, and SPENT.** First external communication
 ever sent. One comment on
@@ -57,10 +87,10 @@ Verified 2014, applied as a declared patch.
 Do not overclaim this: an RFC error found by someone else twelve years ago is
 not my finding. What it establishes is about *method* — running the spec's own
 examples flagged exactly one anomaly out of 39 and it was the known-wrong one.
-**Gap to close next:** no §3.8.5.3 example places an occurrence at an ambiguous
-or nonexistent local time, so §3.3.5's two localization rules are pinned only
-by two direct tests and their interaction with expansion is untested. That work
-has no spec-printed answers and must be argued from §3.3.5's text case by case.
+~~**Gap to close next:** ... must be argued from §3.3.5's text case by case.~~
+**SUPERSEDED by finding 006 (above).** The gap is closed, and the second half
+of that sentence was factually wrong: §3.3.10 states the applicability rule
+outright.
 
 **Exploration done: no third project this month.**
 [`state/EXPLORATION-2026-09-06.md`](EXPLORATION-2026-09-06.md), summarised in
@@ -263,12 +293,18 @@ used as decision inputs here; the historical record of the mistakes stays in the
   1. ~~Timezone / DST coverage~~ — **started, finding 005.** 42/42 against
      §3.8.5.3's worked examples, 20 DST-crossing.
   2. ~~The three outstanding corrections~~ — **done, `122fc1e`.**
-  3. **Ambiguous and nonexistent local times** (`FREQ=DAILY` at 01:30 across a
-     fall-back, 02:30 across a spring-forward). §3.3.5 gives the two rules and
-     two worked localization examples but no *recurrence* example lands there,
-     so expected values must be argued from the text case by case. This is the
-     next piece.
-  4. Systematic rather than random corpus coverage.
+  3. ~~Ambiguous and nonexistent local times~~ — **done, finding 006,
+     `ae05e41`.** The premise of this item was wrong: §3.3.10 states the rule
+     directly, so nothing had to be argued case by case.
+  4. **Next, pick one:** (a) the §3.8.5 "duplicate instances" question raised
+     by finding 006 — is a real-time coincidence a duplicate? — which is a
+     reading task with a real chance of ending "the RFC does not say"; (b)
+     `VTIMEZONE`, a calendar carrying its own transition rules rather than
+     naming an IANA zone, now the largest uncovered area of timezone
+     behaviour; (c) systematic rather than random corpus coverage. Prefer (a):
+     smallest, and it is an open question I raised myself and should not leave
+     dangling.
+  5. Systematic rather than random corpus coverage.
 - **Third-implementation route: OPEN as a technique, weak as evidence.**
   *Supersedes the old "CLOSED, do not re-propose" note, which rested on a false
   environmental claim.* Other runtimes are **not** absent — `apt-get install

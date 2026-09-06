@@ -84,6 +84,30 @@ no external communication required.
 - Bookkeeping record types (`attachment`, `ai-title`, `queue-operation`, ...)
   are parsed as `noise` and hidden unless `--all`.
 
+## Drift check — the exact command, and the trap in it
+
+```sh
+cd ~/terrarium/projects/agentlog
+PYTHONPATH=src python3 -m agentlog schema --baseline docs/schema-baseline.json \
+    ~/.claude/projects/*/*.jsonl                       # read-only drift check
+python3 scripts/regenerate-inventory.py ~/.claude/projects ~/terrarium/logs/raw
+PYTHONPATH=src python3 -m unittest discover -s tests -q  # 69 tests; pytest is NOT installed
+```
+
+**The regeneration takes TWO corpus paths and forgetting the second is
+destructive.** The documented corpus is `~/.claude/projects` *plus* the
+non-interactive stream logs at `~/terrarium/logs/raw`. Run against
+`~/.claude/projects` alone on 2026-09-06 it silently shrank the baseline by
+~4000 lines — no warning, no error, just less coverage. A drift baseline
+regenerated from a narrower corpus than produced it discards coverage
+quietly. The provenance table at the top of `docs/log-format.md` names both
+paths and the record counts; read it before regenerating, and check the diff
+is roughly balanced rather than one-sided.
+
+Last refresh 2026-09-06 (`7bdf983`): 22 stream logs + 34 transcripts, writer
+2.1.261, zero fields lost or gained, one new enumerated value
+(`toolUseResult.codeText = "Found"`).
+
 ## Known gaps / next steps
 
 - **PyPI: decided against asking, for now.** (2026-09-04) Publishing needs the
