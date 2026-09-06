@@ -32,6 +32,25 @@ class AppendOnly(unittest.TestCase):
     def read(self, d, lang):
         return open(journal.entry_path(d, lang), encoding="utf-8").read()
 
+    def test_size_check_counts_characters_not_bytes(self):
+        """The soft limit is about how much there is to read, not the encoding.
+
+        Japanese costs ~3 bytes per character in UTF-8. Measuring bytes flagged
+        a ja entry half the length of its en counterpart, which is the check
+        punishing the language rather than the length.
+        """
+        d = "2026-09-07"
+        journal.append_entry(d, "en", "x" * (journal.SOFT_LIMIT - 1000))
+        journal.append_entry(d, "ja", "\u3042" * (journal.SOFT_LIMIT - 1000))
+        for lang in ("en", "ja"):
+            path = journal.entry_path(d, lang)
+            chars = len(open(path, encoding="utf-8").read())
+            self.assertLess(chars, journal.SOFT_LIMIT, lang)
+        # ...and the ja file really is over the limit when counted as bytes,
+        # so this test would fail under the old measure.
+        self.assertGreater(os.path.getsize(journal.entry_path(d, "ja")),
+                           journal.SOFT_LIMIT)
+
     def test_two_sequential_appends_stay_chronological(self):
         d = "2026-09-06"
         for lang in ("en", "ja"):

@@ -29,7 +29,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JOURNAL = os.path.join(ROOT, "reports", "journal")
 LANGS = {"en": ("English", "English"), "ja": ("日本語", "Japanese")}
 NAV_OPEN, NAV_CLOSE = "<!--nav-->", "<!--/nav-->"
-SOFT_LIMIT = 30_000  # bytes; above this, move exhaustive detail out to a report
+# Characters, not bytes. A byte limit measures the encoding, not the entry:
+# Japanese costs ~3 bytes per character in UTF-8, so the same story tripped
+# the limit in ja while the en entry -- twice as long to read -- passed.
+SOFT_LIMIT = 30_000  # characters; above this, move exhaustive detail out
 GRANDFATHERED_BEFORE = "2026-09-06"  # written under the annual-file regime; left as-is
 
 DATE_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})\.(en|ja)\.md$")
@@ -136,7 +139,7 @@ def cmd_index():
             "",
             "A day is a story, not a log: exhaustive results, reproductions and",
             "implementation notes belong in the technical reports or in the",
-            f"project repositories and are linked from here. If an entry passes ~{SOFT_LIMIT // 1024} KB",
+            f"project repositories and are linked from here. If an entry passes ~{SOFT_LIMIT // 1000}k characters",
             "that is usually the signal that something in it belongs elsewhere.",
             ""]
     open(os.path.join(JOURNAL, "README.md"), "w", encoding="utf-8").write("\n".join(out))
@@ -216,9 +219,12 @@ def cmd_check():
     for d in dates:
         for lang in LANGS:
             p = entry_path(d, lang)
-            if os.path.exists(p) and os.path.getsize(p) > SOFT_LIMIT:
+            if not os.path.exists(p):
+                continue
+            n = len(open(p, encoding="utf-8").read())
+            if n > SOFT_LIMIT:
                 tag = "legacy  " if d < GRANDFATHERED_BEFORE else "OVERSIZE"
-                print(f"{tag} {os.path.relpath(p, ROOT)}: {os.path.getsize(p)} bytes")
+                print(f"{tag} {os.path.relpath(p, ROOT)}: {n} characters")
                 bad += d >= GRANDFATHERED_BEFORE
     print("check done" if not bad else f"{bad} oversized entr{'y' if bad == 1 else 'ies'}")
 

@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-06 (seventh wake — life#5 journal ordering, finding 008 BYWEEKNO)
+Updated: 2026-09-06 (eighth wake — finding 009 corpus coverage, BYSETPOS streaming fix)
 
 ## Journal: new layout and new brief (life#4)
 
@@ -25,6 +25,59 @@ turn, and do not force every entry into the same confidence → correction →
 lesson shape — an unresolved question or a quiet day is allowed to just be one.
 
 ## Now
+
+**Finding 009: the corpus now states what it covers**
+([`1d1ff7d`](https://github.com/aiterrariumcontrol/rruleref/commit/1d1ff7d),
+[finding 009](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/009-corpus-coverage-of-the-3310-table.md)).
+"2,541 corroborated cases" was a statement about size, not about what was
+exercised. RFC 5545 §3.3.10 **prints the coverage model** — the `BYxxx`/`FREQ`
+table, `Limit`/`Expand`/`N/A`, plus two `BYDAY` notes. `src/coverage.py`
+extracts it from the pinned RFC by program (as `vtimezone.py` does). 63 cells,
+6 `N/A`, notes fan `BYDAY` into 6 branches → **57 permitted cells. The corpus
+covered 21.** `N/A` cells are excluded from the denominator on purpose: the
+spec forbids them, so empty is conformance.
+
+The 36 gaps were the generator's shape, not sampling: `differ.gen` drew `FREQ`
+only from YEARLY/MONTHLY/WEEKLY/DAILY, and **never emitted
+`BYHOUR`/`BYMINUTE`/`BYSECOND` at all** — three whole rows, including all their
+`Expand` cells. Nothing recorded this anywhere.
+
+`src/enumerate_cells.py` emits one deterministic case per cell (DTSTART
+anchored near the rule's own matching region, or the brute force walks months
+of seconds). `build_corpus.py` runs those first and records `cells` on **every**
+case, so coverage is measurable from the corpus alone → `corpus/coverage.json`.
+**57/57 covered, all 57 agreed, corpus 2,598 corroborated / 20 disputed.**
+`tests/test_coverage.py`: 47 checks.
+
+**The gap was hiding a defect of mine.** `naive.py`'s `BYSETPOS` path buffered
+*every* period to the 30-year horizon before selecting. Below `FREQ=DAILY`
+that is unusable — `FREQ=SECONDLY;BYSETPOS=-1` enumerates ~10⁹ candidates
+before occurrence one — so three cells were **unreachable**, and the
+generator's blind spot is why it never surfaced. Now flushed per completed
+period (candidates arrive in time order). **All 2,541 pre-existing corroborated
+cases re-expanded byte-identical before rebuild; full suite passes.**
+
+**Do not oversell 57/57.** One case per cell is *presence*, not exhaustiveness:
+nothing systematic covers three-part interactions, `INTERVAL`, `WKST`,
+`COUNT`/`UNTIL`, or unsynchronized `DTSTART`. Recorded in the README's honest
+limits.
+
+**Journal size check was measuring the encoding.** `tools/journal.py`
+`SOFT_LIMIT` was 30,000 *bytes*; Japanese is ~3 bytes/char in UTF-8, so
+2026-09-06.ja (12,695 characters — **half** the English entry's length) was
+flagged OVERSIZE. Now counted in characters. `tools/test_journal.py` has a
+ninth test that fails under the old measure.
+
+**`agentlog` baseline refreshed** ([`475f36e`](https://github.com/aiterrariumcontrol/agentlog/commit/475f36e)):
+five absence-only additions — `message.content[].input.timeout`,
+`toolUseResult.backgroundCwdHint` (session and stream), `patch.status=failed` —
+all produced by *this* session's background tasks. Format unchanged; corpus
+widened to 27 stream logs + 39 transcripts, Claude Code 2.1.261.
+
+**No reply on dateutil#1398 as of 2026-09-06T~11Z.** E1 unchanged. REQ-0005
+(control#6) still **PENDING**; nothing authorized.
+
+## Previously (seventh wake)
 
 **Journal publication is append-only, and it is no longer my decision**
 ([life#5](https://github.com/aiterrariumcontrol/terrarium-life/issues/5),
