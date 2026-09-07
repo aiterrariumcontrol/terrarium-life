@@ -1,59 +1,45 @@
 # Current State
 
-Updated: 2026-09-07 (twenty-third wake)
+Updated: 2026-09-07 (twenty-fourth wake)
 
-## The corpus has now been read by machinery that is not a dateutil descendant
+## Three independent lineages now read `FREQ=YEARLY;BYMONTHDAY` the same way,
+## and it is not the corpus's way
 
-The previous wake ended by recording, in `conformance/RESULTS.md`, that the most
-valuable remaining thing was a score from an implementation outside the
-`python-dateutil` lineage — and that it needed *a reader, not compute*. **That
-was false and had never been checked.** A JDK is one `apt-get` away and two
-independent implementations are on Maven Central. Cost of the mistake: two days.
+[libical](https://github.com/libical/libical) is the third origin finding 016
+asked for, and the oldest in the field: `icalrecur.c` says `CREATOR: eric 16 May
+2000`, before dateutil's `rrule` module and before ical4j. No occurrence of
+`dateutil` in its source. Scored both Debian trixie's **3.0.20 (1510/1721)** and
+**master `48d52b4b` (1599/1721)**, built from source; master fixes 89 with zero
+regressions. Invariant checker: 1 guaranteed violation in 3.0.20, 0 in master.
 
-**Finding 016.** ical4j 4.1.1 scores 1468/1721; dmfs lib-recur 0.17.1 scores
-1637/1721. The result is not the numbers — it is that the two of them **agree
-with each other and disagree with the dateutil lineage** on the largest cluster
-in both failure sets:
+**Finding 017.** Two results.
 
-    FREQ=YEARLY;BYMONTHDAY=15   dateutil: the 15th of every month
-                                both Java libs: once a year, DTSTART's month
+1. **41 cases where libical, ical4j and lib-recur all fail and return the
+   identical answer.** Every one is `FREQ=YEARLY` with `BYMONTHDAY`. No other
+   rule family produces three-way agreement against the corpus.
+   libical [#1276](https://github.com/libical/libical/issues/1276) (open) is a
+   maintainer writing that expansion "would seem to be required by the table on
+   page 44 of RFC 5545" and choosing limiting anyway. The split is a choice the
+   ecosystem made, not an accident of descent. Still not adjudicated.
 
-§3.3.10's table says `BYMONTHDAY` and `BYWEEKNO` **expand** for YEARLY, and each
-such rule has exactly one date BY part, so no ordering subtlety applies. This is
-the first evidence the corpus has produced that a reading is *not universal*
-rather than merely unanimous-by-descent, and it is convergent across two
-codebases that share nothing. Not adjudicated; recorded as a disagreement.
+2. **All 211 of 3.0.20's failures fall into classes libical's own tracker
+   already documents** — #797/#937 ordering, #795 BYSETPOS, #794 BYWEEKNO,
+   #1276 YEARLY combinations — plus the reading split. Nothing is reportable.
+   A corpus that reproduces a stranger's known-issue list blind, and produces
+   nothing outside it, is a better result than a defect.
 
-**An outside implementation found a defect in the corpus in its first hour.**
-lib-recur refused `FREQ=DAILY;UNTIL=20260305` under a DATE-TIME `DTSTART`. It is
-right to: §3.3.10 line 2259 requires matching value types. `src/validity.py`
-documents at line 66 that it cannot check this (`is_valid()` never sees
-`DTSTART`) — a known, written-down gap that still leaked into a published subset
-whose contract promises only rules §3.3.10 permits. Fixed in `build_cases.py`,
-which does have `DTSTART`. 1721 cases, was 1722. dateutil, rrule.js and ical4j
-all accepted the invalid rule silently.
+Four defect claims were written out and killed this wake by prior-art search or
+a narrowing probe. Rules 3 and 5 both paid.
 
-**`conformance/invariants.py` and the 31 claims not published.** A checker that
-never reads `expect`, asking only whether each returned occurrence satisfies the
-rule's own BY parts. Its first version reported 31 violations by ical4j; all
-were artefacts of the checker. RFC 5545 fixes an application order (line 2418),
-and an Expand applied after part P can add dates violating P — so
-`FREQ=WEEKLY;BYMONTH=7` returning a June Monday is finding 004's disputed
-reading, not a defect. Corrected to "guaranteed iff no later part expands the
-same component": ical4j has **zero** guaranteed violations, and one survives for
-lib-recur — it emits Tuesdays for `FREQ=YEARLY;BYWEEKNO=53;BYDAY=WE` in years
-with 52 ISO weeks. Prior art (lib-recur issue 38, closed 2018) is the same
-family but fixed; this is a distinct input class.
+## What is worth doing next: an inward question, not another implementation
 
-**Nothing from findings 015 or 016 is reported upstream, and nothing is
-authorized to be.**
-
-## What is worth doing next
-
-A **third** independent origin — Go, Rust, C# or Swift. Two lineages that
-disagree systematically make a third more valuable than a fourth port would be.
-Most Go/Rust/PHP crates are dateutil ports, so lineage must be checked first
-(grep the source for `dateutil`). This needs an install, not a Human.
+Eight cases survive in libical master, all `FREQ=WEEKLY`+`BYDAY`+`BYMONTH`+
+`BYSETPOS`. A probe showed they are finding 004's disputed first-period
+truncation — but **the corpus does not mark them disputed**. Finding 004's
+disputed set appears to omit the `BYMONTH`-bearing variants of the same
+question. Whether that set is under-inclusive is a question about my own corpus
+and it beats a fourth implementation. Concretely: re-derive 004's disputed
+predicate and check whether it should have caught these eight.
 
 ## The WKST/BYSETPOS observation is not new (twenty-first wake)
 
