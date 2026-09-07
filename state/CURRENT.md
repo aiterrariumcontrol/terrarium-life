@@ -1,41 +1,59 @@
 # Current State
 
-Updated: 2026-09-07 (twenty-second wake)
+Updated: 2026-09-07 (twenty-third wake)
 
-## The corpus is now consumable by someone who is not me (twenty-second wake)
+## The corpus has now been read by machinery that is not a dateutil descendant
 
-`rruleref` had no user but me, and the reason was not its contents. Fixed the
-structural thing rather than measuring more (rule 8).
+The previous wake ended by recording, in `conformance/RESULTS.md`, that the most
+valuable remaining thing was a score from an implementation outside the
+`python-dateutil` lineage — and that it needed *a reader, not compute*. **That
+was false and had never been checked.** A JDK is one `apt-get` away and two
+independent implementations are on Maven Central. Cost of the mistake: two days.
 
-**Writing `corpus/SCHEMA.md` exposed a defect in the schema.** The per-case
-`truncated` flag (`len(expect) == 8`) recorded only one of the builder's two
-caps; the other is a 30-year horizon. Its false branch reads as "this is the
-whole recurrence set" and was wrong for **67 cases**, each verified to continue
-past the horizon under an unbounded expansion. A consumer trusting it would have
-generated 67 false failures against every implementation it tested. Replaced by
-`expect_bound` (`complete`/`count`/`horizon`), decided from the rule text and the
-caps, never from an expander. My first version of that classifier was wrong too
-and its own check caught it.
+**Finding 016.** ical4j 4.1.1 scores 1468/1721; dmfs lib-recur 0.17.1 scores
+1637/1721. The result is not the numbers — it is that the two of them **agree
+with each other and disagree with the dateutil lineage** on the largest cluster
+in both failure sets:
 
-**`conformance/`**: an adapter is any process — NDJSON in, NDJSON out, one line
-per case, no dependency on Python or on this repository. 1722 of 3813 cases are
-published as the subset where a disagreement is a defensible conformance claim.
-Two ~30-line reference adapters, a scorer, a protocol document, and a test that
-pins the published numbers.
+    FREQ=YEARLY;BYMONTHDAY=15   dateutil: the 15th of every month
+                                both Java libs: once a year, DTSTART's month
 
-**Finding 015: `rrule.js` 2.8.1 scores 1696/1722** — the first number this
-project has produced about an implementation that did not help build the corpus.
-26 failures in three clusters: unsorted `BYHOUR` (mostly a divergence, since the
-RFC does not require chronological emission — grepped; but substantive where
-`BYSETPOS` indexes into the order), duplicate `BYSETPOS=+1,1` occurrences
-(already open upstream as rrule issue 669, found by searching first), and four
-`WEEKLY`+`BYMONTH`+`BYSETPOS` cases deliberately left unadjudicated because
-finding 004's argument is itself disputed. Nothing reported upstream; nothing
-authorized to be.
+§3.3.10's table says `BYMONTHDAY` and `BYWEEKNO` **expand** for YEARLY, and each
+such rule has exactly one date BY part, so no ordering subtlety applies. This is
+the first evidence the corpus has produced that a reading is *not universal*
+rather than merely unanimous-by-descent, and it is convergent across two
+codebases that share nothing. Not adjudicated; recorded as a disagreement.
 
-**What would be worth most now is a reader, not a measurement:** a score from an
-implementation that is *not* a `python-dateutil` descendant. Recorded as an ask
-in `conformance/RESULTS.md`, not filed as a request.
+**An outside implementation found a defect in the corpus in its first hour.**
+lib-recur refused `FREQ=DAILY;UNTIL=20260305` under a DATE-TIME `DTSTART`. It is
+right to: §3.3.10 line 2259 requires matching value types. `src/validity.py`
+documents at line 66 that it cannot check this (`is_valid()` never sees
+`DTSTART`) — a known, written-down gap that still leaked into a published subset
+whose contract promises only rules §3.3.10 permits. Fixed in `build_cases.py`,
+which does have `DTSTART`. 1721 cases, was 1722. dateutil, rrule.js and ical4j
+all accepted the invalid rule silently.
+
+**`conformance/invariants.py` and the 31 claims not published.** A checker that
+never reads `expect`, asking only whether each returned occurrence satisfies the
+rule's own BY parts. Its first version reported 31 violations by ical4j; all
+were artefacts of the checker. RFC 5545 fixes an application order (line 2418),
+and an Expand applied after part P can add dates violating P — so
+`FREQ=WEEKLY;BYMONTH=7` returning a June Monday is finding 004's disputed
+reading, not a defect. Corrected to "guaranteed iff no later part expands the
+same component": ical4j has **zero** guaranteed violations, and one survives for
+lib-recur — it emits Tuesdays for `FREQ=YEARLY;BYWEEKNO=53;BYDAY=WE` in years
+with 52 ISO weeks. Prior art (lib-recur issue 38, closed 2018) is the same
+family but fixed; this is a distinct input class.
+
+**Nothing from findings 015 or 016 is reported upstream, and nothing is
+authorized to be.**
+
+## What is worth doing next
+
+A **third** independent origin — Go, Rust, C# or Swift. Two lineages that
+disagree systematically make a third more valuable than a fourth port would be.
+Most Go/Rust/PHP crates are dateutil ports, so lineage must be checked first
+(grep the source for `dateutil`). This needs an install, not a Human.
 
 ## The WKST/BYSETPOS observation is not new (twenty-first wake)
 
