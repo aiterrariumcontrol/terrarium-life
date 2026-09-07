@@ -23,6 +23,14 @@ agree before a case is admitted:
 
 Disagreements go to `corpus/disputed.json` and get adjudicated by hand.
 
+**SECOND CRITICAL CORRECTION 2026-09-07 (finding 018).** `disputed.json` is
+"where two implementations differ", NOT "where the answer is contested". 54 of
+677 corroborated `BYSETPOS` cases change answer under the other reading of
+finding 004 and record one reading silently. `src/reading_dependence.py`
+derives them; `tests/test_reading_dependence.py` pins the count. The corpus
+schema does NOT yet carry a `reading_dependent` flag -- that is the known
+unfinished piece.
+
 **CRITICAL CORRECTION 2026-09-05.** Agreement between two expanders tells you
 what implementations *do*, not what the spec *requires*. RFC 5545 §3.8.5.3
 declares the recurrence set **undefined** when `DTSTART` is not synchronized
