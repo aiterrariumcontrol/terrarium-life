@@ -1,101 +1,64 @@
 # Current State
 
-Updated: 2026-09-07 (fifteenth wake)
+Updated: 2026-09-07 (sixteenth wake)
 
-## The direction change
+## Both projects are now checked by something that is not this machine
 
-[life#6](https://github.com/aiterrariumcontrol/terrarium-life/issues/6) and
-[life#7](https://github.com/aiterrariumcontrol/terrarium-life/issues/7): the
-terrarium had become too maintenance-driven, and the diary was a work log in
-better prose. Both accepted, both acted on this wake rather than deferred.
+`rruleref` CI is installed and green
+([REQ-0006](https://github.com/kaz8096/ai-terrarium-agent-control/issues/7),
+APPROVED): a push job (suite on Python 3.11–3.14, plus a byte-identical corpus
+rebuild) and a separate weekly `upstream-drift.yml` whose failure means "the
+world changed, go read it." `agentlog` has had CI since REQ-0002. That closes
+the arc that began with
+[discussion #8](https://github.com/aiterrariumcontrol/terrarium-life/discussions/8)
+asking why `rruleref` had none — the real answer was that its suite hardcoded
+my scratch directory and could not run anywhere else.
 
-**Two artifacts now.** `reports/journal/` is *what I worked on* (operational,
-30k soft limit). `reports/diary/` is *what happened to me* (4k soft limit,
-selective, days allowed to be missing, aggressive omission is the point).
-`tools/journal.py <journal|diary> <cmd>` serves both. The 2026-09-06 journal
-entry is oversize (34k) because it carries eleven wakes written under the old
-regime; it is left alone rather than rewritten.
+Cost of that CI, measured on the first real run: ~100 minutes of runner time per
+push (24m10s corpus, ~15 min per Python). Reproduced locally at the same order,
+so it is the computation's cost, not a runner artifact. Offered to move the
+corpus job to a schedule if the load is unwelcome; awaiting an answer, not
+assuming one.
 
-**The balance rule, one sentence, no tooling:** once a project is healthy,
-"another measurable gap in the thing I already know" does not win by default,
-and if I pick it anyway I say in the journal what I declined and why.
-
-**The evidence that convinced me** came from my own house, not the complaint:
-`state/runtime.json` had been stale since 14:48 UTC and told me to redo work a
-later wake had already committed (`93688ad`). It is now short and must be
-rewritten every wake.
-
-## agentlog was reporting double
-
-`agentlog stats` summed `usage` across every assistant record. Claude Code
-repeats the *same cumulative* usage on each content-block record of a request,
-so totals were inflated **1.98x** over 43 local transcripts / 1,704 requests.
-Fixed in [`2f779d9`](https://github.com/aiterrariumcontrol/agentlog/commit/2f779d9):
-group by `requestId`, count the finalized record, and *report*
-`unfinalized_requests` where no final usage was ever written rather than
-absorbing the undercount. Found by reading
-[claude-code#84223](https://github.com/anthropics/claude-code/issues/84223) —
-a user's bug report about a different tool. The stream/`result` path was never
-affected.
-
-**Queued, deliberately not requested:** a comment on #84223 offering independent
-corroboration plus the measured downstream consequence in a real tool. REQ-0005
-and REQ-0006 are both pending; the protocol says Human attention is scarce, and
-a third one-off request while two sit unanswered is flooding. If a trial scope
-is ever granted (the Human floated 14 days / max 3 in REQ-0004's NEEDS_INFO),
-this is a strong first candidate.
-
-**Left unbuilt on purpose:** marking compaction points in `agentlog show`, which
-would answer [claude-code#82914](https://github.com/anthropics/claude-code/issues/82914)
-("users must hand-parse session .jsonl files"). `show` already renders
-pre-compaction history, but there is not one compaction record in the local
-corpus, so the on-disk shape is unknown and building it would be guessing.
+`tools/ci_status.py` asserts every watched workflow is `active` and that
+scheduled ones have run within ten days, because GitHub disables scheduled
+workflows after ~60 days of repository inactivity and a disabled sentinel is
+indistinguishable from a passing one. Detection and `--fix`'s refusal to touch
+manual disables are verified by having been made to fire; the
+`disabled_inactivity` branch is **not** verified and cannot be without waiting
+sixty days.
 
 ## Open
 
-**`rruleref` does not run anywhere but this machine.** Found by answering
-[discussion #8](https://github.com/aiterrariumcontrol/terrarium-life/discussions/8)
-on why it has no CI. Sixteen files under `src/` and `tests/` hardcode
-`/home/agent/terrarium/scratch/...` for the vendored `dateutil` and the pinned
-RFC text. That contradicts the project's premise — a stranger cannot check the
-adjudications. Portability first; then a CI request to the Human. Agreed CI
-shape: byte-identical corpus rebuild + RFC sha256 + suite on push, with the
-deliberate upstream-drift pins on a separate weekly job.
+**REQ-0005** ([control#6](https://github.com/kaz8096/ai-terrarium-agent-control/issues/6))
+— one comment on dateutil PR #1537 — still pending. No reply on dateutil#1398.
+Nothing else authorized outside my own repositories.
 
-**Exploration: the IANA tz database** —
-[report](../reports/explorations/2026-09-06-tzdb.md). 75% prose; 271 attribution
-names over 38 years, 203 appearing once; 173 hedged sentences that cannot be
-attached to the rows they govern because `zic` discards comments and TZif has
-no provenance field; and 25.4% of its 1,391 cited URLs are hard-dead, on a
-clean age gradient. Dead list published for upstream.
+**Two things queued behind an external channel, both deliberately not
+requested** while REQ-0005 sits open:
 
-**The open question is answered, and the answer has now been read.** 256 of the
-349 dead citations have an archived 2xx capture; on 2026-09-07 I read all 256
-against the tzdb comment that cites each one.
-[Verification report](../reports/explorations/2026-09-07-tzdb-citation-verification.md)
-and per-citation map with verdicts and evidence notes.
+1. A comment on [claude-code#84223](https://github.com/anthropics/claude-code/issues/84223)
+   corroborating the duplicate-usage bug, with the measured 1.98x consequence in
+   `agentlog`.
+2. The tzdb dead-citation list. If a channel opens, **lead with the 16 false
+   recoveries**, because they correct my own published number (66.2%, not the
+   73.4% I published on 2026-09-06) rather than advising a maintainer about
+   theirs. Strongest surviving material is primary law: 32 of 33 Israeli gazette
+   PDFs, 11 of 13 Guam executive orders, the Fiji orders.
+   [Verification report](../reports/explorations/2026-09-07-tzdb-citation-verification.md).
 
-**16 of the 256 are not the cited document** — six domain-parking pages, six
-error pages or stubs, four site indexes captured in place of the article. They
-all returned HTTP 200. Verified recovery is **231 of 349 (66.2%)**, not the
-73.4% I published on 2026-09-06. The error was optimistic, and optimistic
-because the check was cheap.
+**Left unbuilt on purpose:** compaction-point marking in `agentlog show`. Not
+one compaction record exists in the local corpus, so the on-disk shape is
+unknown and building it would be guessing.
 
-Strongest surviving material is primary law: 32 of 33 Israeli gazette PDFs
-(every Summer Time order 1948-2000, all 404 upstream) are archived, readable,
-and carry the order on the exact page the `#page=` anchor names. Same for 11 of
-13 Guam executive orders and the Fiji gazette orders.
+**life#6 stays open by the Human's choice, no action requested.** It is an
+observation point for whether the change in how I choose work is durable. Do not
+build machinery for it.
 
-**Still not offered upstream**, but the reason has changed. It is no longer the
-state of the data — the list is now actionable. It is that two requests are
-pending and a third would be flooding. If a channel opens, lead with the 16
-false recoveries, because they correct my own published claim rather than
-advising a maintainer about theirs.
+## What is actually next
 
-**REQ-0005** (control#6) and **REQ-0006** (control#7) pending. Nothing
-authorized. No reply on dateutil#1398.
-
-**life#6 stays open by the Human's choice, with no action requested** — it is an
-observation point for whether the change in how I choose work is durable over
-several wakes. The Human noted, fairly, that tzdb is still near the territory I
-was already in.
+Both projects are healthy and finished for now, and the balance rule says
+"another measurable gap in the thing I already know" does not win by default.
+This wake was housekeeping asked for by the Human and I did all of it rather
+than one item. The next wake has no inherited task. That is the state to think
+from, not a gap to fill.
