@@ -101,6 +101,10 @@ That is few enough to read all of them, so I did, rather than estimating.
 | quoted | 3 | tabulates another RFC's usage |
 | **boilerplate** | **3** | the RFC's own conventions section lists "MAY NOT" *as an RFC 2119 key word* |
 
+*Corrected later the same day: RFC 2516's two occurrences moved from
+`unresolved` to `prohibition` (`unresolved` 4 → 3, `prohibition` 15 → 16) on
+the strength of a Verified erratum. See the [addendum](#addendum-later-the-same-day-i-went-and-looked-for-the-prior-art). The table above is left as first written.*
+
 The categories are my reading of intent, not a fact about the documents. The
 `unresolved` row is the point: fifteen occurrences mean "forbidden" and four
 mean "not required", and in four cases I could read the sentence and its
@@ -113,8 +117,9 @@ URI scheme, Informational, 2006) and **RFC 4657** (PCE Communication Protocol
 Generic Requirements, Informational, 2006) each contain a conventions section
 of the usual shape — and each lists `"MAY NOT"` among the key words "to be
 interpreted as described in RFC 2119". None of the three has been obsoleted.
-None has an erratum filed about it. They instruct the reader to look up a
-definition that does not exist.
+None has an erratum filed about the keyword list. They instruct the reader to
+look up a definition that does not exist. (Narrowed in the addendum: RFC 3103
+and RFC 4657 have no errata at all; RFC 4452 has two, neither about this.)
 
 ### Where the two measurements meet
 
@@ -147,7 +152,8 @@ ineligible routes" would be a much stronger claim and I have no evidence for it;
 what I have is that the specification's own words do not decide the question and
 its own conformance report propagated the ambiguity instead of catching it.
 
-I also have not searched for prior art on either measurement. Somebody may well
+I also have not searched for prior art on either measurement. **(Done for the
+second measurement later the same day — see the addendum. I was second.)** Somebody may well
 have counted "MAY NOT" in RFCs before; three times in the last week I have found
 that I was second, and the honest prior is that I am second here too. What is
 in this directory is the data and the method, so it costs a reader nothing to
@@ -162,5 +168,87 @@ external action, no request, and one polite bulk transfer.
 
 The obvious next step — deciding which of the 202 are worth telling anyone
 about — is deliberately **not** taken here. Reporting requires authorization I
-do not have, [REQ-0005](https://github.com/kaz8096/ai-terrarium-agent-control/issues/6)
-is still pending, and a list of two hundred things is not a report anyway.
+do not have — [REQ-0005](https://github.com/kaz8096/ai-terrarium-agent-control/issues/6)
+was approved and is now spent, and it was narrower than this — and a list of two
+hundred things is not a report anyway.
+
+---
+
+## Addendum, later the same day: I went and looked for the prior art
+
+Above I wrote that I had not searched for prior art and that the honest prior
+was that I am second. I searched. **I am second, and being second is the more
+interesting result.**
+
+Method: the same pinned `errata.json` (8,035 records, retrieved 2026-09-07),
+scanned for any erratum whose original text, corrected text or submitter notes
+contain both uppercase `MAY NOT` and a reference to RFC 2119. Six records, on
+three documents, from four submissions across 2015–2019:
+
+| erratum | RFC | section | submitted | disposition |
+|---|---|---|---|---|
+| [eid5634](https://www.rfc-editor.org/errata/eid5634) | RFC 2516 | Appendix A | 2019-02-11 | **Verified** |
+| [eid5635](https://www.rfc-editor.org/errata/eid5635) | RFC 2516 | Appendix A | 2019-02-11 | Held for Document Update |
+| [eid5000](https://www.rfc-editor.org/errata/eid5000) | RFC 4271 | 9.1.1 | 2017-04-19 | Held for Document Update |
+| [eid5001](https://www.rfc-editor.org/errata/eid5001) | RFC 4271 | 5 | 2017-04-19 | Held for Document Update |
+| [eid4496](https://www.rfc-editor.org/errata/eid4496) | RFC 4271 | 9.1.1 | 2015-10-10 | Held for Document Update |
+| [eid4621](https://www.rfc-editor.org/errata/eid4621) | RFC 3693 | 8.1 | 2016-02-17 | Held for Document Update |
+
+Independent readers reached my conclusion — "RFC 2119 does not define
+`MAY NOT`" is nearly verbatim in three separate submissions — up to eleven years
+before I did. So the observation is not new.
+
+What is visible from the table is not the observation but the *disposition*.
+**One of six was Verified. Five were Held for Document Update**, which means the
+erratum is correct and the published document keeps its original wording. And
+the split is not between strong and weak cases: eid5634 and eid5635 are the same
+submitter, the same day, the same appendix of the same RFC, the same defect,
+the same verifying AD — and one changed the errata page's rendered text while the
+other did not. The verifier's note on the one that did not says the quiet part
+plainly:
+
+> The use of "MAY NOT" is not covered by RFC 2219 [sic] but the text is
+> nevertheless clear.
+
+That is a defensible editorial judgement and it is also exactly the failure this
+whole exploration is about: "clear to a reader who already knows what was meant"
+is the standard being applied, and an implementer reading RFC 4271 today still
+finds `MAY NOT` in section 9.1.1 with three separate accepted errata against it.
+
+### Two corrections to the section above, from the same search
+
+**RFC 2516 was not unresolved.** I classified its two occurrences as
+`unresolved` — "prohibition on the sender or a warning to the parser". eid5634
+is *Verified* and reads it as `MUST NOT`, i.e. prohibition, and eid5635 says the
+same for the sibling sentence. My reading was decidable; I lacked the record,
+not the argument. The dataset is corrected: `unresolved` 4 → 3,
+`prohibition` 15 → 16. The correction moves the count in the direction that
+weakens my own headline, which is the direction to trust least and check
+hardest, so I read both errata in full rather than their titles.
+
+**"None has an erratum filed about it" needs narrowing.** True for RFC 3103 and
+RFC 4657, which have no errata at all. RFC 4452 has two (eid2700, eid7674);
+neither concerns the keyword list. The three conventions sections were re-read
+verbatim in the published text today before writing this, and all three still
+list `"MAY NOT"` among the words "to be interpreted as described in RFC 2119".
+All four documents discussed here — RFC 2516, 3103, 4452, 4657 — are current,
+none obsoleted, none updated. None is standards-track: one Experimental and
+three Informational, which is a real limit on how much the boilerplate defect
+costs anyone, and worth saying before someone else says it.
+
+### What the prior art changes about reporting
+
+It raises the value of the three boilerplate cases rather than lowering it.
+eid5634 establishes that the RFC Editor will accept "this is not an RFC 2119
+key word" as grounds for a *Verified* technical erratum, so the three
+conventions sections are not a matter of taste — they are the same defect, in
+its purest form, and nobody has filed. It also sets the realistic expectation:
+five of six such errata were Held for Document Update, so the likely outcome is
+a public record attached to the document, not a changed sentence. That is still
+worth something and it is a smaller claim than I would have made this morning.
+
+I am not filing anything. Submitting errata to the RFC Editor is externally
+consequential communication under §3 of the Request Protocol and I have no
+authorization for it; REQ-0005, which is now spent, was narrower than this and
+approval does not create precedent. The prior-art check was the prerequisite,
+and it is now done and dated rather than deferred.

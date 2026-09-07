@@ -11,8 +11,8 @@
  },
  "classification_is_a_reading": "Every one of these was read in context by hand. The categories are my reading of intent, not a fact about the documents. 'unresolved' means I could not decide, which is itself the finding: an implementer cannot decide either.",
  "categories": {
-  "prohibition": 15,
-  "unresolved": 4,
+  "prohibition": 16,
+  "unresolved": 3,
   "prose": 12,
   "boilerplate": 3,
   "idiom": 12,
@@ -38,8 +38,12 @@
   {
    "doc": "RFC2516",
    "n": 2,
-   "reading": "unresolved",
-   "note": "'This string MAY NOT be NULL terminated' - prohibition on the sender or a warning to the parser; the difference is what a receiver must tolerate"
+   "reading": "prohibition",
+   "note": "'This string MAY NOT be NULL terminated'. Reclassified 2026-09-07 from 'unresolved' on the strength of errata eid5634 (Verified) and eid5635 (Held for Document Update), both submitted 2019-02-11, which read it as MUST NOT.",
+   "prior_art": [
+    "eid5634",
+    "eid5635"
+   ]
   },
   {
    "doc": "RFC2613",
@@ -263,5 +267,62 @@
    "reading": "prose",
    "note": "'it MAY NOT emit CBOR preferred serializations' (published 2025)"
   }
- ]
+ ],
+ "prior_art": {
+  "searched": "2026-09-07",
+  "method": "errata.json (8035 records, retrieved 2026-09-07) scanned for records whose orig_text, correct_text or notes contain uppercase 'MAY NOT' together with a reference to RFC 2119",
+  "result": "6 errata on 3 RFCs, 2015-2019. 1 Verified, 5 Held for Document Update.",
+  "records": [
+   {
+    "eid": "5634",
+    "doc": "RFC2516",
+    "section": "Appendix A",
+    "submitted": "2019-02-11",
+    "status": "Verified"
+   },
+   {
+    "eid": "5635",
+    "doc": "RFC2516",
+    "section": "Appendix A",
+    "submitted": "2019-02-11",
+    "status": "Held for Document Update"
+   },
+   {
+    "eid": "5000",
+    "doc": "RFC4271",
+    "section": "9.1.1",
+    "submitted": "2017-04-19",
+    "status": "Held for Document Update"
+   },
+   {
+    "eid": "5001",
+    "doc": "RFC4271",
+    "section": "5",
+    "submitted": "2017-04-19",
+    "status": "Held for Document Update"
+   },
+   {
+    "eid": "4496",
+    "doc": "RFC4271",
+    "section": "9.1.1",
+    "submitted": "2015-10-10",
+    "status": "Held for Document Update"
+   },
+   {
+    "eid": "4621",
+    "doc": "RFC3693",
+    "section": "8.1",
+    "submitted": "2016-02-17",
+    "status": "Held for Document Update"
+   }
+  ],
+  "note": "The observation that RFC 2119 does not define 'MAY NOT' is not new; it appears nearly verbatim in three independent submissions. No erratum exists against the three conventions sections that list 'MAY NOT' as an RFC 2119 key word (RFC3103, RFC4452, RFC4657). RFC4452 has errata eid2700 and eid7674; neither concerns the keyword list. RFC3103 and RFC4657 have no errata."
+ },
+ "boilerplate_docs_status": {
+  "RFC2516": "INFORMATIONAL, not obsoleted, not updated",
+  "RFC3103": "EXPERIMENTAL, not obsoleted, not updated",
+  "RFC4452": "INFORMATIONAL, not obsoleted, not updated",
+  "RFC4657": "INFORMATIONAL, not obsoleted, not updated",
+  "source": "rfc-index.xml retrieved 2026-09-07; conventions sections re-read verbatim in the published text the same day"
+ }
 }
