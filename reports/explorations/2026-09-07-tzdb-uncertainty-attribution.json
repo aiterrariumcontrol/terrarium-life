@@ -1,0 +1,2056 @@
+[
+ {
+  "file": "africa",
+  "line": 44,
+  "section": null,
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "'WAT' is probably the best name for +01, as the common phrase for I invented the following abbreviations in the 1990s:"
+ },
+ {
+  "file": "africa",
+  "line": 215,
+  "section": "Egypt",
+  "level": "named",
+  "names": [
+   "Egypt"
+  ],
+  "scope_size": 2,
+  "text": "For lack of better info, assume the new rule is last Thursday in August."
+ },
+ {
+  "file": "africa",
+  "line": 325,
+  "section": "Egypt",
+  "level": "named",
+  "names": [
+   "Egypt"
+  ],
+  "scope_size": 2,
+  "text": "Assume transitions are at 00:00 and 24:00 respectively."
+ },
+ {
+  "file": "africa",
+  "line": 470,
+  "section": "Libya",
+  "level": "named",
+  "names": [
+   "Libya"
+  ],
+  "scope_size": 2,
+  "text": "For now, assume they're reverting to the pre-2012 rules of permanent UT +02."
+ },
+ {
+  "file": "africa",
+  "line": 529,
+  "section": "Mauritius",
+  "level": "named",
+  "names": [
+   "Indian/Mauritius",
+   "Mauritius"
+  ],
+  "scope_size": 2,
+  "text": "given, but it is probably at either 2 or 3 wall clock time)."
+ },
+ {
+  "file": "africa",
+  "line": 543,
+  "section": "Mauritius",
+  "level": "named",
+  "names": [
+   "Indian/Mauritius",
+   "Mauritius"
+  ],
+  "scope_size": 2,
+  "text": "I guess that article in French \"Le gouvernement avance l'introduction"
+ },
+ {
+  "file": "africa",
+  "line": 594,
+  "section": "Mauritius",
+  "level": "named",
+  "names": [
+   "Indian/Mauritius",
+   "Mauritius"
+  ],
+  "scope_size": 2,
+  "text": "no information; probably like Indian/Mauritius"
+ },
+ {
+  "file": "africa",
+  "line": 615,
+  "section": "Morocco",
+  "level": "named",
+  "names": [
+   "Morocco"
+  ],
+  "scope_size": 2,
+  "text": "unreliable Shanks & Pottenger.  Unfortunately, Babas did not provide"
+ },
+ {
+  "file": "africa",
+  "line": 647,
+  "section": "Morocco",
+  "level": "adjacent",
+  "names": [
+   "Morocco"
+  ],
+  "scope_size": 2,
+  "text": "Seeing that the 28th is Monday, I am guessing that she intends to say"
+ },
+ {
+  "file": "africa",
+  "line": 732,
+  "section": "Morocco",
+  "level": "named",
+  "names": [
+   "Morocco"
+  ],
+  "scope_size": 2,
+  "text": "wall clock time (i.e. 11pm UTC), but that's what I would assume. It has"
+ },
+ {
+  "file": "africa",
+  "line": 750,
+  "section": "Morocco",
+  "level": "adjacent",
+  "names": [
+   "Morocco"
+  ],
+  "scope_size": 2,
+  "text": "it lacks a \"spring forward\" time of day; assume 2:00 XXX."
+ },
+ {
+  "file": "africa",
+  "line": 820,
+  "section": "Morocco",
+  "level": "adjacent",
+  "names": [
+   "Morocco"
+  ],
+  "scope_size": 2,
+  "text": "[The gov.ma announcement] would (probably) make the switch on 2015-07-19 go"
+ },
+ {
+  "file": "africa",
+  "line": 957,
+  "section": "Western Sahara",
+  "level": "adjacent",
+  "names": [
+   "Africa/El_Aaiun"
+  ],
+  "scope_size": 1,
+  "text": "Assume that this has been true since Western Sahara switched to GMT,"
+ },
+ {
+  "file": "antarctica",
+  "line": 30,
+  "section": null,
+  "level": "named",
+  "names": [
+   "Antarctica/Casey",
+   "Antarctica/Davis",
+   "Antarctica/Mawson"
+  ],
+  "scope_size": 7,
+  "text": "presumably this is when they have visitors."
+ },
+ {
+  "file": "antarctica",
+  "line": 219,
+  "section": null,
+  "level": "named",
+  "names": [
+   "Antarctica/Troll",
+   "Troll"
+  ],
+  "scope_size": 7,
+  "text": "The dates for switching to and from UTC+0 will probably not be absolutely"
+ },
+ {
+  "file": "antarctica",
+  "line": 288,
+  "section": null,
+  "level": "named",
+  "names": [
+   "Antarctica/Vostok"
+  ],
+  "scope_size": 7,
+  "text": "For lack of better info, guess Vostok was at +07 from founding through today,"
+ },
+ {
+  "file": "asia",
+  "line": 53,
+  "section": null,
+  "level": "adjacent",
+  "names": [
+   "EUAsia"
+  ],
+  "scope_size": 3,
+  "text": "*I invented the abbreviations HKWT and PDT; see below. editions invented alphabetic time zone abbreviations for every"
+ },
+ {
+  "file": "asia",
+  "line": 95,
+  "section": "Armenia",
+  "level": "named",
+  "names": [
+   "Armenia",
+   "Asia/Yerevan"
+  ],
+  "scope_size": 2,
+  "text": "reported (1996-05-04) that Yerevan probably wouldn't use DST"
+ },
+ {
+  "file": "asia",
+  "line": 245,
+  "section": "British Indian Ocean Territory",
+  "level": "named",
+  "names": [
+   "Indian/Chagos"
+  ],
+  "scope_size": 1,
+  "text": "1997 and later maps say 6:00.  Assume the switch occurred in 1996. assume it occurred in 1907, the same year as Mauritius (which"
+ },
+ {
+  "file": "asia",
+  "line": 300,
+  "section": "China",
+  "level": "named",
+  "names": [
+   "Asia/Shanghai",
+   "Shang"
+  ],
+  "scope_size": 4,
+  "text": "The table lists dates only; I am guessing 00:00 and 24:00 transition times."
+ },
+ {
+  "file": "asia",
+  "line": 465,
+  "section": "China",
+  "level": "adjacent",
+  "names": [
+   "Asia/Shanghai"
+  ],
+  "scope_size": 4,
+  "text": "(could be true), for the moment I am assuming that those two"
+ },
+ {
+  "file": "asia",
+  "line": 479,
+  "section": "China",
+  "level": "named",
+  "names": [
+   "Asia/Shanghai",
+   "Asia/Urumqi",
+   "PRC",
+   "Shang"
+  ],
+  "scope_size": 4,
+  "text": "evidence is dubious, as the relevant institute of astronomy had not ahead of that prevailing in the rest of Shanghai.\"  Guess that the Long-shu Time (probably as Long and Shu were two names of the area) UT +07 current boundaries uncertain; times before 1970 for areas that"
+ },
+ {
+  "file": "asia",
+  "line": 645,
+  "section": "China",
+  "level": "named",
+  "names": [
+   "Asia/Urumqi",
+   "PRC"
+  ],
+  "scope_size": 4,
+  "text": "guess) as the transition from LMT.  Ignore the usage of +08 before"
+ },
+ {
+  "file": "asia",
+  "line": 714,
+  "section": "Hong Kong",
+  "level": "named",
+  "names": [
+   "Asia/Hong_Kong"
+  ],
+  "scope_size": 2,
+  "text": "probably refer to the time commonly used in mainland China at the time given"
+ },
+ {
+  "file": "asia",
+  "line": 1083,
+  "section": "Macau (Macao, Aomen)",
+  "level": "named",
+  "names": [
+   "Asia/Macau",
+   "Macau"
+  ],
+  "scope_size": 2,
+  "text": "Fortaleza do Monte, presumably the basis for the 7:34:10 for LMT."
+ },
+ {
+  "file": "asia",
+  "line": 1168,
+  "section": "Georgia",
+  "level": "adjacent",
+  "names": [
+   "Asia/Tbilisi"
+  ],
+  "scope_size": 1,
+  "text": "We have no details, but we'll guess they didn't move the clocks back in fall."
+ },
+ {
+  "file": "asia",
+  "line": 1305,
+  "section": "India",
+  "level": "named",
+  "names": [
+   "Asia/Kolkata"
+  ],
+  "scope_size": 1,
+  "text": "time for 1870-1941.  Shanks is our only (and dubious) source for the"
+ },
+ {
+  "file": "asia",
+  "line": 1344,
+  "section": "Indonesia",
+  "level": "named",
+  "names": [
+   "Asia/Jakarta",
+   "Asia/Jayapura"
+  ],
+  "scope_size": 4,
+  "text": "(Hollandia).  For now, assume all Indonesian locations other than Jayapura"
+ },
+ {
+  "file": "asia",
+  "line": 1552,
+  "section": "Iran",
+  "level": "named",
+  "names": [
+   "Iran"
+  ],
+  "scope_size": 2,
+  "text": "Assume that the UIT's \"1930\" is UTC, i.e., 24:00 local time."
+ },
+ {
+  "file": "asia",
+  "line": 1676,
+  "section": "Iraq",
+  "level": "named",
+  "names": [
+   "Iraq"
+  ],
+  "scope_size": 2,
+  "text": "IATA SSIM (1991/1996) says Apr 1 12:01am UTC; guess the ':01' is a typo."
+ },
+ {
+  "file": "asia",
+  "line": 2147,
+  "section": "Japan",
+  "level": "named",
+  "names": [
+   "Japan"
+  ],
+  "scope_size": 2,
+  "text": "do in any POSIX or C platform.  The \"25:00\" assumes zic from 2007 or later,"
+ },
+ {
+  "file": "asia",
+  "line": 2233,
+  "section": "Jordan",
+  "level": "named",
+  "names": [
+   "Jordan"
+  ],
+  "scope_size": 2,
+  "text": "(assume 24:00) on the last Thursday in February, starting from 2022."
+ },
+ {
+  "file": "asia",
+  "line": 2297,
+  "section": "Kazakhstan",
+  "level": "adjacent",
+  "names": [
+   "Asia/Almaty"
+  ],
+  "scope_size": 7,
+  "text": "closer to UTC is the former Western zone (probably still called the everything else....  I guess that would make Kazakhstan time zones"
+ },
+ {
+  "file": "asia",
+  "line": 2343,
+  "section": "Kazakhstan",
+  "level": "named",
+  "names": [
+   "Asia/Almaty",
+   "Asia/Aqtau",
+   "Asia/Aqtobe",
+   "Asia/Oral",
+   "Asia/Qostanay",
+   "Asia/Qyzylorda"
+  ],
+  "scope_size": 7,
+  "text": "(Probably there were changes even after that publication. There is an to +04/+05. It's unclear how Qyzylorda oblast moved into the fifth probably changed time in territories incorporated into Qostanay oblast"
+ },
+ {
+  "file": "asia",
+  "line": 2458,
+  "section": "Kazakhstan",
+  "level": "named",
+  "names": [
+   "Asia/Atyrau",
+   "Asia/Oral",
+   "Asia/Qostanay"
+  ],
+  "scope_size": 7,
+  "text": "oblast.  Which should probably be separated into Asia/Arkalyk zone."
+ },
+ {
+  "file": "asia",
+  "line": 2517,
+  "section": "Kazakhstan",
+  "level": "named",
+  "names": [
+   "Asia/Qostanay"
+  ],
+  "scope_size": 7,
+  "text": "The 1991/2 rules are unclear partly because of the 1997 Turgai"
+ },
+ {
+  "file": "asia",
+  "line": 2672,
+  "section": "Kyrgyzstan (Kirgizstan)",
+  "level": "named",
+  "names": [
+   "Asia/Pyongyang"
+  ],
+  "scope_size": 5,
+  "text": "I guessed that time zone abbreviations through 1945 followed the same For Pyongyang, guess no changes from World War II until 2015, as we"
+ },
+ {
+  "file": "asia",
+  "line": 2834,
+  "section": "Mongolia",
+  "level": "named",
+  "names": [
+   "Mongol"
+  ],
+  "scope_size": 3,
+  "text": "unsure of, but most probably it was similar to Russia, except for the time"
+ },
+ {
+  "file": "asia",
+  "line": 2865,
+  "section": "Mongolia",
+  "level": "named",
+  "names": [
+   "Asia/Ulaanbaatar"
+  ],
+  "scope_size": 3,
+  "text": "For now, assume Rives McDow's informant got confused about Friday vs"
+ },
+ {
+  "file": "asia",
+  "line": 2916,
+  "section": "Mongolia",
+  "level": "adjacent",
+  "names": [
+   "Mongol"
+  ],
+  "scope_size": 3,
+  "text": "Assume that Choibalsan is indeed offset by 8:00."
+ },
+ {
+  "file": "asia",
+  "line": 3049,
+  "section": "Pakistan",
+  "level": "adjacent",
+  "names": [
+   "Pakistan"
+  ],
+  "scope_size": 2,
+  "text": "XXX--midnight transitions is a guess; 2008 only is a guess."
+ },
+ {
+  "file": "asia",
+  "line": 3124,
+  "section": "Pakistan",
+  "level": "named",
+  "names": [
+   "Pakistan"
+  ],
+  "scope_size": 2,
+  "text": "> being, it seems unclear if DST will be actually observed or not - but"
+ },
+ {
+  "file": "asia",
+  "line": 3182,
+  "section": "Palestine",
+  "level": "named",
+  "names": [
+   "Asia/Gaza",
+   "Asia/Hebron",
+   "Palestine"
+  ],
+  "scope_size": 4,
+  "text": "To summarize, the table should probably look something like that: I guess more info may be available from the PA's web page (if/when they"
+ },
+ {
+  "file": "asia",
+  "line": 3195,
+  "section": "Palestine",
+  "level": "named",
+  "names": [
+   "Asia/Gaza",
+   "Palestine"
+  ],
+  "scope_size": 4,
+  "text": "with Shapir and assume that it observed DST from 1940 through 1947,"
+ },
+ {
+  "file": "asia",
+  "line": 3218,
+  "section": "Palestine",
+  "level": "adjacent",
+  "names": [
+   "EgyptAsia"
+  ],
+  "scope_size": 4,
+  "text": "For now, let's assume that the spring switch was at 24:00,"
+ },
+ {
+  "file": "asia",
+  "line": 3244,
+  "section": "Palestine",
+  "level": "named",
+  "names": [
+   "Palestine"
+  ],
+  "scope_size": 4,
+  "text": "I guess it is likely that next year's date will be moved as well,"
+ },
+ {
+  "file": "asia",
+  "line": 3254,
+  "section": "Palestine",
+  "level": "named",
+  "names": [
+   "Asia/Gaza"
+  ],
+  "scope_size": 4,
+  "text": "surprised if they agreed about DST.  But for now, assume they agree."
+ },
+ {
+  "file": "asia",
+  "line": 3291,
+  "section": "Palestine",
+  "level": "named",
+  "names": [
+   "Asia/Gaza",
+   "Palestine"
+  ],
+  "scope_size": 4,
+  "text": "We are not sure if Gaza will do the same, last year they had a different"
+ },
+ {
+  "file": "asia",
+  "line": 3317,
+  "section": "Palestine",
+  "level": "named",
+  "names": [
+   "Asia/Gaza"
+  ],
+  "scope_size": 4,
+  "text": "start one day later, at 12:01am. Not sure if they really mean 12:01am or"
+ },
+ {
+  "file": "asia",
+  "line": 3463,
+  "section": "Palestine",
+  "level": "named",
+  "names": [
+   "Palestine"
+  ],
+  "scope_size": 4,
+  "text": "Guess future fall transitions at 01:00 on the Friday preceding October's"
+ },
+ {
+  "file": "asia",
+  "line": 3493,
+  "section": "Palestine",
+  "level": "named",
+  "names": [
+   "Palestine"
+  ],
+  "scope_size": 4,
+  "text": "For now, guess that spring and fall transitions will normally"
+ },
+ {
+  "file": "asia",
+  "line": 3672,
+  "section": "Philippines",
+  "level": "named",
+  "names": [
+   "Asia/Manila",
+   "Phil"
+  ],
+  "scope_size": 2,
+  "text": "1762-10-06 through 1764-04; for now assume it kept American time."
+ },
+ {
+  "file": "asia",
+  "line": 3723,
+  "section": "Philippines",
+  "level": "named",
+  "names": [
+   "Asia/Manila",
+   "Phil"
+  ],
+  "scope_size": 2,
+  "text": "The article is not able to state the basis of that. I guess it was based on"
+ },
+ {
+  "file": "asia",
+  "line": 3796,
+  "section": "Kuwait",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "standardized until 1968 or so; we don't know exactly when, and possibly it Jidda, on March 14, 1947\".  Shanks & Pottenger guessed 1950; go with the the country.  Presumably this is documenting airline time.  Ignore this,"
+ },
+ {
+  "file": "asia",
+  "line": 3958,
+  "section": "Syria",
+  "level": "named",
+  "names": [
+   "Syria"
+  ],
+  "scope_size": 2,
+  "text": "this year [only]....  This is probably related to Ramadan, like Egypt."
+ },
+ {
+  "file": "asia",
+  "line": 4009,
+  "section": "Syria",
+  "level": "named",
+  "names": [
+   "Syria"
+  ],
+  "scope_size": 2,
+  "text": "My best guess at a Syrian rule is \"the Friday nearest April 1\";"
+ },
+ {
+  "file": "asia",
+  "line": 4167,
+  "section": "Vietnam (southern)",
+  "level": "adjacent",
+  "names": [
+   "Asia/Ho_Chi_Minh"
+  ],
+  "scope_size": 1,
+  "text": "It's unclear whether this meant legal Paris Mean Time (00:09:21) or the Paris Meridian; for now guess the former and round the exact Tr\u1ea7n cites the following sources; it's unclear which supplied the info above."
+ },
+ {
+  "file": "asia",
+  "line": 4232,
+  "section": "Vietnam (southern)",
+  "level": "named",
+  "names": [
+   "Asia/Ho_Chi_Minh"
+  ],
+  "scope_size": 1,
+  "text": "Vietnam since 1975-06-13.  Presumably clocks often changed in south Vietnam"
+ },
+ {
+  "file": "australasia",
+  "line": 231,
+  "section": "Australia",
+  "level": "named",
+  "names": [
+   "Antarctica/Macquarie",
+   "Aus",
+   "Australia/Hobart"
+  ],
+  "scope_size": 21,
+  "text": "Guess that it was like Australia/Hobart while inhabited before 2010."
+ },
+ {
+  "file": "australasia",
+  "line": 275,
+  "section": "Fiji",
+  "level": "named",
+  "names": [
+   "Fiji",
+   "Pacific/Fiji"
+  ],
+  "scope_size": 2,
+  "text": "2011 (last Sunday a good guess?)."
+ },
+ {
+  "file": "australasia",
+  "line": 358,
+  "section": "Fiji",
+  "level": "named",
+  "names": [
+   "Fiji",
+   "Pacific/Fiji"
+  ],
+  "scope_size": 2,
+  "text": "For now, guess DST from 02:00 the second Sunday in November to 03:00 depend on when school terms start.  Although the guess is ad hoc, it matches than guessing no DST."
+ },
+ {
+  "file": "australasia",
+  "line": 402,
+  "section": "Fiji",
+  "level": "adjacent",
+  "names": [
+   "Fiji"
+  ],
+  "scope_size": 2,
+  "text": "For now, assume DST is suspended indefinitely."
+ },
+ {
+  "file": "australasia",
+  "line": 595,
+  "section": "New Zealand",
+  "level": "named",
+  "names": [
+   "Pacific/Auckland"
+  ],
+  "scope_size": 6,
+  "text": "was probably like Pacific/Auckland"
+ },
+ {
+  "file": "australasia",
+  "line": 623,
+  "section": "New Zealand",
+  "level": "named",
+  "names": [
+   "Cook",
+   "Pacific/Rarotonga"
+  ],
+  "scope_size": 6,
+  "text": "This act does not state when it takes effect, so one has to assume it"
+ },
+ {
+  "file": "australasia",
+  "line": 652,
+  "section": "Niue",
+  "level": "named",
+  "names": [
+   "Pacific/Niue"
+  ],
+  "scope_size": 2,
+  "text": "Without greater specificity, guess 1964-07-01 for this transition."
+ },
+ {
+  "file": "australasia",
+  "line": 783,
+  "section": "Pitcairn",
+  "level": "adjacent",
+  "names": [
+   "WS"
+  ],
+  "scope_size": 5,
+  "text": "Assume the pattern instituted in 2012 will continue indefinitely."
+ },
+ {
+  "file": "australasia",
+  "line": 824,
+  "section": "Tokelau",
+  "level": "adjacent",
+  "names": [
+   "Pacific/Fakaofo"
+  ],
+  "scope_size": 1,
+  "text": "was \"11 hours slow on G.M.T.\"  Go with Thorsen and assume Shanks & Pottenger"
+ },
+ {
+  "file": "australasia",
+  "line": 864,
+  "section": "US minor outlying islands",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "no information; was probably like Pacific/Kiritimati"
+ },
+ {
+  "file": "australasia",
+  "line": 870,
+  "section": "US minor outlying islands",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "Details are uncertain.  We have no data for Johnston after 1970, so"
+ },
+ {
+  "file": "australasia",
+  "line": 897,
+  "section": "US minor outlying islands",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "uninhabited since World War II; was probably like Pacific/Kiritimati"
+ },
+ {
+  "file": "australasia",
+  "line": 973,
+  "section": "Vanuatu",
+  "level": "section",
+  "names": [
+   "Pacific/Efate",
+   "Vanuatu"
+  ],
+  "scope_size": 2,
+  "text": "I invented the abbreviation marked \"*\"."
+ },
+ {
+  "file": "australasia",
+  "line": 1161,
+  "section": "Australia",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "For now we'll continue to assume 2:00s for changes since 1960."
+ },
+ {
+  "file": "australasia",
+  "line": 1166,
+  "section": "Australia",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "and should probably be included in the data file. There are probably more"
+ },
+ {
+  "file": "australasia",
+  "line": 1239,
+  "section": "Australia",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "The 1992 ending date used in the rules is a best guess;"
+ },
+ {
+  "file": "australasia",
+  "line": 1315,
+  "section": "Australia",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "For lack of better info, assume the tradition dates back to the"
+ },
+ {
+  "file": "australasia",
+  "line": 1559,
+  "section": "Australia",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "Hill, and Victoria will be August 27, presumably due to the Sydney Olympics."
+ },
+ {
+  "file": "australasia",
+  "line": 1612,
+  "section": "Australia",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "shown on clocks on LHI. I guess this means that for 30 minutes at the start"
+ },
+ {
+  "file": "australasia",
+  "line": 1672,
+  "section": "New Zealand",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "As with Australia, we'll assume the tradition is 2:00s, not 2:00."
+ },
+ {
+  "file": "australasia",
+  "line": 1697,
+  "section": "New Zealand",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "For now, assume this practice goes back to the introduction of standard time LMT back when New Zealand was at UT +11:30; also, assume Chatham Islands did"
+ },
+ {
+  "file": "australasia",
+  "line": 1713,
+  "section": "New Zealand",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "I guessed Guam, Mariana, and Bonin and Marcus districts might have"
+ },
+ {
+  "file": "australasia",
+  "line": 1827,
+  "section": "Kiribati",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "period.  It would probably be reasonable to assume Guam use GMT+9 during"
+ },
+ {
+  "file": "australasia",
+  "line": 1834,
+  "section": "Kiribati",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "For now, we assume the Ladrones switched at the same time as the Philippines; and end of Japanese control of Agana.  We don't know whether the Northern Marianas followed Guam's DST rules from 1959 through 1977; for now, assume"
+ },
+ {
+  "file": "australasia",
+  "line": 1857,
+  "section": "Micronesia (and nearby)",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "Like the Ladrones (see Guam commentary), assume the Spanish East Indies"
+ },
+ {
+  "file": "australasia",
+  "line": 1865,
+  "section": "Micronesia (and nearby)",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "We don't know when Kosrae switched from +12; assume January 1 for now."
+ },
+ {
+  "file": "australasia",
+  "line": 1888,
+  "section": "Micronesia (and nearby)",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "probably does not reflect the time used by local resident at the time (that time for the occupied area and thus it can probably be seen as such."
+ },
+ {
+  "file": "australasia",
+  "line": 1969,
+  "section": "Micronesia (and nearby)",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "We don't know the date of that quote, but we'll guess they"
+ },
+ {
+  "file": "australasia",
+  "line": 2035,
+  "section": "Pitcairn",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "references, and can only assume that this was an error in interpretation"
+ },
+ {
+  "file": "australasia",
+  "line": 2063,
+  "section": "Pitcairn",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "Assume American Samoa switched to -11 in 1911, not 1950, day in 2011.  Assume also that the Samoas follow the US and New"
+ },
+ {
+  "file": "australasia",
+  "line": 2188,
+  "section": "Tonga",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "Assume Tonga will observe DST from the first Sunday in November at 02:00"
+ },
+ {
+  "file": "australasia",
+  "line": 2197,
+  "section": "Tonga",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "For now, guess that DST is discontinued.  That's what the IATA is guessing."
+ },
+ {
+  "file": "europe",
+  "line": 62,
+  "section": null,
+  "level": "named",
+  "names": [
+   "Europe/London",
+   "Russia"
+  ],
+  "scope_size": 9,
+  "text": "I invented the abbreviations marked '*' in the following table;"
+ },
+ {
+  "file": "europe",
+  "line": 139,
+  "section": null,
+  "level": "named",
+  "names": [
+   "Europe/Dublin",
+   "Europe/London"
+  ],
+  "scope_size": 9,
+  "text": "and presumably other railways; the January 1848 Bradshaw's lists many transition date for London, namely 1847-12-01.  We don't know as much"
+ },
+ {
+  "file": "europe",
+  "line": 156,
+  "section": null,
+  "level": "named",
+  "names": [
+   "Europe/London"
+  ],
+  "scope_size": 9,
+  "text": "Daylight saving time in its modern sense was invented by the"
+ },
+ {
+  "file": "europe",
+  "line": 352,
+  "section": null,
+  "level": "adjacent",
+  "names": [
+   "GB-Eire"
+  ],
+  "scope_size": 9,
+  "text": "My admittedly uninformed guess is that the terminal has two authorities,"
+ },
+ {
+  "file": "europe",
+  "line": 598,
+  "section": null,
+  "level": "named",
+  "names": [
+   "C-Eur"
+  ],
+  "scope_size": 9,
+  "text": "I found what is probably a typo of 2:00 which should perhaps be 2:00s"
+ },
+ {
+  "file": "europe",
+  "line": 809,
+  "section": "Austria",
+  "level": "named",
+  "names": [
+   "Austria",
+   "Europe/Vienna"
+  ],
+  "scope_size": 2,
+  "text": "and guess 02:00 for 1945-04-12."
+ },
+ {
+  "file": "europe",
+  "line": 902,
+  "section": "Belgium",
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "Assume Brussels switched to WET in 1918 when the armistice took effect."
+ },
+ {
+  "file": "europe",
+  "line": 1054,
+  "section": "Greenland",
+  "level": "named",
+  "names": [
+   "America/Scoresbysund"
+  ],
+  "scope_size": 5,
+  "text": "East Greenland and Franz Josef Land, but we don't know their time zones. rules since at least 1991.  Assume EU rules since 1980."
+ },
+ {
+  "file": "europe",
+  "line": 1121,
+  "section": "Greenland",
+  "level": "named",
+  "names": [
+   "America/Danmarkshavn",
+   "America/Thule",
+   "Thule"
+  ],
+  "scope_size": 5,
+  "text": "For lack of better info, assume they were like Godth\u00e5b before 1996. For 2007 on assume Thule will stay in sync with US DST rules."
+ },
+ {
+  "file": "europe",
+  "line": 1169,
+  "section": "Greenland",
+  "level": "named",
+  "names": [
+   "America/Nuuk",
+   "America/Scoresbysund"
+  ],
+  "scope_size": 5,
+  "text": "For now, assume it will be like America/Nuuk."
+ },
+ {
+  "file": "europe",
+  "line": 1235,
+  "section": "Estonia",
+  "level": "adjacent",
+  "names": [
+   "Europe/Tallinn"
+  ],
+  "scope_size": 1,
+  "text": "Union are still unclear.  In 1994, the EU declared summer time compulsory"
+ },
+ {
+  "file": "europe",
+  "line": 1384,
+  "section": "Monaco",
+  "level": "named",
+  "names": [
+   "Europe/Paris"
+  ],
+  "scope_size": 2,
+  "text": "stations were probably done haphazardly with the popular impression being"
+ },
+ {
+  "file": "europe",
+  "line": 1520,
+  "section": "Svalbard & Jan Mayen",
+  "level": "adjacent",
+  "names": [
+   "Germany"
+  ],
+  "scope_size": 3,
+  "text": "before 1895, and therefore probably changed the local time somewhere"
+ },
+ {
+  "file": "europe",
+  "line": 1902,
+  "section": "Lithuania",
+  "level": "adjacent",
+  "names": [
+   "Europe/Vilnius"
+  ],
+  "scope_size": 1,
+  "text": "known to be wrong about Estonia and Latvia, assume it's wrong here too."
+ },
+ {
+  "file": "europe",
+  "line": 1950,
+  "section": "Malta",
+  "level": "named",
+  "names": [
+   "Europe/Malta",
+   "Malta"
+  ],
+  "scope_size": 2,
+  "text": "Assume 1900-1972 was like Rome, overriding Shanks."
+ },
+ {
+  "file": "europe",
+  "line": 2022,
+  "section": "Moldova",
+  "level": "named",
+  "names": [
+   "Moldova"
+  ],
+  "scope_size": 2,
+  "text": "Guess that since 1997 Moldova has switched one hour before the EU."
+ },
+ {
+  "file": "europe",
+  "line": 2090,
+  "section": "Moldova",
+  "level": "adjacent",
+  "names": [
+   "Europe/Chisinau"
+  ],
+  "scope_size": 2,
+  "text": "See Romania commentary for the guessed 1997 transition to EU rules."
+ },
+ {
+  "file": "europe",
+  "line": 2296,
+  "section": "Portugal",
+  "level": "named",
+  "names": [
+   "Europe/Lisbon",
+   "Port"
+  ],
+  "scope_size": 4,
+  "text": "does not appear to have had any provision delaying its effect, so assume that"
+ },
+ {
+  "file": "europe",
+  "line": 2364,
+  "section": "Portugal",
+  "level": "named",
+  "names": [
+   "Atlantic/Azores",
+   "Atlantic/Madeira",
+   "Port"
+  ],
+  "scope_size": 4,
+  "text": "at 02:00u, not 01:00u.  Assume that these are typos."
+ },
+ {
+  "file": "europe",
+  "line": 2392,
+  "section": "Portugal",
+  "level": "named",
+  "names": [
+   "Atlantic/Azores",
+   "Atlantic/Madeira",
+   "Port"
+  ],
+  "scope_size": 4,
+  "text": "didn't explicitly call out these \"adjacent islands\", so we assume that DST"
+ },
+ {
+  "file": "europe",
+  "line": 2438,
+  "section": "Portugal",
+  "level": "named",
+  "names": [
+   "Atlantic/Azores",
+   "Port"
+  ],
+  "scope_size": 4,
+  "text": "give a transition time, it was signed Wednesday 1993-06-16; assume it took"
+ },
+ {
+  "file": "europe",
+  "line": 2485,
+  "section": "Romania",
+  "level": "named",
+  "names": [
+   "Romania"
+  ],
+  "scope_size": 2,
+  "text": "assume that Romania switched to EU rules in 1997,"
+ },
+ {
+  "file": "europe",
+  "line": 2523,
+  "section": "Russia",
+  "level": "adjacent",
+  "names": [
+   "Europe/Kaliningrad"
+  ],
+  "scope_size": 27,
+  "text": "They are in Cyrillic letters (presumably Russian)."
+ },
+ {
+  "file": "europe",
+  "line": 2650,
+  "section": "Russia",
+  "level": "adjacent",
+  "names": [
+   "Europe/Kaliningrad"
+  ],
+  "scope_size": 27,
+  "text": "with maintenance only and represent our best guesses as to which regions"
+ },
+ {
+  "file": "europe",
+  "line": 2664,
+  "section": "Russia",
+  "level": "adjacent",
+  "names": [
+   "Europe/Kaliningrad"
+  ],
+  "scope_size": 27,
+  "text": "+01/+02 to +02/+03, more likely this is a placeholder.  Guess that"
+ },
+ {
+  "file": "europe",
+  "line": 2748,
+  "section": "Russia",
+  "level": "adjacent",
+  "names": [
+   "Europe/Moscow"
+  ],
+  "scope_size": 27,
+  "text": "taken from what appear to be guesses by Shanks."
+ },
+ {
+  "file": "europe",
+  "line": 2792,
+  "section": "Russia",
+  "level": "named",
+  "names": [
+   "Asia/Krasnoyarsk",
+   "Asia/Magadan",
+   "Asia/Yekaterinburg",
+   "Europe/Astrakhan",
+   "Europe/Kaliningrad",
+   "Europe/Kirov",
+   "Europe/Moscow",
+   "Europe/Samara",
+   "Europe/Saratov",
+   "Europe/Volgograd"
+  ],
+  "scope_size": 27,
+  "text": "district separately from Taymyr Autonomous Okrug.  Probably erroneously."
+ },
+ {
+  "file": "europe",
+  "line": 2865,
+  "section": "Russia",
+  "level": "named",
+  "names": [
+   "Europe/Moscow"
+  ],
+  "scope_size": 27,
+  "text": "Presumably this is OCLC 85825704, a journal published with parallel text in"
+ },
+ {
+  "file": "europe",
+  "line": 2897,
+  "section": "Russia",
+  "level": "named",
+  "names": [
+   "Europe/Moscow"
+  ],
+  "scope_size": 27,
+  "text": "Shanks (1999) says \"date of change uncertain\", but implies that it happened 1994-09-25 03:00, but that can't be right.  For now, guess it"
+ },
+ {
+  "file": "europe",
+  "line": 2906,
+  "section": "Russia",
+  "level": "adjacent",
+  "names": [
+   "Europe/Simferopol"
+  ],
+  "scope_size": 27,
+  "text": "Assume it happened in March by not changing the clocks."
+ },
+ {
+  "file": "europe",
+  "line": 3081,
+  "section": "Russia",
+  "level": "named",
+  "names": [
+   "Asia/Yekaterinburg"
+  ],
+  "scope_size": 27,
+  "text": "Assume it switched on 1916-07-03, the time of the new standard."
+ },
+ {
+  "file": "europe",
+  "line": 3204,
+  "section": "Russia",
+  "level": "named",
+  "names": [
+   "Asia/Tomsk"
+  ],
+  "scope_size": 27,
+  "text": "I speculate that the final text of the bill will be proposed tomorrow, the"
+ },
+ {
+  "file": "europe",
+  "line": 3354,
+  "section": "Russia",
+  "level": "named",
+  "names": [
+   "Asia/Yakutsk"
+  ],
+  "scope_size": 27,
+  "text": "Since the surrounding districts of Sakha are all YAKT, assume this is, too. Also assume its history has been the same as the rest of Asia/Yakutsk."
+ },
+ {
+  "file": "europe",
+  "line": 3402,
+  "section": "Russia",
+  "level": "named",
+  "names": [
+   "Asia/Khandyga",
+   "Asia/Vladivostok",
+   "Asia/Yakutsk"
+  ],
+  "scope_size": 27,
+  "text": "Make a wild guess that it switched to Vladivostok time in 2004."
+ },
+ {
+  "file": "europe",
+  "line": 3488,
+  "section": "Russia",
+  "level": "named",
+  "names": [
+   "Asia/Magadan",
+   "Asia/Srednekolymsk"
+  ],
+  "scope_size": 27,
+  "text": "Assume North Kuril Islands have history like Magadan before 2011-03-27. Assume this is a mistake, albeit an amusing one."
+ },
+ {
+  "file": "europe",
+  "line": 3641,
+  "section": "Spain",
+  "level": "named",
+  "names": [
+   "Europe/Madrid",
+   "Spain"
+  ],
+  "scope_size": 5,
+  "text": "1939-04-15.  For lack of better info, assume Madrid's clocks did not"
+ },
+ {
+  "file": "europe",
+  "line": 3743,
+  "section": "Switzerland",
+  "level": "named",
+  "names": [
+   "Europe/Zurich",
+   "Swiss"
+  ],
+  "scope_size": 2,
+  "text": "false, no official document could be found. Probably Gabriel got misled One further detail for Switzerland, which is probably out of scope for"
+ },
+ {
+  "file": "europe",
+  "line": 3791,
+  "section": "Switzerland",
+  "level": "named",
+  "names": [
+   "Europe/Zurich",
+   "Swiss"
+  ],
+  "scope_size": 2,
+  "text": "1853-07-16, though it probably occurred at some other date in Zurich, and legal civil time probably changed at still some other transition date."
+ },
+ {
+  "file": "europe",
+  "line": 3925,
+  "section": "Turkey",
+  "level": "named",
+  "names": [
+   "Europe/Istanbul",
+   "Turkey"
+  ],
+  "scope_size": 2,
+  "text": "I guess the best we can do is document the official time."
+ },
+ {
+  "file": "europe",
+  "line": 4037,
+  "section": "Ukraine",
+  "level": "adjacent",
+  "names": [
+   "Europe/Kyiv"
+  ],
+  "scope_size": 1,
+  "text": "For now, assume that Ukraine's zones all followed the same rules,"
+ },
+ {
+  "file": "europe",
+  "line": 4176,
+  "section": "Ukraine",
+  "level": "section",
+  "names": [
+   "Europe/Kyiv"
+  ],
+  "scope_size": 1,
+  "text": "assumed that DST is 1 hour ahead of normal time, this need not be the"
+ },
+ {
+  "file": "northamerica",
+  "line": 22,
+  "section": "United States",
+  "level": "named",
+  "names": [
+   "America/New_York"
+  ],
+  "scope_size": 44,
+  "text": "Howse writes (pp 121-125) that time zones were invented by"
+ },
+ {
+  "file": "northamerica",
+  "line": 52,
+  "section": "United States",
+  "level": "named",
+  "names": [
+   "America/New_York",
+   "US"
+  ],
+  "scope_size": 44,
+  "text": "abandoned, probably forever."
+ },
+ {
+  "file": "northamerica",
+  "line": 391,
+  "section": "United States",
+  "level": "named",
+  "names": [
+   "America/Chicago",
+   "Chicago"
+  ],
+  "scope_size": 44,
+  "text": "Assume this practice predates 1970, so Fort Pierre can use America/Chicago."
+ },
+ {
+  "file": "northamerica",
+  "line": 526,
+  "section": "United States",
+  "level": "adjacent",
+  "names": [
+   "CA"
+  ],
+  "scope_size": 44,
+  "text": "to speculate that the objections to Daylight Saving Time were one important"
+ },
+ {
+  "file": "northamerica",
+  "line": 625,
+  "section": "United States",
+  "level": "named",
+  "names": [
+   "America/Metlakatla"
+  ],
+  "scope_size": 44,
+  "text": "For lack of better information, assume that Metlakatla's"
+ },
+ {
+  "file": "northamerica",
+  "line": 780,
+  "section": "United States",
+  "level": "adjacent",
+  "names": [
+   "Pacific/Honolulu"
+  ],
+  "scope_size": 44,
+  "text": "We're left to guess the time of day when Act 163 was approved; guess noon."
+ },
+ {
+  "file": "northamerica",
+  "line": 1054,
+  "section": "United States",
+  "level": "named",
+  "names": [
+   "America/Kentucky/Louisville",
+   "America/New_York",
+   "Louisville"
+  ],
+  "scope_size": 44,
+  "text": "to assume Louisville switched at noon new local time, like New York."
+ },
+ {
+  "file": "northamerica",
+  "line": 1129,
+  "section": "United States",
+  "level": "named",
+  "names": [
+   "America/Indiana/Knox",
+   "America/North_Dakota/Center",
+   "Starke",
+   "US"
+  ],
+  "scope_size": 44,
+  "text": "We don't know where the line used to be within Kearny County, KS,"
+ },
+ {
+  "file": "northamerica",
+  "line": 1364,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "Canada"
+  ],
+  "scope_size": 32,
+  "text": "For now, assume all of DST-observing Canada will fall into line with the"
+ },
+ {
+  "file": "northamerica",
+  "line": 1420,
+  "section": "Canada",
+  "level": "adjacent",
+  "names": [
+   "StJohns"
+  ],
+  "scope_size": 32,
+  "text": "but go with Shanks & Pottenger and assume they used Canadian rules."
+ },
+ {
+  "file": "northamerica",
+  "line": 1430,
+  "section": "Canada",
+  "level": "adjacent",
+  "names": [
+   "StJohns"
+  ],
+  "scope_size": 32,
+  "text": "at 00:01 local time.  For now, assume it started in 1987."
+ },
+ {
+  "file": "northamerica",
+  "line": 1497,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "America/Glace_Bay",
+   "America/Halifax",
+   "Canada",
+   "Halifax"
+  ],
+  "scope_size": 32,
+  "text": "in Canada to observe DST in 1971 but not 1970; for now we'll assume"
+ },
+ {
+  "file": "northamerica",
+  "line": 1571,
+  "section": "Canada",
+  "level": "adjacent",
+  "names": [
+   "Moncton"
+  ],
+  "scope_size": 32,
+  "text": "For now, assume it started in 1993."
+ },
+ {
+  "file": "northamerica",
+  "line": 1615,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "America/Toronto",
+   "Toronto"
+  ],
+  "scope_size": 32,
+  "text": "presumably that should be -07-06.  (1912-06-19, -07-12; also letters"
+ },
+ {
+  "file": "northamerica",
+  "line": 1713,
+  "section": "Canada",
+  "level": "adjacent",
+  "names": [
+   "Toronto"
+  ],
+  "scope_size": 32,
+  "text": "Shanks & Pottenger say 1923-09-19; assume it's a typo and that \"-16\""
+ },
+ {
+  "file": "northamerica",
+  "line": 1756,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "America/Winnipeg",
+   "Winn"
+  ],
+  "scope_size": 32,
+  "text": "Although dubious in the light of Cassidy\u2019s article, we lack a better source. Since 02:00s is clearly correct for 1967 on, assume 02:00s in 1966 too."
+ },
+ {
+  "file": "northamerica",
+  "line": 1814,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "America/Toronto",
+   "Canada",
+   "Toronto"
+  ],
+  "scope_size": 32,
+  "text": "presumably late evening, as below), and would run until \"the end of"
+ },
+ {
+  "file": "northamerica",
+  "line": 2020,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "America/Dawson",
+   "America/Dawson_Creek",
+   "America/Fort_Nelson",
+   "America/Vancouver",
+   "Canada",
+   "Vanc"
+  ],
+  "scope_size": 32,
+  "text": "guess they meant 02:00 Sunday since 02:00 was common practice in Vancouver."
+ },
+ {
+  "file": "northamerica",
+  "line": 2060,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "Yukon"
+  ],
+  "scope_size": 32,
+  "text": "and will likely break much software that assumes PST is -08"
+ },
+ {
+  "file": "northamerica",
+  "line": 2120,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "America/Whitehorse",
+   "Canada",
+   "Yukon"
+  ],
+  "scope_size": 32,
+  "text": "midnight\" when it probably should have stated 2:00a.m.... For now, assume Yukon's 1965-04-22 spring forward was 00:00 -> 02:00, as this"
+ },
+ {
+  "file": "northamerica",
+  "line": 2323,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "Canada"
+  ],
+  "scope_size": 32,
+  "text": "predates the creation of Nunavut, it probably goes back many years.... For lack of better information, assume that Southampton Island observed"
+ },
+ {
+  "file": "northamerica",
+  "line": 2484,
+  "section": "Canada",
+  "level": "named",
+  "names": [
+   "Canada"
+  ],
+  "scope_size": 32,
+  "text": "Assuming Northwest Territories follows Alberta in abolishing seasonal time"
+ },
+ {
+  "file": "northamerica",
+  "line": 2558,
+  "section": "Mexico",
+  "level": "adjacent",
+  "names": [
+   "Mexico"
+  ],
+  "scope_size": 13,
+  "text": "would apply from 1 April, so it's unclear when the change actually but published on 5 April, so it's unclear when the change actually occurred. January, but it said that it would apply from 1 January, so it's unclear when"
+ },
+ {
+  "file": "northamerica",
+  "line": 2602,
+  "section": "Mexico",
+  "level": "named",
+  "names": [
+   "America/Tijuana"
+  ],
+  "scope_size": 13,
+  "text": "assume that it also applied in the years where I did not yet find proof. I could not find....  One might assume that Baja California, which followed Assume that Tijuana agreed with San Diego from 1953 through 1996,"
+ },
+ {
+  "file": "northamerica",
+  "line": 2708,
+  "section": "Mexico",
+  "level": "named",
+  "names": [
+   "America/Mexico_City",
+   "Mexico"
+  ],
+  "scope_size": 13,
+  "text": "For now we'll assume that the Federal District will bow to federal rules."
+ },
+ {
+  "file": "northamerica",
+  "line": 3145,
+  "section": "Bermuda",
+  "level": "named",
+  "names": [
+   "Atlantic/Bermuda",
+   "Bermuda"
+  ],
+  "scope_size": 2,
+  "text": "It is not known when this time became standard for Bermuda; guess 1890."
+ },
+ {
+  "file": "northamerica",
+  "line": 3265,
+  "section": "Costa Rica",
+  "level": "named",
+  "names": [
+   "America/Costa_Rica"
+  ],
+  "scope_size": 2,
+  "text": "no information; probably like America/Costa_Rica"
+ },
+ {
+  "file": "northamerica",
+  "line": 3297,
+  "section": "Cuba",
+  "level": "named",
+  "names": [
+   "Cuba"
+  ],
+  "scope_size": 2,
+  "text": "For now, let's assume that it's a temporary measure."
+ },
+ {
+  "file": "northamerica",
+  "line": 3315,
+  "section": "Cuba",
+  "level": "named",
+  "names": [
+   "Cuba"
+  ],
+  "scope_size": 2,
+  "text": "For lack of better information, assume Cuba will use US rules,"
+ },
+ {
+  "file": "northamerica",
+  "line": 3370,
+  "section": "Cuba",
+  "level": "adjacent",
+  "names": [
+   "Cuba"
+  ],
+  "scope_size": 2,
+  "text": "Assume Sun>=15 (third Sunday) going forward."
+ },
+ {
+  "file": "northamerica",
+  "line": 3385,
+  "section": "Cuba",
+  "level": "adjacent",
+  "names": [
+   "Cuba"
+  ],
+  "scope_size": 2,
+  "text": "that has indeed switched to DST. Assume second Sunday from 2009 forward."
+ },
+ {
+  "file": "northamerica",
+  "line": 3423,
+  "section": "Cuba",
+  "level": "named",
+  "names": [
+   "Cuba"
+  ],
+  "scope_size": 2,
+  "text": "For now, assume the future rule is first Sunday in November."
+ },
+ {
+  "file": "northamerica",
+  "line": 3589,
+  "section": "Haiti",
+  "level": "named",
+  "names": [
+   "Haiti"
+  ],
+  "scope_size": 2,
+  "text": "Assume a US-style fall back as well."
+ },
+ {
+  "file": "northamerica",
+  "line": 3678,
+  "section": "Jamaica",
+  "level": "named",
+  "names": [
+   "America/Jamaica"
+  ],
+  "scope_size": 1,
+  "text": "Assume Neita meant Jan 6 02:00, the same as the US.  Neita also writes that"
+ },
+ {
+  "file": "northamerica",
+  "line": 3718,
+  "section": "Nicaragua",
+  "level": "named",
+  "names": [
+   "Nic"
+  ],
+  "scope_size": 2,
+  "text": "assume that it is daylight saving...."
+ },
+ {
+  "file": "northamerica",
+  "line": 3864,
+  "section": "Trinidad & Tobago",
+  "level": "adjacent",
+  "names": [
+   "America/Grand_Turk"
+  ],
+  "scope_size": 3,
+  "text": "the span of an hour, we assume instead that the adoption of EDT actually took"
+ },
+ {
+  "file": "southamerica",
+  "line": 32,
+  "section": null,
+  "level": "none",
+  "names": [],
+  "scope_size": 0,
+  "text": "invented and did not reflect common practice."
+ },
+ {
+  "file": "southamerica",
+  "line": 148,
+  "section": "Argentina",
+  "level": "named",
+  "names": [
+   "America/Argentina/Buenos_Aires",
+   "Arg"
+  ],
+  "scope_size": 14,
+  "text": "For dates after mid-2008, the following rules are my guesses and"
+ },
+ {
+  "file": "southamerica",
+  "line": 205,
+  "section": "Argentina",
+  "level": "named",
+  "names": [
+   "America/Argentina/Mendoza",
+   "Arg"
+  ],
+  "scope_size": 14,
+  "text": "now we'll assume it's for this year only."
+ },
+ {
+  "file": "southamerica",
+  "line": 367,
+  "section": "Argentina",
+  "level": "named",
+  "names": [
+   "America/Argentina/San_Luis",
+   "Arg"
+  ],
+  "scope_size": 14,
+  "text": "So I guess a new set of rules, besides \"Arg\", must be made and the last"
+ },
+ {
+  "file": "southamerica",
+  "line": 779,
+  "section": "Brazil",
+  "level": "adjacent",
+  "names": [
+   "Brazil"
+  ],
+  "scope_size": 17,
+  "text": "For now, assume western Amazonas will change as well."
+ },
+ {
+  "file": "southamerica",
+  "line": 979,
+  "section": "Brazil",
+  "level": "named",
+  "names": [
+   "America/Noronha"
+  ],
+  "scope_size": 17,
+  "text": "In the north a very small part from the river Javary (now Jari I guess,"
+ },
+ {
+  "file": "southamerica",
+  "line": 1100,
+  "section": "Chile",
+  "level": "named",
+  "names": [
+   "America/Santiago",
+   "Chile",
+   "Pacific/Easter"
+  ],
+  "scope_size": 6,
+  "text": "1890 and rounds its UT offset to 70W40; guess that in practice this standardized on 109W22 in 1890; assume this didn't change the clocks. - [1] does not give times for transitions; assume they occur Pottenger.  After that, for lack of better info assume"
+ },
+ {
+  "file": "southamerica",
+  "line": 1192,
+  "section": "Chile",
+  "level": "adjacent",
+  "names": [
+   "Chile"
+  ],
+  "scope_size": 6,
+  "text": "(unless there's another dry season next year, I guess)."
+ },
+ {
+  "file": "southamerica",
+  "line": 1335,
+  "section": "Chile",
+  "level": "named",
+  "names": [
+   "America/Punta_Arenas",
+   "America/Santiago"
+  ],
+  "scope_size": 6,
+  "text": "Although the presidential decree stops at fall 2026, assume that"
+ },
+ {
+  "file": "southamerica",
+  "line": 1489,
+  "section": "Colombia",
+  "level": "named",
+  "names": [
+   "America/Bogota"
+  ],
+  "scope_size": 2,
+  "text": "no information; probably like America/Bogota"
+ },
+ {
+  "file": "southamerica",
+  "line": 1509,
+  "section": "Ecuador",
+  "level": "named",
+  "names": [
+   "Ecuador"
+  ],
+  "scope_size": 5,
+  "text": "repeated.  For now, assume transitions were at 00:00 local time country-wide."
+ },
+ {
+  "file": "southamerica",
+  "line": 1602,
+  "section": "Ecuador",
+  "level": "named",
+  "names": [
+   "Atlantic/Stanley",
+   "Falk"
+  ],
+  "scope_size": 5,
+  "text": "For now we will assume permanent -03 for the Falklands"
+ },
+ {
+  "file": "southamerica",
+  "line": 1801,
+  "section": "Peru",
+  "level": "named",
+  "names": [
+   "Peru"
+  ],
+  "scope_size": 3,
+  "text": "Shanks & Pottenger don't have this transition.  Assume 1986 was like 1987."
+ },
+ {
+  "file": "southamerica",
+  "line": 1853,
+  "section": "Uruguay",
+  "level": "named",
+  "names": [
+   "America/Montevideo",
+   "Uruguay"
+  ],
+  "scope_size": 2,
+  "text": "auspices of the National Institute for the Prediction of Time.  It is unclear resulting in UT-04.  Assume the corresponding LMT of UT-03:44:51 (given on minutes DST.  Assume transitions at 24:00 on the specified days until Ley No."
+ },
+ {
+  "file": "southamerica",
+  "line": 1892,
+  "section": "Uruguay",
+  "level": "adjacent",
+  "names": [
+   "Uruguay"
+  ],
+  "scope_size": 2,
+  "text": "at 00:00.  Assume transitions at 00:00 Sunday throughout."
+ },
+ {
+  "file": "southamerica",
+  "line": 2046,
+  "section": "Uruguay",
+  "level": "adjacent",
+  "names": [
+   "America/Montevideo"
+  ],
+  "scope_size": 2,
+  "text": "This Zone can be simplified once we assume zic %z."
+ }
+]
