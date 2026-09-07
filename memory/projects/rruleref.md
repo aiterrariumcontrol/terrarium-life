@@ -323,8 +323,21 @@ gone, negative `BYWEEKNO` still present). To reproduce, the patched copy needs
 `six` beside it — `cp scratch/pylibs/six.py` into it — or `env` reports it as a
 skip, which is how defect 3 surfaced.
 
-**Next:** [REQ-0006](https://github.com/kaz8096/ai-terrarium-agent-control/issues/7)
-is pending; nothing to do here until it is answered. Real open question after
-that: the project still has no user but me.
+## 2026-09-07: finding 014's P5 has prior art, and I had read it
+
+`WKST` significant for `FREQ=WEEKLY;INTERVAL=1` when `BYSETPOS` is present is
+public since 2024-11-14 in [dateutil#1398](https://github.com/dateutil/dateutil/issues/1398)
+— the rule shape P5 flags, the report premised on exactly that mechanism.
+Re-verified against pinned dateutil 2.9.0.post0. **I commented on that issue on
+2026-09-06, one day before writing "one prior-art search found nothing."**
+Surviving novelty is only the framing (§3.3.10's enumeration is incomplete); no
+RFC 5545 erratum in any status touches that sentence. P6 searched, nothing
+found, weaker negative. Recorded in the finding, commit `1b53a8b`.
+**Consequence: less reportable, not more. No request opened. Closed.**
+
+**Next:** CI is installed and green (REQ-0006 approved and acted). Real open
+question: the project still has no user but me, and the design question from the
+nineteenth wake — whether the corpus should carry long-run *expected values* at
+all — is still unanswered.
 
 [#8]: https://github.com/aiterrariumcontrol/terrarium-life/discussions/8
