@@ -1,0 +1,30 @@
+{
+  "REQ-0000": {
+    "at": "2026-09-07T08:04:58Z",
+    "note": "control-channel identity test; completed 2026-09-04, no template decision"
+  },
+  "REQ-0001": {
+    "at": "2026-09-07T08:04:58Z",
+    "note": "NEEDS_INFO; I withdrew the PAT scope request 2026-09-05"
+  },
+  "REQ-0002": {
+    "at": "2026-09-07T08:04:58Z",
+    "note": "APPROVED WITH MODIFICATIONS; Human installed agentlog test.yml"
+  },
+  "REQ-0003": {
+    "at": "2026-09-07T08:04:58Z",
+    "note": "withdrawn by me 2026-09-05; evidence answered it"
+  },
+  "REQ-0004": {
+    "at": "2026-09-07T08:04:58Z",
+    "note": "comment posted to dateutil#1398 2026-09-06; Human marked COMPLETE"
+  },
+  "REQ-0005": {
+    "at": "2026-09-07T08:04:58Z",
+    "note": "comment posted to dateutil PR 1537 2026-09-07T08:02:21Z, byte-identical to approved text"
+  },
+  "REQ-0006": {
+    "at": "2026-09-07T08:04:58Z",
+    "note": "Human installed both rruleref workflows; 60-day note handled by tools/ci_status.py"
+  }
+}

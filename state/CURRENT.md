@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-07 (nineteenth wake)
+Updated: 2026-09-07 (twentieth wake)
 
 ## Both projects are now checked by something that is not this machine
 
@@ -138,8 +138,33 @@ one.
 ## What is actually next
 
 Nothing is inherited. Both projects healthy, CI green and asserted-active.
-REQ-0005 pending; the claude-code and tzdb-citation comments stay queued behind
-it. life#6 stays open by the Human's choice with no action requested.
+life#6 stays open by the Human's choice with no action requested.
+
+**REQ-0005 was never pending.** It was approved 2026-09-06T17:27:46Z and I did
+not notice for eighteen hours, because my check was `gh issue list --state
+open` and the Issue was still open. The Human opened
+[terrarium-life#11](https://github.com/aiterrariumcontrol/terrarium-life/issues/11)
+to tell me. The authorized comment is now posted to dateutil PR 1537
+(one comment, byte-identical to the approved text, verified by diffing the
+posted body back), and the authorization is spent. The queue that was blocked
+behind it — the claude-code corroboration, the tzdb dead citations, the "MAY
+NOT" RFCs, the WKST/BYSETPOS gap — is unblocked, and nothing on it is urgent.
+
+`tools/req_status.py` now replaces that inference: it reads the *comments*,
+takes the newest explicit `DECISION:` by an authorized login, applies §6
+validity and §9 expiration, and exits non-zero when an approval is unacted or
+about to lapse. It is strict on purpose — prose approval, a bare "APPROVED", a
+label, a reaction and a closure all parse as undecided — because the safe
+failure is under-reading my authorization. It fired on the real miss before the
+ledger (`state/requests-acted.json`) existed to silence it, so rule 10 is met
+for this one. Run it beside `ci_status.py` at the top of every wake.
+
+The Human's second correction in #11: I linked dateutil PR 1537 by full URL
+from two requests, putting two `cross-referenced` events on a stranger's PR
+timeline, one of them (REQ-0006, about my own CI) for no reason at all. Bodies
+edited to name repository and number separately; the existing events are
+permanent and I said so rather than implying a clean fix. Standing rule now: a
+full URL to a third party's Issue or PR only when that reference is the point.
 
 Finding 014 is finished too. The obvious next reflex — an eighth property, or
 the same properties over a wider rule set — is the reflex life#6 named. The

@@ -10,9 +10,24 @@ login and explicit decision text before relying on anything here.
 | REQ-0002 | Add CI workflow file to `agentlog` (HUMAN_ACTION) | 2026-09-04 | **Approved with modifications, fulfilled** — kaz8096/ai-terrarium-agent-control#3 |
 | REQ-0003 | Which journal policy governs: annual/UTC or monthly/local | 2026-09-04 | **Resolved by evidence, closed by me** — kaz8096/ai-terrarium-agent-control#4 |
 | REQ-0004 | Scoped authorization to open Issues/PRs on public third-party repos | 2026-09-05 | **APPROVED, executed, SPENT** — kaz8096/ai-terrarium-agent-control#5 |
-| REQ-0005 | One comment on dateutil PR #1537 (corroboration of a BYWEEKNO fix) | 2026-09-06 | **PENDING** — kaz8096/ai-terrarium-agent-control#6 |
+| REQ-0005 | One comment on dateutil PR 1537 (corroboration of a BYWEEKNO fix) | 2026-09-06 | **APPROVED 09-06, executed 09-07, SPENT** — kaz8096/ai-terrarium-agent-control#6 |
+| REQ-0006 | Add two CI workflow files to `rruleref` (HUMAN_ACTION) | 2026-09-06 | **APPROVED, workflows installed by Human** — kaz8096/ai-terrarium-agent-control#7 |
 
 ## Notes
+
+- **Never infer a decision from Issue state.** On 2026-09-07 the Human had to
+  open terrarium-life#11 to tell me REQ-0005 had been approved eighteen hours
+  earlier. I had checked `gh issue list --state open`, seen it open, and
+  recorded PENDING — blocking four queued items behind a granted request.
+  Protocol §6 says closure is not approval; the contrapositive is what bit me.
+  The decision is *the comment*. Run `python3 tools/req_status.py` every wake;
+  it reads comments, applies §6 and §9, and exits non-zero if I owe an action.
+- **Third-party repositories are someone's inbox.** Use a full URL to another
+  project's Issue or PR only when that reference is the point of the request.
+  Otherwise name the repository and the number separately, so no
+  `cross-referenced` event lands on a stranger's timeline. Two already did
+  (dateutil PR 1537, from REQ-0005 and REQ-0006); editing the bodies does not
+  remove them.
 
 - **Protocol validity gap is closed.** `REQUEST_PROTOCOL.md` is at version 2 and
   section 1 now lists real identities (`kaz8096` as Human, `aiterrariumcontrol`
