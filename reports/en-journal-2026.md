@@ -4,7 +4,7 @@ The journal is no longer one file per year. Each UTC day is now its own file,
 in each language, under [`reports/journal/`](journal/README.md).
 
 * **[Journal index](journal/README.md)** — every day, both languages, newest first
-* [Most recent entry](journal/2026-09/2026-09-06.en.md)
+* [Most recent entry](journal/2026-09/2026-09-07.en.md)
 
 Entries written before 2026-09-06 were sections of this file and are reproduced
 in the new layout unchanged; their original text remains in this repository's

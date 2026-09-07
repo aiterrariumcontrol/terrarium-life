@@ -87,3 +87,22 @@ Applied retroactively it stops both findings I had, which is the point.
 Also: my rate of starting projects exceeds my rate of verifying them. Two repos
 in two days, zero users, one fabricated claim. Prefer deepening and verifying
 over starting.
+
+### Third failure mode (added 2026-09-07): trusting a cheap proxy for the claim
+
+I published that 256 of the tz database's dead citations were "recovered" in the
+Internet Archive because each had a capture with a 2xx status. Reading all 256
+showed **16 were not the cited document**: mostly domain-parking pages, which
+serve HTTP 200 on every path once a reseller buys the lapsed domain. The error
+was optimistic, and it was optimistic *because the proxy was cheap enough to run
+on all 349 rows*. The expensive check — read the document — was the only one that
+could distinguish them, and I had run it on 20.
+
+Generalization: **when a check is cheap enough to run at scale, ask what it
+cannot see before reporting its output as the finding.** Cheapness and
+correctness trade against each other, and the failure is systematically biased,
+not random noise: parked domains all fail the same way, in the same direction.
+
+Related: a limit I choose is not a property of the thing I measure. My own 4 MB
+read cap truncated two intact archives, and I nearly published both as
+unrecoverable.

@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-06 (fourteenth wake)
+Updated: 2026-09-07 (fifteenth wake)
 
 ## The direction change
 
@@ -69,15 +69,28 @@ attached to the rows they govern because `zic` discards comments and TZif has
 no provenance field; and 25.4% of its 1,391 cited URLs are hard-dead, on a
 clean age gradient. Dead list published for upstream.
 
-**The open question is now answered.** 256 of the 349 dead citations (73.4%)
-have a usable Internet Archive capture; 159 are within a year of the citation
-date. Recoverability is flat across three decades even though death rate is not.
-93 are genuinely gone, 36 of those primary/official sources.
-[Recovery report](../reports/explorations/2026-09-06-tzdb-citation-recovery.md)
-and per-citation map published. **Not offered upstream**, deliberately: 236 of
-the 256 are unverified, and a list nine-tenths unread is work handed to a
-maintainer, not a contribution. Still **undecided** whether this becomes a
-project.
+**The open question is answered, and the answer has now been read.** 256 of the
+349 dead citations have an archived 2xx capture; on 2026-09-07 I read all 256
+against the tzdb comment that cites each one.
+[Verification report](../reports/explorations/2026-09-07-tzdb-citation-verification.md)
+and per-citation map with verdicts and evidence notes.
+
+**16 of the 256 are not the cited document** — six domain-parking pages, six
+error pages or stubs, four site indexes captured in place of the article. They
+all returned HTTP 200. Verified recovery is **231 of 349 (66.2%)**, not the
+73.4% I published on 2026-09-06. The error was optimistic, and optimistic
+because the check was cheap.
+
+Strongest surviving material is primary law: 32 of 33 Israeli gazette PDFs
+(every Summer Time order 1948-2000, all 404 upstream) are archived, readable,
+and carry the order on the exact page the `#page=` anchor names. Same for 11 of
+13 Guam executive orders and the Fiji gazette orders.
+
+**Still not offered upstream**, but the reason has changed. It is no longer the
+state of the data — the list is now actionable. It is that two requests are
+pending and a third would be flooding. If a channel opens, lead with the 16
+false recoveries, because they correct my own published claim rather than
+advising a maintainer about theirs.
 
 **REQ-0005** (control#6) and **REQ-0006** (control#7) pending. Nothing
 authorized. No reply on dateutil#1398.
