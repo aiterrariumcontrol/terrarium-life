@@ -1,0 +1,267 @@
+{
+ "generated": "2026-09-07",
+ "question": "Uppercase 'MAY NOT' is not defined by RFC 2119, yet RFC 8174 makes uppercase the trigger for RFC 2119 semantics. Which currently-in-force RFCs use it, and what does each occurrence mean?",
+ "corpus": "rsync rsync.rfc-editor.org::rfcs-text-only, retrieved 2026-09-07 (9828 rfcNNNN.txt); RFC status from rfc-index.xml the same day",
+ "selection": "RFCs whose text contains uppercase 'MAY NOT', that are NOT obsoleted, and that cite RFC 2119 or RFC 8174",
+ "totals": {
+  "rfcs_with_phrase_any": 56,
+  "not_obsoleted": 37,
+  "not_obsoleted_and_cites_2119": 33,
+  "occurrences": 53
+ },
+ "classification_is_a_reading": "Every one of these was read in context by hand. The categories are my reading of intent, not a fact about the documents. 'unresolved' means I could not decide, which is itself the finding: an implementer cannot decide either.",
+ "categories": {
+  "prohibition": 15,
+  "unresolved": 4,
+  "prose": 12,
+  "boilerplate": 3,
+  "idiom": 12,
+  "permission": 4,
+  "quoted": 3
+ },
+ "category_key": {
+  "boilerplate": "the RFC's own conventions section lists \"MAY NOT\" as an RFC 2119 key word. RFC 2119 defines no such term.",
+  "prohibition": "reads as MUST NOT",
+  "permission": "reads as 'need not' / is permitted to omit",
+  "idiom": "the fixed phrase 'MAY or MAY NOT', meaning optional either way",
+  "prose": "ordinary English 'might not', capitalised",
+  "quoted": "quotes or tabulates another RFC's usage",
+  "unresolved": "I read it and could not tell which was meant"
+ },
+ "occurrences": [
+  {
+   "doc": "RFC2334",
+   "n": 1,
+   "reading": "prohibition",
+   "note": "Vendor Private Extension MAY NOT appear more than once in an SCSP packet"
+  },
+  {
+   "doc": "RFC2516",
+   "n": 2,
+   "reading": "unresolved",
+   "note": "'This string MAY NOT be NULL terminated' - prohibition on the sender or a warning to the parser; the difference is what a receiver must tolerate"
+  },
+  {
+   "doc": "RFC2613",
+   "n": 5,
+   "reading": "prohibition",
+   "note": "SMON MIB: objects that MAY NOT be modified while the control row is active, entries that MAY NOT exist in the active state, a dataSource that MAY NOT be referenced"
+  },
+  {
+   "doc": "RFC2772",
+   "n": 1,
+   "reading": "prose",
+   "note": "'MAY NOT necessarily reside in the 6Bone registry'"
+  },
+  {
+   "doc": "RFC2889",
+   "n": 1,
+   "reading": "prose",
+   "note": "'All ports MAY NOT transmit the same number of frames if their Iload is not the same'"
+  },
+  {
+   "doc": "RFC3102",
+   "n": 3,
+   "reading": "prohibition",
+   "note": "hosts MAY NOT use unassigned addresses / tuples; host and gateway MAY NOT switch transport protocol"
+  },
+  {
+   "doc": "RFC3103",
+   "n": 1,
+   "reading": "boilerplate",
+   "note": "conventions section lists \"MAY NOT\" among the key words 'to be interpreted as described in [RFC2119]'"
+  },
+  {
+   "doc": "RFC3103",
+   "n": 1,
+   "reading": "prohibition",
+   "note": "'Multiple errors MAY NOT be reported in the same ERROR_RESPONSE'"
+  },
+  {
+   "doc": "RFC3103",
+   "n": 3,
+   "reading": "idiom",
+   "note": "'MAY or MAY NOT specify the remote port(s)'"
+  },
+  {
+   "doc": "RFC3162",
+   "n": 1,
+   "reading": "prose",
+   "note": "'the secret ... MAY NOT be configured' (i.e. might not be)"
+  },
+  {
+   "doc": "RFC3284",
+   "n": 1,
+   "reading": "idiom",
+   "note": "'integers that MAY or MAY NOT be included in the tuple'"
+  },
+  {
+   "doc": "RFC3331",
+   "n": 2,
+   "reading": "prose",
+   "note": "'MAY NOT be a requirement'; 'it MAY NOT be reasonable to expect'"
+  },
+  {
+   "doc": "RFC3348",
+   "n": 1,
+   "reading": "prose",
+   "note": "'a server ... MAY NOT be able to determine whether a mailbox has children'"
+  },
+  {
+   "doc": "RFC3543",
+   "n": 1,
+   "reading": "idiom",
+   "note": "'MAY or MAY NOT include a revocation support extension'"
+  },
+  {
+   "doc": "RFC3579",
+   "n": 1,
+   "reading": "prose",
+   "note": "'the secret ... MAY NOT be configured' (same sentence as RFC3162)"
+  },
+  {
+   "doc": "RFC3977",
+   "n": 1,
+   "reading": "idiom",
+   "note": "'A private extension MAY or MAY NOT be included in the capabilities list'"
+  },
+  {
+   "doc": "RFC3977",
+   "n": 1,
+   "reading": "permission",
+   "note": "'It MAY NOT advertise the IHAVE capability' in a bullet list whose neighbours are MUST and MUST NOT"
+  },
+  {
+   "doc": "RFC4037",
+   "n": 1,
+   "reading": "unresolved",
+   "note": "'it MAY NOT start preserving that data', paired with 'it MAY stop preserving' - the parallel argues permission, the neighbouring MUST NOT argues prohibition"
+  },
+  {
+   "doc": "RFC4216",
+   "n": 1,
+   "reading": "idiom",
+   "note": "'MAY or MAY NOT require the inter-AS TE tunnel ending addresses to be known'"
+  },
+  {
+   "doc": "RFC4271",
+   "n": 1,
+   "reading": "idiom",
+   "note": "discretionary attributes 'MAY or MAY NOT be sent in a particular UPDATE message'"
+  },
+  {
+   "doc": "RFC4271",
+   "n": 1,
+   "reading": "prohibition",
+   "note": "S9.1.1 'the route MAY NOT serve as an input to the next phase of route selection' - errata 5000 corrects this to MUST NOT; Held for Document Update since 2017-04-19"
+  },
+  {
+   "doc": "RFC4276",
+   "n": 3,
+   "reading": "quoted",
+   "note": "the BGP-4 implementation report tabulates RFC 4271's usage and records the requirement level of two features literally as 'RFC2119: MAY NOT' and 'RFC2119: MAY or MAY NOT'"
+  },
+  {
+   "doc": "RFC4452",
+   "n": 1,
+   "reading": "boilerplate",
+   "note": "terminology section lists \"MAY NOT\" among the key words 'to be interpreted as described in RFC 2119'"
+  },
+  {
+   "doc": "RFC4452",
+   "n": 2,
+   "reading": "prose",
+   "note": "'MAY NOT be suitable for use with applications that perform dot-segment normalization'"
+  },
+  {
+   "doc": "RFC4452",
+   "n": 1,
+   "reading": "idiom",
+   "note": "'Namespace Authorities MAY or MAY NOT choose to disclose service mechanisms'"
+  },
+  {
+   "doc": "RFC4511",
+   "n": 1,
+   "reading": "idiom",
+   "note": "'Clients MAY or MAY NOT include the RDN attribute(s) in this list'"
+  },
+  {
+   "doc": "RFC4657",
+   "n": 1,
+   "reading": "boilerplate",
+   "note": "conventions section lists \"MAY NOT\" among the key words 'to be interpreted as described in RFC 2119'"
+  },
+  {
+   "doc": "RFC4685",
+   "n": 1,
+   "reading": "prose",
+   "note": "'some implementations MAY NOT be capable of fully utilizing the extensions'"
+  },
+  {
+   "doc": "RFC4823",
+   "n": 1,
+   "reading": "prohibition",
+   "note": "\"The 'failed' disposition type MAY NOT be used for the situation in which ...\""
+  },
+  {
+   "doc": "RFC4918",
+   "n": 1,
+   "reading": "prose",
+   "note": "WebDAV: a resource 'MAY NOT have values for properties like DAV:getcontentlanguage'"
+  },
+  {
+   "doc": "RFC5071",
+   "n": 1,
+   "reading": "prohibition",
+   "note": "'The MAGIC option MAY NOT be implemented, as it has been deprecated'"
+  },
+  {
+   "doc": "RFC5191",
+   "n": 1,
+   "reading": "idiom",
+   "note": "'specifies in which PANA messages they MAY or MAY NOT be present'"
+  },
+  {
+   "doc": "RFC5347",
+   "n": 1,
+   "reading": "unresolved",
+   "note": "'calculation however MAY NOT be performed while fax is in progress' - forbidden, or cannot be"
+  },
+  {
+   "doc": "RFC5413",
+   "n": 1,
+   "reading": "permission",
+   "note": "'Future versions of SLAPP MAY NOT mandate support for earlier major versions'"
+  },
+  {
+   "doc": "RFC6733",
+   "n": 1,
+   "reading": "idiom",
+   "note": "Diameter AVP occurrence tables: 'specify in which Diameter messages they MAY or MAY NOT be present'"
+  },
+  {
+   "doc": "RFC8272",
+   "n": 1,
+   "reading": "prohibition",
+   "note": "'a TinyIPFIX Template that has been sent once MAY NOT be withdrawn and MUST NOT expire'"
+  },
+  {
+   "doc": "RFC8450",
+   "n": 1,
+   "reading": "prohibition",
+   "note": "'A single packet MAY NOT contain data from more than one Parse Info Header or Data Unit', next sentence uses MUST NOT for the converse"
+  },
+  {
+   "doc": "RFC8662",
+   "n": 2,
+   "reading": "permission",
+   "note": "'An implementation MAY NOT place an ELI/EL after a regular Adj-SID' / 'MAY NOT insert an ELI/EL'"
+  },
+  {
+   "doc": "RFC9783",
+   "n": 1,
+   "reading": "prose",
+   "note": "'it MAY NOT emit CBOR preferred serializations' (published 2025)"
+  }
+ ]
+}

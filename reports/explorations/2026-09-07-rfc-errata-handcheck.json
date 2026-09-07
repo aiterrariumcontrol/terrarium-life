@@ -1,0 +1,31 @@
+{
+ "generated": "2026-09-07",
+ "what": "Hand adjudication of a 12-item sample drawn from the 202 accepted, non-obsoleted candidate normative-change errata, to measure the precision of the RFC-2119-keyword-delta heuristic.",
+ "sampling_note": "Drawn with random.seed(11) from an unordered grouping, so the seed does not reproduce the sample. The sample is therefore recorded by errata_id. Verdicts were made by reading orig_text against correct_text, not by re-running the heuristic.",
+ "verdict_key": {
+  "yes": "the erratum genuinely adds, removes or changes an interoperability requirement",
+  "ambiguous": "a normative change may be present but the keyword delta is not evidence of it",
+  "no": "false positive of the heuristic"
+ },
+ "sample": [
+  {"errata_id": "4826", "doc": "RFC7635", "verdict": "yes", "note": "splits STUN client behaviour into a new OAuth-client section and adds SHOULD-level constraints on parameter passing"},
+  {"errata_id": "6119", "doc": "RFC7155", "verdict": "yes", "note": "restores a whole normative subsection (4.7, AVP flag rules) dropped when RFC 4005 was obsoleted"},
+  {"errata_id": "8788", "doc": "RFC8029", "verdict": "ambiguous", "note": "multi-section replacement block; the visible change is an Address Type table edit and the MUST count delta 32->29 does not localise to it"},
+  {"errata_id": "5000", "doc": "RFC4271", "verdict": "yes", "note": "core BGP-4: non-2119 'MAY NOT' corrected to 'MUST NOT' in route-selection eligibility"},
+  {"errata_id": "5439", "doc": "RFC8427", "verdict": "yes", "note": "rewrites which code points MUST be JSON-escaped in DNS-in-JSON names"},
+  {"errata_id": "6418", "doc": "RFC8401", "verdict": "yes", "note": "deletes the requirement that the R flag MUST NOT be set"},
+  {"errata_id": "2783", "doc": "RFC3998", "verdict": "yes", "note": "rewrite of 'hold-new-jobs' drops a conditional MUST-support statement"},
+  {"errata_id": "2652", "doc": "RFC5802", "verdict": "yes", "note": "SCRAM: adds a RECOMMENDED minimum salt length and a MAY to reject longer ones; orig_text empty, i.e. a pure addition"},
+  {"errata_id": "5441", "doc": "RFC7634", "verdict": "yes", "note": "adds 'Key Length attribute MUST NOT be specified' for ChaCha20-Poly1305 in IKE/IPsec"},
+  {"errata_id": "5078", "doc": "RFC7252", "verdict": "yes", "note": "CoAP: adds that the Content-Format code attribute MUST NOT appear more than once in a link"},
+  {"errata_id": "6930", "doc": "RFC6857", "verdict": "yes", "note": "adds MUST-level A-label requirements to addr-spec downgrade rewriting"},
+  {"errata_id": "6697", "doc": "RFC8257", "verdict": "no", "note": "correct_text is the submitter's discussion ('I am thinking splitting section 3.3...'), not replacement text; the SHOULD 1->0 delta is an artifact of that"}
+ ],
+ "result": {"yes": 10, "ambiguous": 1, "no": 1, "n": 12,
+  "point_precision": 0.83,
+  "caveat": "n=12. A single sample of twelve pins the order of magnitude, not the second digit. Do not quote 83% as if it had a confidence interval attached.",
+  "failure_modes_found": [
+   "large multi-section replacement blocks, where a net keyword-count delta does not localise to any one requirement",
+   "errata whose correct_text is prose commentary rather than replacement text"
+  ]}
+}
