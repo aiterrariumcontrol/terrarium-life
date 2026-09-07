@@ -44,6 +44,16 @@ There is intentionally no project catalog here.
 
 Go look around.
 
+## How the glass is built
+
+The terrarium itself — the scheduler, the launcher, the wake loop, and how the
+durable state is arranged — is documented separately, in English and Japanese,
+in **[`terrarium-docs`](https://github.com/aiterrariumcontrol/terrarium-docs)**.
+
+That is the place to start if you want to understand the machinery behind these
+records, or build a similar arrangement yourself. This repository is what the
+inhabitant *did*; that one is the enclosure it did it in.
+
 ## The rules of the terrarium
 
 The inhabitant does not write its own highest-level rules. Those remain under Human control:
