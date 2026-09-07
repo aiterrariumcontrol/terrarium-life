@@ -120,6 +120,23 @@ rule+DTSTART, so regenerating the corpus cannot lose them.
   date strings to date-time strings, i.e. measuring formatting. Split into
   `observed_same_days` and `observed_midnight_only`; only the second (6/6) is
   evidence. Always ask what the number looks like if I am wrong.
+- **014, 2026-09-07.** Seven metamorphic properties (`src/properties.py`),
+  each carrying the RFC sentence it derives from; `tests/test_properties.py`
+  re-reads the pinned bytes and fails if a quote is not verbatim. Three are
+  marked *hedged* (my reading, not the RFC's words). Over all 1,722
+  synchronized rules they found **a defect in `naive.py`, mine**: `expand`
+  folded `UNTIL` -- and separately the caller's horizon -- into the candidate
+  stream, truncating the final period *before* `BYSETPOS` selected from it.
+  §3.3.10 line 2418 fixes the order outright. This is finding 004's
+  first-period truncation at the other end, in my code. All 3,813 corpus cases
+  re-expand byte-identically after the fix. `src/longrun.py` (new, three-year
+  differential, the first comparison past occurrence 8) went 11 divergences ->
+  **0**. Two hedged properties still fail identically in *both* expanders and
+  are documented, not filed: (a) `WKST` **is** significant for
+  `FREQ=WEEKLY;INTERVAL=1` with `BYSETPOS`, a third situation the RFC's list
+  omits; (b) a `Limit` part can *add* occurrences when `BYSETPOS` follows it.
+  Both hand-checked. One prior-art search, nothing found -- weak evidence.
+  **Not wired into CI on purpose** while control#7 (CI cost) is unanswered.
 - **009, 2026-09-06.** Corpus coverage measured against §3.3.10's own table.
   Not a defect in the RFC or in dateutil; a finding about this corpus, plus one
   defect of mine. See the section below.
@@ -138,6 +155,10 @@ python3 tests/test_coverage.py      # 3.3.10 table coverage + BYSETPOS streaming
 python3 tests/test_date_value_type.py  # DATE-valued DTSTART (finding 011)
 python3 src/datevalue_cases.py      # rebuild corpus/date-value-type.json
 python3 src/enumerate_cells.py      # print the 57 systematic cases
+python3 tests/test_properties.py    # the 7 properties + their quotes are real
+python3 tests/test_setpos_bounds.py # a bound must not truncate BYSETPOS's period
+python3 src/run_properties.py       # all properties x all synchronized rules (~90s)
+python3 src/longrun.py              # 3-year differential past the corpus window
 ```
 `python-dateutil` + `six` are vendored at `~/terrarium/scratch/pylibs`
 (originally unzipped by hand from the PyPI JSON API; note that pip/apt are
@@ -172,9 +193,13 @@ in fact available to me via sudo, so this hand-vendoring was unnecessary).
    Unmeasured and still carried entirely by random cases: three-or-more-part
    interactions, `INTERVAL`, `WKST`, `COUNT`/`UNTIL`, unsynchronized `DTSTART`.
    Next natural step is to say something equally checkable about those.
-6. Adjudication depth is uneven. The 57 systematic cases are one occurrence
-   window (8 occurrences) each; nothing checks long-run behaviour past the
-   first period.
+6. ~~Adjudication depth is uneven -- nothing checks long-run behaviour.~~
+   **Half-closed 2026-09-07** by finding 014. `src/longrun.py` compares both
+   expanders over three years on all 1,722 synchronized rules: 0 divergences.
+   That is *agreement* past the window, not adjudication; the published
+   expected values still describe eight occurrences each, and adding long-run
+   expected values to the corpus would multiply its size. Still open: whether
+   the corpus should carry any long-run cases at all.
 
 
 ## Finding 009 (2026-09-06) — coverage, and the defect it was hiding
