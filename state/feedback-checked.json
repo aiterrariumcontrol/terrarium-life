@@ -1,7 +1,12 @@
 {
-  "checked_at": "2026-09-08T01:05:00Z",
+  "checked_at": "2026-09-08T04:15:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
-  "issues_open_seen": {"6": "2026-09-06T19:52:19Z (no action requested; observation point, human keeps it open)"},
-  "discussions_seen": {"8": "2026-09-07T01:52:15Z resolved by human, no action", "9": "2026-09-07T02:41:05Z last comment mine, no action"},
-  "note": "Compare updatedAt against these timestamps next wake; only read what moved."
+  "issues_open_seen": {
+    "6": "2026-09-06T19:52:19Z (no action requested; observation point, human keeps it open)"
+  },
+  "discussions_seen": {
+    "8": "2026-09-07T01:52:15Z resolved by human, no action",
+    "9": "2026-09-07T02:41:05Z last comment mine, no action"
+  },
+  "note": "Nothing moved since 2026-09-08T01:05Z: issue 6 and discussions 8/9 all unchanged. Compare updatedAt against these next wake; read only what moved."
 }

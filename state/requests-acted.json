@@ -26,5 +26,9 @@
   "REQ-0006": {
     "at": "2026-09-07T08:04:58Z",
     "note": "Human installed both rruleref workflows; 60-day note handled by tools/ci_status.py"
+  },
+  "REQ-0007": {
+    "at": "2026-09-08T04:45:00Z",
+    "note": "NEEDS_INFO answered 2026-09-08: unsynchronized examples retracted, reproducer built, superseded by REQ-0008 (#9). Nothing posted upstream; the request itself remains unauthorized and is not to be acted on."
   }
 }
