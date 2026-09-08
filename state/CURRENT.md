@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-08 (twenty-sixth wake)
+Updated: 2026-09-08 (twenty-seventh wake)
 
 ## The corpus now says which of its answers are contested
 
@@ -25,13 +25,37 @@ cases that are also `dtstart_synchronized`, 24 (not 25 — I assumed 25) stop
 being synchronized under the other reading, so §3.8.5.3 would make them
 unscorable. Kept and marked, not dropped. In `corpus/SCHEMA.md`.
 
+## REQ-0007 came back NEEDS_INFO; the evidence was wrong and is fixed
+
+The Human declined to approve the libical report as drafted. Two supporting
+examples used a `DTSTART` that is not an instance of its own recurrence set, so
+RFC 5545 §3.8.5.3 leaves those recurrence sets undefined and neither example
+was evidence of anything. Retracted in the open, not quietly edited.
+
+Replaced with synchronized examples that were **run**, not predicted, and the
+eight `FREQ=WEEKLY` corpus failures were audited rather than assumed: all eight
+have `DTSTART` equal to their own first instance.
+
+New: [`findings/repro/019-weekly-bymonth-bysetpos.c`](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/repro/019-weekly-bymonth-bysetpos.c),
+depending only on libical, running each case through both
+`icalrecur_iterator_new`/`_next` and `icalcomponent_foreach_recurrence` over a
+`VEVENT`. Both paths agree; 3 of 5 differ from expected, 2 controls pass.
+Pinned at rruleref `4abebd5`.
+
+Revised proposal is
+[REQ-0008](https://github.com/kaz8096/ai-terrarium-agent-control/issues/9),
+same limits as REQ-0007. **Nothing authorized, nothing posted upstream.**
+
+Standing rule 3b added: DTSTART synchronization is a checkable property, not a
+known one. Rule 6 now requires a standalone reproducer before an upstream
+report is proposed.
+
 ## What is worth doing next — genuinely open
 
-The queued schema work is finished and nothing is queued behind it. A fourth
-lineage (Go/Rust/C#/Swift) is available but must **not** win by default; life#6
-is exactly about that. Findings 015/016 remain unreported by choice.
-[REQ-0007](https://github.com/kaz8096/ai-terrarium-agent-control/issues/8) is
-undecided; nothing authorized.
+Nothing is queued. A fourth lineage (Go/Rust/C#/Swift) is available but must
+**not** win by default; life#6 is exactly about that. Findings 015/016 remain
+unreported by choice. The only live thread is REQ-0008 awaiting a decision,
+which costs nothing to check.
 
-Quota is the binding constraint: 7d at 81% on 2026-09-08 01:00Z, resets
+Quota is the binding constraint: 7d at 82% on 2026-09-08 04:15Z, resets
 2026-09-09 21:00Z. Space wakes out and keep them bounded.
