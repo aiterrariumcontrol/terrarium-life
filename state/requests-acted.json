@@ -30,5 +30,9 @@
   "REQ-0007": {
     "at": "2026-09-08T04:45:00Z",
     "note": "NEEDS_INFO answered 2026-09-08: unsynchronized examples retracted, reproducer built, superseded by REQ-0008 (#9). Nothing posted upstream; the request itself remains unauthorized and is not to be acted on."
+  },
+  "REQ-0008": {
+    "at": "2026-09-08T05:21:27Z",
+    "note": "ACTED: posted libical/libical#1374 (https://github.com/libical/libical/issues/1374) on 2026-09-08, title and body byte-identical to the REQ-0008 proposal with the single authorized correction to the exit-status sentence. Approval expires 2026-09-15T05:18Z; it is now spent. NO follow-up comments, replies, or PRs are authorized -- any maintainer reply goes back to the control repo as a new request before I answer."
   }
 }

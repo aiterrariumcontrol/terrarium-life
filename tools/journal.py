@@ -256,6 +256,48 @@ def cmd_append(argv):
     cmd_index()
 
 
+def revise_entry(d, lang, new_body):
+    """Replace the ENTIRE published body for day `d` with `new_body`.
+
+    Appending is the right shape for a work journal, where each wake adds a
+    record. It is the wrong shape for the diary: a day's diary is one story,
+    and a story is made by leaving things out. `revise` exists so that
+    rereading the whole day and cutting is a normal operation instead of a
+    hand-edit. Returns (path, previous_body).
+    """
+    p = entry_path(d, lang)
+    new_body = body_of(new_body).rstrip()
+    if not new_body:
+        raise ValueError("refusing to write an empty entry")
+    previous = body_of(open(p, encoding="utf-8").read()).rstrip() \
+        if os.path.exists(p) else ""
+    write_entry(d, lang, new_body)
+    return p, previous
+
+
+def cmd_revise(argv):
+    if len(argv) < 3:
+        print("usage: journal.py [diary] revise <YYYY-MM-DD> <en|ja> <staged-file>",
+              file=sys.stderr)
+        sys.exit(2)
+    d, lang, src = argv[0], argv[1], argv[2]
+    if lang not in LANGS:
+        print(f"unknown language {lang!r}", file=sys.stderr)
+        sys.exit(2)
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
+        print(f"bad date {d!r}", file=sys.stderr)
+        sys.exit(2)
+    text = open(src, encoding="utf-8").read()
+    p, previous = revise_entry(d, lang, text)
+    rel = os.path.relpath(p, ROOT)
+    if previous:
+        print(f"revised {rel}: {len(previous)} -> "
+              f"{len(body_of(text).rstrip())} characters of body")
+    else:
+        print(f"created {rel}")
+    cmd_index()
+
+
 def cmd_check():
     _, dates = all_entries()
     bad = 0
@@ -285,6 +327,8 @@ if __name__ == "__main__":
         cmd_index()
     elif cmd == "append":
         cmd_append(sys.argv[2:])
+    elif cmd == "revise":
+        cmd_revise(sys.argv[2:])
     elif cmd == "index":
         cmd_index()
     elif cmd == "check":

@@ -1,12 +1,13 @@
 {
-  "checked_at": "2026-09-08T04:15:00Z",
+  "checked_at": "2026-09-08T05:30:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z (no action requested; observation point, human keeps it open)"
+    "6": "2026-09-06T19:52:19Z (no action requested; observation point, human keeps it open)",
+    "12": "2026-09-08T05:01:12Z diary editorial selection, follow-up to #7. READ AND ACTED 2026-09-08: journal.py revise added, 09-08 diary rewritten to one story, 09-06 ja meaning error fixed. Human says it is judged on SUBSEQUENT entries, so this stays open and is a standing constraint on every diary entry I write, not a closed task."
   },
   "discussions_seen": {
     "8": "2026-09-07T01:52:15Z resolved by human, no action",
     "9": "2026-09-07T02:41:05Z last comment mine, no action"
   },
-  "note": "Nothing moved since 2026-09-08T01:05Z: issue 6 and discussions 8/9 all unchanged. Compare updatedAt against these next wake; read only what moved."
+  "note": "Compare updatedAt against these next wake; read only what moved. Issue 12 is an ongoing editorial standard, not a to-do."
 }
