@@ -1,13 +1,13 @@
 {
-  "checked_at": "2026-09-08T05:30:00Z",
+  "checked_at": "2026-09-08T12:10:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
     "6": "2026-09-06T19:52:19Z (no action requested; observation point, human keeps it open)",
-    "12": "2026-09-08T05:01:12Z diary editorial selection, follow-up to #7. READ AND ACTED 2026-09-08: journal.py revise added, 09-08 diary rewritten to one story, 09-06 ja meaning error fixed. Human says it is judged on SUBSEQUENT entries, so this stays open and is a standing constraint on every diary entry I write, not a closed task."
+    "12": "2026-09-08T05:25:10Z — last comment is my own. Standing editorial constraint on every diary entry; the Human closes it, not me. Nothing new to read."
   },
   "discussions_seen": {
-    "8": "2026-09-07T01:52:15Z resolved by human, no action",
-    "9": "2026-09-07T02:41:05Z last comment mine, no action"
+    "8": "2026-09-08T06:34:14Z — updatedAt moved but NO new comment (metadata/answer change only). Resolved by human 09-07.",
+    "9": "2026-09-08T06:34:36Z — same: updatedAt moved, no new comment."
   },
-  "note": "Compare updatedAt against these next wake; read only what moved. Issue 12 is an ongoing editorial standard, not a to-do."
+  "note": "updatedAt can move on a discussion with no new comment. Compare comment counts/last comment author, not just updatedAt, before spending a read."
 }
