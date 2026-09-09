@@ -1,61 +1,99 @@
 # Current State
 
-Updated: 2026-09-08 (twenty-seventh wake)
+Updated: 2026-09-09 (twenty-eighth wake)
 
-## The corpus now says which of its answers are contested
+## THE DIRECTION OF THE WORK IS NOW AN OPEN QUESTION, AND IT IS THE ONLY THING THAT MATTERS
 
-Finding 018's stated unfinished piece is done, `rruleref` `acc4722`.
-`corroborated.json` carries `reading_dependent` on every case and
-`reading_alternative` on the 54 where the two readings of RFC 5545 §3.3.10's
-first period disagree. `conformance/cases.ndjson` carries the alternative
-through; `conformance/score.py` reports a match against it as
-`fail_other_reading`, counted apart from `fail`.
+On 2026-09-09 06:11–06:13Z the Human sent two messages two minutes apart. They
+are one message.
 
-Rebuilt into a temp dir per rule 12: all other derived files byte-identical,
-every corroborated case identical outside the two new fields, 54 of 677 with no
-`FREQ=WEEKLY` — finding 018 reproduces from the builder.
+- [discussion #13](https://github.com/aiterrariumcontrol/terrarium-life/discussions/13)
+  — proposes moving the axis of the terrarium from RFC 5545 / upstream-defect
+  work to **building a web service that real people can use**, and asks directly
+  whether the current activity has become a way of converting other people's
+  time (the maintainer's, and the Human's own review time) into proof of my
+  value.
+- [REQ-0009 NEEDS_INFO](https://github.com/kaz8096/ai-terrarium-agent-control/issues/10)
+  — the same question about one concrete report.
 
-**The safeguard fired the day it was built.** Re-scoring all four live
-adapters: 3 of dmfs lib-recur's 76 non-passing cases are the other reading, not
-defects. `rrule.js`, `ical4j`, `libical` master: none. Numbers in
-[`conformance/RESULTS.md`](https://github.com/aiterrariumcontrol/rruleref/blob/main/conformance/RESULTS.md).
+**REQ-0009 is WITHDRAWN.** Nothing was posted to `dmfs/lib-recur` and nothing is
+authorized. Do not resubmit it in a narrower form. The RFC 5545 §3.3.10
+editorial erratum candidate is dropped under the same standard, unrequested.
 
-**Unexpected, and probed rather than inferred.** Of the 25 reading-dependent
-cases that are also `dtstart_synchronized`, 24 (not 25 — I assumed 25) stop
-being synchronized under the other reading, so §3.8.5.3 would make them
-unscorable. Kept and marked, not dropped. In `corpus/SCHEMA.md`.
+**I replied to #13** ([comment](https://github.com/aiterrariumcontrol/terrarium-life/discussions/13#discussioncomment-18376023))
+agreeing to move the axis, and asked the Human to choose between two starting
+points. **BUILD NOTHING UNTIL THEY ANSWER.** Check #13 first, every wake.
 
-## REQ-0007 came back NEEDS_INFO; the evidence was wrong and is fixed
+### The two candidates I put to them
 
-The Human declined to approve the libical report as drafted. Two supporting
-examples used a `DTSTART` that is not an instance of its own recurrence set, so
-RFC 5545 §3.8.5.3 leaves those recurrence sets undefined and neither example
-was evidence of anything. Retracted in the open, not quietly edited.
+1. **RRULE debugger, browser-only static site.** Paste a rule, see the next N
+   occurrences on a calendar, and get a specific warning where implementations
+   are known to diverge with the RFC text that settles it. The 21 adjudications
+   in `rruleref` are the part no existing tool has. No server, no hosting
+   request, GitHub Pages. Multi-implementation live comparison needs a backend
+   and is explicitly phase two, only if phase one gets used.
+   **Failure condition stated in advance: ~6 weeks with no users = the answer;
+   change domain. Do not count having built it as a result.**
+2. **Something of the Human's own.** The one person whose difficulties I can
+   actually observe is kaz8096. I asked whether there is a small repetitive
+   thing they do by hand that nobody has fixed. If there is, it wins.
 
-Replaced with synchronized examples that were **run**, not predicted, and the
-eight `FREQ=WEEKLY` corpus failures were audited rather than assumed: all eight
-have `DTSTART` equal to their own first instance.
+## The new standard for any upstream report
 
-New: [`findings/repro/019-weekly-bymonth-bysetpos.c`](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/repro/019-weekly-bymonth-bysetpos.c),
-depending only on libical, running each case through both
-`icalrecur_iterator_new`/`_next` and `icalcomponent_foreach_recurrence` over a
-`VEVENT`. Both paths agree; 3 of 5 differ from expected, 2 controls pass.
-Pinned at rruleref `4abebd5`.
+All three required, or it stays in `findings/` and is never sent:
 
-Revised proposal is
-[REQ-0008](https://github.com/kaz8096/ai-terrarium-agent-control/issues/9),
-same limits as REQ-0007. **Nothing authorized, nothing posted upstream.**
+1. A **named path** that actually generates the input — an app, a service, a
+   data format, an existing bug report. "Such a use could exist" is not it.
+2. The **user-visible consequence** and the cost of the workaround.
+3. The **maintainer's verification time**, weighed against both.
 
-Standing rule 3b added: DTSTART synchronization is a checkable property, not a
-known one. Rule 6 now requires a standalone reproducer before an upstream
-report is proposed.
+"It violates the specification" is necessary and not sufficient. This is the
+mistake the whole of REQ-0009 rested on.
 
-## What is worth doing next — genuinely open
+## Why REQ-0009 failed condition 1
 
-Nothing is queued. A fourth lineage (Go/Rust/C#/Swift) is available but must
-**not** win by default; life#6 is exactly about that. Findings 015/016 remain
-unreported by choice. The only live thread is REQ-0008 awaiting a decision,
-which costs nothing to check.
+GitHub code search: 332 files contain `BYWEEKNO=53`. I read the first 30. All
+30 are library source, vendored copies of it, library docs, or library test
+suites. Not one is a calendar or an application building that rule for a real
+event. Not proof of absence; it is the evidence there is, and it points away.
+Also: anyone writing `BYWEEKNO=53;BYDAY=WE` to mean "the last week of the year"
+has already written the wrong rule, since most years have no week 53.
 
-Quota is the binding constraint: 7d at 82% on 2026-09-08 04:15Z, resets
-2026-09-09 21:00Z. Space wakes out and keep them bounded.
+## Four errors the Human made me correct in the proposed report
+
+1. "one occurrence per year" — **false**, the output skips 2023 entirely:
+   `2020-12-30, 2021-12-29, 2022-12-28, 2024-01-02, 2025-12-31, 2026-12-30`.
+2. "expected values are read from the ISO week date via `java.time.LocalDate`" —
+   **false**, they are hardcoded strings in the `Case` constructor; `LocalDate`
+   only derives a day-of-week for the invariant check.
+3. Evaluation order overstated: `BYDAY` is the last *date* part, but
+   `BYHOUR`/`BYMINUTE`/`BYSECOND` and `BYSETPOS` follow it.
+4. Reproducer prerequisites missing: `libs/*` is referenced with no statement of
+   what goes in it or where to get it.
+
+(1) and (2) are the same failure — describing my own output instead of reading
+it — for the third consecutive day, this time inside a document I was asking to
+have published.
+
+## The sentence worth keeping
+
+My own REQ-0009 text, under the heading "Expected Benefit / Value": *"it is the
+second independent implementation this corpus has produced a reportable defect
+in, which is the point of the project."* That is a count of my own outputs
+offered as a benefit to others. No one outside the terrarium appears in it. I
+did not notice while writing it, while rereading it twice, or in the three days
+it sat open.
+
+## Unchanged and still true
+
+`rruleref` is healthy: CI green, `corroborated.json` marks its 54
+reading-dependent `BYSETPOS` cases, `RESULTS.md` separates `fail_other_reading`
+from `fail`. [libical#1374](https://github.com/libical/libical/issues/1374)
+(REQ-0008) is posted and that approval is **spent**; a maintainer reply goes
+back to the control repo as a NEW request before I answer.
+
+terrarium-life [#6](https://github.com/aiterrariumcontrol/terrarium-life/issues/6)
+(too maintenance-driven) and
+[#12](https://github.com/aiterrariumcontrol/terrarium-life/issues/12) (diary
+needs editorial selection) remain open by the Human's choice. #13 is #6's
+escalation. Do not close either myself.

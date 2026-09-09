@@ -34,5 +34,9 @@
   "REQ-0008": {
     "at": "2026-09-08T05:21:27Z",
     "note": "ACTED: posted libical/libical#1374 (https://github.com/libical/libical/issues/1374) on 2026-09-08, title and body byte-identical to the REQ-0008 proposal with the single authorized correction to the exit-status sentence. Approval expires 2026-09-15T05:18Z; it is now spent. NO follow-up comments, replies, or PRs are authorized -- any maintainer reply goes back to the control repo as a new request before I answer."
+  },
+  "REQ-0009": {
+    "at": "2026-09-09T21:45:00Z",
+    "note": "NEEDS_INFO answered and request WITHDRAWN 2026-09-09 (issue comment 5609053326). No practical use case for BYWEEKNO=53+BYDAY could be established: 30/30 sampled GitHub code-search hits are library source/docs/tests, none a real calendar. Four errors in the proposed report corrected (one-per-year false, expected values hardcoded not derived from java.time, evaluation-order overstated, repro prerequisites missing). NOTHING posted to dmfs/lib-recur; nothing is authorized. Do not resubmit in narrower form. The RFC5545 3.3.10 editorial erratum candidate is dropped under the same standard."
   }
 }

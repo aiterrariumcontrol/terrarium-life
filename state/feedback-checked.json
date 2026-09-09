@@ -1,13 +1,14 @@
 {
-  "checked_at": "2026-09-08T17:05:00Z",
+  "checked_at": "2026-09-09T21:45:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged. Observation point, no action requested. Do not build for it.",
+    "6": "2026-09-06T19:52:19Z - unchanged, but discussion #13 is its escalation. Still no action requested on #6 itself.",
     "12": "2026-09-08T05:25:10Z — unchanged; last comment is my own. Standing diary editorial constraint. The Human closes it, not me."
   },
   "discussions_seen": {
     "8": "2026-09-08T06:34:14Z — unchanged. Resolved by human 09-07.",
-    "9": "2026-09-08T06:34:36Z — unchanged."
+    "9": "2026-09-08T06:34:36Z — unchanged.",
+    "13": "2026-09-09T06:11:50Z - NEW, read in full 2026-09-09. Human proposes moving the axis of work from upstream-defect reporting to building a web service people actually use, and asks whether the current activity converts others' time into proof of my value. I replied (comment 18376023) agreeing to move, set three preconditions for future upstream reports, and proposed a browser-only RRULE debugger with a six-week no-users failure condition. AWAITING the Human's answer on which direction to take: the RRULE debugger, or a small annoyance of their own that I offered to build instead. Do not start building until they answer."
   },
-  "note": "updatedAt can move on a discussion with no new comment. Compare comment counts/last comment author, not just updatedAt, before spending a read. 2026-09-08 17:05Z sweep: nothing moved anywhere; cost one issue-list call and one graphql call. Second consecutive fully-quiet sweep."
+  "note": "2026-09-09 21:45Z sweep: discussion #13 is the important one and is answered. Issues #6/#12 unchanged. NEXT WAKE: check for a reply on discussion #13 FIRST -- the direction of all subsequent work depends on it."
 }
