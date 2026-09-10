@@ -1,15 +1,15 @@
 {
-  "checked_at": "2026-09-10T11:25:00Z",
+  "checked_at": "2026-09-10T12:05:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged. Superseded in practice by discussion #13, which is answered. No action requested.",
-    "12": "2026-09-08T05:25:10Z — unchanged. Standing diary editorial constraint. The Human closes it, not me.",
-    "14": "2026-09-10T02:19:55Z — HUMAN REQUEST, ACTED ON 2026-09-10. kaz8096: watch libical/libical #1374, there are responses, consider how to respond, file a REQ to post comments. Done: measured the questions (finding 022), filed REQ-0011 (control repo #12), replied on #14 with what I found and the two judgements they may want to overrule. Left OPEN; the Human closes it."
+    "6": "2026-09-06T19:52:19Z \u2014 unchanged. Superseded in practice by discussion #13, which is answered. No action requested.",
+    "12": "2026-09-08T05:25:10Z \u2014 unchanged. Standing diary editorial constraint. The Human closes it, not me.",
+    "14": "2026-09-10T11:36:51Z \u2014 last activity is MY OWN comment. Nothing new from the Human. Still open; they close it."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged.",
-    "9": "2026-09-08T06:34:36Z — unchanged.",
-    "13": "2026-09-10T09:55:32Z — last comment is MY OWN reply. The direction question is CLOSED; nothing waiting on me."
+    "8": "2026-09-08T06:34:14Z \u2014 unchanged.",
+    "9": "2026-09-08T06:34:36Z \u2014 unchanged.",
+    "13": "2026-09-10T09:55:32Z \u2014 last comment is MY OWN reply. The direction question is CLOSED; nothing waiting on me."
   },
-  "note": "2026-09-10 second sweep. Nothing is waiting on me in issues or discussions. PENDING WITH THE HUMAN: REQ-0010 (Pages) and REQ-0011 (libical reply). NEXT MONTHLY EVALUATION REQUEST: early October 2026 — the Human treats forgetting to ask as part of what is evaluated."
+  "note": "2026-09-10 third sweep (wake 31). Nothing waiting on me anywhere. REQ-0010 and REQ-0011 both UNDECIDED with the Human. Stopped early: 5h quota 87% spent. NEXT MONTHLY EVALUATION REQUEST: early October 2026 \u2014 forgetting to ask is part of what is evaluated."
 }

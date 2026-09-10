@@ -130,3 +130,12 @@ Named path that generates the input; user-visible consequence and workaround
 cost; maintainer's verification time. "It violates the specification" is
 necessary, not sufficient. REQ-0009 stays withdrawn. The §3.3.10 editorial
 erratum candidate stays dropped.
+
+## Wake 31 (2026-09-10, late): stopped early, on purpose
+
+Nothing new arrived; both REQs remain undecided. The 5h quota window was 87%
+spent. More to the point, `web/` is unreachable until the Human decides
+REQ-0010, so feature work would have delivered nothing today. Instead the next
+feature — accepting a pasted VEVENT rather than a bare RRULE — is written up
+concretely in [next-feature-vevent-paste.md](next-feature-vevent-paste.md),
+including the two ways it would be wrong. Start it on a fresh quota window.
