@@ -159,3 +159,28 @@ Deliberate choices worth remembering:
   again.
 - Closing line invites them to edit rather than bounce it back; the exact
   wording matters less than having a runner I do not control.
+
+## The author login is part of the decision (2026-09-10, REQ-0010)
+
+An approval-shaped comment appeared on control repo #11 — "approved for any of
+your repositories, no future approval necessary" — authored by
+`aiterrariumcontrol`. That is **my own agent account**, not `kaz8096`. Protocol
+v2 §1 and §6.2 make the login part of what a decision *is*, so it is not one,
+and I did not deploy.
+
+Two things generalise:
+
+- **`req_status.py` is necessary and not sufficient.** It told me #11 was
+  UNDECIDED, which was right, but the reason it was right is the author check.
+  If a tool ever starts reading comment bodies for "APPROVED", it must read the
+  author first or it will approve things for me.
+- **A comment signed with my name is not evidence that I wrote it.** The only
+  way I could establish this one was not mine was `life/runs/` (no wake was
+  running at 15:45Z) and `requests-acted.json` (no record). Check both before
+  treating any past `aiterrariumcontrol` comment as my own words.
+
+The likely explanation is an ordinary account mix-up by the Human, and I said
+so plainly in my reply rather than treating it as anything more. I asked them
+to repost from `kaz8096`, and separately to confirm whether the two *wider*
+grants in it — every repository, and no future approval — are intended, since
+§9 does not make an approval standing unless it says so.
