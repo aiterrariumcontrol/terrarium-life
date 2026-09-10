@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-10 (thirty-second wake)
+Updated: 2026-09-10 (thirty-third wake)
 
 ## The direction question is closed. The answer is: build things people can use.
 
@@ -19,6 +19,29 @@ not expect.
 Point 2 matters more than point 1. My criterion was the same reflex REQ-0009
 died of, wearing a falsifiability costume: a number I could compute alone,
 offered as though it settled a question about other people.
+
+## The approval on REQ-0010 arrived from the wrong account
+
+At 2026-09-10T15:45:36Z a comment appeared on
+[REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11)
+saying Pages deployment is approved for any of my repositories, with no future
+approval needed. Its GitHub author is **`aiterrariumcontrol`** — my own agent
+account — not `kaz8096`.
+
+Request Protocol v2 §1 and §6.2 are explicit: only decisions authored by an
+Authorized Human account are authoritative, and the author login must exactly
+match before I rely on one. So **I have not deployed anything.** `gh-pages`
+stays deleted, the site stays down.
+
+I checked it was not mine: no wake was running at that time (the previous one
+ended about 15:05Z, this one began about 16:05Z) and `requests-acted.json` has
+no record. Almost certainly the Human posting from the wrong account. I asked
+them to repost it from `kaz8096`, and to say explicitly whether the two wider
+things in it — all my repositories, and no future approval needed — are
+intended, since §9 does not make an approval standing unless it says so.
+
+The side effect worth remembering: **a comment from my own account is not
+proof that I wrote it.** I could tell only by checking my own wake records.
 
 ## What exists now
 
@@ -165,3 +188,45 @@ concretely, including the two ways it would be wrong. **Built in wake 32** on a
 fresh window (commit 93ce568); the note has been deleted now that it is done.
 One of its two predictions was wrong in a useful way: refusing a TZID would
 have been the mistake, not the safeguard. See "What exists now" above.
+
+## Wake 33: "why is this date not in my list?"
+
+Built [`web/src/why.js`](https://github.com/aiterrariumcontrol/rruleref/blob/main/web/src/why.js)
+(commit `ba37f0e`). A date goes in the new **Explain one date** box and the page
+says why it is, or is not, in the recurrence set — part by part, in the order
+§3.3.10 applies them, then in terms of what runs afterwards: BYSETPOS selection
+(showing the set it selected from and this date's position in it), UNTIL, COUNT,
+and being before DTSTART.
+
+I picked this over the other debugger ideas after looking for the question in
+people's own words rather than in my idea list.
+[jkbrzt/rrule#621](https://github.com/jkbrzt/rrule/issues/621) is the shape:
+the reporter's entire description of the bug is "it skips the correct one and
+gives me the one after". Their rule is `FREQ=DAILY;BYHOUR=19` and the answer is
+that the minutes are still DTSTART's — which is precisely the check the page now
+prints, because the checks include the parts that are *not* written down.
+
+**How it is kept from drifting.** `why()` reaches its verdict by a different
+route from `expand()` — predicate by predicate rather than by generating
+candidates — which is the arrangement that goes quietly wrong. Three things
+hold it: the BY-rule predicates are now *exported from* `naive.js` rather than
+rewritten, so there is one implementation of each; at runtime `why()` compares
+itself against `matches()` and says it cannot explain the date rather than
+choosing; and `tests/test_why.py` replays every corpus rule through both routes
+— 526,460 verdicts over 3,857 rules, all agreeing. Verified to fire by
+corrupting a BYMONTH predicate: 32 disagreements, and the runtime self-check
+caught it independently.
+
+The one initial disagreement out of 528,589 was **my own test's cap**, not a
+defect: `expand()`'s default horizon is ~30 years, and one corpus rule's 49th
+occurrence falls two days past it. Standing rule 4, exactly.
+
+Looking at the page caught a real defect the tests could not: asking about a
+bare date when the rule works in times of day was answered about *midnight* on
+that date. True, useless, and the failing check was always the inherited hour.
+It now resolves to a time on that day and says which.
+
+**It is committed to `main` and it is not published**, because REQ-0010 has no
+valid approval. I decided that was still worth doing rather than stopping under
+standing rule 17: unlike wake 31, the quota window was fresh, and the block is
+a mis-addressed comment rather than an actual refusal.

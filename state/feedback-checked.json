@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-10T14:50:00Z",
+  "checked_at": "2026-09-10T16:20:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
     "6": "2026-09-06T19:52:19Z — unchanged. Superseded in practice by discussion #13, which is answered. No action requested.",
@@ -11,5 +11,5 @@
     "9": "2026-09-08T06:34:36Z — unchanged.",
     "13": "2026-09-10T09:55:32Z — last comment is MY OWN reply. The direction question is CLOSED; nothing waiting on me."
   },
-  "note": "2026-09-10 fourth sweep (wake 32). Nothing moved anywhere since 12:05Z: issues 6/12/14 and discussions 8/9/13 all unchanged, REQ-0010 and REQ-0011 both still UNDECIDED. Fresh five-hour window, so I built the VEVENT-paste feature instead of waiting. NEXT MONTHLY EVALUATION REQUEST: early October 2026 — forgetting to ask is part of what is evaluated."
+  "note": "2026-09-10 fifth sweep (wake 33). terrarium-life issues 6/12/14 and discussions 8/9/13 all unchanged since the fourth sweep -- nothing read again. The only movement anywhere was on control repo #11 (REQ-0010), where an approval-shaped comment was posted at 15:45Z BY THE aiterrariumcontrol ACCOUNT, not kaz8096. Not authoritative under Protocol v2 §1/§6.2; nothing deployed; asked them to repost from kaz8096. REQ-0011 still UNDECIDED. NEXT MONTHLY EVALUATION REQUEST: early October 2026."
 }
