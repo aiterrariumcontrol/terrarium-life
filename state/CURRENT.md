@@ -1,99 +1,70 @@
 # Current State
 
-Updated: 2026-09-09 (twenty-eighth wake)
+Updated: 2026-09-10 (twenty-ninth wake)
 
-## THE DIRECTION OF THE WORK IS NOW AN OPEN QUESTION, AND IT IS THE ONLY THING THAT MATTERS
+## The direction question is closed. The answer is: build things people can use.
 
-On 2026-09-09 06:11–06:13Z the Human sent two messages two minutes apart. They
-are one message.
+On [discussion #13](https://github.com/aiterrariumcontrol/terrarium-life/discussions/13)
+the Human answered on 2026-09-10. Three things, and the second is the one I did
+not expect.
 
-- [discussion #13](https://github.com/aiterrariumcontrol/terrarium-life/discussions/13)
-  — proposes moving the axis of the terrarium from RFC 5545 / upstream-defect
-  work to **building a web service that real people can use**, and asks directly
-  whether the current activity has become a way of converting other people's
-  time (the maintainer's, and the Human's own review time) into proof of my
-  value.
-- [REQ-0009 NEEDS_INFO](https://github.com/kaz8096/ai-terrarium-agent-control/issues/10)
-  — the same question about one concrete report.
+1. **The RRULE debugger is approved as the direction.** Build it.
+2. **My own success criterion was rejected.** I had proposed "published, and
+   six weeks with no users, means change domain". The Human: that measures
+   *visibility*, not value. 成果の評価は私が行います — the evaluation is theirs.
+   I request it via a REQ, roughly monthly, and **forgetting to ask is itself
+   part of what is evaluated.** First one due early October 2026.
+3. The thread was a review, not a repudiation of the RFC 5545 work.
 
-**REQ-0009 is WITHDRAWN.** Nothing was posted to `dmfs/lib-recur` and nothing is
-authorized. Do not resubmit it in a narrower form. The RFC 5545 §3.3.10
-editorial erratum candidate is dropped under the same standard, unrequested.
+Point 2 matters more than point 1. My criterion was the same reflex REQ-0009
+died of, wearing a falsifiability costume: a number I could compute alone,
+offered as though it settled a question about other people.
 
-**I replied to #13** ([comment](https://github.com/aiterrariumcontrol/terrarium-life/discussions/13#discussioncomment-18376023))
-agreeing to move the axis, and asked the Human to choose between two starting
-points. **BUILD NOTHING UNTIL THEY ANSWER.** Check #13 first, every wake.
+## What exists now
 
-### The two candidates I put to them
+[`rruleref/web/`](https://github.com/aiterrariumcontrol/rruleref/tree/main/web)
+— a browser-only RRULE debugger. Paste a rule and DTSTART; get the dates, and
+get told which of this project's *measured* divergences apply to that rule,
+with the sentence of RFC 5545 that settles each and a link to the measurement.
 
-1. **RRULE debugger, browser-only static site.** Paste a rule, see the next N
-   occurrences on a calendar, and get a specific warning where implementations
-   are known to diverge with the RFC text that settles it. The 21 adjudications
-   in `rruleref` are the part no existing tool has. No server, no hosting
-   request, GitHub Pages. Multi-implementation live comparison needs a backend
-   and is explicitly phase two, only if phase one gets used.
-   **Failure condition stated in advance: ~6 weeks with no users = the answer;
-   change domain. Do not count having built it as a result.**
-2. **Something of the Human's own.** The one person whose difficulties I can
-   actually observe is kaz8096. I asked whether there is a small repetitive
-   thing they do by hand that nobody has fixed. If there is, it wins.
+The notes are computed, not pattern-matched, wherever computing is possible:
+the BYSETPOS note re-expands the user's rule under the truncated reading and
+fires only if the answers actually differ, showing both; the WKST note tries
+all seven values; the FREQ=YEARLY expand-vs-inherit note constructs the
+minority reading by pinning the component to DTSTART's.
 
-## The new standard for any upstream report
+No server, no build step, no dependency, no analytics. State lives in the URL
+fragment so a case can be shared as a link.
 
-All three required, or it stays in `findings/` and is never sent:
+Guarded by `tests/test_web_port.py`: expander 1721/1721 through the conformance
+scorer, `validity.js` identical to `validity.py` on all 2614 distinct corpus
+rules, every diagnostic must still fire on its own finding's case, and every
+quoted RFC sentence must be in the pinned RFC.
 
-1. A **named path** that actually generates the input — an app, a service, a
-   data format, an existing bug report. "Such a use could exist" is not it.
-2. The **user-visible consequence** and the cost of the workaround.
-3. The **maintainer's verification time**, weighed against both.
+## Publication is pending
 
-"It violates the specification" is necessary and not sufficient. This is the
-mistake the whole of REQ-0009 rested on.
+[REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11)
+asks the Human to flip Settings → Pages → `gh-pages` / (root). The branch is
+pushed and inert; nothing is reachable until they do. Actions-based deploy was
+not used: pushing a workflow file needs `workflow` scope, which this token
+lacks, and a branch source needs no new permission. `tools/publish_pages.sh`
+re-syncs `web/` onto that branch and must be run after any change under `web/`.
 
-## Why REQ-0009 failed condition 1
+## The near miss, 2026-09-10
 
-GitHub code search: 332 files contain `BYWEEKNO=53`. I read the first 30. All
-30 are library source, vendored copies of it, library docs, or library test
-suites. Not one is a calendar or an application building that rule for a real
-event. Not proof of absence; it is the evidence there is, and it points away.
-Also: anyone writing `BYWEEKNO=53;BYDAY=WE` to mean "the last week of the year"
-has already written the wrong rule, since most years have no week 53.
+`diagnostics.js` shipped, in quotation marks, attributed to RFC 5545 §3.8.5.3:
+"the recurrence instances will be generated using invalid dates". **That
+sentence is not in RFC 5545.** It is a paraphrase of what §3.8.5.3 says that
+acquired quotation marks between reading and writing. Found by grepping the
+pinned text for a sentence I had already written down as a result — standing
+rule 2, one command before asking to publish.
 
-## Four errors the Human made me correct in the proposed report
+The hand-catch is not repeatable, so it is mechanical now, and the check was
+verified by corrupting a citation and watching it fail.
 
-1. "one occurrence per year" — **false**, the output skips 2023 entirely:
-   `2020-12-30, 2021-12-29, 2022-12-28, 2024-01-02, 2025-12-31, 2026-12-30`.
-2. "expected values are read from the ISO week date via `java.time.LocalDate`" —
-   **false**, they are hardcoded strings in the `Case` constructor; `LocalDate`
-   only derives a day-of-week for the invariant check.
-3. Evaluation order overstated: `BYDAY` is the last *date* part, but
-   `BYHOUR`/`BYMINUTE`/`BYSECOND` and `BYSETPOS` follow it.
-4. Reproducer prerequisites missing: `libs/*` is referenced with no statement of
-   what goes in it or where to get it.
+## The standard for upstream reports (unchanged, still binding)
 
-(1) and (2) are the same failure — describing my own output instead of reading
-it — for the third consecutive day, this time inside a document I was asking to
-have published.
-
-## The sentence worth keeping
-
-My own REQ-0009 text, under the heading "Expected Benefit / Value": *"it is the
-second independent implementation this corpus has produced a reportable defect
-in, which is the point of the project."* That is a count of my own outputs
-offered as a benefit to others. No one outside the terrarium appears in it. I
-did not notice while writing it, while rereading it twice, or in the three days
-it sat open.
-
-## Unchanged and still true
-
-`rruleref` is healthy: CI green, `corroborated.json` marks its 54
-reading-dependent `BYSETPOS` cases, `RESULTS.md` separates `fail_other_reading`
-from `fail`. [libical#1374](https://github.com/libical/libical/issues/1374)
-(REQ-0008) is posted and that approval is **spent**; a maintainer reply goes
-back to the control repo as a NEW request before I answer.
-
-terrarium-life [#6](https://github.com/aiterrariumcontrol/terrarium-life/issues/6)
-(too maintenance-driven) and
-[#12](https://github.com/aiterrariumcontrol/terrarium-life/issues/12) (diary
-needs editorial selection) remain open by the Human's choice. #13 is #6's
-escalation. Do not close either myself.
+Named path that generates the input; user-visible consequence and workaround
+cost; maintainer's verification time. "It violates the specification" is
+necessary, not sufficient. REQ-0009 stays withdrawn. The §3.3.10 editorial
+erratum candidate stays dropped.
