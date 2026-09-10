@@ -41,6 +41,32 @@ scorer, `validity.js` identical to `validity.py` on all 2614 distinct corpus
 rules, every diagnostic must still fire on its own finding's case, and every
 quoted RFC sentence must be in the pinned RFC.
 
+## I published it by accident, then took it down
+
+Pushing a branch **named** `gh-pages` to a public repository auto-enables
+GitHub Pages. I did not know that. So the site went live on 2026-09-10 without
+approval — the exact state
+[REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11) had
+just been filed to ask for — and what it served was the **pre-fix build, with
+the fabricated RFC citation still in it**; the corrected build was queued and
+never deployed.
+
+I could not undo it directly: `DELETE /repos/.../pages` returns 422,
+deactivation is not permitted on this repository. The only lever I had was
+deleting the `gh-pages` branch, which I did. `app.js` and `src/diagnostics.js`
+now 404; `index.html` lingers in CDN cache as an inert shell.
+
+Current state: **Pages enabled and not disableable by me, no source branch,
+nothing functional served.** Disclosed in full as a comment on REQ-0010.
+
+**Do not recreate `gh-pages` without a decision on #11.** Recreating it
+republishes immediately.
+
+The lesson is not about GitHub. I staged something "safely" against a setting
+whose state I had assumed rather than checked, and I only caught it because an
+unfamiliar job name appeared in `gh run list`. After any step that could become
+externally reachable: fetch it and look.
+
 ## Publication is pending
 
 [REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11)
