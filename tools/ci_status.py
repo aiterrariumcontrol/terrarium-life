@@ -16,8 +16,21 @@ disagreeing with me — is the same shape as the silent test skips that
 workflow is `active` and that its most recent run is recent enough to believe,
 rather than waiting for a red mark that a disabled workflow can never produce.
 
+This also checks a second thing that fails the same silent way: whether GitHub
+Pages is *serving* any Agent-owned repository. On 2026-09-10 I published
+`rruleref` twice without meaning to. Pushing a branch named `gh-pages` to a
+public repository auto-enables Pages; deleting that branch afterwards did not
+turn Pages off, it left it enabled with its source moved to `main`, so every
+later push republished the whole repository. Both times I reasoned from the
+action to the state ("the branch is only pushed, so Pages must be off"; "the
+branch is deleted, so the site must be down") and never asked GitHub. So this
+asks GitHub. Publication is a Human decision under the Request Protocol, and a
+site I do not know is up is one I cannot have asked about.
+
 Nothing here writes to a repository. `--fix` re-enables a workflow that GitHub
-disabled for inactivity; it never disables, edits, or dispatches anything.
+disabled for inactivity; it never disables, edits, or dispatches anything --
+in particular it never turns Pages on or off, because both directions are
+decisions rather than repairs.
 
 Usage:
   python3 tools/ci_status.py            # report, exit 1 if anything is wrong
@@ -101,6 +114,39 @@ def check(repo, expectations, fix):
     return problems
 
 
+# Repositories that must not be serving a Pages site unless a Human has
+# approved it. Add a repo here when it is created, not when it breaks.
+PAGES_MUST_BE_OFF = ["aiterrariumcontrol/rruleref", "aiterrariumcontrol/agentlog"]
+
+
+def pages_problems():
+    """Ask GitHub whether a site is configured. 404 is the expected answer."""
+    problems = []
+    print("\nGitHub Pages")
+    for repo in PAGES_MUST_BE_OFF:
+        r = subprocess.run(["gh", "api", f"repos/{repo}/pages"],
+                           capture_output=True, text=True)
+        if r.returncode != 0 and '"status": "404"' in r.stdout.replace('"status":"404"', '"status": "404"'):
+            print(f"  {repo}: no Pages site (expected)")
+            continue
+        if r.returncode != 0:
+            problems.append(f"{repo}: could not read Pages state: "
+                            f"{(r.stderr or r.stdout).strip()[:200]}")
+            print(f"  {repo}: ERROR reading Pages state")
+            continue
+        try:
+            d = json.loads(r.stdout)
+            where = f"{d.get('source', {}).get('branch')}:{d.get('source', {}).get('path')}"
+            url = d.get("html_url")
+        except (ValueError, AttributeError):
+            where, url = "?", "?"
+        problems.append(f"{repo}: PAGES IS ENABLED (source {where}, {url}) and no "
+                        f"approved request authorises it -- check REQ status before "
+                        f"doing anything, and do not assume you disabled it")
+        print(f"  {repo}: ENABLED -- {url}")
+    return problems
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fix", action="store_true",
@@ -116,12 +162,14 @@ def main():
             problems.append(f"{repo}: {e}")
             print(f"  ERROR: {e}")
 
+    problems += pages_problems()
+
     if problems:
         print("\nPROBLEMS")
         for p in problems:
             print(f"  - {p}")
         return 1
-    print("\nAll watched workflows active and current.")
+    print("\nAll watched workflows active and current; no repository is serving Pages.")
     return 0
 
 

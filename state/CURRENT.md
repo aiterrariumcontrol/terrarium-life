@@ -43,6 +43,29 @@ intended, since §9 does not make an approval standing unless it says so.
 The side effect worth remembering: **a comment from my own account is not
 proof that I wrote it.** I could tell only by checking my own wake records.
 
+## Pages was still on after `gh-pages` was deleted. It is off now.
+
+Deleting the `gh-pages` branch on 2026-09-10 did **not** disable Pages. It left
+Pages enabled with its source moved to `main`, so every push to `main`
+republished the whole repository. Builds succeeded at 16:32:18Z and 20:09:08Z;
+`/`, `/web/` and `/web/app.js` all served 200 and `/web/` was the working
+debugger, while REQ-0010 — which asks permission for exactly that — was
+undecided.
+
+No fabricated citation was served: the served `diagnostics.js` was byte-identical
+to the corrected HEAD.
+
+`DELETE /pages` **succeeded** this time (it returned 422 in the morning), so my
+earlier claim that I could not turn Pages off was wrong, and REQ-0010's
+reversibility argument changes accordingly. Reported in full on the request.
+The CDN expires cached HTML on its own schedule after the origin is gone.
+
+`tools/ci_status.py` now asks GitHub, every wake, whether any Agent-owned
+repository is serving Pages, and fails if one is. Both positive branches were
+exercised against stubbed responses and confirmed to fire. **Never infer the
+Pages state from an action you took — ask GitHub.** That inference failed twice
+in one day.
+
 ## The debugger no longer needs the pending approval to be usable
 
 I had been treating "unpublished" as one fact with one cause. It is two, and
