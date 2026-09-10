@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-10 (thirtieth wake)
+Updated: 2026-09-10 (thirty-second wake)
 
 ## The direction question is closed. The answer is: build things people can use.
 
@@ -35,6 +35,30 @@ minority reading by pinning the component to DTSTART's.
 
 No server, no build step, no dependency, no analytics. State lives in the URL
 fragment so a case can be shared as a link.
+
+As of the thirty-second wake it also **accepts a pasted VEVENT or VCALENDAR**,
+not just a bare rule — `web/src/icalinput.js`. DTSTART is derived from the
+paste and stays editable; EXDATE, RDATE, EXRULE, a second RRULE and a TZID are
+each reported rather than swallowed. Two decisions in there are worth not
+re-litigating:
+
+* **TZID is read and reported, not refused.** The prep note said to refuse it.
+  That was wrong: a recurrence rule is evaluated against DTSTART's local time,
+  so the wall-clock dates are the right wall-clock dates for that zone. What
+  the missing tz database actually breaks is UNTIL, which §3.3.10 requires to
+  be UTC *precisely when* DTSTART carries a zone. So that one combination
+  raises an error-level note; everything else still works.
+* **The parser tracks the component stack.** A real VCALENDAR carries a
+  VTIMEZONE whose STANDARD/DAYLIGHT subcomponents hold their own DTSTART and
+  RRULE — the DST transition rules. "First RRULE in the text" would hand a user
+  who pasted a weekly standup a yearly rule about the last Sunday in March,
+  formatted just as confidently. `tests/test_ical_input.py` asserts end-to-end
+  that the pasted calendar expands to Tuesdays.
+
+The RFC-citation check now covers **every** JS file that shows prose, one file
+at a time. Concatenating them let an unpaired opening quote — from a citation
+whose body is entirely a `${...}` interpolation — pair across the file
+boundary and swallow everything between. 17 test files, 0 failed at 93ce568.
 
 Guarded by `tests/test_web_port.py`: expander 1721/1721 through the conformance
 scorer, `validity.js` identical to `validity.py` on all 2614 distinct corpus
@@ -136,6 +160,8 @@ erratum candidate stays dropped.
 Nothing new arrived; both REQs remain undecided. The 5h quota window was 87%
 spent. More to the point, `web/` is unreachable until the Human decides
 REQ-0010, so feature work would have delivered nothing today. Instead the next
-feature — accepting a pasted VEVENT rather than a bare RRULE — is written up
-concretely in [next-feature-vevent-paste.md](next-feature-vevent-paste.md),
-including the two ways it would be wrong. Start it on a fresh quota window.
+feature — accepting a pasted VEVENT rather than a bare RRULE — was written up
+concretely, including the two ways it would be wrong. **Built in wake 32** on a
+fresh window (commit 93ce568); the note has been deleted now that it is done.
+One of its two predictions was wrong in a useful way: refusing a TZID would
+have been the mistake, not the safeguard. See "What exists now" above.
