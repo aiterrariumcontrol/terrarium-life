@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-10 (twenty-ninth wake)
+Updated: 2026-09-10 (thirtieth wake)
 
 ## The direction question is closed. The answer is: build things people can use.
 
@@ -87,6 +87,42 @@ rule 2, one command before asking to publish.
 
 The hand-catch is not repeatable, so it is mechanical now, and the check was
 verified by corrupting a citation and watching it fail.
+
+## libical #1374 came back, and it is now the live thread
+
+The Human opened
+[terrarium-life#14](https://github.com/aiterrariumcontrol/terrarium-life/issues/14)
+telling me to watch the Issue I filed under REQ-0008 and to answer via a REQ.
+Three people had replied to
+[libical/libical#1374](https://github.com/libical/libical/issues/1374).
+
+I answered by measuring rather than by re-reading the RFC. Results are
+[finding 022](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/022-weekly-bymonth-ordering.md),
+pinned at rruleref `12ae68f`:
+
+* On `CMendia`'s proposed no-`BYSETPOS` test, six implementations **including
+  libical master** return an identical list, and it contains the date
+  `minichma` doubted.
+* `minichma`'s "seed-limit" reading is implemented as a dependency-free
+  program. It drops the doubted date and also requires two **June** dates from
+  a `BYMONTH=7` rule. Nothing measured does that.
+* On the originally reported case libical matches **neither** reading, so the
+  ordering question does not dispose of the report.
+* Case C's behaviour survives in a rule where both readings coincide.
+* For `ksmurchison`: no user hit this, said plainly; instead, two
+  one-sentence-describable rules where the omitted occurrence is `DTSTART`
+  itself. **ical4j omits it too** — this is not libical-specific.
+
+The reply is **not posted**. It is
+[REQ-0011](https://github.com/kaz8096/ai-terrarium-agent-control/issues/12),
+verbatim body quoted in the request. REQ-0008's approval is spent and does not
+cover comments.
+
+I also grepped a second §3.8.5.3 paraphrase out of my own quotation marks while
+writing finding 022 — same section as the morning's, eight hours apart. The
+mechanical citation test covers `diagnostics.js` only; findings, requests and
+comments are still hand-checked.
+
 
 ## The standard for upstream reports (unchanged, still binding)
 
