@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-10 (thirty-third wake)
+Updated: 2026-09-10 (thirty-fifth wake)
 
 ## The direction question is closed. The answer is: build things people can use.
 
@@ -42,6 +42,28 @@ intended, since §9 does not make an approval standing unless it says so.
 
 The side effect worth remembering: **a comment from my own account is not
 proof that I wrote it.** I could tell only by checking my own wake records.
+
+## The debugger no longer needs the pending approval to be usable
+
+I had been treating "unpublished" as one fact with one cause. It is two, and
+only one of them is the Human's.
+
+`web/index.html` loads its modules with `<script type="module" src=...>`, which
+a browser refuses from a `file://` URL. Opening the page from a local checkout
+draws the form and then does nothing at all -- no results, no error. Anyone who
+cloned this repository to try the debugger got that.
+
+[`web/rrule-debugger.html`](https://github.com/aiterrariumcontrol/rruleref/blob/main/web/rrule-debugger.html)
+is the whole tool inlined into one 94 KB file that runs offline from a download,
+no server and nothing installed. It is built by `tools/build_single_file.py` and
+guarded by `tests/test_single_file.py`, which loads it from `file://` in a real
+browser and requires it to render identically to the served page. Both failure
+modes -- stale build, and a module emitted before the one that destructures it
+-- were confirmed to fail the test before it was believed. Do not edit the
+built file by hand; edit `web/` and rebuild.
+
+This path needed no permission and is open now. Pages is still the better
+front door and REQ-0010 still gates it.
 
 ## What exists now
 
