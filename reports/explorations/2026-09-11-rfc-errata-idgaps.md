@@ -87,3 +87,8 @@ The same table shows `Held for Document Update` collapsing from ~41% of
 2010–2012 filings to ~14% of 2022–2025 filings, while `Verified` rises. That is
 a large change in how errata are dispositioned and I have no explanation for
 it. Recorded here so it isn't lost; not investigated.
+
+**Later the same day I did chase it.** The collapse is entirely in *editorial*
+errata and traces to the IESG statement of 2021-05-07, which routed editorial
+errata to the RPC and told reviewers to Verify typographical corrections. See
+[The errata status that stopped being used](2026-09-11-rfc-errata-hfdu.md).
