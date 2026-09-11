@@ -1,0 +1,862 @@
+{
+ "asof": "2026-09-11",
+ "source": "https://www.rfc-editor.org/api/v1/errata.json",
+ "n_total": 8039,
+ "n_usable": 8038,
+ "n_dropped_bad_submit_date": 1,
+ "status_counts": {
+  "Verified": 3728,
+  "Held for Document Update": 2414,
+  "Rejected": 1157,
+  "Reported": 739
+ },
+ "queue": {
+  "n": 739,
+  "median_age_years": 3.87,
+  "max_age_years": 16.62,
+  "share_technical": 0.8484,
+  "at_least_years": {
+   "1": 575,
+   "2": 489,
+   "3": 419,
+   "5": 319,
+   "10": 69,
+   "15": 4
+  },
+  "top_docs": [
+   [
+    "RFC6749",
+    23
+   ],
+   [
+    "RFC5412",
+    17
+   ],
+   [
+    "RFC6287",
+    11
+   ],
+   [
+    "RFC7208",
+    10
+   ],
+   [
+    "RFC6347",
+    9
+   ],
+   [
+    "RFC9147",
+    9
+   ],
+   [
+    "RFC7970",
+    8
+   ],
+   [
+    "RFC8881",
+    8
+   ],
+   [
+    "RFC7530",
+    7
+   ],
+   [
+    "RFC7644",
+    7
+   ],
+   [
+    "RFC6350",
+    7
+   ],
+   [
+    "RFC8794",
+    7
+   ]
+  ]
+ },
+ "residual_by_submit_year": [
+  {
+   "year": 2000,
+   "n": 14,
+   "n_tech": 9,
+   "residual_tech": 0.0,
+   "n_edit": 5,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2001,
+   "n": 72,
+   "n_tech": 66,
+   "residual_tech": 0.0,
+   "n_edit": 6,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2002,
+   "n": 124,
+   "n_tech": 100,
+   "residual_tech": 0.0,
+   "n_edit": 24,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2003,
+   "n": 63,
+   "n_tech": 55,
+   "residual_tech": 0.0,
+   "n_edit": 8,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2004,
+   "n": 89,
+   "n_tech": 31,
+   "residual_tech": 0.0,
+   "n_edit": 58,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2005,
+   "n": 156,
+   "n_tech": 46,
+   "residual_tech": 0.0,
+   "n_edit": 110,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2006,
+   "n": 444,
+   "n_tech": 196,
+   "residual_tech": 0.0,
+   "n_edit": 248,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2007,
+   "n": 429,
+   "n_tech": 208,
+   "residual_tech": 0.0,
+   "n_edit": 221,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2008,
+   "n": 423,
+   "n_tech": 205,
+   "residual_tech": 0.0,
+   "n_edit": 218,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2009,
+   "n": 331,
+   "n_tech": 140,
+   "residual_tech": 0.0,
+   "n_edit": 191,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2010,
+   "n": 538,
+   "n_tech": 211,
+   "residual_tech": 0.0142,
+   "n_edit": 327,
+   "residual_edit": 0.0031
+  },
+  {
+   "year": 2011,
+   "n": 367,
+   "n_tech": 156,
+   "residual_tech": 0.0,
+   "n_edit": 211,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2012,
+   "n": 348,
+   "n_tech": 189,
+   "residual_tech": 0.0,
+   "n_edit": 159,
+   "residual_edit": 0.0
+  },
+  {
+   "year": 2013,
+   "n": 340,
+   "n_tech": 175,
+   "residual_tech": 0.0171,
+   "n_edit": 165,
+   "residual_edit": 0.0121
+  },
+  {
+   "year": 2014,
+   "n": 342,
+   "n_tech": 171,
+   "residual_tech": 0.0292,
+   "n_edit": 171,
+   "residual_edit": 0.0526
+  },
+  {
+   "year": 2015,
+   "n": 343,
+   "n_tech": 188,
+   "residual_tech": 0.1117,
+   "n_edit": 155,
+   "residual_edit": 0.0452
+  },
+  {
+   "year": 2016,
+   "n": 295,
+   "n_tech": 164,
+   "residual_tech": 0.1646,
+   "n_edit": 131,
+   "residual_edit": 0.0763
+  },
+  {
+   "year": 2017,
+   "n": 303,
+   "n_tech": 176,
+   "residual_tech": 0.142,
+   "n_edit": 127,
+   "residual_edit": 0.1102
+  },
+  {
+   "year": 2018,
+   "n": 350,
+   "n_tech": 196,
+   "residual_tech": 0.2347,
+   "n_edit": 154,
+   "residual_edit": 0.0714
+  },
+  {
+   "year": 2019,
+   "n": 335,
+   "n_tech": 205,
+   "residual_tech": 0.1756,
+   "n_edit": 130,
+   "residual_edit": 0.0692
+  },
+  {
+   "year": 2020,
+   "n": 387,
+   "n_tech": 233,
+   "residual_tech": 0.1974,
+   "n_edit": 154,
+   "residual_edit": 0.0584
+  },
+  {
+   "year": 2021,
+   "n": 321,
+   "n_tech": 162,
+   "residual_tech": 0.1975,
+   "n_edit": 159,
+   "residual_edit": 0.0818
+  },
+  {
+   "year": 2022,
+   "n": 358,
+   "n_tech": 196,
+   "residual_tech": 0.25,
+   "n_edit": 162,
+   "residual_edit": 0.0494
+  },
+  {
+   "year": 2023,
+   "n": 262,
+   "n_tech": 167,
+   "residual_tech": 0.2695,
+   "n_edit": 95,
+   "residual_edit": 0.0211
+  },
+  {
+   "year": 2024,
+   "n": 357,
+   "n_tech": 238,
+   "residual_tech": 0.2899,
+   "n_edit": 119,
+   "residual_edit": 0.0504
+  },
+  {
+   "year": 2025,
+   "n": 371,
+   "n_tech": 282,
+   "residual_tech": 0.3298,
+   "n_edit": 89,
+   "residual_edit": 0.0449
+  },
+  {
+   "year": 2026,
+   "n": 276,
+   "n_tech": 184,
+   "residual_tech": 0.6902,
+   "n_edit": 92,
+   "residual_edit": 0.0761
+  }
+ ],
+ "stranded_editorial_pre_policy": {
+  "policy_date": "2021-05-07",
+  "n": 79,
+  "age_years_min": 5.35,
+  "age_years_max": 16.62,
+  "items": [
+   {
+    "errata_id": "2019",
+    "doc": "RFC5664",
+    "section": "5.4.4",
+    "submit_date": "2010-01-26",
+    "submitter": "Benny Halevy"
+   },
+   {
+    "errata_id": "3755",
+    "doc": "RFC1818",
+    "section": "header",
+    "submit_date": "2013-10-16",
+    "submitter": "Dale Worley"
+   },
+   {
+    "errata_id": "3820",
+    "doc": "RFC4556",
+    "section": "3.2.2",
+    "submit_date": "2013-12-05",
+    "submitter": "Nicolas Williams"
+   },
+   {
+    "errata_id": "3987",
+    "doc": "RFC6655",
+    "section": "4",
+    "submit_date": "2014-05-14",
+    "submitter": "Manuel P\u00e9gouri\u00e9-Gonnard"
+   },
+   {
+    "errata_id": "3990",
+    "doc": "RFC6655",
+    "section": "6.2",
+    "submit_date": "2014-05-16",
+    "submitter": "Manuel P\u00e9gouri\u00e9-Gonnard"
+   },
+   {
+    "errata_id": "4104",
+    "doc": "RFC6347",
+    "section": "4.1",
+    "submit_date": "2014-09-08",
+    "submitter": "Manuel P\u00e9gouri\u00e9-Gonnard"
+   },
+   {
+    "errata_id": "4105",
+    "doc": "RFC6347",
+    "section": "4.1.2.1",
+    "submit_date": "2014-09-08",
+    "submitter": "Manuel P\u00e9gouri\u00e9-Gonnard"
+   },
+   {
+    "errata_id": "4112",
+    "doc": "RFC6287",
+    "section": "5",
+    "submit_date": "2014-09-16",
+    "submitter": "Marc Girault"
+   },
+   {
+    "errata_id": "4113",
+    "doc": "RFC6287",
+    "section": "7",
+    "submit_date": "2014-09-16",
+    "submitter": "Marc Girault"
+   },
+   {
+    "errata_id": "4115",
+    "doc": "RFC6287",
+    "section": "5",
+    "submit_date": "2014-09-16",
+    "submitter": "Marc Girault"
+   },
+   {
+    "errata_id": "4116",
+    "doc": "RFC6287",
+    "section": "5",
+    "submit_date": "2014-09-16",
+    "submitter": "Marc Girault"
+   },
+   {
+    "errata_id": "4117",
+    "doc": "RFC6287",
+    "section": "6.3",
+    "submit_date": "2014-09-16",
+    "submitter": "Marc Girault"
+   },
+   {
+    "errata_id": "4254",
+    "doc": "RFC7027",
+    "section": "1",
+    "submit_date": "2015-02-03",
+    "submitter": "Annie Yousar"
+   },
+   {
+    "errata_id": "4286",
+    "doc": "RFC6962",
+    "section": "3",
+    "submit_date": "2015-03-04",
+    "submitter": "Ben Laurie"
+   },
+   {
+    "errata_id": "4345",
+    "doc": "RFC7044",
+    "section": "6.2",
+    "submit_date": "2015-04-22",
+    "submitter": "chao wang"
+   },
+   {
+    "errata_id": "4401",
+    "doc": "RFC6287",
+    "section": "6.4",
+    "submit_date": "2015-06-25",
+    "submitter": "Anthony"
+   },
+   {
+    "errata_id": "4447",
+    "doc": "RFC7315",
+    "section": "4.6.3.1.",
+    "submit_date": "2015-08-17",
+    "submitter": "Roland Jesske"
+   },
+   {
+    "errata_id": "4448",
+    "doc": "RFC7315",
+    "section": "4.6.4.2.",
+    "submit_date": "2015-08-17",
+    "submitter": "Roland Jesske"
+   },
+   {
+    "errata_id": "4545",
+    "doc": "RFC5570",
+    "section": "5.1.7",
+    "submit_date": "2015-11-24",
+    "submitter": "R. Atkinson"
+   },
+   {
+    "errata_id": "4610",
+    "doc": "RFC6352",
+    "section": "8.7",
+    "submit_date": "2016-02-02",
+    "submitter": "Sylvain Berfini"
+   },
+   {
+    "errata_id": "4642",
+    "doc": "RFC6347",
+    "section": "4.1",
+    "submit_date": "2016-03-18",
+    "submitter": "Dale R. Worley"
+   },
+   {
+    "errata_id": "4697",
+    "doc": "RFC6749",
+    "section": "7.1",
+    "submit_date": "2016-05-19",
+    "submitter": "Ludwig Seitz"
+   },
+   {
+    "errata_id": "4802",
+    "doc": "RFC7520",
+    "section": "5.7.5",
+    "submit_date": "2016-09-13",
+    "submitter": "Florent Morselli"
+   },
+   {
+    "errata_id": "4828",
+    "doc": "RFC7530",
+    "section": "16.24.4.",
+    "submit_date": "2016-10-11",
+    "submitter": "Marcel Telka"
+   },
+   {
+    "errata_id": "4832",
+    "doc": "RFC7292",
+    "section": "B.4",
+    "submit_date": "2016-10-15",
+    "submitter": "Jim Wigginton"
+   },
+   {
+    "errata_id": "4841",
+    "doc": "RFC7208",
+    "section": "3.5.",
+    "submit_date": "2016-10-25",
+    "submitter": "Alessandro Vesely"
+   },
+   {
+    "errata_id": "4859",
+    "doc": "RFC7483",
+    "section": "5.3",
+    "submit_date": "2016-11-10",
+    "submitter": "Marcos Sanz"
+   },
+   {
+    "errata_id": "4862",
+    "doc": "RFC7265",
+    "section": "3.6.1",
+    "submit_date": "2016-11-10",
+    "submitter": "Sean Bartell"
+   },
+   {
+    "errata_id": "4881",
+    "doc": "RFC6238",
+    "section": "8.2",
+    "submit_date": "2016-12-07",
+    "submitter": "Malte Simon"
+   },
+   {
+    "errata_id": "4929",
+    "doc": "RFC5954",
+    "section": "3.1",
+    "submit_date": "2017-02-08",
+    "submitter": "David van Moolenbroek"
+   },
+   {
+    "errata_id": "4934",
+    "doc": "RFC7530",
+    "section": "9.1.7.",
+    "submit_date": "2017-02-15",
+    "submitter": "Marcel Telka"
+   },
+   {
+    "errata_id": "4945",
+    "doc": "RFC6749",
+    "section": "4.1.4",
+    "submit_date": "2017-02-21",
+    "submitter": "Abhimanyu Singh Gaur"
+   },
+   {
+    "errata_id": "4967",
+    "doc": "RFC5424",
+    "section": "6.2.1",
+    "submit_date": "2017-03-14",
+    "submitter": "Muhammad Usman"
+   },
+   {
+    "errata_id": "5026",
+    "doc": "RFC6347",
+    "section": "4.1",
+    "submit_date": "2017-05-31",
+    "submitter": "Timm Korte"
+   },
+   {
+    "errata_id": "5034",
+    "doc": "RFC6030",
+    "section": "6.1",
+    "submit_date": "2017-06-08",
+    "submitter": "Arthur de Jong"
+   },
+   {
+    "errata_id": "5062",
+    "doc": "RFC7848",
+    "section": "GLOBAL",
+    "submit_date": "2017-07-06",
+    "submitter": "Nicos Gollan"
+   },
+   {
+    "errata_id": "5133",
+    "doc": "RFC6287",
+    "section": "6.3",
+    "submit_date": "2017-09-29",
+    "submitter": "Mathieu Lechat"
+   },
+   {
+    "errata_id": "5161",
+    "doc": "RFC5869",
+    "section": "2.3",
+    "submit_date": "2017-10-20",
+    "submitter": "Dale R. Worley"
+   },
+   {
+    "errata_id": "5168",
+    "doc": "RFC8288",
+    "section": "B.3",
+    "submit_date": "2017-10-25",
+    "submitter": "Sawood Alam"
+   },
+   {
+    "errata_id": "5169",
+    "doc": "RFC8288",
+    "section": "B.4",
+    "submit_date": "2017-10-25",
+    "submitter": "Sawood Alam"
+   },
+   {
+    "errata_id": "5198",
+    "doc": "RFC8275",
+    "section": "1",
+    "submit_date": "2017-12-05",
+    "submitter": "Neil Brown"
+   },
+   {
+    "errata_id": "5195",
+    "doc": "RFC8276",
+    "section": "3",
+    "submit_date": "2017-12-05",
+    "submitter": "Mantas Mikulenas"
+   },
+   {
+    "errata_id": "5217",
+    "doc": "RFC3091",
+    "section": "3",
+    "submit_date": "2017-12-26",
+    "submitter": "Lu\u00eds C\u00e2mara"
+   },
+   {
+    "errata_id": "5230",
+    "doc": "RFC8291",
+    "section": "5",
+    "submit_date": "2018-01-07",
+    "submitter": "Martin Thomson"
+   },
+   {
+    "errata_id": "5233",
+    "doc": "RFC5116",
+    "section": "5.3",
+    "submit_date": "2018-01-10",
+    "submitter": "Lars Maier"
+   },
+   {
+    "errata_id": "5240",
+    "doc": "RFC6234",
+    "section": "6",
+    "submit_date": "2018-01-21",
+    "submitter": "Yeong-u Kim (K.)"
+   },
+   {
+    "errata_id": "5288",
+    "doc": "RFC6455",
+    "section": "5.2",
+    "submit_date": "2018-03-20",
+    "submitter": "champkeh"
+   },
+   {
+    "errata_id": "5308",
+    "doc": "RFC6787",
+    "section": "5.1",
+    "submit_date": "2018-03-28",
+    "submitter": "Xiong Chao"
+   },
+   {
+    "errata_id": "5313",
+    "doc": "RFC6787",
+    "section": "9.8",
+    "submit_date": "2018-03-29",
+    "submitter": "Xiong Chao"
+   },
+   {
+    "errata_id": "5315",
+    "doc": "RFC6787",
+    "section": "11.11",
+    "submit_date": "2018-03-30",
+    "submitter": "Xiong Chao"
+   },
+   {
+    "errata_id": "5379",
+    "doc": "RFC6749",
+    "section": "5.1, 4.2.2",
+    "submit_date": "2018-06-06",
+    "submitter": "James Manger"
+   },
+   {
+    "errata_id": "5381",
+    "doc": "RFC1912",
+    "section": "2.4",
+    "submit_date": "2018-06-06",
+    "submitter": "Jonathan Teague"
+   },
+   {
+    "errata_id": "5446",
+    "doc": "RFC5965",
+    "section": "B.2",
+    "submit_date": "2018-07-30",
+    "submitter": "Martijn van der Lee"
+   },
+   {
+    "errata_id": "5580",
+    "doc": "RFC5802",
+    "section": "7",
+    "submit_date": "2018-12-19",
+    "submitter": "Wang Xin"
+   },
+   {
+    "errata_id": "5613",
+    "doc": "RFC2",
+    "section": "GLOBAL",
+    "submit_date": "2019-01-27",
+    "submitter": "Emil Fihman"
+   },
+   {
+    "errata_id": "5614",
+    "doc": "RFC6545",
+    "section": "5.1",
+    "submit_date": "2019-01-28",
+    "submitter": "Logan Widick"
+   },
+   {
+    "errata_id": "5655",
+    "doc": "RFC270",
+    "section": "GLOBAL",
+    "submit_date": "2019-03-13",
+    "submitter": "Darius Kazemi"
+   },
+   {
+    "errata_id": "5666",
+    "doc": "RFC7483",
+    "section": "3",
+    "submit_date": "2019-03-22",
+    "submitter": "Andrew Newton"
+   },
+   {
+    "errata_id": "5673",
+    "doc": "RFC6125",
+    "section": "GLOBAL",
+    "submit_date": "2019-03-25",
+    "submitter": "Michael James"
+   },
+   {
+    "errata_id": "5745",
+    "doc": "RFC6901",
+    "section": "5",
+    "submit_date": "2019-06-04",
+    "submitter": "Sven Willenb\u00fccher"
+   },
+   {
+    "errata_id": "5764",
+    "doc": "RFC5903",
+    "section": "8",
+    "submit_date": "2019-06-27",
+    "submitter": "Mohit Sethi"
+   },
+   {
+    "errata_id": "5885",
+    "doc": "RFC304",
+    "section": "GLOBAL",
+    "submit_date": "2019-10-28",
+    "submitter": "Darius Kazemi"
+   },
+   {
+    "errata_id": "5903",
+    "doc": "RFC6347",
+    "section": "1",
+    "submit_date": "2019-11-12",
+    "submitter": "Martin Thomson"
+   },
+   {
+    "errata_id": "5985",
+    "doc": "RFC8225",
+    "section": "7.1",
+    "submit_date": "2020-02-20",
+    "submitter": "James Manger"
+   },
+   {
+    "errata_id": "5998",
+    "doc": "RFC7464",
+    "section": "2.3",
+    "submit_date": "2020-03-01",
+    "submitter": "Claes Wallin"
+   },
+   {
+    "errata_id": "6018",
+    "doc": "RFC7516",
+    "section": "GLOBAL",
+    "submit_date": "2020-03-16",
+    "submitter": "Kinan Diraneyya"
+   },
+   {
+    "errata_id": "6161",
+    "doc": "RFC6750",
+    "section": "4",
+    "submit_date": "2020-05-08",
+    "submitter": "Herbert Valerio Riedel"
+   },
+   {
+    "errata_id": "6213",
+    "doc": "RFC7996",
+    "section": "1",
+    "submit_date": "2020-06-23",
+    "submitter": "John Levine"
+   },
+   {
+    "errata_id": "6249",
+    "doc": "RFC4948",
+    "section": "1",
+    "submit_date": "2020-08-06",
+    "submitter": "Greg Skinner"
+   },
+   {
+    "errata_id": "6255",
+    "doc": "RFC5531",
+    "section": "9",
+    "submit_date": "2020-08-12",
+    "submitter": "Ed Schouten"
+   },
+   {
+    "errata_id": "6325",
+    "doc": "RFC6125",
+    "section": "10.2",
+    "submit_date": "2020-11-06",
+    "submitter": "tom petch"
+   },
+   {
+    "errata_id": "6329",
+    "doc": "RFC6090",
+    "section": "F.1.",
+    "submit_date": "2020-11-06",
+    "submitter": "Yannik Klubertanz"
+   },
+   {
+    "errata_id": "6440",
+    "doc": "RFC8959",
+    "section": "2",
+    "submit_date": "2021-02-24",
+    "submitter": "Mark Nottingham"
+   },
+   {
+    "errata_id": "6495",
+    "doc": "RFC8898",
+    "section": "1.4.2",
+    "submit_date": "2021-03-26",
+    "submitter": "EungRok Lee"
+   },
+   {
+    "errata_id": "6501",
+    "doc": "RFC8089",
+    "section": "6",
+    "submit_date": "2021-03-29",
+    "submitter": "Lars Eggert"
+   },
+   {
+    "errata_id": "6502",
+    "doc": "RFC6270",
+    "section": "4",
+    "submit_date": "2021-03-29",
+    "submitter": "Lars Eggert"
+   },
+   {
+    "errata_id": "6523",
+    "doc": "RFC6234",
+    "section": "6.4",
+    "submit_date": "2021-04-08",
+    "submitter": "David \u00d3scar Sol\u00e9 Gonz\u00e1lez"
+   },
+   {
+    "errata_id": "6525",
+    "doc": "RFC8461",
+    "section": "4.2",
+    "submit_date": "2021-04-10",
+    "submitter": "Kaspar Etter"
+   },
+   {
+    "errata_id": "6574",
+    "doc": "RFC7991",
+    "section": "5",
+    "submit_date": "2021-05-06",
+    "submitter": "Julian Reschke"
+   }
+  ]
+ },
+ "policy_attribution_attempt": {
+  "verdict": "NOT CONFIRMED",
+  "editorial_residual_pre": 0.0258,
+  "editorial_residual_post": 0.0527,
+  "why_not": "The post-policy group still contains errata legitimately in flight, so its residual is inflated; and per-year, the 2014 and 2015 editorial residuals are already as low as every post-policy year. There is no age gradient in the editorial series to invert."
+ }
+}

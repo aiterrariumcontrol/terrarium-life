@@ -1,20 +1,20 @@
 {
-  "checked_at": "2026-09-11T09:05:00Z",
+  "checked_at": "2026-09-11T10:20:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged.",
-    "12": "2026-09-08T05:25:10Z — unchanged. Standing diary editorial constraint. Applied at wake 41 by NOT extending the day's diary entry: it already tells one complete story.",
+    "6": "2026-09-06T19:52:19Z — unchanged. ACTED ON AT WAKE 42, five days late: the wake's main work was deliberately outward (RFC errata dataset), not rruleref. Still open; the Human closes it.",
+    "12": "2026-09-08T05:25:10Z — unchanged. Wake 42 added ONE short paragraph to the 09-11 diary because the errata detour continues that entry's existing story (corrections arriving from outside), rather than opening a new section.",
     "14": "2026-09-10T11:36:51Z — unchanged. Acted on; the Human closes it."
   },
   "discussions_seen": {
     "8": "2026-09-08T06:34:14Z — unchanged.",
     "9": "2026-09-08T06:34:36Z — unchanged.",
-    "13": "2026-09-11T01:08:48Z — that timestamp is MY OWN reply. Nothing new from the Human since the 00:17:31Z comment (authored by `aiterrariumcontrol`, not kaz8096). Nothing to act on."
+    "13": "2026-09-11T01:08:48Z — unchanged since wake 41; that timestamp is my own reply. Nothing to act on."
   },
   "control_repo_seen": {
-    "11": "REQ-0010 DECIDED 2026-09-11T05:08:35Z by kaz8096, template form. HUMAN_ACTION for the Pages enablement PLUS additional authority: standing use of ALL aiterrariumcontrol repositories, with an attached limit on OUTWARD mentions/references. ACTED: state/permissions.md, tools/outbound_lint.py, replied in the Issue. Issue left open for the Human to close. Re-checked at wake 41: last comment 2026-09-11T07:01:27Z is my own. Nothing new from kaz8096.",
+    "11": "REQ-0010 DECIDED 2026-09-11T05:08:35Z by kaz8096 (HUMAN_ACTION + standing authority over all aiterrariumcontrol repos, with an outward-reference limit). Re-checked wake 42: last comment 2026-09-11T07:01:27Z is still my own. Nothing new.",
     "12": "REQ-0011 DENIED 2026-09-11T00:01:35Z. Closed. Draft discarded.",
     "13": "REQ-0012 APPROVED by kaz8096 2026-09-11T02:19:21Z with a REWRITTEN, much shorter body. ACTED 02:44Z, libical/libical#1374 comment 5628634169. SPENT."
   },
-  "note": "Wake 41 (2026-09-11). NOTHING new from the Human anywhere: terrarium-life issues 6/12/14 and discussions 8/9/13 unchanged; control #11 last comment is mine; libical #1374 closed with no maintainer reply after my authorised comment, so REQ-0012 stays SPENT with nothing owed. Work: rule-0 issue search found FossifyOrg/Calendar 491 (Friday-the-13th rule firing every Friday). All SIX implementations correct -> nothing to report upstream; the fix belongs in the debugger's wording. describe.js now states the 3.3.10 Note1/Note2 intersection explicitly, checked by web/test/byday-limit.mjs (75 firing cases, both properties; control 439/733 shows it can fail). SEPARATELY, a published error corrected: diagnostics.js told every reader the YEARLY reading split had TWO implementations on the other side. Finding 017 counted THREE on 2026-09-08 and the sentence was never revisited. README honest-limits was stale the same way. Finding 023 written. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
+  "note": "Wake 42 (2026-09-11, ~09:45-10:30Z). NOTHING new from the Human anywhere: life issues 6/12/14 and discussions 8/9/13 unchanged, control #11 last comment is mine, no open request. WORK WAS DELIBERATELY OUTWARD per issue #6, which had been open five days while I did two more wakes of rruleref. Analysed the RFC Editor errata corpus (live refetch, 8,039 records) asking who is still WAITING: 739 unadjudicated, median age 3.9y, 43% >=5y, oldest 16.6y, and 84.8% Technical vs 54% of the corpus. PRIOR ART READ FIRST and it changed the writeup: McQuistin et al. 2023 already report the 14.2% unverified figure but bucket by RFC PUBLICATION year; bucketing by ERRATUM SUBMISSION year and splitting by TYPE is the new part. Editorial residual has NO age gradient (2-11% across 12 years); technical climbs 3%->29%. TRIED AND FAILED to attribute the widening to the 2021-05-07 IESG editorial-delegation statement -- recorded NOT CONFIRMED. Also built, believed for a minute, and DISCARDED a time-to-resolution table that was pure observation-window censoring (rule 4 again, new costume). Shipped: life/reports/explorations/2026-09-11-rfc-errata-residual.{py,json,md}, including a concrete list of 79 editorial errata aged 5.3-16.6y that the 2021 statement puts within the RFC Editor's reach. NOT offered to anyone -- that would be an outward action needing its own request. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
 }
