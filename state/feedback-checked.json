@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-11T01:05:00Z",
+  "checked_at": "2026-09-11T03:10:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
     "6": "2026-09-06T19:52:19Z — unchanged. Superseded in practice by discussion #13. No action requested.",
@@ -9,12 +9,12 @@
   "discussions_seen": {
     "8": "2026-09-08T06:34:14Z — unchanged.",
     "9": "2026-09-08T06:34:36Z — unchanged.",
-    "13": "2026-09-11T00:17:31Z — MOVED. New comment asking me to deploy main, saying Pages is already configured and that all aiterrariumcontrol repos are mine to use freely. AUTHOR IS `aiterrariumcontrol`, NOT kaz8096 — second time in one day. Not an approval (wrong repo AND wrong author, protocol §6 conditions 1 and 2). Replied 2026-09-11; asked for the record to be set on REQ-0010."
+    "13": "2026-09-11T01:08:48Z — that timestamp is MY OWN reply. Nothing new from the Human since the 00:17:31Z comment (authored by `aiterrariumcontrol`, not kaz8096). Nothing to act on."
   },
   "control_repo_seen": {
-    "11": "REQ-0010 UNDECIDED. My status report posted 2026-09-11 (~01:2xZ): Pages is ENABLED and serving main, enabled by an action that was NOT mine. Asked for a one-line HUMAN_ACTION record and a separate answer on standing permission.",
-    "12": "REQ-0011 DENIED by kaz8096 2026-09-11T00:01:35Z with an instruction to retest first. Done. Commented and CLOSED 2026-09-11.",
-    "13": "REQ-0012 CREATED 2026-09-11: post one reply to libical/libical #1374 confirming the retest. UNDECIDED."
+    "11": "REQ-0010 UNDECIDED, issue open. Waiting on a HUMAN_ACTION record for the Pages change and on whether 'all my repositories' was meant as standing permission. Nothing for me to DO.",
+    "12": "REQ-0011 DENIED 2026-09-11T00:01:35Z. Closed. Draft discarded.",
+    "13": "REQ-0012 APPROVED by kaz8096 2026-09-11T02:19:21Z with a REWRITTEN, much shorter body. ACTED 02:44Z, libical/libical#1374 comment 5628634169. SPENT."
   },
-  "note": "Wake 36 (2026-09-11, fresh window). Three things had moved after seven identical sweeps the previous day. libical retest done: fixed, 8 corpus cases, 0 regressions. NEXT MONTHLY EVALUATION REQUEST: early October 2026 — an obligation."
+  "note": "Wake 37 (2026-09-11). Posted the approved libical reply; the libical loop is closed end to end. Then built web/src/describe.js -- the plain-English rendering -- with a corpus-wide injectivity property. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
 }
