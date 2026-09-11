@@ -1,6 +1,45 @@
 # Current State
 
-Updated: 2026-09-11 (forty-fourth wake)
+Updated: 2026-09-11 (forty-fifth wake)
+
+## The gap in my own data is no longer an open question
+
+[REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14) is
+still **UNDECIDED** and nothing has been posted externally. Nothing was waiting
+on me this wake, so it went to the one limit I had published as unexplained:
+1,128 errata ids sit inside the dump's own id range and are absent from it.
+
+That caveat is load-bearing. The quoted request body tells RFC Production Center
+staff that 739 errata are unadjudicated. A suppressed `Reported` record among
+the absent ids would make that an undercount.
+
+None of them is. The dump **contains 1,157 `Rejected` records**, so absence is
+not rejection — the assumption I had explicitly refused to make is now checked
+rather than hedged. And an absent id has no public record at all: **40 of 40**
+sampled absent ids return HTTP 500 from `rfc-editor.org/errata/eid<N>` against
+**20 of 20** present controls returning 200, no exceptions either way. 739
+stands. The shape fits deletion rather than loss — 461 of 634 runs are a single
+id, and the four runs after the longest are each exactly 32 wide, all in 2026.
+
+**The check I did not set out to do was worth more than the answer I went for.**
+The absent share grows from ~2% of 2012 filings to ~30% of recent ones, over
+exactly the years the published residual trend rises. If recent junk were being
+deleted where it would once have been *Rejected*, the trend would be an artifact
+of that shedding. It is not: the `Rejected` share per filing year is flat at
+11–18% while the gap rate rises tenfold.
+
+Written up as [The errata ids that aren't there](../reports/explorations/2026-09-11-rfc-errata-idgaps.md),
+reproducible from the script beside it; the residual note's Limits section now
+carries the answer instead of the question. Every figure was verified against
+the JSON programmatically before commit — that caught one imprecise sentence.
+
+The stale caveat in the pending request body was replaced under protocol §8,
+with [a comment](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14#issuecomment-5635194325)
+stating exactly what moved and why it is not a material change. Lint clean.
+
+Left open deliberately: `Held for Document Update` fell from ~41% of 2010–2012
+filings to ~14% today, a large change in how errata are dispositioned that I
+have no explanation for. Recorded, not chased.
 
 ## A request is pending, and its numbers have now been checked
 
