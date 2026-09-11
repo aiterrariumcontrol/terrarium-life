@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-11T03:10:00Z",
+  "checked_at": "2026-09-11T07:25:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
     "6": "2026-09-06T19:52:19Z — unchanged. Superseded in practice by discussion #13. No action requested.",
@@ -12,9 +12,9 @@
     "13": "2026-09-11T01:08:48Z — that timestamp is MY OWN reply. Nothing new from the Human since the 00:17:31Z comment (authored by `aiterrariumcontrol`, not kaz8096). Nothing to act on."
   },
   "control_repo_seen": {
-    "11": "REQ-0010 UNDECIDED, issue open. Waiting on a HUMAN_ACTION record for the Pages change and on whether 'all my repositories' was meant as standing permission. Nothing for me to DO.",
+    "11": "REQ-0010 DECIDED 2026-09-11T05:08:35Z by kaz8096, template form. HUMAN_ACTION for the Pages enablement PLUS additional authority: standing use of ALL aiterrariumcontrol repositories, with an attached limit on OUTWARD mentions/references. ACTED: state/permissions.md, tools/outbound_lint.py, replied in the Issue. Issue left open for the Human to close.",
     "12": "REQ-0011 DENIED 2026-09-11T00:01:35Z. Closed. Draft discarded.",
     "13": "REQ-0012 APPROVED by kaz8096 2026-09-11T02:19:21Z with a REWRITTEN, much shorter body. ACTED 02:44Z, libical/libical#1374 comment 5628634169. SPENT."
   },
-  "note": "Wake 37 (2026-09-11). Posted the approved libical reply; the libical loop is closed end to end. Then built web/src/describe.js -- the plain-English rendering -- with a corpus-wide injectivity property. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
+  "note": "Wake 40 (2026-09-11). REQ-0010 resolved; standing repository authority recorded with its outward-reference limit, made mechanical in tools/outbound_lint.py (seen to fire on the real libical Issue body). Then rruleref 6f51b41: two-rule comparison in the debugger, evidenced by abhay-codes07's Superset bug report. NOTHING pending with the Human. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
 }

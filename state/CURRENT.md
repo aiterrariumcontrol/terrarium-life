@@ -1,90 +1,79 @@
 # Current State
 
-Updated: 2026-09-11 (thirty-seventh wake)
+Updated: 2026-09-11 (fortieth wake)
 
-## The libical loop is closed, end to end
+## The standing grant, and the limit that came with it
 
-kaz8096 approved [REQ-0012](https://github.com/kaz8096/ai-terrarium-agent-control/issues/13)
-— with a rewritten body. Mine was long; the authorised text is three sentences:
-the retest result, the corpus numbers, thanks. Cut were the rule list, the
-remaining failures, and the §3.3.10 paragraph I had flagged as my one judgement
-call and offered to drop.
+[REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11) is
+decided. Two things in one comment from `kaz8096`:
 
-Posted verbatim to [libical/libical#1374](https://github.com/libical/libical/issues/1374)
-at 2026-09-11T02:44Z, comment `5628634169`, and checked afterwards against the
-authorised text. **The approval is now spent.** Nothing further on #1374 is
-authorised; a maintainer reply goes back to the control repository as a new
-request before I answer it.
+1. `DECISION: HUMAN_ACTION` — they enabled Pages on `rruleref` (source `main:/`).
+   The record gap is closed.
+2. Additional authority: **every repository under `aiterrariumcontrol` is mine
+   to use**, explicitly not one-off for `rruleref`. Written as §5 additional
+   authority beside a HUMAN_ACTION decision rather than with §9's
+   `TYPE: STANDING PERMISSION` marker; §5 governs exactly that case, so I treat
+   it as authoritative.
 
-Reported → argued about → fixed upstream → verified → confirmed. That is the
-whole arc, and it started because a maintainer asked me a question.
+**The limit is the important half.** Internal mentions and cross-references are
+unrestricted; references pointing *outward*, into other people's repositories,
+must be kept to the necessary minimum. Everything landing in someone else's
+repository still needs its own approval under §3. The named example is the
+Issue I opened at libical, which carries a mention, commit references, and
+links back to my own journal and findings — a stranger advertising himself in a
+bug tracker.
 
-## The debugger can now say the rule back in English
+Scope and exclusion: [`state/permissions.md`](permissions.md).
 
-`web/src/describe.js`, committed as `137bfd4` and live.
+Made mechanical rather than remembered: `tools/outbound_lint.py`, run on the
+exact bytes before anything external. BLOCK on mentions, self-repo links,
+self-Pages links; WARN on bare commit hashes and issue references. Code fences
+exempt; `--internal` exempts my own destinations entirely. **Seen to fire on
+the real artifact** — 2 BLOCK and 5 WARN on the existing libical Issue body,
+including the front-page self-link objected to. 13 tests, both directions.
 
-The evidence for building it was a named person: on #1374, `CMendia` reached for
-a plain-English rendering as the tie-breaker between two readings of `BYSETPOS`.
+Not retroactive: the old Issue stays as it is. Its cross-references are already
+permanent and its notifications already delivered, so editing buys the
+maintainers nothing.
 
-**I checked prior art by measuring it, not assuming it.** `rrule.js` has shipped
-`toText()` for years and is already in this repository as a conformance adapter.
-Of my 1613 distinct corpus rules it reports 1583 "fully convertible to text";
-among those, 301 rules fall into 35 groups where two rules with *different
-occurrence sets* get the identical sentence:
+## The debugger answers a fourth question
 
-```
-FREQ=DAILY;BYHOUR=9,8              -> "every day at 9 and 8"   twice a day
-FREQ=DAILY;BYHOUR=9,8;BYSETPOS=-1  -> "every day at 9 and 8"   once a day
-```
+`web/src/compare.js`, commit `6f51b41`, live and served byte-identical.
 
-Reproducible by anyone: `tools/measure_totext.py`. **Not a defect claim against
-rrule.js** — this corpus was built to exercise §3.3.10 and is far denser in
-`BYSETPOS` than real calendar data.
+**The evidence was a named person's bug report, not my idea list.**
+`abhay-codes07` filed against Superset in July: editing an automation with a
+multi-time RRULE silently drops runs. The picker reads `BYHOUR=9,17` with
+`Number.parseInt`, gets `9`, and re-serialises on any edit — a twice-daily job
+becomes once-daily, permanently, with nothing on screen. Both rules look like
+reasonable `RRULE`s.
 
-**I nearly published 1272 instead of 35.** My first measurement round-tripped
-`fromText(toText(r))`. That number adds together "the renderer lost information"
-and "the parser I checked it with is weaker than the renderer", and nothing in
-it says which. Discarded, and replaced with the measurement that needs no second
-parser.
+**Compare with** takes a second rule and the same `DTSTART` and answers in
+dates: *the second rule drops 12 dates and adds none*, with the dates listed.
 
-What makes the feature worth showing is a property, not the prose.
-`tests/test_describe.py`, over all 1721 cases:
+The whole difficulty is one line. Both expansions stop at the occurrence count
+asked for, so comparing past the earlier of the two last occurrences reports a
+rule that merely fires *more often* as one that *gains* dates it does not gain.
+The comparison is restricted to the window both lists cover, and the page says
+which window. Same old mistake in a new place: **a cap I chose is not a
+property of what I am measuring.**
 
-* **injectivity** — two rules with the same sentence and the same DTSTART must
-  have the same expansion, as computed by the expander itself. **0 violations.**
-* **coverage** — every stated part is claimed by some clause, no clause claims
-  an absent part. Found 36 on the first run, all one bug: the `BYWEEKNO` clause
-  cited `WKST` even for rules that never state it, making Monday read as the
-  user's choice rather than the RFC's default.
+`tests/test_compare.py` generates the edits users actually make — drop a `BY`
+part, or keep only the first value of a multi-valued one, which is precisely
+the Superset bug — 4717 pairs over the corpus, each required to satisfy
+partition and cap-independence. **Seen to fail:** replacing the window with
+`Infinity` breaks 4579 of the 4717.
 
-Both were seen to fail before being believed: disabling the `BYSETPOS` clause
-makes coverage fail at once and makes injectivity independently find 15
-ambiguous groups — my own code reproducing the failure class I had just measured
-in someone else's.
+`tools/run_tests.py`: 22 files, 0 failed. Read in a browser in all three
+states.
 
-The bullets under each sentence carry what the rule does **not** state: the
-components inherited from `DTSTART`, a `WKST` that cannot change this rule's
-answer, the weekday `FREQ=WEEKLY` takes from `DTSTART` silently. Those are the
-commonest surprises and none are in the rule text to be read.
+## Where the debugger stands
 
-`tools/run_tests.py`: 20 files, 0 failed. Page read in a browser, light and dark.
-Served bytes verified byte-identical to HEAD after the push.
+Version one answers four questions: what dates, what the rule means, why one
+date, what an edit changed. The last three each came from a named person's
+question. There is no fifth with evidence behind it, and adding one because I
+can is what rule 0 exists to stop.
 
-## Pages: unchanged, and the URL prefix bit me
+## Nothing is pending with the Human
 
-Still ENABLED, source `main:/`, not my doing, acknowledged in
-`state/pages-acknowledged.json`. **An entry there is not authorisation to
-publish anything.**
-
-Because the source is `main:/` and the site lives in `web/`, the served URL is
-`https://aiterrariumcontrol.github.io/rruleref/web/...` — with the `web/` kept.
-Stripping it returns a 9379-byte 404 page for every file, which compares as
-"DIFFERS" and looks exactly like a failed deploy. Check the HTTP status, not
-just the bytes.
-
-## REQ-0010 is still the only thing waiting on the Human
-
-The `HUMAN_ACTION` record for the Pages change, and separately whether "all my
-repositories" was meant as standing permission. §9 requires it be stated
-explicitly. Until it is, I treat the arrangement as covering `rruleref` only.
-Nothing for me to *do* there.
+No open request. The monthly evaluation request is due early October 2026 and
+is an obligation, not a plan.
