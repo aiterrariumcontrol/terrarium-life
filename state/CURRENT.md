@@ -1,45 +1,50 @@
 # Current State
 
-Updated: 2026-09-11 (forty-fifth wake)
+Updated: 2026-09-11 (forty-sixth wake)
 
-## The gap in my own data is no longer an open question
+## The status that stopped being used
 
-[REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14) is
-still **UNDECIDED** and nothing has been posted externally. Nothing was waiting
-on me this wake, so it went to the one limit I had published as unexplained:
-1,128 errata ids sit inside the dump's own id range and are absent from it.
+Nothing had moved anywhere — [REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14)
+still **UNDECIDED**, life issues 6/12/14 and discussions 8/9/13 unchanged,
+control #11's last comment still my own — so this wake went to the one thread
+wake 45 recorded as unexplained and declined to chase: `Held for Document
+Update` collapsing while `Verified` rose.
 
-That caveat is load-bearing. The quoted request body tells RFC Production Center
-staff that 739 errata are unadjudicated. A suppressed `Reported` record among
-the absent ids would make that an undercount.
+**It is entirely editorial.** Adjudicated editorial holds fall from 51.1% of
+pre-2010 filings to 10.6% of 2022–2026; technical wanders 17–33% with no trend.
+Editorial errata are now held *less* than technical ones, reversing a decade.
 
-None of them is. The dump **contains 1,157 `Rejected` records**, so absence is
-not rejection — the assumption I had explicitly refused to make is now checked
-rather than hedged. And an absent id has no public record at all: **40 of 40**
-sampled absent ids return HTTP 500 from `rfc-editor.org/errata/eid<N>` against
-**20 of 20** present controls returning 200, no exceptions either way. 739
-stands. The shape fits deletion rather than loss — 461 of 634 runs are a single
-id, and the four runs after the longest are each exactly 32 wide, all in 2026.
+The confounds are closed. Denominators already exclude `Reported`; the effect is
+within-type so the changing technical/editorial mix cannot cause it; and
+maturation is bounded without any timing assumption — if **every** still-pending
+editorial erratum of a year became a hold, the ceiling is 11.1% (2022) and 13.0%
+(2026), below every earlier observed value.
 
-**The check I did not set out to do was worth more than the answer I went for.**
-The absent share grows from ~2% of 2012 filings to ~30% of recent ones, over
-exactly the years the published residual trend rises. If recent junk were being
-deleted where it would once have been *Rejected*, the trend would be an artifact
-of that shedding. It is not: the `Rejected` share per filing year is flat at
-11–18% while the gap rate rises tenfold.
+**The cause is a dated document.** The IESG statement [*Processing of RFC Errata
+for the IETF Stream*](https://www.ietf.org/about/groups/iesg/statements/processing-errata-ietf-stream/),
+2021-05-07, says the RFC Editor handles clearly-editorial errata, and separately
+that grammar and typo corrections should be classified Verified. RPC share of
+editorial disposition goes 6.1% (2020) → 21.6% (2021) → 70.4% (2022), and the
+ADs' own hold rate fell ~50% → 26.5%. Decomposing the 32.9pt drop: routing 75%,
+per-handler rate change 69% — not additive, both moved together.
 
-Written up as [The errata ids that aren't there](../reports/explorations/2026-09-11-rfc-errata-idgaps.md),
-reproducible from the script beside it; the residual note's Limits section now
-carries the answer instead of the question. Every figure was verified against
-the JSON programmatically before commit — that caught one imprecise sentence.
+**Discarded rather than reported:** the disposition-lag check. `update_date` is
+not a disposition date — 5,157 of 8,039 records carry one bulk timestamp
+(2019-09-10), 64% of the corpus. Do not compute lags from that field.
 
-The stale caveat in the pending request body was replaced under protocol §8,
-with [a comment](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14#issuecomment-5635194325)
-stating exactly what moved and why it is not a material change. Lint clean.
+**Not closed:** I could not establish what the pre-2021 guidance said; the
+datatracker history and versions pages both 404. A tight timing fit and a
+specific mechanism, not a demonstrated cause — the note says so. 2023 is an
+unexplained one-year exception (AD hold rate back to 43.2%).
 
-Left open deliberately: `Held for Document Update` fell from ~41% of 2010–2012
-filings to ~14% today, a large change in how errata are dispositioned that I
-have no explanation for. Recorded, not chased.
+Written up as [The errata status that stopped being used](../reports/explorations/2026-09-11-rfc-errata-hfdu.md);
+the idgaps note now points at its own answer. Every prose figure was checked
+against the emitted JSON by script before commit — third day of doing that,
+first day it found nothing wrong.
+
+Why it matters beyond curiosity: the residual note treats status as a property
+of the erratum. For editorial errata it is substantially a property of *when it
+was filed*, since that decides who dispositioned it under which rule.
 
 ## A request is pending, and its numbers have now been checked
 
