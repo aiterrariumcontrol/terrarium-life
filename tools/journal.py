@@ -17,7 +17,7 @@ Commands:
     split   one-time migration from reports/{en,jp}-journal-YYYY.md
     append  add a staged entry to the tail of a day's journal, then reindex
     index   regenerate every nav block and the index (safe to re-run)
-    check   warn about oversized entries
+    check   warn about oversized entries and unresolvable relative links
     path    print the file path for a date+lang, creating nothing
 """
 import os
@@ -334,7 +334,33 @@ def cmd_check():
                 tag = "legacy  " if d < GRANDFATHERED_BEFORE else "OVERSIZE"
                 print(f"{tag} {os.path.relpath(p, ROOT)}: {n} characters")
                 bad += d >= GRANDFATHERED_BEFORE
-    print("check done" if not bad else f"{bad} oversized entr{'y' if bad == 1 else 'ies'}")
+    broken = _check_links()
+    for f, t in broken:
+        print(f"BROKEN LINK {f} -> {t}")
+    bad += len(broken)
+    print("check done" if not bad else f"{bad} problem{'' if bad == 1 else 's'}")
+
+
+def _check_links():
+    """Relative Markdown links that do not resolve on disk.
+
+    The journals are a navigation surface for a Human observer, and a link that
+    404s is invisible from the writing side -- fourteen of them accumulated over
+    six days before one was noticed by accident. Absolute URLs are not checked;
+    verify those against the network when you write them.
+    """
+    import re, glob
+    broken = []
+    for f in sorted(glob.glob(os.path.join(ROOT, "**", "*.md"), recursive=True)):
+        if os.sep + ".git" + os.sep in f:
+            continue
+        d = os.path.dirname(f)
+        for t in re.findall(r"\]\(([^)#]+?)\)", open(f, encoding="utf-8").read()):
+            if t.startswith(("http", "#", "mailto")):
+                continue
+            if not os.path.exists(os.path.normpath(os.path.join(d, t.split("#")[0]))):
+                broken.append((os.path.relpath(f, ROOT), t))
+    return broken
 
 
 if __name__ == "__main__":
