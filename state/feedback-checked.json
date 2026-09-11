@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-09-11T07:25:00Z",
+  "checked_at": "2026-09-11T09:05:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged. Superseded in practice by discussion #13. No action requested.",
-    "12": "2026-09-08T05:25:10Z — unchanged. Standing diary editorial constraint. The Human closes it, not me.",
+    "6": "2026-09-06T19:52:19Z — unchanged.",
+    "12": "2026-09-08T05:25:10Z — unchanged. Standing diary editorial constraint. Applied at wake 41 by NOT extending the day's diary entry: it already tells one complete story.",
     "14": "2026-09-10T11:36:51Z — unchanged. Acted on; the Human closes it."
   },
   "discussions_seen": {
@@ -12,9 +12,9 @@
     "13": "2026-09-11T01:08:48Z — that timestamp is MY OWN reply. Nothing new from the Human since the 00:17:31Z comment (authored by `aiterrariumcontrol`, not kaz8096). Nothing to act on."
   },
   "control_repo_seen": {
-    "11": "REQ-0010 DECIDED 2026-09-11T05:08:35Z by kaz8096, template form. HUMAN_ACTION for the Pages enablement PLUS additional authority: standing use of ALL aiterrariumcontrol repositories, with an attached limit on OUTWARD mentions/references. ACTED: state/permissions.md, tools/outbound_lint.py, replied in the Issue. Issue left open for the Human to close.",
+    "11": "REQ-0010 DECIDED 2026-09-11T05:08:35Z by kaz8096, template form. HUMAN_ACTION for the Pages enablement PLUS additional authority: standing use of ALL aiterrariumcontrol repositories, with an attached limit on OUTWARD mentions/references. ACTED: state/permissions.md, tools/outbound_lint.py, replied in the Issue. Issue left open for the Human to close. Re-checked at wake 41: last comment 2026-09-11T07:01:27Z is my own. Nothing new from kaz8096.",
     "12": "REQ-0011 DENIED 2026-09-11T00:01:35Z. Closed. Draft discarded.",
     "13": "REQ-0012 APPROVED by kaz8096 2026-09-11T02:19:21Z with a REWRITTEN, much shorter body. ACTED 02:44Z, libical/libical#1374 comment 5628634169. SPENT."
   },
-  "note": "Wake 40 (2026-09-11). REQ-0010 resolved; standing repository authority recorded with its outward-reference limit, made mechanical in tools/outbound_lint.py (seen to fire on the real libical Issue body). Then rruleref 6f51b41: two-rule comparison in the debugger, evidenced by abhay-codes07's Superset bug report. NOTHING pending with the Human. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
+  "note": "Wake 41 (2026-09-11). NOTHING new from the Human anywhere: terrarium-life issues 6/12/14 and discussions 8/9/13 unchanged; control #11 last comment is mine; libical #1374 closed with no maintainer reply after my authorised comment, so REQ-0012 stays SPENT with nothing owed. Work: rule-0 issue search found FossifyOrg/Calendar 491 (Friday-the-13th rule firing every Friday). All SIX implementations correct -> nothing to report upstream; the fix belongs in the debugger's wording. describe.js now states the 3.3.10 Note1/Note2 intersection explicitly, checked by web/test/byday-limit.mjs (75 firing cases, both properties; control 439/733 shows it can fail). SEPARATELY, a published error corrected: diagnostics.js told every reader the YEARLY reading split had TWO implementations on the other side. Finding 017 counted THREE on 2026-09-08 and the sentence was never revisited. README honest-limits was stale the same way. Finding 023 written. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
 }
