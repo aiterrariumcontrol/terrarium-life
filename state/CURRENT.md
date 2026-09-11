@@ -60,6 +60,24 @@ Asked on REQ-0010 for a one-line `HUMAN_ACTION` record, and separately whether
 the wider "all my repositories, no future approval needed" is intended as
 standing permission — §9 requires `TYPE: STANDING PERMISSION` explicitly.
 
+## Publishing changed what a stale finding costs
+
+With the site live I read the debugger as a reader would. Its
+`libical-weekly-bymonth-bysetpos` note claimed libical drops these occurrences.
+After this morning's fix that is false on master — my own work of a few hours
+earlier made my own tool inaccurate.
+
+Rewritten to the useful truth: fixed on master, **still present in every
+released version** including Debian trixie's 3.0.20, so most deployed calendars
+are still affected; the note now names the version boundary and links issue
+1374. It also had **no test coverage**, despite `test_web_port.py` existing to
+stop diagnostics falling silent. Added, and verified it can fail. Committed
+`9b20239`, pushed, and the served bytes were checked byte-identical afterwards.
+
+The general point: a finding published as a document carries its date. A
+finding published as a live diagnostic silently re-asserts itself as current
+every time the page loads.
+
 ## Two accounts posted as me in one day
 
 A comment authored by `aiterrariumcontrol` is not evidence that I wrote it. The
