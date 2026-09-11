@@ -1,0 +1,396 @@
+{
+ "source": "scratch/errata_live.json",
+ "records_total": 8039,
+ "records_usable": 8038,
+ "records_dropped_bad_date": 1,
+ "update_date_unusable": {
+  "distinct_dates": 844,
+  "most_common_date": "2019-09-10",
+  "most_common_count": 5157,
+  "share_of_corpus": 0.6414976987187461
+ },
+ "by_cohort_all": {
+  "<=2009": {
+   "n": 2145,
+   "Verified": 0.5156177156177156,
+   "Held for Document Update": 0.3850815850815851,
+   "Rejected": 0.0993006993006993,
+   "Reported": 0.0
+  },
+  "2010-2012": {
+   "n": 1253,
+   "Verified": 0.4405426975259378,
+   "Held for Document Update": 0.4118116520351157,
+   "Rejected": 0.14445331205107742,
+   "Reported": 0.0031923383878691143
+  },
+  "2013-2015": {
+   "n": 1025,
+   "Verified": 0.4848780487804878,
+   "Held for Document Update": 0.2604878048780488,
+   "Rejected": 0.20878048780487804,
+   "Reported": 0.045853658536585365
+  },
+  "2016-2018": {
+   "n": 948,
+   "Verified": 0.39135021097046413,
+   "Held for Document Update": 0.30168776371308015,
+   "Rejected": 0.16666666666666666,
+   "Reported": 0.14029535864978904
+  },
+  "2019-2021": {
+   "n": 1043,
+   "Verified": 0.40939597315436244,
+   "Held for Document Update": 0.28763183125599234,
+   "Rejected": 0.16395014381591563,
+   "Reported": 0.13902205177372962
+  },
+  "2022-2026": {
+   "n": 1624,
+   "Verified": 0.4772167487684729,
+   "Held for Document Update": 0.13485221674876846,
+   "Rejected": 0.1354679802955665,
+   "Reported": 0.2524630541871921
+  }
+ },
+ "by_cohort_adjudicated": {
+  "<=2009": {
+   "n": 2145,
+   "Verified": 0.5156177156177156,
+   "Held for Document Update": 0.3850815850815851,
+   "Rejected": 0.0993006993006993,
+   "Reported": 0.0
+  },
+  "2010-2012": {
+   "n": 1249,
+   "Verified": 0.4419535628502802,
+   "Held for Document Update": 0.41313050440352284,
+   "Rejected": 0.14491593274619696,
+   "Reported": 0.0
+  },
+  "2013-2015": {
+   "n": 978,
+   "Verified": 0.5081799591002045,
+   "Held for Document Update": 0.27300613496932513,
+   "Rejected": 0.21881390593047034,
+   "Reported": 0.0
+  },
+  "2016-2018": {
+   "n": 815,
+   "Verified": 0.45521472392638035,
+   "Held for Document Update": 0.350920245398773,
+   "Rejected": 0.19386503067484662,
+   "Reported": 0.0
+  },
+  "2019-2021": {
+   "n": 898,
+   "Verified": 0.4755011135857461,
+   "Held for Document Update": 0.33407572383073497,
+   "Rejected": 0.19042316258351893,
+   "Reported": 0.0
+  },
+  "2022-2026": {
+   "n": 1214,
+   "Verified": 0.6383855024711697,
+   "Held for Document Update": 0.18039538714991762,
+   "Rejected": 0.1812191103789127,
+   "Reported": 0.0
+  }
+ },
+ "by_cohort_adjudicated_by_type": {
+  "Technical": {
+   "<=2009": {
+    "n": 1056,
+    "Verified": 0.6297348484848485,
+    "Held for Document Update": 0.2556818181818182,
+    "Rejected": 0.11458333333333333,
+    "Reported": 0.0
+   },
+   "2010-2012": {
+    "n": 553,
+    "Verified": 0.5479204339963833,
+    "Held for Document Update": 0.2875226039783002,
+    "Rejected": 0.16455696202531644,
+    "Reported": 0.0
+   },
+   "2013-2015": {
+    "n": 505,
+    "Verified": 0.5188118811881188,
+    "Held for Document Update": 0.1702970297029703,
+    "Rejected": 0.3108910891089109,
+    "Reported": 0.0
+   },
+   "2016-2018": {
+    "n": 438,
+    "Verified": 0.4497716894977169,
+    "Held for Document Update": 0.271689497716895,
+    "Rejected": 0.2785388127853881,
+    "Reported": 0.0
+   },
+   "2019-2021": {
+    "n": 486,
+    "Verified": 0.43004115226337447,
+    "Held for Document Update": 0.3333333333333333,
+    "Rejected": 0.2366255144032922,
+    "Reported": 0.0
+   },
+   "2022-2026": {
+    "n": 684,
+    "Verified": 0.5087719298245614,
+    "Held for Document Update": 0.23830409356725146,
+    "Rejected": 0.25292397660818716,
+    "Reported": 0.0
+   }
+  },
+  "Editorial": {
+   "<=2009": {
+    "n": 1089,
+    "Verified": 0.4049586776859504,
+    "Held for Document Update": 0.5105601469237833,
+    "Rejected": 0.0844811753902663,
+    "Reported": 0.0
+   },
+   "2010-2012": {
+    "n": 696,
+    "Verified": 0.3577586206896552,
+    "Held for Document Update": 0.5129310344827587,
+    "Rejected": 0.12931034482758622,
+    "Reported": 0.0
+   },
+   "2013-2015": {
+    "n": 473,
+    "Verified": 0.49682875264270615,
+    "Held for Document Update": 0.38266384778012685,
+    "Rejected": 0.12050739957716702,
+    "Reported": 0.0
+   },
+   "2016-2018": {
+    "n": 377,
+    "Verified": 0.46153846153846156,
+    "Held for Document Update": 0.44297082228116713,
+    "Rejected": 0.09549071618037135,
+    "Reported": 0.0
+   },
+   "2019-2021": {
+    "n": 412,
+    "Verified": 0.529126213592233,
+    "Held for Document Update": 0.33495145631067963,
+    "Rejected": 0.13592233009708737,
+    "Reported": 0.0
+   },
+   "2022-2026": {
+    "n": 530,
+    "Verified": 0.8056603773584906,
+    "Held for Document Update": 0.10566037735849057,
+    "Rejected": 0.08867924528301886,
+    "Reported": 0.0
+   }
+  }
+ },
+ "editorial_share_of_filings": {
+  "<=2009": 0.5076923076923077,
+  "2010-2012": 0.5562649640861931,
+  "2013-2015": 0.4790243902439024,
+  "2016-2018": 0.4345991561181435,
+  "2019-2021": 0.4247363374880153,
+  "2022-2026": 0.34298029556650245
+ },
+ "editorial_hfdu_upper_bound": {
+  "2016": {
+   "total": 131,
+   "reported": 10,
+   "hfdu": 52,
+   "observed_share_of_all": 0.3969465648854962,
+   "max_possible_share": 0.4732824427480916
+  },
+  "2017": {
+   "total": 127,
+   "reported": 14,
+   "hfdu": 50,
+   "observed_share_of_all": 0.3937007874015748,
+   "max_possible_share": 0.5039370078740157
+  },
+  "2018": {
+   "total": 154,
+   "reported": 11,
+   "hfdu": 65,
+   "observed_share_of_all": 0.42207792207792205,
+   "max_possible_share": 0.4935064935064935
+  },
+  "2019": {
+   "total": 130,
+   "reported": 9,
+   "hfdu": 49,
+   "observed_share_of_all": 0.3769230769230769,
+   "max_possible_share": 0.4461538461538462
+  },
+  "2020": {
+   "total": 154,
+   "reported": 9,
+   "hfdu": 53,
+   "observed_share_of_all": 0.34415584415584416,
+   "max_possible_share": 0.4025974025974026
+  },
+  "2021": {
+   "total": 159,
+   "reported": 13,
+   "hfdu": 36,
+   "observed_share_of_all": 0.22641509433962265,
+   "max_possible_share": 0.3081761006289308
+  },
+  "2022": {
+   "total": 162,
+   "reported": 8,
+   "hfdu": 10,
+   "observed_share_of_all": 0.06172839506172839,
+   "max_possible_share": 0.1111111111111111
+  },
+  "2023": {
+   "total": 95,
+   "reported": 2,
+   "hfdu": 20,
+   "observed_share_of_all": 0.21052631578947367,
+   "max_possible_share": 0.23157894736842105
+  },
+  "2024": {
+   "total": 119,
+   "reported": 6,
+   "hfdu": 14,
+   "observed_share_of_all": 0.11764705882352941,
+   "max_possible_share": 0.16806722689075632
+  },
+  "2025": {
+   "total": 89,
+   "reported": 4,
+   "hfdu": 7,
+   "observed_share_of_all": 0.07865168539325842,
+   "max_possible_share": 0.12359550561797752
+  },
+  "2026": {
+   "total": 92,
+   "reported": 7,
+   "hfdu": 5,
+   "observed_share_of_all": 0.05434782608695652,
+   "max_possible_share": 0.13043478260869565
+  }
+ },
+ "editorial_disposition_by_year": {
+  "2014": {
+   "n": 142,
+   "rpc_share": 0.0,
+   "hfdu_rate_rpc": null,
+   "hfdu_rate_ad": 0.323943661971831,
+   "hfdu_rate_all": 0.323943661971831
+  },
+  "2015": {
+   "n": 124,
+   "rpc_share": 0.03225806451612903,
+   "hfdu_rate_rpc": 0.0,
+   "hfdu_rate_ad": 0.48739495798319327,
+   "hfdu_rate_all": 0.46774193548387094
+  },
+  "2016": {
+   "n": 106,
+   "rpc_share": 0.02830188679245283,
+   "hfdu_rate_rpc": 0.0,
+   "hfdu_rate_ad": 0.504950495049505,
+   "hfdu_rate_all": 0.49056603773584906
+  },
+  "2017": {
+   "n": 105,
+   "rpc_share": 0.09523809523809523,
+   "hfdu_rate_rpc": 0.1,
+   "hfdu_rate_ad": 0.5157894736842106,
+   "hfdu_rate_all": 0.47619047619047616
+  },
+  "2018": {
+   "n": 130,
+   "rpc_share": 0.07692307692307693,
+   "hfdu_rate_rpc": 0.0,
+   "hfdu_rate_ad": 0.5416666666666666,
+   "hfdu_rate_all": 0.5
+  },
+  "2019": {
+   "n": 108,
+   "rpc_share": 0.09259259259259259,
+   "hfdu_rate_rpc": 0.0,
+   "hfdu_rate_ad": 0.5051546391752577,
+   "hfdu_rate_all": 0.4537037037037037
+  },
+  "2020": {
+   "n": 114,
+   "rpc_share": 0.06140350877192982,
+   "hfdu_rate_rpc": 0.0,
+   "hfdu_rate_ad": 0.4953271028037383,
+   "hfdu_rate_all": 0.4649122807017544
+  },
+  "2021": {
+   "n": 134,
+   "rpc_share": 0.21641791044776118,
+   "hfdu_rate_rpc": 0.13793103448275862,
+   "hfdu_rate_ad": 0.3047619047619048,
+   "hfdu_rate_all": 0.26865671641791045
+  },
+  "2022": {
+   "n": 142,
+   "rpc_share": 0.704225352112676,
+   "hfdu_rate_rpc": 0.02,
+   "hfdu_rate_ad": 0.1951219512195122,
+   "hfdu_rate_all": 0.07042253521126761
+  },
+  "2023": {
+   "n": 88,
+   "rpc_share": 0.5795454545454546,
+   "hfdu_rate_rpc": 0.0784313725490196,
+   "hfdu_rate_ad": 0.43243243243243246,
+   "hfdu_rate_all": 0.22727272727272727
+  },
+  "2024": {
+   "n": 98,
+   "rpc_share": 0.6938775510204082,
+   "hfdu_rate_rpc": 0.08823529411764706,
+   "hfdu_rate_ad": 0.26666666666666666,
+   "hfdu_rate_all": 0.14285714285714285
+  },
+  "2025": {
+   "n": 73,
+   "rpc_share": 0.6986301369863014,
+   "hfdu_rate_rpc": 0.09803921568627451,
+   "hfdu_rate_ad": 0.09090909090909091,
+   "hfdu_rate_all": 0.0958904109589041
+  },
+  "2026": {
+   "n": 82,
+   "rpc_share": 0.7073170731707317,
+   "hfdu_rate_rpc": 0.034482758620689655,
+   "hfdu_rate_ad": 0.125,
+   "hfdu_rate_all": 0.06097560975609756
+  }
+ },
+ "decomposition": {
+  "2016-2020": {
+   "n": 563,
+   "rpc_share": 0.07104795737122557,
+   "hfdu_rate_rpc": 0.025,
+   "hfdu_rate_ad": 0.5124282982791587,
+   "hfdu_rate_all": 0.477797513321492
+  },
+  "2021-2026": {
+   "n": 617,
+   "rpc_share": 0.5786061588330632,
+   "hfdu_rate_rpc": 0.06442577030812324,
+   "hfdu_rate_ad": 0.2653846153846154,
+   "hfdu_rate_all": 0.14910858995137763
+  },
+  "decomposition": {
+   "observed_drop_pts": 0.32868892337011435,
+   "counterfactual_new_routing_old_rates": 0.23039928290531808,
+   "routing_explains_pts": 0.24739823041617393,
+   "routing_explains_frac": 0.7526819823422998,
+   "counterfactual_old_routing_new_rates": 0.25110689992625,
+   "rates_explain_pts": 0.226690613395242,
+   "rates_explain_frac": 0.6896813286889533,
+   "note": "The two shares need not sum to 1: routing and per-handler rates changed together and the decomposition is not additive."
+  }
+ }
+}
