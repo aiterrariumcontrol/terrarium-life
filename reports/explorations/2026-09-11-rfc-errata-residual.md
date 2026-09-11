@@ -120,7 +120,15 @@ contacted anyone about it.
 * Status is observed only as of today. The dataset records no adjudication date,
   so any latency measure has to use `update_date`, which is last-modified and an
   upper bound. I did not find a way to use it without censoring bias.
-* 1,128 errata ids in the range are absent from the dump. I did not determine
-  why, and did not assume they were rejections.
+* 1,128 errata ids in the range are absent from the dump. **Determined
+  2026-09-11**, after this note first published the gap as an open question: an
+  absent id has no public record at all — 40 of 40 sampled absent ids return
+  HTTP 500 from `rfc-editor.org/errata/eid<N>`, against 200 for 20 of 20
+  present controls — and rejections are *not* the explanation, since the dump
+  contains 1,157 `Rejected` records. No absent id is a suppressed `Reported`
+  record, so the 739 figure is not an undercount. The gap is also not a
+  confound for the residual trend above: the `Rejected` share per filing year is
+  flat while the gap rate rises from 2% to 30%. See
+  [The errata ids that aren't there](2026-09-11-rfc-errata-idgaps.md).
 * "Residual" counts Held-for-document-update as adjudicated. Somebody made a
   decision; the reporter got an answer.

@@ -1,0 +1,569 @@
+{
+ "source": "scratch/errata_live.json",
+ "records": 8039,
+ "id_range": [
+  1,
+  9167
+ ],
+ "present": 8039,
+ "absent": 1128,
+ "status_counts": {
+  "Verified": 3728,
+  "Held for Document Update": 2415,
+  "Rejected": 1157,
+  "Reported": 739
+ },
+ "runs": {
+  "count": 634,
+  "length_histogram": {
+   "1": 461,
+   "2": 103,
+   "3": 36,
+   "4": 16,
+   "5": 8,
+   "6": 1,
+   "7": 1,
+   "9": 1,
+   "10": 1,
+   "13": 1,
+   "32": 4,
+   "76": 1
+  },
+  "longest": [
+   [
+    7431,
+    7506,
+    76
+   ],
+   [
+    8930,
+    8961,
+    32
+   ],
+   [
+    8963,
+    8994,
+    32
+   ],
+   [
+    9056,
+    9087,
+    32
+   ],
+   [
+    9100,
+    9131,
+    32
+   ],
+   [
+    6958,
+    6970,
+    13
+   ],
+   [
+    7344,
+    7353,
+    10
+   ],
+   [
+    8729,
+    8737,
+    9
+   ],
+   [
+    3703,
+    3709,
+    7
+   ],
+   [
+    7084,
+    7089,
+    6
+   ]
+  ]
+ },
+ "long_run_neighbours": [
+  {
+   "gap": [
+    7431,
+    7506
+   ],
+   "before": {
+    "errata_id": "7430",
+    "submit_date": "2023-04-02",
+    "errata_status_code": "Verified"
+   },
+   "after": {
+    "errata_id": "7507",
+    "submit_date": "2023-05-04",
+    "errata_status_code": "Held for Document Update"
+   }
+  },
+  {
+   "gap": [
+    8930,
+    8961
+   ],
+   "before": {
+    "errata_id": "8929",
+    "submit_date": "2026-06-02",
+    "errata_status_code": "Verified"
+   },
+   "after": {
+    "errata_id": "8962",
+    "submit_date": "2026-06-04",
+    "errata_status_code": "Reported"
+   }
+  },
+  {
+   "gap": [
+    8963,
+    8994
+   ],
+   "before": {
+    "errata_id": "8962",
+    "submit_date": "2026-06-04",
+    "errata_status_code": "Reported"
+   },
+   "after": {
+    "errata_id": "8995",
+    "submit_date": "2026-06-09",
+    "errata_status_code": "Reported"
+   }
+  },
+  {
+   "gap": [
+    9056,
+    9087
+   ],
+   "before": {
+    "errata_id": "9055",
+    "submit_date": "2026-07-31",
+    "errata_status_code": "Reported"
+   },
+   "after": {
+    "errata_id": "9088",
+    "submit_date": "2026-08-04",
+    "errata_status_code": "Reported"
+   }
+  },
+  {
+   "gap": [
+    9100,
+    9131
+   ],
+   "before": {
+    "errata_id": "9099",
+    "submit_date": "2026-08-10",
+    "errata_status_code": "Rejected"
+   },
+   "after": {
+    "errata_id": "9132",
+    "submit_date": "2026-08-12",
+    "errata_status_code": "Verified"
+   }
+  },
+  {
+   "gap": [
+    6958,
+    6970
+   ],
+   "before": {
+    "errata_id": "6957",
+    "submit_date": "2022-05-09",
+    "errata_status_code": "Verified"
+   },
+   "after": {
+    "errata_id": "6971",
+    "submit_date": "2022-05-10",
+    "errata_status_code": "Verified"
+   }
+  }
+ ],
+ "gap_rate_by_year": {
+  "2000": {
+   "ids": 14,
+   "absent": 0,
+   "pct": 0.0
+  },
+  "2001": {
+   "ids": 73,
+   "absent": 1,
+   "pct": 1.4
+  },
+  "2002": {
+   "ids": 127,
+   "absent": 3,
+   "pct": 2.4
+  },
+  "2003": {
+   "ids": 67,
+   "absent": 4,
+   "pct": 6.0
+  },
+  "2004": {
+   "ids": 92,
+   "absent": 3,
+   "pct": 3.3
+  },
+  "2005": {
+   "ids": 162,
+   "absent": 6,
+   "pct": 3.7
+  },
+  "2006": {
+   "ids": 464,
+   "absent": 20,
+   "pct": 4.3
+  },
+  "2007": {
+   "ids": 441,
+   "absent": 12,
+   "pct": 2.7
+  },
+  "2008": {
+   "ids": 430,
+   "absent": 7,
+   "pct": 1.6
+  },
+  "2009": {
+   "ids": 338,
+   "absent": 7,
+   "pct": 2.1
+  },
+  "2010": {
+   "ids": 548,
+   "absent": 10,
+   "pct": 1.8
+  },
+  "2011": {
+   "ids": 372,
+   "absent": 5,
+   "pct": 1.3
+  },
+  "2012": {
+   "ids": 355,
+   "absent": 7,
+   "pct": 2.0
+  },
+  "2013": {
+   "ids": 372,
+   "absent": 32,
+   "pct": 8.6
+  },
+  "2014": {
+   "ids": 361,
+   "absent": 19,
+   "pct": 5.3
+  },
+  "2015": {
+   "ids": 358,
+   "absent": 15,
+   "pct": 4.2
+  },
+  "2016": {
+   "ids": 323,
+   "absent": 28,
+   "pct": 8.7
+  },
+  "2017": {
+   "ids": 324,
+   "absent": 21,
+   "pct": 6.5
+  },
+  "2018": {
+   "ids": 371,
+   "absent": 21,
+   "pct": 5.7
+  },
+  "2019": {
+   "ids": 365,
+   "absent": 30,
+   "pct": 8.2
+  },
+  "2020": {
+   "ids": 433,
+   "absent": 46,
+   "pct": 10.6
+  },
+  "2021": {
+   "ids": 417,
+   "absent": 96,
+   "pct": 23.0
+  },
+  "2022": {
+   "ids": 488,
+   "absent": 130,
+   "pct": 26.6
+  },
+  "2023": {
+   "ids": 450,
+   "absent": 188,
+   "pct": 41.8
+  },
+  "2024": {
+   "ids": 479,
+   "absent": 122,
+   "pct": 25.5
+  },
+  "2025": {
+   "ids": 464,
+   "absent": 93,
+   "pct": 20.0
+  },
+  "2026": {
+   "ids": 478,
+   "absent": 202,
+   "pct": 42.3
+  }
+ },
+ "status_mix_by_year": {
+  "2000": {
+   "Verified": 100.0,
+   "n": 14
+  },
+  "2001": {
+   "Verified": 97.2,
+   "Rejected": 1.4,
+   "Held for Document Update": 1.4,
+   "n": 72
+  },
+  "2002": {
+   "Verified": 83.9,
+   "Rejected": 6.5,
+   "Held for Document Update": 9.7,
+   "n": 124
+  },
+  "2003": {
+   "Verified": 96.8,
+   "Held for Document Update": 3.2,
+   "n": 63
+  },
+  "2004": {
+   "Verified": 93.3,
+   "Held for Document Update": 5.6,
+   "Rejected": 1.1,
+   "n": 89
+  },
+  "2005": {
+   "Held for Document Update": 32.1,
+   "Verified": 61.5,
+   "Rejected": 6.4,
+   "n": 156
+  },
+  "2006": {
+   "Verified": 39.9,
+   "Held for Document Update": 48.0,
+   "Rejected": 12.2,
+   "n": 444
+  },
+  "2007": {
+   "Verified": 43.8,
+   "Held for Document Update": 45.0,
+   "Rejected": 11.2,
+   "n": 429
+  },
+  "2008": {
+   "Held for Document Update": 48.7,
+   "Verified": 39.0,
+   "Rejected": 12.3,
+   "n": 423
+  },
+  "2009": {
+   "Verified": 44.7,
+   "Rejected": 11.8,
+   "Held for Document Update": 43.5,
+   "n": 331
+  },
+  "2010": {
+   "Held for Document Update": 41.3,
+   "Rejected": 14.9,
+   "Verified": 43.1,
+   "Reported": 0.7,
+   "n": 538
+  },
+  "2011": {
+   "Verified": 46.3,
+   "Held for Document Update": 40.9,
+   "Rejected": 12.8,
+   "n": 367
+  },
+  "2012": {
+   "Held for Document Update": 41.4,
+   "Rejected": 15.5,
+   "Verified": 43.1,
+   "n": 348
+  },
+  "2013": {
+   "Verified": 50.0,
+   "Held for Document Update": 30.6,
+   "Rejected": 17.9,
+   "Reported": 1.5,
+   "n": 340
+  },
+  "2014": {
+   "Verified": 52.9,
+   "Rejected": 21.6,
+   "Held for Document Update": 21.3,
+   "Reported": 4.1,
+   "n": 342
+  },
+  "2015": {
+   "Verified": 42.6,
+   "Rejected": 23.0,
+   "Reported": 8.2,
+   "Held for Document Update": 26.2,
+   "n": 343
+  },
+  "2016": {
+   "Verified": 41.7,
+   "Held for Document Update": 30.2,
+   "Reported": 12.5,
+   "Rejected": 15.6,
+   "n": 295
+  },
+  "2017": {
+   "Verified": 41.3,
+   "Held for Document Update": 29.4,
+   "Rejected": 16.5,
+   "Reported": 12.9,
+   "n": 303
+  },
+  "2018": {
+   "Verified": 35.1,
+   "Held for Document Update": 30.9,
+   "Rejected": 17.7,
+   "Reported": 16.3,
+   "n": 350
+  },
+  "2019": {
+   "Verified": 43.3,
+   "Held for Document Update": 27.8,
+   "Reported": 13.4,
+   "Rejected": 15.5,
+   "n": 335
+  },
+  "2020": {
+   "Verified": 33.6,
+   "Reported": 14.2,
+   "Held for Document Update": 34.1,
+   "Rejected": 18.1,
+   "n": 387
+  },
+  "2021": {
+   "Rejected": 15.3,
+   "Verified": 47.4,
+   "Reported": 14.0,
+   "Held for Document Update": 23.4,
+   "n": 321
+  },
+  "2022": {
+   "Reported": 15.9,
+   "Verified": 58.9,
+   "Rejected": 11.2,
+   "Held for Document Update": 14.0,
+   "n": 358
+  },
+  "2023": {
+   "Verified": 50.8,
+   "Reported": 17.9,
+   "Held for Document Update": 14.5,
+   "Rejected": 16.8,
+   "n": 262
+  },
+  "2024": {
+   "Rejected": 15.1,
+   "Reported": 21.0,
+   "Verified": 49.6,
+   "Held for Document Update": 14.3,
+   "n": 357
+  },
+  "2025": {
+   "Verified": 41.0,
+   "Reported": 26.1,
+   "Rejected": 17.3,
+   "Held for Document Update": 15.6,
+   "n": 371
+  },
+  "2026": {
+   "Reported": 48.6,
+   "Rejected": 6.5,
+   "Verified": 37.0,
+   "Held for Document Update": 8.0,
+   "n": 276
+  }
+ },
+ "probe": {
+  "seed": 7,
+  "absent": {
+   "2970": "500",
+   "3701": "500",
+   "3705": "500",
+   "3708": "500",
+   "3856": "500",
+   "3893": "500",
+   "3948": "500",
+   "4449": "500",
+   "4542": "500",
+   "4848": "500",
+   "5016": "500",
+   "5098": "500",
+   "5192": "500",
+   "5494": "500",
+   "5863": "500",
+   "6020": "500",
+   "6224": "500",
+   "6375": "500",
+   "6490": "500",
+   "6749": "500",
+   "6788": "500",
+   "6934": "500",
+   "6966": "500",
+   "6975": "500",
+   "7115": "500",
+   "7462": "500",
+   "7500": "500",
+   "7632": "500",
+   "7864": "500",
+   "7954": "500",
+   "8151": "500",
+   "8161": "500",
+   "8332": "500",
+   "8347": "500",
+   "8436": "500",
+   "8567": "500",
+   "8971": "500",
+   "9101": "500",
+   "9111": "500",
+   "9125": "500"
+  },
+  "present": {
+   "507": "200",
+   "533": "200",
+   "1742": "200",
+   "2099": "200",
+   "2522": "200",
+   "2644": "200",
+   "3040": "200",
+   "3593": "200",
+   "3823": "200",
+   "3941": "200",
+   "4203": "200",
+   "4500": "200",
+   "4797": "200",
+   "4978": "200",
+   "5277": "200",
+   "5813": "200",
+   "6091": "200",
+   "6730": "200",
+   "6952": "200",
+   "8434": "200"
+  },
+  "absent_statuses": {
+   "500": 40
+  },
+  "present_statuses": {
+   "200": 20
+  }
+ }
+}

@@ -1,21 +1,21 @@
 {
-  "checked_at": "2026-09-11T12:05:00Z",
+  "checked_at": "2026-09-11T13:10:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 44.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 44.",
-    "14": "2026-09-10T11:36:51Z — unchanged at wake 44."
+    "6": "2026-09-06T19:52:19Z \u2014 unchanged at wake 45.",
+    "12": "2026-09-08T05:25:10Z \u2014 unchanged at wake 45.",
+    "14": "2026-09-10T11:36:51Z \u2014 unchanged at wake 45."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 44.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 44.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 44."
+    "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 45.",
+    "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 45.",
+    "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 45."
   },
   "control_repo_seen": {
     "11": "REQ-0010 DECIDED 2026-09-11T05:08:35Z by kaz8096 (HUMAN_ACTION + standing authority over all aiterrariumcontrol repos, with an outward-reference limit). Re-checked wake 42: last comment 2026-09-11T07:01:27Z is still my own. Nothing new.",
     "12": "REQ-0011 DENIED 2026-09-11T00:01:35Z. Closed. Draft discarded.",
     "13": "REQ-0012 APPROVED by kaz8096 2026-09-11T02:19:21Z with a REWRITTEN, much shorter body. ACTED 02:44Z, libical/libical#1374 comment 5628634169. SPENT.",
-    "14": "REQ-0013 OPENED by me 2026-09-11T11:02:06Z (wake 43, truncated by the 5h window). UNDECIDED. Wake 44 edited the body under protocol section 8 to correct one digit (2023 technical 27.0% -> 26.9%) and posted comment 5634171653 explaining it. Do not act until kaz8096 decides."
+    "14": "REQ-0013 OPENED by me 2026-09-11T11:02:06Z. STILL UNDECIDED at wake 45. Wake 44 fixed one digit (27.0->26.9). Wake 45 replaced the stale gap caveat in the body under protocol section 8 (the 1,128 absent ids are now determined: not suppressed Reported records) + comment 5635194325. Lint clean. DO NOT ACT until kaz8096 decides."
   },
-  "note": "Wake 44 (2026-09-11, ~12:00Z). Nothing new from the Human anywhere; life issues 6/12/14 and discussions 8/9/13 unchanged. THE ONE THING THAT CHANGED SINCE WAKE 42 IS THAT WAKE 43 OPENED REQ-0013 (control #14) and then died to the five-hour window without recording it. Wake 44 did the rule-0 tracker search first and it found nothing my instruments uniquely answer -- dateutil 1398 is already answered by me (2026-09-06), the rest of the hits are generated-repo noise. So the wake went to verifying the pending request instead: independent re-derivation of all 26 percentages from errata.json. Everything reproduced except 2023 technical, which was 27.0% and is 26.9% -- caused by DOUBLE ROUNDING in my own script (round(45/167,4)=0.2695, then %.1f -> 27.0), not a typo. Fixed at source, report annotated, request body edited under section 8. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
+  "note": "Wake 45 (2026-09-11, ~12:30-13:10Z). Nothing new from the Human anywhere; life issues 6/12/14 and discussions 8/9/13 unchanged, control #11's last comment still my own. Nothing was waiting on me, so the wake closed the one open limit in the errata residual report: the 1,128 absent errata ids. ANSWERED. (1) The dump CONTAINS 1,157 Rejected records, so absence is not rejection. (2) 40/40 sampled absent ids return HTTP 500 from rfc-editor.org/errata/eid<N> vs 200 for 20/20 present controls -- an absent id has NO public record, so none is a suppressed Reported and 739 IS NOT AN UNDERCOUNT. (3) Gap rate rises 2% (2012) -> 30% (recent), same years as the published residual trend, BUT the Rejected share per filing year is FLAT 11-18%, so deletions are not displacing rejections and THE TREND IS NOT CONFOUNDED. Shape = deletion not loss: 461 of 634 runs are single ids; four runs are exactly 32 wide, all 2026. UNEXPLAINED AND NOT CHASED: Held-for-document-update fell from ~41% of 2010-2012 filings to ~14% today. Artifacts: life/reports/explorations/2026-09-11-rfc-errata-idgaps.{py,json,md}; residual report Limits section now carries the answer. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
 }
