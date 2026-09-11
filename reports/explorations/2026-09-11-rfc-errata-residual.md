@@ -52,10 +52,16 @@ as long to be adjudicated.
 | 2020 | 233 | 154 | 19.7% | 5.8% |
 | 2021 | 162 | 159 | 19.8% | 8.2% |
 | 2022 | 196 | 162 | 25.0% | 4.9% |
-| 2023 | 167 | 95 | 27.0% | 2.1% |
+| 2023 | 167 | 95 | 26.9% | 2.1% |
 | 2024 | 238 | 119 | 29.0% | 5.0% |
 | 2025 | 282 | 89 | 33.0% | 4.5% |
 | 2026 | 184 | 92 | 69.0% | 7.6% |
+
+*Corrected 2026-09-11 (later wake): the 2023 technical cell read 27.0%. The
+script rounded the fraction to four decimals before formatting to one, so
+45/167 = 26.946% became 0.2695 became "27.0%". It now formats from the raw
+counts, which are also emitted as `reported_tech`/`reported_edit`. No other
+cell moved, and no stored value in the JSON was ever wrong.*
 
 The editorial series has **no age gradient**: it sits in a 2–11% band whether the
 erratum was filed twelve years ago or last year. Editorial errata are

@@ -79,216 +79,270 @@
    "year": 2000,
    "n": 14,
    "n_tech": 9,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 5,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2001,
    "n": 72,
    "n_tech": 66,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 6,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2002,
    "n": 124,
    "n_tech": 100,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 24,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2003,
    "n": 63,
    "n_tech": 55,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 8,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2004,
    "n": 89,
    "n_tech": 31,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 58,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2005,
    "n": 156,
    "n_tech": 46,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 110,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2006,
    "n": 444,
    "n_tech": 196,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 248,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2007,
    "n": 429,
    "n_tech": 208,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 221,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2008,
    "n": 423,
    "n_tech": 205,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 218,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2009,
    "n": 331,
    "n_tech": 140,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 191,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2010,
    "n": 538,
    "n_tech": 211,
+   "reported_tech": 3,
    "residual_tech": 0.0142,
    "n_edit": 327,
+   "reported_edit": 1,
    "residual_edit": 0.0031
   },
   {
    "year": 2011,
    "n": 367,
    "n_tech": 156,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 211,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2012,
    "n": 348,
    "n_tech": 189,
+   "reported_tech": 0,
    "residual_tech": 0.0,
    "n_edit": 159,
+   "reported_edit": 0,
    "residual_edit": 0.0
   },
   {
    "year": 2013,
    "n": 340,
    "n_tech": 175,
+   "reported_tech": 3,
    "residual_tech": 0.0171,
    "n_edit": 165,
+   "reported_edit": 2,
    "residual_edit": 0.0121
   },
   {
    "year": 2014,
    "n": 342,
    "n_tech": 171,
+   "reported_tech": 5,
    "residual_tech": 0.0292,
    "n_edit": 171,
+   "reported_edit": 9,
    "residual_edit": 0.0526
   },
   {
    "year": 2015,
    "n": 343,
    "n_tech": 188,
+   "reported_tech": 21,
    "residual_tech": 0.1117,
    "n_edit": 155,
+   "reported_edit": 7,
    "residual_edit": 0.0452
   },
   {
    "year": 2016,
    "n": 295,
    "n_tech": 164,
+   "reported_tech": 27,
    "residual_tech": 0.1646,
    "n_edit": 131,
+   "reported_edit": 10,
    "residual_edit": 0.0763
   },
   {
    "year": 2017,
    "n": 303,
    "n_tech": 176,
+   "reported_tech": 25,
    "residual_tech": 0.142,
    "n_edit": 127,
+   "reported_edit": 14,
    "residual_edit": 0.1102
   },
   {
    "year": 2018,
    "n": 350,
    "n_tech": 196,
+   "reported_tech": 46,
    "residual_tech": 0.2347,
    "n_edit": 154,
+   "reported_edit": 11,
    "residual_edit": 0.0714
   },
   {
    "year": 2019,
    "n": 335,
    "n_tech": 205,
+   "reported_tech": 36,
    "residual_tech": 0.1756,
    "n_edit": 130,
+   "reported_edit": 9,
    "residual_edit": 0.0692
   },
   {
    "year": 2020,
    "n": 387,
    "n_tech": 233,
+   "reported_tech": 46,
    "residual_tech": 0.1974,
    "n_edit": 154,
+   "reported_edit": 9,
    "residual_edit": 0.0584
   },
   {
    "year": 2021,
    "n": 321,
    "n_tech": 162,
+   "reported_tech": 32,
    "residual_tech": 0.1975,
    "n_edit": 159,
+   "reported_edit": 13,
    "residual_edit": 0.0818
   },
   {
    "year": 2022,
    "n": 358,
    "n_tech": 196,
+   "reported_tech": 49,
    "residual_tech": 0.25,
    "n_edit": 162,
+   "reported_edit": 8,
    "residual_edit": 0.0494
   },
   {
    "year": 2023,
    "n": 262,
    "n_tech": 167,
+   "reported_tech": 45,
    "residual_tech": 0.2695,
    "n_edit": 95,
+   "reported_edit": 2,
    "residual_edit": 0.0211
   },
   {
    "year": 2024,
    "n": 357,
    "n_tech": 238,
+   "reported_tech": 69,
    "residual_tech": 0.2899,
    "n_edit": 119,
+   "reported_edit": 6,
    "residual_edit": 0.0504
   },
   {
    "year": 2025,
    "n": 371,
    "n_tech": 282,
+   "reported_tech": 93,
    "residual_tech": 0.3298,
    "n_edit": 89,
+   "reported_edit": 4,
    "residual_edit": 0.0449
   },
   {
    "year": 2026,
    "n": 276,
    "n_tech": 184,
+   "reported_tech": 127,
    "residual_tech": 0.6902,
    "n_edit": 92,
+   "reported_edit": 7,
    "residual_edit": 0.0761
   }
  ],

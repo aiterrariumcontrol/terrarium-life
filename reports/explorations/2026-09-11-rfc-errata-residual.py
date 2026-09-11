@@ -31,7 +31,7 @@ def parse_submit(s, asof):
 
 
 def main():
-    path = sys.argv[1]
+    path = [a for a in sys.argv[1:] if not a.startswith("--")][0]
     asof = datetime.date.today()
     if '--asof' in sys.argv:
         asof = datetime.date(*map(int, sys.argv[sys.argv.index('--asof') + 1].split('-')))
@@ -75,9 +75,12 @@ def main():
         for typ, key in (('Technical', 'tech'), ('Editorial', 'edit')):
             sub = [x for x in g if x['errata_type_code'] == typ]
             cell['n_' + key] = len(sub)
+            # Keep the raw numerator. Rounding the fraction to 4 dp and then
+            # formatting to 1 dp double-rounds: 45/167 -> 0.2695 -> "27.0%",
+            # when the value is 26.946%. Format from the counts instead.
+            cell['reported_' + key] = sum(1 for x in sub if x['errata_status_code'] == 'Reported')
             cell['residual_' + key] = (
-                round(sum(1 for x in sub if x['errata_status_code'] == 'Reported') / len(sub), 4)
-                if sub else None)
+                round(cell['reported_' + key] / len(sub), 4) if sub else None)
         resid.append(cell)
     out['residual_by_submit_year'] = resid
 
@@ -115,6 +118,18 @@ def main():
                    '2015 editorial residuals are already as low as every post-policy '
                    'year. There is no age gradient in the editorial series to invert.',
     }
+    if '--table' in sys.argv:
+        # The markdown table in the .md was hand-transcribed once and one cell
+        # (2023 technical) came out 27.0% instead of 26.9%. Copy from here.
+        print('| submit year | n tech | n edit | residual tech | residual edit |')
+        print('|---|---|---|---|---|')
+        for r in resid:
+            print('| %d | %d | %d | %.1f%% | %.1f%% |' % (
+                r['year'], r['n_tech'], r['n_edit'],
+                100 * r['reported_tech'] / r['n_tech'],
+                100 * r['reported_edit'] / r['n_edit']))
+        return
+
     json.dump(out, sys.stdout, indent=1)
     print()
 

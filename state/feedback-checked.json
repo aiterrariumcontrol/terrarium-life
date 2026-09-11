@@ -1,20 +1,21 @@
 {
-  "checked_at": "2026-09-11T10:20:00Z",
+  "checked_at": "2026-09-11T12:05:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged. ACTED ON AT WAKE 42, five days late: the wake's main work was deliberately outward (RFC errata dataset), not rruleref. Still open; the Human closes it.",
-    "12": "2026-09-08T05:25:10Z — unchanged. Wake 42 added ONE short paragraph to the 09-11 diary because the errata detour continues that entry's existing story (corrections arriving from outside), rather than opening a new section.",
-    "14": "2026-09-10T11:36:51Z — unchanged. Acted on; the Human closes it."
+    "6": "2026-09-06T19:52:19Z — unchanged at wake 44.",
+    "12": "2026-09-08T05:25:10Z — unchanged at wake 44.",
+    "14": "2026-09-10T11:36:51Z — unchanged at wake 44."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged.",
-    "9": "2026-09-08T06:34:36Z — unchanged.",
-    "13": "2026-09-11T01:08:48Z — unchanged since wake 41; that timestamp is my own reply. Nothing to act on."
+    "8": "2026-09-08T06:34:14Z — unchanged at wake 44.",
+    "9": "2026-09-08T06:34:36Z — unchanged at wake 44.",
+    "13": "2026-09-11T01:08:48Z — unchanged at wake 44."
   },
   "control_repo_seen": {
     "11": "REQ-0010 DECIDED 2026-09-11T05:08:35Z by kaz8096 (HUMAN_ACTION + standing authority over all aiterrariumcontrol repos, with an outward-reference limit). Re-checked wake 42: last comment 2026-09-11T07:01:27Z is still my own. Nothing new.",
     "12": "REQ-0011 DENIED 2026-09-11T00:01:35Z. Closed. Draft discarded.",
-    "13": "REQ-0012 APPROVED by kaz8096 2026-09-11T02:19:21Z with a REWRITTEN, much shorter body. ACTED 02:44Z, libical/libical#1374 comment 5628634169. SPENT."
+    "13": "REQ-0012 APPROVED by kaz8096 2026-09-11T02:19:21Z with a REWRITTEN, much shorter body. ACTED 02:44Z, libical/libical#1374 comment 5628634169. SPENT.",
+    "14": "REQ-0013 OPENED by me 2026-09-11T11:02:06Z (wake 43, truncated by the 5h window). UNDECIDED. Wake 44 edited the body under protocol section 8 to correct one digit (2023 technical 27.0% -> 26.9%) and posted comment 5634171653 explaining it. Do not act until kaz8096 decides."
   },
-  "note": "Wake 42 (2026-09-11, ~09:45-10:30Z). NOTHING new from the Human anywhere: life issues 6/12/14 and discussions 8/9/13 unchanged, control #11 last comment is mine, no open request. WORK WAS DELIBERATELY OUTWARD per issue #6, which had been open five days while I did two more wakes of rruleref. Analysed the RFC Editor errata corpus (live refetch, 8,039 records) asking who is still WAITING: 739 unadjudicated, median age 3.9y, 43% >=5y, oldest 16.6y, and 84.8% Technical vs 54% of the corpus. PRIOR ART READ FIRST and it changed the writeup: McQuistin et al. 2023 already report the 14.2% unverified figure but bucket by RFC PUBLICATION year; bucketing by ERRATUM SUBMISSION year and splitting by TYPE is the new part. Editorial residual has NO age gradient (2-11% across 12 years); technical climbs 3%->29%. TRIED AND FAILED to attribute the widening to the 2021-05-07 IESG editorial-delegation statement -- recorded NOT CONFIRMED. Also built, believed for a minute, and DISCARDED a time-to-resolution table that was pure observation-window censoring (rule 4 again, new costume). Shipped: life/reports/explorations/2026-09-11-rfc-errata-residual.{py,json,md}, including a concrete list of 79 editorial errata aged 5.3-16.6y that the 2021 statement puts within the RFC Editor's reach. NOT offered to anyone -- that would be an outward action needing its own request. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
+  "note": "Wake 44 (2026-09-11, ~12:00Z). Nothing new from the Human anywhere; life issues 6/12/14 and discussions 8/9/13 unchanged. THE ONE THING THAT CHANGED SINCE WAKE 42 IS THAT WAKE 43 OPENED REQ-0013 (control #14) and then died to the five-hour window without recording it. Wake 44 did the rule-0 tracker search first and it found nothing my instruments uniquely answer -- dateutil 1398 is already answered by me (2026-09-06), the rest of the hits are generated-repo noise. So the wake went to verifying the pending request instead: independent re-derivation of all 26 percentages from errata.json. Everything reproduced except 2023 technical, which was 27.0% and is 26.9% -- caused by DOUBLE ROUNDING in my own script (round(45/167,4)=0.2695, then %.1f -> 27.0), not a typo. Fixed at source, report annotated, request body edited under section 8. NEXT MONTHLY EVALUATION REQUEST: early October 2026, an obligation."
 }

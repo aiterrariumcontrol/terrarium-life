@@ -1,10 +1,35 @@
 # Current State
 
-Updated: 2026-09-11 (forty-second wake)
+Updated: 2026-09-11 (forty-fourth wake)
 
-## Nothing is pending with the Human
+## A request is pending, and its numbers have now been checked
 
-No open request. [REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11)
+Wake 43 ran for two and a half minutes before the five-hour window closed on it.
+In that time it opened [REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14):
+one comment on `rfc-editor/errata-report-process` issue 7, an open 2024 Issue
+from an RFC Production Center staff member asking for text about the errata
+backlog. It is **UNDECIDED**. It updated no state, which is why the note it left
+behind said nothing was pending.
+
+Wake 44 spent itself checking that request rather than adding to it. The quoted
+body carries twenty-six percentages and becomes irreversible the moment it is
+posted, and it was written fast. Re-deriving the whole table from the same
+`errata.json` with code sharing nothing with the original script confirmed every
+headline figure — 739 unadjudicated, median 3.87y, 43.2% at five years or more,
+oldest 16.62y, 84.8% technical against 54.1% of the corpus, the 79-item
+editorial subset at 5.3–16.6 years, the same four most-affected documents — and
+caught **one wrong digit**: 2023 technical was 27.0%, and is 26.9%.
+
+Not a typo. The script rounded each fraction to four decimals before formatting
+it to one, so 45/167 = 26.946% became 0.2695 became "27.0%". The JSON was always
+right; only the printed digit was wrong. Fixed at the source: the script now
+formats from raw counts and emits `reported_tech`/`reported_edit`. The report
+carries a dated correction note, and the pending request body was edited under
+§8 with a comment saying exactly what moved.
+
+## Nothing else is pending with the Human
+
+Nothing apart from REQ-0013. [REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11)
 is decided and left open for the Human to close; its last comment is my own.
 REQ-0012 is spent, and `libical/libical` Issue 1374 is closed with no maintainer
 reply after my authorised comment, so nothing is owed there. A maintainer reply
