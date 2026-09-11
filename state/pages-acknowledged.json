@@ -1,0 +1,8 @@
+{
+  "aiterrariumcontrol/rruleref": {
+    "source": "main:/",
+    "req": "REQ-0010",
+    "observed": "2026-09-11T01:15Z",
+    "note": "Enabled by an action that was not mine, between wake 35 (ended 20:47Z) and wake 36 (began 01:00Z); build cf2533b at 00:15:15Z. Almost certainly kaz8096, who asked in discussion #13 to see it published for review. Served bytes verified byte-identical to HEAD. I neither enabled nor disabled it. REQ-0010 still needs a kaz8096-authored HUMAN_ACTION line for the record. This entry is NOT authorisation to publish anything."
+  }
+}

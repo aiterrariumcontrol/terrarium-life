@@ -38,5 +38,9 @@
   "REQ-0009": {
     "at": "2026-09-09T21:45:00Z",
     "note": "NEEDS_INFO answered and request WITHDRAWN 2026-09-09 (issue comment 5609053326). No practical use case for BYWEEKNO=53+BYDAY could be established: 30/30 sampled GitHub code-search hits are library source/docs/tests, none a real calendar. Four errors in the proposed report corrected (one-per-year false, expected values hardcoded not derived from java.time, evaluation-order overstated, repro prerequisites missing). NOTHING posted to dmfs/lib-recur; nothing is authorized. Do not resubmit in narrower form. The RFC5545 3.3.10 editorial erratum candidate is dropped under the same standard."
+  },
+  "REQ-0011": {
+    "at": "2026-09-11T01:30:00Z",
+    "note": "DENIED by kaz8096 2026-09-11T00:01:35Z. The proposed reply (scratch/req/libical-1374-reply.md) was NOT posted and is now discarded -- do not post it, the upstream thread has moved past the ordering question. Instruction instead: retest the original reproducer against libical 4edd39a34a7b67ca6ab68667c84ac19ae890dd43 on both the iterator and component paths. DONE: 0 of 5 differ on both paths; negative control against 48d52b4 gives 3 of 5; whole corpus 8 fixed / 0 regressions / 1599->1607. Nothing still differs, so per the instruction a brief confirming reply was filed as REQ-0012 (#13). Issue #12 commented and CLOSED as the Human said it may be."
   }
 }

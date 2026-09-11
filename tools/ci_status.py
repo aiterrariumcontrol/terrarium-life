@@ -39,6 +39,7 @@ Usage:
 
 import argparse
 import json
+import pathlib
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -119,6 +120,24 @@ def check(repo, expectations, fix):
 PAGES_MUST_BE_OFF = ["aiterrariumcontrol/rruleref", "aiterrariumcontrol/agentlog"]
 
 
+ACK_PATH = pathlib.Path(__file__).resolve().parent.parent / "state" / "pages-acknowledged.json"
+
+
+def acknowledged():
+    """Pages sites that are enabled by an action that was NOT mine.
+
+    This exists because the check could not tell "I published this without
+    authorisation" from "the Human published it themselves", and only the first
+    is an emergency. An entry pins the exact source; if the source moves, the
+    acknowledgement lapses and the alarm returns. An entry is NOT authorisation
+    to publish, and never a reason to enable Pages.
+    """
+    try:
+        return json.loads(ACK_PATH.read_text())
+    except (OSError, ValueError):
+        return {}
+
+
 def pages_problems():
     """Ask GitHub whether a site is configured. 404 is the expected answer."""
     problems = []
@@ -140,6 +159,19 @@ def pages_problems():
             url = d.get("html_url")
         except (ValueError, AttributeError):
             where, url = "?", "?"
+        ack = acknowledged().get(repo)
+        if ack and ack.get("source") == where:
+            # A site I did not publish and am deliberately not tearing down.
+            # Still printed every wake, but it is not a new alarm.
+            print(f"  {repo}: ENABLED -- {url}")
+            print(f"      known, not mine: {ack.get('note', '')}")
+            continue
+        if ack:
+            problems.append(f"{repo}: PAGES SOURCE CHANGED from the acknowledged "
+                            f"{ack.get('source')!r} to {where!r} ({url}). The "
+                            f"acknowledgement no longer covers this.")
+            print(f"  {repo}: ENABLED, SOURCE CHANGED -- {url}")
+            continue
         problems.append(f"{repo}: PAGES IS ENABLED (source {where}, {url}) and no "
                         f"approved request authorises it -- check REQ status before "
                         f"doing anything, and do not assume you disabled it")
@@ -169,7 +201,7 @@ def main():
         for p in problems:
             print(f"  - {p}")
         return 1
-    print("\nAll watched workflows active and current; no repository is serving Pages.")
+    print("\nAll watched workflows active and current; any Pages site serving is\na known, acknowledged one -- read the note above, it is not approval.")
     return 0
 
 

@@ -200,7 +200,30 @@ def cmd_index():
         if new != rs:
             open(rp, "w", encoding="utf-8").write(new)
             print("updated README latest links ->", latest)
+        _update_annual_pointers(latest)
     print(f"indexed {len(dates)} days")
+
+
+def _update_annual_pointers(latest):
+    """Keep reports/{en,jp}-journal-YYYY.md pointing at the newest entry.
+
+    These files no longer hold the journal; they are stubs left where the
+    yearly file used to be, so an old link still leads somewhere useful. They
+    went stale on 2026-09-11 because nothing updated them, which defeats the
+    only reason they exist.
+    """
+    if KIND == "diary":
+        return
+    for stub, lang in (("en-journal", "en"), ("jp-journal", "ja")):
+        fp = os.path.join(ROOT, "reports", f"{stub}-{latest[:4]}.md")
+        if not os.path.exists(fp):
+            continue
+        t = open(fp, encoding="utf-8").read()
+        t2 = re.sub(rf"journal/\d{{4}}-\d\d/\d{{4}}-\d\d-\d\d\.{lang}\.md",
+                    f"journal/{latest[:7]}/{latest}.{lang}.md", t)
+        if t2 != t:
+            open(fp, "w", encoding="utf-8").write(t2)
+            print(f"updated {stub} pointer -> {latest}")
 
 
 def cmd_split():
