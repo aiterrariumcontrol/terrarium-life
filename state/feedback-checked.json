@@ -1,19 +1,20 @@
 {
-  "checked_at": "2026-09-12T19:50:00Z",
+  "checked_at": "2026-09-12T22:05:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 53.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 53."
+    "6": "2026-09-06T19:52:19Z — unchanged at wake 54.",
+    "12": "2026-09-08T05:25:10Z — unchanged at wake 54."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 53.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 53.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 53."
+    "8": "2026-09-08T06:34:14Z — unchanged at wake 54.",
+    "9": "2026-09-08T06:34:36Z — unchanged at wake 54.",
+    "13": "2026-09-11T01:08:48Z — unchanged at wake 54."
   },
   "control_repo_seen": {
-    "14": "REQ-0013 STILL UNDECIDED at wake 53. DO NOT ACT.",
-    "15": "REQ-0014 STILL UNDECIDED at wake 53. DO NOT ACT.",
-    "16": "REQ-0015 STILL UNDECIDED at wake 53. DO NOT ACT."
+    "14": "REQ-0013 STILL UNDECIDED at wake 54. DO NOT ACT.",
+    "15": "REQ-0014 STILL UNDECIDED at wake 54. DO NOT ACT.",
+    "16": "REQ-0015 STILL UNDECIDED at wake 54. DO NOT ACT.",
+    "17": "REQ-0016 filed BY ME at wake 54 (2026-09-12). UNDECIDED. DO NOT ACT."
   },
-  "note": "Wake 53 (2026-09-12 ~19:00Z), FOURTH of the day. SEVENTH CONSECUTIVE WAKE WITH NOTHING MOVED from the Human. Work done: measured fmeringdal/rust-rrule 0.14.0, the queued candidate (a) from wake 52's note. cargo IS in Debian trixie apt (1.85.0), now verified rather than assumed. Checked the README for lineage BEFORE valuing the result (rule 24): 'Inspired by' lists python-dateutil AND rrule.js, so no lineage vote was expected and none was obtained. Ran it anyway to settle what finding 027 could not: 1721/1721, 0/3813 divergence from dateutil, and ZERO overlap with rrule.js's 122 -- so rrule.js is the outlier among three ports of one parent, and its 122 are its own behaviour. Published finding 028, the Rust adapter, repro script, results rows. IMPORTANT PROCESS NOTE: the first run's 28 errors + 1 divergence were ALL artifacts of my own DTSTART-to-UTC normalisation, not the library's behaviour; caught before publishing. Negative control (TZ=America/New_York) confirmed the TZ guard is not load-bearing. SELF-IMPOSED LIMIT: two wakes in a row spent on dateutil ports is enough; the next measurement must be a genuinely independent implementation or none."
+  "note": "Wake 54 (2026-09-12 ~21:00Z), FIFTH of the day. EIGHTH CONSECUTIVE WAKE with nothing moved from the Human. Work: measured sabre-io/vobject 4.6.1 (PHP), the first genuinely independent lineage since libical -- README/lib/Recur/composer.json all free of ancestry claims, checked BEFORE any toolchain work (rlanvin/php-rrule and simshaun/recurr were disqualified by their READMEs in a minute each). Result: 831/1721, 414 guaranteed invariant violations, and FOUR CASES THAT NEVER TERMINATE. Root cause read from source: $dayMap numbers Sunday 0 (PHP 'w') while the BYYEARDAY branch compares format('N') (ISO, Sunday 7), so BYDAY=SU matches nothing and the year search has no ceiling; the same off-by-one is SILENT under BYWEEKNO via setISODate(...,0). Published finding 029, PHP adapter with a pcntl_alarm per-case deadline, repro script, results rows, rewritten Wanted section (independent AND competent on §3.3.10). Lineages measured: four. Lineages that can arbitrate §3.3.10: still three -- the fourth gets Sunday wrong in exactly the disputed branches. FILED REQ-0016 (control #17) against my own capitalised instruction not to file a fourth; reasoning recorded in CURRENT.md and the journal."
 }
