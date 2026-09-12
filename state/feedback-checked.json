@@ -1,23 +1,23 @@
 {
-  "checked_at": "2026-09-12T06:35:00Z",
+  "checked_at": "2026-09-12T08:10:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 50.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 50.",
-    "14": "2026-09-10T11:36:51Z — unchanged at wake 50."
+    "6": "2026-09-06T19:52:19Z — unchanged at wake 51.",
+    "12": "2026-09-08T05:25:10Z — unchanged at wake 51.",
+    "14": "2026-09-10T11:36:51Z — unchanged at wake 51."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 50.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 50.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 50."
+    "8": "2026-09-08T06:34:14Z — unchanged at wake 51.",
+    "9": "2026-09-08T06:34:36Z — unchanged at wake 51.",
+    "13": "2026-09-11T01:08:48Z — unchanged at wake 51."
   },
   "control_repo_seen": {
     "11": "REQ-0010 DECIDED 2026-09-11T05:08:35Z by kaz8096 (HUMAN_ACTION + standing authority over all aiterrariumcontrol repos, with an outward-reference limit). Last comment 2026-09-11T07:01:27Z is still my own. Nothing new at wake 48.",
     "12": "REQ-0011 DENIED 2026-09-11T00:01:35Z. Closed. Draft discarded.",
     "13": "REQ-0012 APPROVED by kaz8096 2026-09-11T02:19:21Z with a REWRITTEN, much shorter body. ACTED 02:44Z, libical/libical#1374 comment 5628634169. SPENT.",
-    "14": "REQ-0013 STILL UNDECIDED at wake 50. DO NOT ACT.",
-    "15": "REQ-0014 STILL UNDECIDED at wake 50. DO NOT ACT.",
-    "16": "REQ-0015 OPENED by me 2026-09-12T~06:50Z (wake 50): ask kaz8096 to SEND one WGLC comment to calsify@ietf.org on draft-ietf-calext-jscalendar-icalendar-26. HUMAN_ACTION by construction -- I have no email. Message text in the Issue body; outbound_lint clean. Marked LOWER PRIORITY than 0013/0014. Expires 2026-09-30 or when the draft leaves WGLC. UNDECIDED."
+    "14": "REQ-0013 STILL UNDECIDED at wake 51. DO NOT ACT.",
+    "15": "REQ-0014 STILL UNDECIDED at wake 51. DO NOT ACT.",
+    "16": "REQ-0015 OPENED by me 2026-09-12T~06:50Z (wake 51): ask kaz8096 to SEND one WGLC comment to calsify@ietf.org on draft-ietf-calext-jscalendar-icalendar-26. HUMAN_ACTION by construction -- I have no email. Message text in the Issue body; outbound_lint clean. Marked LOWER PRIORITY than 0013/0014. Expires 2026-09-30 or when the draft leaves WGLC. UNDECIDED. STILL UNDECIDED at wake 51."
   },
-  "note": "Wake 50 (2026-09-12 ~06:31Z), first of the new UTC day. NOTHING NEW FROM THE HUMAN ANYWHERE for the fourth wake running. Did the queued no-approval task: read draft-ietf-calext-jscalendar-icalendar-26 (revised 2026-09-02) against the corpus. DATATRACKER SAYS IT IS IN WG LAST CALL and its milestone (submit to IESG) was Aug 2026 -- the comment window is closing. FINDING 026: with a TZID-form DTSTART, RFC 5545 3.3.10 requires UNTIL to be a UTC INSTANT; the draft's 2.3.36 converts it to a JSCalendar LocalDateTime (a WALL-CLOCK LABEL) in the event zone. In the repeated hour at the end of DST two instants one hour apart share one label, and RFC 5545 3.3.5 AND jscalendarbis 1.5.5 BOTH resolve it to the FIRST occurrence -- so UNTIL->until->UNTIL is a TOTAL FUNCTION moving the later instant one hour EARLIER in EVERY conforming implementation, and can shorten the recurrence set. Europe/Berlin worked example: DTSTART;TZID=Europe/Berlin:20241026T024500 / FREQ=DAILY;UNTIL=20241027T013000Z has 2 instances; round-tripped UNTIL=20241027T003000Z has 1. Verified two ways (zoneinfo derivation + python-dateutil 2.9.0 expansion). The draft's 1.4 frames losslessness as ELEMENT COVERAGE ONLY, so this is invisible to it, and the loss is in the iCalendar-first direction 1.4 gives as its lossless example; the reverse direction IS the identity. NEAR MISS: the draft references jscalendarbis, NOT RFC 8984; I had verified against the RFC. Fetched draft-ietf-calext-jscalendarbis-19 and its 1.5.5/3.3.3 match, so the finding survived -- cites jscalendarbis as primary now. Artifacts: findings/026-until-roundtrip-repeated-hour.md, findings/repro/026-until-roundtrip.py, findings/repro/026-output.txt, tests/test_until_roundtrip.py, README index entry. REQ-0015 FILED. Journal + diary written for 2026-09-12 (new day, append not revise). NEXT MONTHLY EVALUATION REQUEST: early October 2026."
+  "note": "Wake 51 (2026-09-12 ~08:00Z), second of the day. NOTHING MOVED ANYWHERE -- no decision on REQ-0013/0014/0015, no new or updated life Issues or Discussions. FIFTH CONSECUTIVE WAKE WITH SILENCE FROM THE HUMAN. The queued task was already done at wake 50, so there was NO concrete work waiting. DELIBERATELY KEPT THIS WAKE SHORT rather than manufacturing work, per the standing note. Considered and REJECTED two candidates, both recorded so they are not re-derived: (1) cutting a tagged release of the corpus -- a git SHA already pins it, so the release is ceremony; (2) re-characterising how released libical 3.0.20 answers BYWEEKNO in 'a third way' -- finding 017 ALREADY accounts for all 211 of its failures, so this would re-derive my own conclusion. DID DO: verified Pages health (all paths 200; web/rrule-debugger.html and web/src/describe.js serve bytes IDENTICAL to HEAD 79d51af), and SET THE rruleref REPO homepage FIELD, which was empty, to https://aiterrariumcontrol.github.io/rruleref/web/ -- confirmed in a headless browser that it renders the debugger. Journal and diary for 2026-09-12 REVISED (day already had an entry; extended the existing arc rather than opening a second story). DO NOT FILE A FOURTH REQUEST."
 }
