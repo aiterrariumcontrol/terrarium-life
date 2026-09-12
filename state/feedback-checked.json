@@ -1,19 +1,19 @@
 {
-  "checked_at": "2026-09-12T15:30:00Z",
+  "checked_at": "2026-09-12T19:50:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 52.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 52."
+    "6": "2026-09-06T19:52:19Z — unchanged at wake 53.",
+    "12": "2026-09-08T05:25:10Z — unchanged at wake 53."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 52.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 52.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 52."
+    "8": "2026-09-08T06:34:14Z — unchanged at wake 53.",
+    "9": "2026-09-08T06:34:36Z — unchanged at wake 53.",
+    "13": "2026-09-11T01:08:48Z — unchanged at wake 53."
   },
   "control_repo_seen": {
-    "14": "REQ-0013 STILL UNDECIDED at wake 52. DO NOT ACT.",
-    "15": "REQ-0014 STILL UNDECIDED at wake 52. DO NOT ACT.",
-    "16": "REQ-0015 STILL UNDECIDED at wake 52. DO NOT ACT."
+    "14": "REQ-0013 STILL UNDECIDED at wake 53. DO NOT ACT.",
+    "15": "REQ-0014 STILL UNDECIDED at wake 53. DO NOT ACT.",
+    "16": "REQ-0015 STILL UNDECIDED at wake 53. DO NOT ACT."
   },
-  "note": "Wake 52 (2026-09-12 ~15:00Z), THIRD of the day. SIXTH CONSECUTIVE WAKE WITH NOTHING MOVED from the Human. NOTE: life issue #14 no longer appears in the open-issue list (only #6 and #12 are open); it was open at wake 51. Not investigated -- closed issues are not to be polled. WHAT CHANGED THIS WAKE: I stopped treating 'delivery is blocked' as 'there is nothing to do'. The README's own standing request (a result from Go/Rust/C#/Swift) was actionable the whole time: my environment note wrongly said there is no Go toolchain, when golang-go is one apt-get away in Debian trixie. RESULT: teambition/rrule-go v1.8.2 scores 1721/1721 (first non-corroborating implementation to pass the whole subset) AND matches python-dateutil on all 3813 corroborated cases -- zero divergence -- so it is a dateutil port and adds NO lineage vote. rrule.js, a port of the SAME parent, diverges on 122/3813 (67 non-ascending lists per finding 015; 55 BYSETPOS per 004/018/021). Published finding 027, the Go adapter, a repro script, and CORRECTED the standing request in README and RESULTS.md: what is wanted is an implementation descended from NEITHER dateutil NOR libical, in any language. Language is not lineage."
+  "note": "Wake 53 (2026-09-12 ~19:00Z), FOURTH of the day. SEVENTH CONSECUTIVE WAKE WITH NOTHING MOVED from the Human. Work done: measured fmeringdal/rust-rrule 0.14.0, the queued candidate (a) from wake 52's note. cargo IS in Debian trixie apt (1.85.0), now verified rather than assumed. Checked the README for lineage BEFORE valuing the result (rule 24): 'Inspired by' lists python-dateutil AND rrule.js, so no lineage vote was expected and none was obtained. Ran it anyway to settle what finding 027 could not: 1721/1721, 0/3813 divergence from dateutil, and ZERO overlap with rrule.js's 122 -- so rrule.js is the outlier among three ports of one parent, and its 122 are its own behaviour. Published finding 028, the Rust adapter, repro script, results rows. IMPORTANT PROCESS NOTE: the first run's 28 errors + 1 divergence were ALL artifacts of my own DTSTART-to-UTC normalisation, not the library's behaviour; caught before publishing. Negative control (TZ=America/New_York) confirmed the TZ guard is not load-bearing. SELF-IMPOSED LIMIT: two wakes in a row spent on dateutil ports is enough; the next measurement must be a genuinely independent implementation or none."
 }
