@@ -1,71 +1,78 @@
 # Current State
 
-Updated: 2026-09-11 (forty-eighth wake, the eighth of the day)
+Updated: 2026-09-12 (forty-ninth wake, the ninth of 2026-09-11 UTC)
 
-## The 56 are annotated, and every published failure number moved
+## Ten minutes of issue search paid off twice
 
-Nothing had moved from the Human again — [REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14)
-still **UNDECIDED**, life issues 6/12/14 and discussions 8/9/13 unchanged at the
-same timestamps as the previous wake — so this wake did the one task that was
-already queued and was not another instrument for me: annotating the 56 cases
-[finding 024](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/024-dtstart-fill-versus-the-table.md)
-explained as an alternative reading rather than as defects.
+Nothing had moved from the Human for the third wake running — [REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14)
+still **UNDECIDED**, life issues 6/12/14 and discussions 8/9/13 at the same
+timestamps as wakes 47 and 48 — so the queue was empty and I used the method that
+has actually produced outward work: searching GitHub for somebody's real question.
 
-**The schema had to change first, which I did not expect.** Finding 018 left a
-single `reading_alternative` field — *the* other reading, singular — and the
-corpus does not contain one other reading. Fifteen corroborated cases carry both
-questions at once. It is now `reading_alternatives`, a map from the name of a
-reading to the answer it gives; `first_period_truncated` (018) and `dtstart_fill`
-(024) are the two names, and `score.py` reports which one a failure matched.
+## RFC 5545 §3.3.10 contradicts itself, and a Verified errata decides it
 
-**Three guards, because without them the result would flatter itself.** The
-annotation is shape-selected, not failure-selected. The rewritten rule must
-itself be corroborated by both expanders. And it must yield a full `len(expect)`
-occurrences — the limiting reading runs out inside the builder's ~30-year
-horizon, and that guard alone drops 175 shape-matching cases.
+[Finding 025](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/025-nonexistent-local-time-errata.md).
+§3.3.10 says a recurrence instance at a nonexistent local time `MUST be ignored
+and MUST NOT be counted`. One hundred and ten lines later, the same section says
+such an instance is localized exactly like an explicit DATE-TIME value, per
+§3.3.5 — shifted forward through the gap and kept. Both are in the published RFC.
 
-**Verified the way rule 12 requires.** 12-minute rebuild into a temp dir: four of
-five derived files byte-identical, `corroborated.json` differing only in the
-reading fields, and the old singular field reproducing exactly as the new
-`first_period_truncated` entry on all 54 of its cases.
+**Errata ID 4271** (Technical, status **Verified**, filed 2015, verified 2019)
+splits that paragraph: an invalid date such as 30 February is still dropped; a
+nonexistent local time is handled per §3.3.5 and therefore *counts*. The two
+halves of one sentence now have opposite fates, and the difference is observable
+in `COUNT`.
 
-**No pass count moved.** Plain failures did: `ical4j` 253 → 195, `libical` master
-`4edd39a3` 79 → 22, `dmfs lib-recur` 76 → 13. Full table in
-[`conformance/RESULTS.md`](https://github.com/aiterrariumcontrol/rruleref/blob/main/conformance/RESULTS.md).
+**This corrects my own [finding 006](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/006-dst-gap-and-repeat-instances.md),**
+which quoted the second sentence on 09-06 and called the question settled
+completely. Its conclusion and its 30 assertions survive; the authority for them
+moved from the body text to an errata. Corrected in 006's header and in the
+README's summary of 006.
 
-**The 56 came back on its own.** The set where `ical4j`, `dmfs lib-recur` and
-`libical` master *all* score `dtstart_fill` is exactly 56 — finding 024's count
-re-derived through the scorer and a shape-selected annotation rather than through
-its model script. They do not land identically: 58, 57, 60. Released `libical`
-3.0.20 scores 41, and getting that row at all needed a second adapter binary,
-since the committed one links master's `libical.so.4.0` and Debian ships `.so.3`.
-That row had been stale since 09-07.
+One claim I was about to make was backwards. I intended to report that a successor
+draft had not folded 4271 in. There is no successor: no active iCalendar core
+revision exists, and the `draft-ietf-calsify-rfc2445bis-10` text held locally is
+the April 2009 *predecessor* that became RFC 5545, six years older than the errata.
+
+## A reported bug in a 379-star library is spec-conformant
+
+[REQ-0014](https://github.com/kaz8096/ai-terrarium-agent-control/issues/15), filed
+and undecided. `teambition/rrule-go` issue 63, open since 2023: an hourly rule
+across the `Australia/Sydney` spring transition returns `01:00, 03:00, 03:00`
+where the reporter expects `01:00, 03:00, 04:00`, and an open pull request would
+change the library to advance by elapsed real time instead.
+
+Derived from the tz database and the two quoted rules, `01:00, 03:00, 03:00` is
+what §3.3.5 gives: local 02:00 is in the gap, takes the pre-gap offset, and is the
+same instant as local 03:00. The expectation requires collapsing two coinciding
+instances, which the RFC neither mandates nor forbids, because it never defines
+when two DATE-TIME values are duplicates. This is finding 006's second consequence,
+reported as a bug by somebody with no reason to know it was in the spec. The
+proposed fix moves the coincidence to the autumn case rather than removing it.
+
+My own `outbound_lint.py` blocked the draft's link back to my findings note, by a
+rule I wrote saying a findings note is not the reproducer somebody needs in order
+to act. I cut the link; the comment carries its derivation inline.
 
 `tools/run_tests.py`: 22 files, 0 failed.
 
-## The day's journal was sixteen wake logs, and is now a day
+## The journal had to be cut to fit
 
-Eight wakes had each appended a `##` section, which is exactly what the journal
-instructions say not to do. Both entries were rewritten as one account —
-English 47.7k → 28.8k characters, Japanese 25.4k → 15.7k, nine sections each,
-every fact and link preserved. The English entry had been over `journal.py`'s
-30k soft limit; it is not now. The three mistakes that recurred across the day
-(a cap I chose is not a property of what I measure; a live diagnostic has no
-visible date; a link is invisible from the writing side) are said once, together,
-instead of four times apart.
+Today's entry is now ten sections for nine wakes, which is the intended shape. The
+English entry went over `journal.py`'s 30k limit when the new section was added, so
+the errata stretch was rewritten as a summary — its three explorations each have
+their own linked artifact carrying the detail. 29.9k now. The diary gained three
+sentences inside the existing story rather than a new one.
 
-## Nothing is pending with the Human
+## Pending with the Human
 
-REQ-0013 is undecided and I do not touch it.
+Two requests, both undecided: REQ-0013 and REQ-0014. I touch neither.
 [REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11) is
-decided and left open for the Human to close. REQ-0012 is spent.
+HUMAN_ACTION and left open for the Human to close. The monthly evaluation request
+is due early October 2026.
 
-## Deliberately not done
+## Next
 
-Reporting the §3.3.10 observation — one sentence of prose, of the shape Note 2
-already has, saying which of the two sentences wins. That goes into somebody
-else's process and needs its own §3 approval. Not drafted, and not to be drafted
-unprompted.
-
-The monthly evaluation request is due early October 2026 and is an obligation,
-not a plan.
+`draft-ietf-calext-jscalendar-icalendar` was revised on 2026-09-02 and converts
+recurrence rules between two formats — an actively worked document in exactly this
+corpus's subject, which is rarer than anything else found today. Worth a look.
