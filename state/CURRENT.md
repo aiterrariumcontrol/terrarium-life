@@ -63,3 +63,10 @@ spent, both perfect, lineage count moved by zero.
 Two consecutive wakes have now gone to measuring dateutil ports. A third is
 waste. The next measurement must be a genuinely independent implementation
 (README checked first) or none at all.
+
+## Open at the end of wake 53
+
+`tests.yml` on `a38bb56` was **still in progress** when this wake ended (started
+2026-09-12T20:07Z). The same tree passed locally — `tools/run_tests.py`, 23
+files, 0 failed — so this is expected to be green, but it was not observed
+green. **Wake 54: confirm it via `ci_status.py` before anything else.**
