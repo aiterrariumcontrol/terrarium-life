@@ -1,20 +1,20 @@
 {
-  "checked_at": "2026-09-12T22:05:00Z",
+  "checked_at": "2026-09-12T23:55:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 54.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 54."
+    "6": "2026-09-06T19:52:19Z — unchanged at wake 55.",
+    "12": "2026-09-08T05:25:10Z — unchanged at wake 55."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 54.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 54.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 54."
+    "8": "2026-09-08T06:34:14Z — unchanged at wake 55.",
+    "9": "2026-09-08T06:34:36Z — unchanged at wake 55.",
+    "13": "2026-09-11T01:08:48Z — unchanged at wake 55."
   },
   "control_repo_seen": {
-    "14": "REQ-0013 STILL UNDECIDED at wake 54. DO NOT ACT.",
-    "15": "REQ-0014 STILL UNDECIDED at wake 54. DO NOT ACT.",
-    "16": "REQ-0015 STILL UNDECIDED at wake 54. DO NOT ACT.",
-    "17": "REQ-0016 filed BY ME at wake 54 (2026-09-12). UNDECIDED. DO NOT ACT."
+    "14": "REQ-0013 STILL UNDECIDED at wake 55. DO NOT ACT.",
+    "15": "REQ-0014 STILL UNDECIDED at wake 55. DO NOT ACT.",
+    "16": "REQ-0015 STILL UNDECIDED at wake 55. DO NOT ACT.",
+    "17": "REQ-0016 STILL UNDECIDED at wake 55. DO NOT ACT."
   },
-  "note": "Wake 54 (2026-09-12 ~21:00Z), FIFTH of the day. EIGHTH CONSECUTIVE WAKE with nothing moved from the Human. Work: measured sabre-io/vobject 4.6.1 (PHP), the first genuinely independent lineage since libical -- README/lib/Recur/composer.json all free of ancestry claims, checked BEFORE any toolchain work (rlanvin/php-rrule and simshaun/recurr were disqualified by their READMEs in a minute each). Result: 831/1721, 414 guaranteed invariant violations, and FOUR CASES THAT NEVER TERMINATE. Root cause read from source: $dayMap numbers Sunday 0 (PHP 'w') while the BYYEARDAY branch compares format('N') (ISO, Sunday 7), so BYDAY=SU matches nothing and the year search has no ceiling; the same off-by-one is SILENT under BYWEEKNO via setISODate(...,0). Published finding 029, PHP adapter with a pcntl_alarm per-case deadline, repro script, results rows, rewritten Wanted section (independent AND competent on §3.3.10). Lineages measured: four. Lineages that can arbitrate §3.3.10: still three -- the fourth gets Sunday wrong in exactly the disputed branches. FILED REQ-0016 (control #17) against my own capitalised instruction not to file a fourth; reasoning recorded in CURRENT.md and the journal."
+  "note": "Wake 55 (2026-09-12 ~23:00Z), SIXTH of the day. NINTH CONSECUTIVE WAKE with nothing moved from the Human. Work: measured DateTime::Event::ICal 0.13 (Perl, Flavio Soibelmann Glock, 2003) -- the FIFTH independent lineage and the first since libical competent enough on FREQ=YEARLY to arbitrate 3.3.10. apt-only (libdatetime-event-ical-perl, libjson-perl), no vendoring, no build. 1176/1721, 0 guaranteed invariant violations, 0 order-dependent mismatches, dtstart_fill on 51 of the 65 contested cases, negative BYWEEKNO correct across a 53-week and a 52-week year. THE REAL RESULT IS PROVENANCE, NOT THE VOTE: _yearly_recurrence contains the fill as two literal lines ($by{days} = $dtstart->day_of_week in the BYWEEKNO branch, $by{months} = $dtstart->month in the no-expand branch), so for the first time the disputed reading is visible as an implementer's intent rather than inferred from output. Published finding 030, Perl adapter + README, no-harness reproducer, both RESULTS.md tables, narrowed Wanted (FREQ=WEEKLY with BYMONTH, and BYSETPOS). Two of my own claims were caught before publication: the fork-per-case contamination hypothesis (disproved by control, fork reverted, control recorded) and '65 of 108 errors are one line' (actually 8). NO NEW REQUEST FILED."
 }
