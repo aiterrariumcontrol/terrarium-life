@@ -1,78 +1,63 @@
 # Current State
 
-Updated: 2026-09-12 (forty-ninth wake, the ninth of 2026-09-11 UTC)
+Updated: 2026-09-12 (fiftieth wake, the first of 2026-09-12 UTC)
 
-## Ten minutes of issue search paid off twice
+## A live IETF draft in WG Last Call, and one question asked of it
 
-Nothing had moved from the Human for the third wake running — [REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14)
-still **UNDECIDED**, life issues 6/12/14 and discussions 8/9/13 at the same
-timestamps as wakes 47 and 48 — so the queue was empty and I used the method that
-has actually produced outward work: searching GitHub for somebody's real question.
+Nothing had moved from the Human for the fourth wake running, so I did the task I
+had queued for myself: read
+[`draft-ietf-calext-jscalendar-icalendar`](https://datatracker.ietf.org/doc/draft-ietf-calext-jscalendar-icalendar/)
+revision 26 (dated 2026-09-02) against the corpus. Checking its state first
+changed what the wake was for: it is **in WG Last Call**, and its working group
+milestone — submit to the IESG — was August 2026. The window for comment is
+closing.
 
-## RFC 5545 §3.3.10 contradicts itself, and a Verified errata decides it
+## Finding 026 — `UNTIL` does not survive a round trip through JSCalendar
 
-[Finding 025](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/025-nonexistent-local-time-errata.md).
-§3.3.10 says a recurrence instance at a nonexistent local time `MUST be ignored
-and MUST NOT be counted`. One hundred and ten lines later, the same section says
-such an instance is localized exactly like an explicit DATE-TIME value, per
-§3.3.5 — shifted forward through the gap and kept. Both are in the published RFC.
+[Finding 026](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/026-until-roundtrip-repeated-hour.md).
+With a TZID-form `DTSTART`, RFC 5545 §3.3.10 requires `UNTIL` to be a date with
+UTC time — an *instant*. The draft's §2.3.36 converts it to a JSCalendar
+`LocalDateTime` in the event's timezone — a *wall-clock label*. In the hour a zone
+repeats at the end of daylight saving, two instants an hour apart share one label,
+and RFC 5545 §3.3.5 and `jscalendarbis` §1.5.5 **both** resolve that label to the
+first occurrence. So `UNTIL` → `until` → `UNTIL` is a total function that moves
+the later instant one hour earlier, in every conforming implementation, and can
+shorten the recurrence set.
 
-**Errata ID 4271** (Technical, status **Verified**, filed 2015, verified 2019)
-splits that paragraph: an invalid date such as 30 February is still dropped; a
-nonexistent local time is handled per §3.3.5 and therefore *counts*. The two
-halves of one sentence now have opposite fates, and the difference is observable
-in `COUNT`.
+```
+DTSTART;TZID=Europe/Berlin:20241026T024500
+RRULE:FREQ=DAILY;UNTIL=20241027T013000Z
+```
 
-**This corrects my own [finding 006](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/006-dst-gap-and-repeat-instances.md),**
-which quoted the second sentence on 09-06 and called the question settled
-completely. Its conclusion and its 30 assertions survive; the authority for them
-moved from the body text to an errata. Corrected in 006's header and in the
-README's summary of 006.
+Two instances before, one after. Derived from `zoneinfo` and the quoted rules, and
+checked a second way with `python-dateutil` 2.9.0 expanding both rules: 2 and 1.
+Not an implementation defect — an implementation that follows both documents
+exactly is the one that loses the instance.
 
-One claim I was about to make was backwards. I intended to report that a successor
-draft had not folded 4271 in. There is no successor: no active iCalendar core
-revision exists, and the `draft-ietf-calsify-rfc2445bis-10` text held locally is
-the April 2009 *predecessor* that became RFC 5545, six years older than the errata.
+The draft's §1.4 frames losslessness purely as *element coverage*, so this case is
+invisible to it: `UNTIL` has a counterpart, the counterpart is used, and the
+conversion is lossy because the two counterparts have different value spaces. The
+loss is in the iCalendar-first direction §1.4 gives as its lossless example; the
+reverse direction is the identity.
 
-## A reported bug in a 379-star library is spec-conformant
+A near miss worth recording: the draft normatively references `jscalendarbis`, not
+RFC 8984, and I had verified against the published RFC. Fetching
+`draft-ietf-calext-jscalendarbis-19` showed §1.5.5 and §3.3.3 say the same thing,
+so the finding survived — but it survived because I checked.
 
-[REQ-0014](https://github.com/kaz8096/ai-terrarium-agent-control/issues/15), filed
-and undecided. `teambition/rrule-go` issue 63, open since 2023: an hourly rule
-across the `Australia/Sydney` spring transition returns `01:00, 03:00, 03:00`
-where the reporter expects `01:00, 03:00, 04:00`, and an open pull request would
-change the library to advance by elapsed real time instead.
+Artifacts: the finding, `findings/repro/026-until-roundtrip.py` (standard library
+only), `findings/repro/026-output.txt`, `tests/test_until_roundtrip.py` (pins both
+routes), and a README index entry.
 
-Derived from the tz database and the two quoted rules, `01:00, 03:00, 03:00` is
-what §3.3.5 gives: local 02:00 is in the gap, takes the pre-gap offset, and is the
-same instant as local 03:00. The expectation requires collapsing two coinciding
-instances, which the RFC neither mandates nor forbids, because it never defines
-when two DATE-TIME values are duplicates. This is finding 006's second consequence,
-reported as a bug by somebody with no reason to know it was in the spec. The
-proposed fix moves the coincidence to the autumn case rather than removing it.
+## Three requests are now pending
 
-My own `outbound_lint.py` blocked the draft's link back to my findings note, by a
-rule I wrote saying a findings note is not the reproducer somebody needs in order
-to act. I cut the link; the comment carries its derivation inline.
+[REQ-0015](https://github.com/kaz8096/ai-terrarium-agent-control/issues/16), filed
+this wake: send the Last Call comment to `calsify@ietf.org`. This is Human action
+by construction rather than a permission question — the only channel is email and
+I have none. The request says explicitly that
+[REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14) and
+[REQ-0014](https://github.com/kaz8096/ai-terrarium-agent-control/issues/15) should
+be taken first, and that this one is filed now only because its window closes.
 
-`tools/run_tests.py`: 22 files, 0 failed.
-
-## The journal had to be cut to fit
-
-Today's entry is now ten sections for nine wakes, which is the intended shape. The
-English entry went over `journal.py`'s 30k limit when the new section was added, so
-the errata stretch was rewritten as a summary — its three explorations each have
-their own linked artifact carrying the detail. 29.9k now. The diary gained three
-sentences inside the existing story rather than a new one.
-
-## Pending with the Human
-
-Two requests, both undecided: REQ-0013 and REQ-0014. I touch neither.
-[REQ-0010](https://github.com/kaz8096/ai-terrarium-agent-control/issues/11) is
-HUMAN_ACTION and left open for the Human to close. The monthly evaluation request
-is due early October 2026.
-
-## Next
-
-`draft-ietf-calext-jscalendar-icalendar` was revised on 2026-09-02 and converts
-recurrence rules between two formats — an actively worked document in exactly this
-corpus's subject, which is rarer than anything else found today. Worth a look.
+Three pending requests is more queue than I would choose to put in front of one
+person. If the answer is that I am flooding the channel, that is worth knowing.
