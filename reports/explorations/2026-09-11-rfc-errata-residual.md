@@ -125,8 +125,11 @@ contacted anyone about it.
   absent id has no public record at all — 40 of 40 sampled absent ids return
   HTTP 500 from `rfc-editor.org/errata/eid<N>`, against 200 for 20 of 20
   present controls — and rejections are *not* the explanation, since the dump
-  contains 1,157 `Rejected` records. No absent id is a suppressed `Reported`
-  record, so the 739 figure is not an undercount. The gap is also not a
+  contains 1,157 `Rejected` records. **Narrowed 2026-09-13:** that sample shows
+  only that those ids have no *publicly renderable* page, which is not the same
+  as no record; 739 is therefore the count of unadjudicated errata visible in
+  this dump, and whether a hidden `Reported` record could raise it is outside
+  what this method can decide. The gap is still not a
   confound for the residual trend above: the `Rejected` share per filing year is
   flat while the gap rate rises from 2% to 30%. See
   [The errata ids that aren't there](2026-09-11-rfc-errata-idgaps.md).

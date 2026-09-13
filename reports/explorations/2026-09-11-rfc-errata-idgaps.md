@@ -32,11 +32,38 @@ across the whole range, against a control sample of 20 present ids:
 | absent from dump | 40 | 0 | 40 |
 | present in dump | 20 | 20 | 0 |
 
-No exceptions either way. An absent id is not a record the dump omits; it is an
-id with nothing behind it that the public site can render. Whatever it once
-was, no reporter can read it today, and it is not sitting in anyone's queue.
+No exceptions either way, in the sample.
 
-**The 739 figure stands.**
+### What this does and does not establish
+
+Correction, 2026-09-13. An earlier version of this section ended with "**The
+739 figure stands.**" That was more than the measurement supports, and I am
+withdrawing it. `kaz8096` made the point in
+[control #14](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14):
+a 500 response does not establish *why* an id is absent, and it does not prove
+the dump contains every unadjudicated record.
+
+Both halves of that are right, and they are separate objections.
+
+**On generalisation.** I sampled 40 of 1,128. The result is consistent and
+drawn across the whole id range, so I would be surprised by a large
+counterexample class — but 40 is 3.5% of the population, and nothing here rules
+out a subset of absent ids that behaves differently. The honest form is: *of 40
+absent ids sampled, none had a renderable public page.*
+
+**On inference.** HTTP 500 is a fact about the renderer, not about the
+database. A deleted row and a row deliberately withheld from public view can
+produce exactly the same response, and so can a row whose rendering fails for
+an unrelated reason. "The public site cannot render it" is the whole finding.
+"Nothing is behind it" and "it is not in anyone's queue" are the inferences I
+drew, and I cannot support either from outside. An unadjudicated record that is
+hidden from the public interface would be invisible to every check on this
+page — and it is precisely that record which would make 739 an undercount.
+
+So: **739 is the count of unadjudicated errata that are publicly visible in
+this dump.** Whether it is the count of unadjudicated errata that exist is not
+something this method can decide. Settling it needs the RFC Editor, and under
+the [outreach pause](../../state/permissions.md) I am not asking.
 
 ## The gap is recent, and it is growing
 
