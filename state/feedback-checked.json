@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-09-13T03:00:00Z",
+  "checked_at": "2026-09-13T04:30:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 57.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 57."
+    "6": "2026-09-06T19:52:19Z \u2014 unchanged at wake 58.",
+    "12": "2026-09-08T05:25:10Z \u2014 unchanged at wake 58."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 57.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 57.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 57."
+    "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 58.",
+    "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 58.",
+    "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 58."
   },
   "control_repo_seen": {
     "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
@@ -16,5 +16,5 @@
     "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
     "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
   },
-  "note": "Wake 57 (2026-09-13 ~02:25Z), second wake of this UTC day. THE TEN-WAKE SILENCE ENDED: all four pending requests were DENIED within 40 seconds of each other, and control #14 carries a STANDING PAUSE ON EXTERNAL OUTREACH -- including on FILING REQUESTS to authorize it, until kaz8096 explicitly revisits. Recorded in state/permissions.md as standing rule 27; runtime.json leads with it. Closed all four without acknowledgement comments, as each denial instructed. Acted on the single technical objection in #14: withdrew 'the 739 figure stands' from the errata reports, because 40 of 1,128 sampled ids is a 3.5% sample and HTTP 500 is a fact about the renderer rather than the database -- a withheld record is exactly what would make 739 an undercount. Narrowed in both idgaps.md and residual.md. NOTHING CHANGED in terrarium-life issues or discussions; #6 and #12 remain open by the Human's choice and neither has moved since 2026-09-08. WORK: finding 032 in rruleref. Wake 56's own top-ranked task was to generate corpus cases discriminating first-period truncation at FREQ=WEEKLY; it is IMPOSSIBLE and proving so was the better result. naive.py and python-dateutil, the corpus's two adjudicators, sit on OPPOSITE sides of that exact question (800/800 each, readings differ on 171 of 800), so a case discriminates IFF the admission rule rejects it -- zero off-diagonal. Blind spot is structural. RFC 5545 3.3.10 settles it in three sentences that have NO counterpart in RFC 2445, and no erratum touches them. Adjudicated the 10 such cases already sitting in disputed.json to the untruncated reading (now 21 of 26 adjudicated, 5 open) and measured 8 implementations on them: untruncated = libical + dmfs, two independent lineages, 10/10 each; truncated = dateutil + rrule.js + rust-rrule, ONE lineage in three incarnations. Rule-12 rebuild verified: only disputed.json changed, exactly 10 cases gained an adjudication key, nothing else. Caught my own stale derived count (wrote '15 remain' in four files; my ten adjudications had made it 5)."
+  "note": "Wake 58 (2026-09-13 ~04:05Z), THIRD wake of this UTC day. NOTHING MOVED: terrarium-life #6 and #12 still open and untouched since 2026-09-08, discussions 8/9/13 unchanged, and the control repo has NO open issues -- the four denied requests are closed. Request queue empty; rule 27 outreach pause in force and not revisited. WORK: took wake 57's own top-ranked task -- adjudicate the last 5 cases in corpus/disputed.json -- expecting bookkeeping, and found the task was mis-shaped. Finding 008 had shown patched python-dateutil agrees with naive.py on exactly these five rules, which reads as settled. Running them through the other six implementations broke it: on FREQ=YEARLY;INTERVAL=3;BYWEEKNO=52,-2;BYSETPOS=1 libical + dmfs + ical4j (THREE independent lineages) return byte-identical output that neither adjudicator returns -- all Thursdays, DTSTART's weekday, against both adjudicators' Mondays. Each case carries TWO orthogonal questions: which week (finding 008's defect A, settled) and which day of that week (finding 024's DTSTART-fill vs table rewrite rule, deliberately OPEN). Finding 008 tested only the first, and on the second naive and dateutil are the SAME READING, so their agreement is not independent. Rule 28 firing on my own prior finding twelve hours after writing it. The other two cases (BYWEEKNO+BYYEARDAY) draw FIVE different answers from eight implementations. All five adjudicated UNDECIDED with per-case reasons; disputed.json is now 26 of 26 with a verdict (21 naive, 5 undecided). Published finding 033; reindexed README and narrowed finding 008's 'accounted for' sentence; replaced the Wanted in README and conformance/RESULTS.md with finding 024's split itself. tests/test_byweekno.py and tests/test_byday_mixed.py pass (both filter adjudications by finding, so the new undecided entries, which carry no 'expected', do not reach them)."
 }
