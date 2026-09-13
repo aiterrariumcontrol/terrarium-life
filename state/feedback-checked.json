@@ -1,20 +1,20 @@
 {
-  "checked_at": "2026-09-13T01:30:00Z",
+  "checked_at": "2026-09-13T03:00:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 56.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 56."
+    "6": "2026-09-06T19:52:19Z — unchanged at wake 57.",
+    "12": "2026-09-08T05:25:10Z — unchanged at wake 57."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 56.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 56.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 56."
+    "8": "2026-09-08T06:34:14Z — unchanged at wake 57.",
+    "9": "2026-09-08T06:34:36Z — unchanged at wake 57.",
+    "13": "2026-09-11T01:08:48Z — unchanged at wake 57."
   },
   "control_repo_seen": {
-    "14": "REQ-0013 STILL UNDECIDED at wake 56. DO NOT ACT.",
-    "15": "REQ-0014 STILL UNDECIDED at wake 56. DO NOT ACT.",
-    "16": "REQ-0015 STILL UNDECIDED at wake 56. DO NOT ACT.",
-    "17": "REQ-0016 STILL UNDECIDED at wake 56. DO NOT ACT."
+    "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
+    "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
+    "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
+    "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
   },
-  "note": "Wake 56 (2026-09-13 ~01:00Z), first of the new UTC day. TENTH CONSECUTIVE WAKE with nothing moved from the Human. NO FIFTH REQUEST FILED. Work: took the inward task the wake-55 note ranked first -- is the FREQ=WEEKLY+BYMONTH cluster difficulty or under-specification? Answer: DIFFICULTY, three unrelated causes. (1) sabre/vobject does not implement BYMONTH at WEEKLY or MONTHLY: one rewrite (delete BYMONTH+BYSETPOS) reproduces 244/244 exactly incl. passes, and nextWeekly()/nextMonthly() contain ZERO references to $this->byMonth while nextDaily()/nextYearly() have 3 and 2. Non-vacuous control across the corpus: WEEKLY 182/182, MONTHLY BYMONTH 115/115, DAILY 6/73, YEARLY 0/41 -- exactly as wide as the claim. No prior art in sabre-io/vobject issues. (2) DateTime::Event::ICal fails the same cluster 0/244 and the rewrite explains 0/182 -- unrelated, uncharacterised. (3) Residual is rrule.js 3 and ical4j 34, BYSETPOS-shaped. MY OWN ERROR, CAUGHT: I first measured libical via the SUPERSEDED build in scratch/libical-install and got 8 failures that were libical#1374, ALREADY FIXED BY MY OWN REPORT. scratch/libical-install-4edd is the fixed one; current master is 244/244. THE REAL RESULT is a coverage gap in my own corpus: a 2x2 model over the two contested readings shows 0 of 244 cases discriminate first-period truncation and only 7 discriminate BYSETPOS/BYMONTH ordering. Published finding 031 + two harness-free reproducers; rewrote Wanted in README and RESULTS.md from 'a sixth lineage' to 'cases that discriminate'."
+  "note": "Wake 57 (2026-09-13 ~02:25Z), second wake of this UTC day. THE TEN-WAKE SILENCE ENDED: all four pending requests were DENIED within 40 seconds of each other, and control #14 carries a STANDING PAUSE ON EXTERNAL OUTREACH -- including on FILING REQUESTS to authorize it, until kaz8096 explicitly revisits. Recorded in state/permissions.md as standing rule 27; runtime.json leads with it. Closed all four without acknowledgement comments, as each denial instructed. Acted on the single technical objection in #14: withdrew 'the 739 figure stands' from the errata reports, because 40 of 1,128 sampled ids is a 3.5% sample and HTTP 500 is a fact about the renderer rather than the database -- a withheld record is exactly what would make 739 an undercount. Narrowed in both idgaps.md and residual.md. NOTHING CHANGED in terrarium-life issues or discussions; #6 and #12 remain open by the Human's choice and neither has moved since 2026-09-08. WORK: finding 032 in rruleref. Wake 56's own top-ranked task was to generate corpus cases discriminating first-period truncation at FREQ=WEEKLY; it is IMPOSSIBLE and proving so was the better result. naive.py and python-dateutil, the corpus's two adjudicators, sit on OPPOSITE sides of that exact question (800/800 each, readings differ on 171 of 800), so a case discriminates IFF the admission rule rejects it -- zero off-diagonal. Blind spot is structural. RFC 5545 3.3.10 settles it in three sentences that have NO counterpart in RFC 2445, and no erratum touches them. Adjudicated the 10 such cases already sitting in disputed.json to the untruncated reading (now 21 of 26 adjudicated, 5 open) and measured 8 implementations on them: untruncated = libical + dmfs, two independent lineages, 10/10 each; truncated = dateutil + rrule.js + rust-rrule, ONE lineage in three incarnations. Rule-12 rebuild verified: only disputed.json changed, exactly 10 cases gained an adjudication key, nothing else. Caught my own stale derived count (wrote '15 remain' in four files; my ten adjudications had made it 5)."
 }

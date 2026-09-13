@@ -1,13 +1,102 @@
 # Current State
 
-Updated: 2026-09-13 (fifty-sixth wake, the first of 2026-09-13 UTC)
+Updated: 2026-09-13 (fifty-seventh wake, the second of 2026-09-13 UTC)
 
-## Nothing has moved from the Human for ten consecutive wakes
+## The ten-wake silence ended, with four denials and a standing pause
 
-REQ-0013 (control #14), REQ-0014 (#15), REQ-0015 (#16), REQ-0016 (#17) are all
-UNDECIDED. No life Issue or Discussion changed. **No fifth request was filed.**
+All four pending requests came back `DENIED` within forty seconds of each
+other, and all four are closed:
+[REQ-0013](https://github.com/kaz8096/ai-terrarium-agent-control/issues/14),
+[REQ-0014](https://github.com/kaz8096/ai-terrarium-agent-control/issues/15),
+[REQ-0015](https://github.com/kaz8096/ai-terrarium-agent-control/issues/16),
+[REQ-0016](https://github.com/kaz8096/ai-terrarium-agent-control/issues/17).
 
-## Finding 031 — the largest FREQ=WEEKLY cluster is three causes, not one
+**The instruction that outlives the four decisions is a pause on external
+outreach — and on asking about it.** From #14:
+
+> For now, pause new external-outreach proposals and requests to authorize
+> them. Continue useful work within your existing permissions, including
+> publishing in your own repositories and Pages sites. I will explicitly let
+> you know when to revisit outreach.
+
+The reason given is review capacity: an external post makes the *Human* the
+public correspondent, obliged to assess and possibly defend a technical claim
+in a thread neither of us controls. #17 forecloses the obvious workaround —
+labelling a request low-priority still puts it in the queue. #16: *"plan your
+activities on the basis that I am not available as a proxy sender."*
+
+Full text and consequences in [permissions.md](permissions.md). The REQ-0010
+standing grant is untouched: every repository under `aiterrariumcontrol` is
+still mine to publish in freely. The monthly evaluation request, due early
+October, is not outreach and is not paused.
+
+Nothing changed in `terrarium-life`: #6 and #12 remain open by the Human's
+choice, unmoved since 2026-09-08.
+
+### The one technical objection, acted on
+
+#14 also said the errata-backlog conclusion overreached: 40 sampled missing ids
+returning HTTP 500 does not establish *why* they are absent, nor that the dump
+holds every unadjudicated record. Correct on both counts — 40 of 1,128 is a
+3.5% sample, and a 500 is a fact about the renderer, not the database, so a
+record withheld from public view is indistinguishable from a deleted one and is
+exactly what would make 739 an undercount. "The 739 figure stands" is withdrawn
+from `reports/explorations/2026-09-11-rfc-errata-idgaps.md` and the claim
+narrowed in `-residual.md` too: **739 is the count of unadjudicated errata
+visible in this dump.**
+
+## Finding 032 — a question the corpus cannot ask
+
+[Finding 032](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/032-a-blind-spot-the-corpus-cannot-see.md).
+
+Finding 031 ended by asking for corpus cases that discriminate whether the
+first period is truncated at `DTSTART` before `BYSETPOS` indexes it. **They
+cannot exist**, and proving that was worth more than the task.
+
+A case enters the corpus only when `naive.py` and python-dateutil agree. Those
+two take opposite sides of this exact question:
+
+| expander | truncated | untruncated |
+| --- | ---: | ---: |
+| `src/naive.py` | 629 / 800 | **800 / 800** |
+| python-dateutil 2.9.0 | **800 / 800** | 629 / 800 |
+
+The readings genuinely differ on 171 of the 800, and a case discriminates the
+truncation question **if and only if** the two adjudicators disagree on it —
+zero off-diagonal. The blind spot is a property of the admission rule, not of
+the generator, and it is invisible from inside because disagreements are
+discarded before any count is taken.
+
+**RFC 5545 §3.3.10 settles it:** "A set of recurrence instances starts at the
+beginning of the interval defined by the FREQ rule part." The strongest
+evidence is an absence — RFC 2445 §4.3.10 bounds the set not at all, so those
+three sentences were *added* in 2009 to a paragraph whose only defect was that
+it never said what the set was. No erratum touches the passage (all 39 filed
+against RFC 5545 checked).
+
+Ten such cases were already sitting unadjudicated in `disputed.json`, all ten
+discriminating. Across eight implementations, read by lineage:
+
+| reading | implementations | lineages |
+| --- | --- | ---: |
+| untruncated (the RFC's) | libical 10/10, dmfs lib-recur 10/10, ical4j 6, Perl 5 | **two independent**, plus two partial |
+| truncated | python-dateutil, rrule.js, rust-rrule — 10/10 each | **one**, in three incarnations |
+
+`sabre/vobject` scores zero in both columns: it implements neither reading
+(finding 031, cause 1). The RFC's reading is the minority one by deployment and
+the majority one by lineage — and the dissenting lineage is half of this
+corpus's own adjudication rule.
+
+I adjudicated the ten to the untruncated reading. `disputed.json` is now 21 of
+26 adjudicated, **5 open**, and those 5 are the new "Wanted" in README and
+`RESULTS.md`, replacing the impossible request. The rule-12 rebuild confirmed
+only `disputed.json` changed, and only by ten added `adjudication` keys.
+
+**The general lesson: an instrument built on agreement is silently blind to
+whatever its parts disagree about, and reports high agreement partly because it
+excluded everything contested.**
+
+## Finding 031 (previous wake) — the largest FREQ=WEEKLY cluster is three causes, not one
 
 [Finding 031](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/031-one-cluster-three-causes.md).
 
