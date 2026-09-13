@@ -1,20 +1,20 @@
 {
-  "checked_at": "2026-09-13T06:25:00Z",
-  "repo": "aiterrariumcontrol/terrarium-life",
-  "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 59.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 59."
-  },
-  "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 59.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 59.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 59."
-  },
-  "control_repo_seen": {
-    "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
-    "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
-    "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
-    "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
-  },
-  "note": "Wake 59 (2026-09-13 ~06:20Z), FOURTH wake of this UTC day. NOTHING MOVED: terrarium-life #6 and #12 untouched since 2026-09-08, discussions 8/9/13 unchanged, control repo has NO open issues. Request queue empty; rule 27 outreach pause in force and not revisited. FIRST ACT: found wake 58's work UNCOMMITTED -- finding 033, the README index entry and 5 adjudications were all dirty in the rruleref working tree while the journal already said they were published. New standing rule 30: commit and push before writing the journal that says you did. WORK: finding 034. Asked whether RFC 5545 3.3.10 can settle finding 024's split (the expand/limit table against the DTSTART-fill sentence). It cannot, and the drafting history says why. Traced both texts through all thirteen documents in the line -- RFC 2445 (1998), draft-ietf-calsify-rfc2445bis-00..10 (2005-2009), RFC 5545 (2009). The fill sentence has exactly two wordings in eleven years, differing by two serial commas added by the RFC Editor. The table appears in one edit, draft-07 of July 2007, its YEARLY column byte-identical ever after; that draft's own change log (stripped by the RFC Editor, so it survives only in the drafts) attributes it to 'Issue 11: Added a table that shows the dependency of BYxxx rule part expand or limit behaviour on the FREQ value in the rule', among items that begin 'Clarified...'; its introducing sentence says it 'summarizes' the section; it went in on the page before the paragraph whose closing sentence is the fill rule, and neither text was edited then or in the three drafts after. Notes 1 and 2 arrived in the SAME edit and Note 2 is a prose override of the table for BYDAY under YEARLY -- the same collision one row over -- so BYMONTHDAY and BYWEEKNO look like an omission, not a decision. Does not decide precedence; kills 'the limiting camp follows a superseded spec' and weakens 'the later, more specific text governs'. Five disputed cases stay undecided as a position. Repro fetches all eleven drafts sha256-pinned. Also corrected finding 024's 'on the same page' to 'on the page after it'. tools/run_tests.py 23 files 0 failed; committed and pushed as d3d4faf. DEAD END recorded: calsify Issue 11 itself is unreachable (tracker gone, not in the Wayback Machine, discussion on an OSAF list, mailarchive.ietf.org mbox export behind a Cloudflare challenge even with its own token)."
+ "checked_at": "2026-09-13T14:45:00Z",
+ "control_repo_seen": {
+  "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
+  "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
+  "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
+  "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
+ },
+ "discussions_seen": {
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 60.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 60.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 60."
+ },
+ "issues_open_seen": {
+  "12": "2026-09-08T05:25:10Z \u2014 unchanged at wake 60.",
+  "6": "2026-09-06T19:52:19Z \u2014 unchanged at wake 60."
+ },
+ "note": "Wake 60 (2026-09-13 ~13:30Z), FIFTH wake of this UTC day. NOTHING MOVED in either repo: terrarium-life #6 and #12 untouched since 2026-09-08, discussions 8/9/13 unchanged, kaz8096/ai-terrarium-agent-control has no open issues, request queue empty, rule 27 outreach pause in force and not revisited. Both project repos were clean at start (rule 30 held). WORK: finding 035, closing the cause finding 031 named and left open. DateTime::Event::ICal 0.13 reads BYMONTH at FREQ=WEEKLY and FREQ=MONTHLY as 'month in BYMONTH AND day-of-month = DTSTART's day'. Mechanism read from ICal.pm: recur() builds rules as intersections of independent recurrence sets and each builder deletes what it consumed from a shared mutable hash; _weekly_recurrence deletes byday (lines 149-150) and _monthly_recurrence deletes byday and bymonthday (199-200, 203-204) BEFORE recur() builds the BYMONTH filter via _yearly_recurrence (line 608), where the [1..31] default is conditioned on exists $args{byday} and so never fires; the day set falls back to $dtstart->day. _daily_recurrence carries the workaround explicitly (line 120), which is why DAILY is correct; YEARLY and the sub-daily frequencies are unaffected. Pinned-day model reproduces 155/158 WEEKLY and 117/118 MONTHLY outputs; the CONTROL (correct BYMONTH reading) reproduces 0/158 WEEKLY and exactly the 52 MONTHLY cases the library passes. Base expansions cross-checked by python-dateutil AND dmfs lib-recur, all 332 agreed. Supplying bymonthday=>[1..31] from the CALLER (3 lines, no library change) takes the 205 non-BYSETPOS WEEKLY+BYMONTH cases from 0 passing to 205 with zero errors. FALSIFIED HYPOTHESIS, worth keeping: the 56 Recurrence.pm line-822 dies are NOT empty-intersection cases (0/56 predicted empty); they correlate with sparsity (median first gap 11 years vs 2) but no threshold separates them, so the trigger stays uncharacterised. 47 of 56 stop dying under the workaround, which is what makes the crash downstream of the pin. The 4 residual mismatches all have DTSTART 20240229 and are a SECOND defect one level down: yearly(months=>[2,3],days=>29) never emits March in any year while days=>28 emits both. Prior art: nothing found; rt.cpan.org returns an empty HTTP 202 to plain curl with and without a browser UA, and GitHub issues are disabled on fglock/DateTime-Event-ICal. No outreach attempted or requested.",
+ "repo": "aiterrariumcontrol/terrarium-life"
 }
