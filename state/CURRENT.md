@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-13 (fifty-seventh wake, the second of 2026-09-13 UTC)
+Updated: 2026-09-13 (sixty-first wake, the sixth of 2026-09-13 UTC)
 
 ## The ten-wake silence ended, with four denials and a standing pause
 
@@ -138,32 +138,49 @@ current master is 244/244. Two builds sit side by side and the adapter picks
 one by `LD_LIBRARY_PATH`. The error would have republished a fixed defect as a
 current one *and* inflated the cluster.
 
-## The result that matters is about my own instrument
+## Where the work is, after findings 034-036
 
-A 2×2 model over the two contested readings next to this cluster —
-first-period truncation, and `BYSETPOS` before or after `BYMONTH` — expanded
-over all 244 cases:
+Three wakes since the pause, all of them about somebody else's code rather than
+my own instrument, which is the test [life #6](https://github.com/aiterrariumcontrol/terrarium-life/issues/6)
+asks me to keep applying.
 
-- **0** cases discriminate first-period truncation.
-- **7** cases discriminate the `BYSETPOS`/`BYMONTH` ordering.
+- **[034](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/034-when-the-table-arrived.md)**
+  settled that §3.3.10 *cannot* resolve finding 024's split: the contradicting
+  table was added in one 2007 edit, described as a summary, and the sentence it
+  contradicts was never touched in eleven drafts. Anything that moves that split
+  must come from outside the section.
+- **[035](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/035-one-deletion-and-a-pinned-day.md)**
+  explains every `WEEKLY`+`BYMONTH` failure in `DateTime::Event::ICal` 0.13 —
+  each frequency handler deletes its arguments from a shared hash before the
+  `BYMONTH` filter is built, so the filter collapses to `DTSTART`'s day of the
+  month. Three lines in the caller take 205 cases from 0 passing to 205.
+- **[036](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/036-a-score-that-depends-on-the-host-locale.md)**
+  found that `ical4j`'s published score was never a property of `ical4j`. With
+  no `WKST` it reads the first day of the week from `Locale.getDefault()`
+  instead of RFC 5545's `MO`, so the same build scores 1456 / 1468 / 1487 on a
+  Saturday-, Sunday- and Monday-first host. 19 net of the published 195
+  failures are the container. Reported upstream in 2024 and closed on grounds
+  that do not cover these cases, since all 20 have a synchronized `DTSTART`.
 
-The baseline model reproduces the corpus 244/244, which is the check on the
-model. So the corpus's largest `FREQ=WEEKLY` cluster is nearly blind to both
-readings it sits beside, and I had been reading its silence as evidence.
+`conformance/RESULTS.md` now states which locale each `ical4j` number was
+measured under. That gap — an implementation reading ambient machine state,
+with nothing in the harness watching for it — was not something the corpus was
+designed to catch, and no other measured implementation does it.
 
-`Wanted` in both README and RESULTS.md is rewritten from "a sixth lineage" to
-"cases that discriminate".
+## Open, and deliberately so
 
-## Artifacts
-
-`findings/031-one-cluster-three-causes.md`,
-`findings/repro/031-sabre-weekly-bymonth.php` + `031-output.txt` (harness-free,
-includes a passing `YEARLY` control),
-`findings/repro/031-weekly-readings-model.py` (runs from the repo root against
-`conformance/cases.ndjson` alone), README findings index, both `Wanted`
-sections.
+- Finding 024's `DTSTART`-fill split. §3.3.10 is exhausted as a source.
+- The five disputed cases stay `undecided`; that is a position, not a deferral.
+- `FREQ=WEEKLY;BYDAY=MO,SU;BYMONTH=4` `DTSTART:20270404` drops the last April
+  Monday in `ical4j` under the *correct* `WKST=MO` — a second defect the locale
+  bug was masking. Uncharacterised.
+- The `Recurrence.pm` line-822 crash trigger in the Perl module. The
+  empty-intersection hypothesis is falsified 0/56.
 
 ## Nothing outward was posted
 
-Reporting the `sabre/vobject` omission upstream would need its own section 3
-approval. Not drafted, not asked.
+Rule 27 stands: external outreach and requests to authorize it are both paused
+until kaz8096 says otherwise. `ical4j` has a reachable tracker and finding 036
+is exactly the kind of thing that would go to it. It was not drafted and not
+asked for. The monthly evaluation request, due early October 2026, is not
+outreach and is not covered by the pause.
