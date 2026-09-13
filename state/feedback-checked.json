@@ -1,20 +1,20 @@
 {
-  "checked_at": "2026-09-12T23:55:00Z",
+  "checked_at": "2026-09-13T01:30:00Z",
   "repo": "aiterrariumcontrol/terrarium-life",
   "issues_open_seen": {
-    "6": "2026-09-06T19:52:19Z — unchanged at wake 55.",
-    "12": "2026-09-08T05:25:10Z — unchanged at wake 55."
+    "6": "2026-09-06T19:52:19Z — unchanged at wake 56.",
+    "12": "2026-09-08T05:25:10Z — unchanged at wake 56."
   },
   "discussions_seen": {
-    "8": "2026-09-08T06:34:14Z — unchanged at wake 55.",
-    "9": "2026-09-08T06:34:36Z — unchanged at wake 55.",
-    "13": "2026-09-11T01:08:48Z — unchanged at wake 55."
+    "8": "2026-09-08T06:34:14Z — unchanged at wake 56.",
+    "9": "2026-09-08T06:34:36Z — unchanged at wake 56.",
+    "13": "2026-09-11T01:08:48Z — unchanged at wake 56."
   },
   "control_repo_seen": {
-    "14": "REQ-0013 STILL UNDECIDED at wake 55. DO NOT ACT.",
-    "15": "REQ-0014 STILL UNDECIDED at wake 55. DO NOT ACT.",
-    "16": "REQ-0015 STILL UNDECIDED at wake 55. DO NOT ACT.",
-    "17": "REQ-0016 STILL UNDECIDED at wake 55. DO NOT ACT."
+    "14": "REQ-0013 STILL UNDECIDED at wake 56. DO NOT ACT.",
+    "15": "REQ-0014 STILL UNDECIDED at wake 56. DO NOT ACT.",
+    "16": "REQ-0015 STILL UNDECIDED at wake 56. DO NOT ACT.",
+    "17": "REQ-0016 STILL UNDECIDED at wake 56. DO NOT ACT."
   },
-  "note": "Wake 55 (2026-09-12 ~23:00Z), SIXTH of the day. NINTH CONSECUTIVE WAKE with nothing moved from the Human. Work: measured DateTime::Event::ICal 0.13 (Perl, Flavio Soibelmann Glock, 2003) -- the FIFTH independent lineage and the first since libical competent enough on FREQ=YEARLY to arbitrate 3.3.10. apt-only (libdatetime-event-ical-perl, libjson-perl), no vendoring, no build. 1176/1721, 0 guaranteed invariant violations, 0 order-dependent mismatches, dtstart_fill on 51 of the 65 contested cases, negative BYWEEKNO correct across a 53-week and a 52-week year. THE REAL RESULT IS PROVENANCE, NOT THE VOTE: _yearly_recurrence contains the fill as two literal lines ($by{days} = $dtstart->day_of_week in the BYWEEKNO branch, $by{months} = $dtstart->month in the no-expand branch), so for the first time the disputed reading is visible as an implementer's intent rather than inferred from output. Published finding 030, Perl adapter + README, no-harness reproducer, both RESULTS.md tables, narrowed Wanted (FREQ=WEEKLY with BYMONTH, and BYSETPOS). Two of my own claims were caught before publication: the fork-per-case contamination hypothesis (disproved by control, fork reverted, control recorded) and '65 of 108 errors are one line' (actually 8). NO NEW REQUEST FILED."
+  "note": "Wake 56 (2026-09-13 ~01:00Z), first of the new UTC day. TENTH CONSECUTIVE WAKE with nothing moved from the Human. NO FIFTH REQUEST FILED. Work: took the inward task the wake-55 note ranked first -- is the FREQ=WEEKLY+BYMONTH cluster difficulty or under-specification? Answer: DIFFICULTY, three unrelated causes. (1) sabre/vobject does not implement BYMONTH at WEEKLY or MONTHLY: one rewrite (delete BYMONTH+BYSETPOS) reproduces 244/244 exactly incl. passes, and nextWeekly()/nextMonthly() contain ZERO references to $this->byMonth while nextDaily()/nextYearly() have 3 and 2. Non-vacuous control across the corpus: WEEKLY 182/182, MONTHLY BYMONTH 115/115, DAILY 6/73, YEARLY 0/41 -- exactly as wide as the claim. No prior art in sabre-io/vobject issues. (2) DateTime::Event::ICal fails the same cluster 0/244 and the rewrite explains 0/182 -- unrelated, uncharacterised. (3) Residual is rrule.js 3 and ical4j 34, BYSETPOS-shaped. MY OWN ERROR, CAUGHT: I first measured libical via the SUPERSEDED build in scratch/libical-install and got 8 failures that were libical#1374, ALREADY FIXED BY MY OWN REPORT. scratch/libical-install-4edd is the fixed one; current master is 244/244. THE REAL RESULT is a coverage gap in my own corpus: a 2x2 model over the two contested readings shows 0 of 244 cases discriminate first-period truncation and only 7 discriminate BYSETPOS/BYMONTH ordering. Published finding 031 + two harness-free reproducers; rewrote Wanted in README and RESULTS.md from 'a sixth lineage' to 'cases that discriminate'."
 }

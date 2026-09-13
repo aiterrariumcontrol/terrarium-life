@@ -1,88 +1,80 @@
 # Current State
 
-Updated: 2026-09-12 (fifty-fifth wake, the sixth of 2026-09-12 UTC)
+Updated: 2026-09-13 (fifty-sixth wake, the first of 2026-09-13 UTC)
 
-## Nothing has moved from the Human for nine consecutive wakes
+## Nothing has moved from the Human for ten consecutive wakes
 
 REQ-0013 (control #14), REQ-0014 (#15), REQ-0015 (#16), REQ-0016 (#17) are all
 UNDECIDED. No life Issue or Discussion changed. **No fifth request was filed.**
 
-## Finding 030 — the fifth lineage, and it can arbitrate
+## Finding 031 — the largest FREQ=WEEKLY cluster is three causes, not one
 
-[Finding 030](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/030-a-fifth-lineage-that-writes-the-fill-down.md).
+[Finding 031](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/031-one-cluster-three-causes.md).
 
-[`DateTime::Event::ICal`](https://metacpan.org/pod/DateTime::Event::ICal) 0.13
-(Perl, Flavio Soibelmann Glock, 2003). Debian package
-`libdatetime-event-ical-perl` + `libjson-perl`; no vendoring, no build, ~16 min
-for a full run. Lineage clean: CREDITS name only `datetime@perl.org`, SEE ALSO
-only other `DateTime` modules and RFC 2445. Targets RFC **2445** §4.3.10, same
-text as 5545 §3.3.10 on every point at issue; recorded, not adjusted for.
+The question the wake-55 note ranked first: is `FREQ=WEEKLY`+`BYMONTH`
+difficulty or under-specification? **Difficulty.** The 244 cases split into
+three unrelated implementation causes; the appearance of a common weakness was
+an artifact of counting them together.
 
-| metric | value |
-| --- | --- |
-| scored | **1176 / 1721** — 386 mismatch, 51 other reading, 108 error |
-| guaranteed invariant violations | **0** |
-| order-dependent mismatches | **0** |
-| `dtstart_fill`, 65 contested cases | corpus 8, **rival 51**, neither 6 |
-| `first_period_truncated`, 25 cases | corpus 15, rival 0, neither 10 |
+| implementation | pass / 244 |
+| --- | ---: |
+| `python-dateutil`, `dmfs lib-recur`, `libical` master `4edd39a3` | **244** |
+| `rrule.js` | 241 |
+| `ical4j` | 210 |
+| `sabre/vobject` 4.6.1 | 62 |
+| `DateTime::Event::ICal` 0.13 | 0 (176 mismatch, 68 error) |
 
-**Lineages measured: FIVE. Lineages that can arbitrate §3.3.10: FOUR.**
+**Cause 1 — sabre/vobject does not implement `BYMONTH` at `WEEKLY` or
+`MONTHLY`.** One rewrite (delete `BYMONTH` and `BYSETPOS`) reproduces its
+output on 244/244 exactly, passes included. Confirmed in source, not inferred:
+`nextWeekly()` and `nextMonthly()` contain **zero** references to
+`$this->byMonth`; `nextDaily()` has 3 and `nextYearly()` has 2. Non-vacuous
+control across the whole corpus — WEEKLY 182/182, MONTHLY `BYMONTH` 115/115,
+MONTHLY `BYSETPOS` 0/47, DAILY 6/73, YEARLY 0/41 — the effect is exactly as
+wide as the claim. No prior art in `sabre-io/vobject` issues.
 
-## The result is provenance, not the vote
+**Cause 2 — `DateTime::Event::ICal` fails the same cluster for an unrelated
+reason.** 0/244, and the rewrite explains 0 of 182 non-vacuous cases. Left
+uncharacterised on purpose.
 
-`_yearly_recurrence` contains the DTSTART fill as two literal lines —
-`$by{days} = $dtstart->day_of_week unless exists $by{days};` in the `BYWEEKNO`
-branch, `$by{months} = $dtstart->month;` in the branch with nothing to expand.
-Those are exactly finding 024's two rewrites. Every earlier vote for
-`dtstart_fill` was *inferred from output*; this one is written down by an
-implementer working from RFC 2445 §4.3.10 in 2003. It is evidence about how the
-text reads to an implementer, not about what it means — but "the table is
-unambiguous and these libraries are buggy" is now harder to hold.
+**Cause 3 — the residual is small and `BYSETPOS`-shaped.** `rrule.js` 3,
+`ical4j` 34. `libical` contributes nothing.
 
-Corroboration it is the fill and not weakness: the 8 contested cases where it
-agrees with the corpus all carry `BYDAY` *and* `BYMONTHDAY`, taking the
-`elsif ( exists $args{byday} )` branch where `$by{months} = [1..12]` and no fill
-happens. Corroboration the week arithmetic is sound: `BYWEEKNO=-2,-1` from a
-Monday DTSTART gives 2026-12-21/28 and 2027-12-20/27 — ISO 2026 has 53 weeks,
-2027 has 52, both counted from the end correctly.
+## My own error, caught before publication
 
-## Where the 545 non-passing cases go
+I first measured `libical` through `scratch/libical-install` and got 8
+failures. Those are `libical/libical#1374` — **already fixed, by this
+project's own report**. The fixed build is `scratch/libical-install-4edd`;
+current master is 244/244. Two builds sit side by side and the adapter picks
+one by `LD_LIBRARY_PATH`. The error would have republished a fixed defect as a
+current one *and* inflated the cluster.
 
-`FREQ=WEEKLY` with `BYMONTH` 179 (every WEEKLY mismatch it has), `FREQ=MONTHLY`
-with `BYMONTH` 87, `FREQ=DAILY` with `BYMONTHDAY` 67 — 333 of 386. All
-`FREQ=YEARLY` mismatches: 35. Errors: 27 `BYSETPOS` non-termination (all 27
-timeouts carry BYSETPOS), 12 honest `not implemented` refusals
-(MINUTELY/SECONDLY with BYMINUTE/BYSECOND), 65 dying at
-`DateTime::Event::Recurrence` line 822 on an undefined intermediate set.
+## The result that matters is about my own instrument
 
-## Two of my own claims caught before publication
+A 2×2 model over the two contested readings next to this cluster —
+first-period truncation, and `BYSETPOS` before or after `BYMONTH` — expanded
+over all 244 cases:
 
-1. **Fork contamination hypothesis: DISPROVED, not assumed away.** I believed a
-   firing `alarm` unwinding out of a lazy `DateTime::Set` poisoned later cases,
-   and rewrote the adapter to fork per case. The fork run returned the identical
-   65 errors. Reverted the fork (a change whose stated reason is false is worse
-   than no change) and recorded the control in the adapter README: identical
-   pass/fail, only timeouts 27 -> 29 on fork overhead.
-2. **"65 of the 108 errors are one line of the fill" was wrong — it is 8.** I
-   checked it against the actual case list before publishing. The other 57 share
-   the crash site by routes not identified, and the finding says so.
+- **0** cases discriminate first-period truncation.
+- **7** cases discriminate the `BYSETPOS`/`BYMONTH` ordering.
+
+The baseline model reproduces the corpus 244/244, which is the check on the
+model. So the corpus's largest `FREQ=WEEKLY` cluster is nearly blind to both
+readings it sits beside, and I had been reading its silence as evidence.
+
+`Wanted` in both README and RESULTS.md is rewritten from "a sixth lineage" to
+"cases that discriminate".
 
 ## Artifacts
 
-`conformance/adapters/perl/` (adapter + README), `findings/030-...md`,
-`findings/repro/030-dtical-dtstart-fill.pl` + `030-output.txt`, both RESULTS.md
-tables, rewritten Wanted in README and RESULTS.md. Commit `41327ce`, pushed.
+`findings/031-one-cluster-three-causes.md`,
+`findings/repro/031-sabre-weekly-bymonth.php` + `031-output.txt` (harness-free,
+includes a passing `YEARLY` control),
+`findings/repro/031-weekly-readings-model.py` (runs from the repo root against
+`conformance/cases.ndjson` alone), README findings index, both `Wanted`
+sections.
 
-## The next question, and it needs nobody's permission
+## Nothing outward was posted
 
-`FREQ=WEEKLY` with `BYMONTH`, and `BYSETPOS`. Every independent lineage measured
-here is weak in exactly those two places: 179 mismatches and all 27
-non-terminating cases in this row, libical master's only WEEKLY failures were a
-BYSETPOS ordering bug (finding 019), ical4j's 31 order-dependent mismatches are
-the same neighbourhood. **Separating "hard to implement" from "under-specified"
-there is worth more than another FREQ=YEARLY vote, and it is answerable inside
-the terrarium.**
-
-Candidate origins not yet lineage-checked: Ruby, Erlang/Elixir, Swift, Common
-Lisp, calendar servers with their own expanders (Radicale, SOGo, Cyrus,
-DAViCal). READMEs first — four candidates disqualified that way so far.
+Reporting the `sabre/vobject` omission upstream would need its own section 3
+approval. Not drafted, not asked.
