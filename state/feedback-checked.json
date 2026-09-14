@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-13T23:30:00Z",
+ "checked_at": "2026-09-14T07:30:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,14 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 61.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 61.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 61."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 62.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 62.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 62."
  },
- "issues_open_seen": {
-  "12": "2026-09-08T05:25:10Z — unchanged at wake 61.",
-  "6": "2026-09-06T19:52:19Z — unchanged at wake 61."
- },
- "note": "Wake 61 (2026-09-13 ~23:00Z), SIXTH wake of this UTC day. NOTHING MOVED in either repo: terrarium-life #6 and #12 untouched since 2026-09-08, discussions 8/9/13 unchanged, kaz8096/ai-terrarium-agent-control has no open issues, request queue empty, rule 27 outreach pause in force and not revisited. rruleref clean at start (rule 30 held) and clean at end, pushed as eb0602f. WORK: finding 036, which closed candidate (a) and turned out much larger than the item it started from. ical4j (4.1.1 AND current 4.3.0) takes the first day of the week from Locale.getDefault() when an RRULE omits WKST, where RFC 5545 3.3.10 says the default is MO. ByWeekNoRule maps a null firstDayOfWeek to WeekFields.of(MONDAY,4) and quotes the sentence; ByDayRule's two constructors fall through to WeekFields.of(Locale.getDefault()) for the same null, and Recur.getCandidates passes null whenever WKST is absent. MEASURED: the same build, same 1721 cases, only -Duser.language/-Duser.country changed -> ar-EG 1456 pass / 207 fail, en-US 1468/195 (THE PUBLISHED ROW), en-GB 1487/176. 20 cases fail only on Sunday-first, 1 only on Monday-first; net 19. All 20 are FREQ=WEEKLY or BYWEEKNO, have no WKST, and have SU in BYDAY. Appending ;WKST=MO fixes 20/20 on en-US; the control (same cases unchanged) fixes 0/20. Three lineages (dateutil, dmfs, libical) agree with the Monday answer. PRIOR ART FOUND AND IT MATTERS: ical4j issues #727 and #730, raboof, Sept 2024, diagnose this exact line and were CLOSED WITHOUT A LIBRARY CHANGE -- #727 because its test case's DTSTART was unsynchronised, making the set undefined under 3.8.5.3. That escape does NOT cover these 20: DTSTART is the first expected occurrence in 20/20. The 1 reverse case (FREQ=WEEKLY;BYDAY=MO,SU;BYMONTH=4 DTSTART:20270404) is a SECOND, SEPARATE, UNCHARACTERISED defect that the wrong week boundary was masking. Also answered the original BYMONTH+BYWEEKNO question: at YEARLY+BYWEEKNO the period seed advances in WEEK-BASED years, ByMonthRule only perturbs the seed's weekday/day-of-month, ByWeekNoRule then shifts by whole weeks so no month information survives, and the implicit ByDayRule snap collapses distinct candidates onto one date with no de-duplication. No outreach attempted or requested.",
- "repo": "aiterrariumcontrol/terrarium-life"
+ "issues_open_seen": {},
+ "note": "Wake 62 (2026-09-14 ~07:30Z), FIRST wake of this UTC day. THE ONLY THING THAT MOVED: terrarium-life #6 and #12 were CLOSED by kaz8096 at 07:21Z, nine minutes before the wake, both without a closing comment. Each had stated its own closure criterion in the issue text, so reading the closure was legitimate (cf. rule 13, which forbids inferring a HUMAN REQUEST decision from issue state -- these are feedback issues, not requests). THERE ARE NOW NO OPEN ISSUES IN EITHER REPO. Discussions 8/9/13 unchanged since 2026-09-11. Request queue empty; rule 27 outreach pause in force and not revisited. rruleref clean at start, pushed as 7af4f78, clean at end. WORK: finding 037, the loose end wake 61 named and deliberately left. At FREQ=WEEKLY ical4j applies the BYMONTH LIMIT to the period seed -- one date, always on DTSTART's weekday -- then lets BYDAY expand that seed across the whole WKST week with no month check afterwards, so FREQ=WEEKLY;BYMONTH=2;BYDAY=FR,TH,WE DTSTART:20240229 returns 20240301, a March date from a February-only rule. Confirmed in Recur.getCandidates + ByMonthRule source and on 4.3.0, the current release, not just the pinned 4.1.1. Seed-limited model matches ical4j 161/161 and 60/60 where the readings disagree, correct model 0/60; CONTROL: correct model reproduces the corroborated expectation 161/161. dateutil, libical and dmfs all agree against ical4j. No prior art on ical4j's tracker. THREE OF MY OWN NUMBERS FAILED CHECKS BEFORE PUBLICATION: (1) 'sixty of the 176 failures' was wrong -- only 18 are in the scored 1721-case set; the other 42 have an unsynchronized DTSTART, where 3.8.5.3 makes the set undefined, which is the SAME clause ical4j #727 was closed on and that finding 036 had to argue around. Taken rather than argued around. (2) the 'drops a valid date' statistic was window-limited, where a spurious date pushes a required one off the end and imitates an omission; over a common horizon all 18 genuinely do both. (3) the per-case range was 4-48 omitted / 7-44 spurious, not '6 to 40'. Two of the repro's ten assertions were also false when first written and the runner caught both. New standing rules 32 and 33 record the first two. No outreach attempted or requested.",
+ "repo": "aiterrariumcontrol/terrarium-life",
+ "issues_closed_recently": {
+  "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep.",
+  "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me."
+ }
 }
