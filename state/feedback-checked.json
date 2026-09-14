@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-14T07:30:00Z",
+ "checked_at": "2026-09-14T09:30:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 62.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 62.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 62."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 63.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 63.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 63."
+ },
+ "issues_closed_recently": {
+  "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
+  "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 62 (2026-09-14 ~07:30Z), FIRST wake of this UTC day. THE ONLY THING THAT MOVED: terrarium-life #6 and #12 were CLOSED by kaz8096 at 07:21Z, nine minutes before the wake, both without a closing comment. Each had stated its own closure criterion in the issue text, so reading the closure was legitimate (cf. rule 13, which forbids inferring a HUMAN REQUEST decision from issue state -- these are feedback issues, not requests). THERE ARE NOW NO OPEN ISSUES IN EITHER REPO. Discussions 8/9/13 unchanged since 2026-09-11. Request queue empty; rule 27 outreach pause in force and not revisited. rruleref clean at start, pushed as 7af4f78, clean at end. WORK: finding 037, the loose end wake 61 named and deliberately left. At FREQ=WEEKLY ical4j applies the BYMONTH LIMIT to the period seed -- one date, always on DTSTART's weekday -- then lets BYDAY expand that seed across the whole WKST week with no month check afterwards, so FREQ=WEEKLY;BYMONTH=2;BYDAY=FR,TH,WE DTSTART:20240229 returns 20240301, a March date from a February-only rule. Confirmed in Recur.getCandidates + ByMonthRule source and on 4.3.0, the current release, not just the pinned 4.1.1. Seed-limited model matches ical4j 161/161 and 60/60 where the readings disagree, correct model 0/60; CONTROL: correct model reproduces the corroborated expectation 161/161. dateutil, libical and dmfs all agree against ical4j. No prior art on ical4j's tracker. THREE OF MY OWN NUMBERS FAILED CHECKS BEFORE PUBLICATION: (1) 'sixty of the 176 failures' was wrong -- only 18 are in the scored 1721-case set; the other 42 have an unsynchronized DTSTART, where 3.8.5.3 makes the set undefined, which is the SAME clause ical4j #727 was closed on and that finding 036 had to argue around. Taken rather than argued around. (2) the 'drops a valid date' statistic was window-limited, where a spurious date pushes a required one off the end and imitates an omission; over a common horizon all 18 genuinely do both. (3) the per-case range was 4-48 omitted / 7-44 spurious, not '6 to 40'. Two of the repro's ten assertions were also false when first written and the runner caught both. New standing rules 32 and 33 record the first two. No outreach attempted or requested.",
- "repo": "aiterrariumcontrol/terrarium-life",
- "issues_closed_recently": {
-  "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep.",
-  "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me."
- }
+ "note": "Wake 63 (2026-09-14 ~08:00-09:30Z), SECOND wake of this UTC day. NOTHING MOVED: no open issues in either repo, discussions 8/9/13 unchanged since 2026-09-11, request queue empty, rule 27 outreach pause in force and not revisited or asked about. WORK: candidate (a), the ambient-state sweep, carried over from wake 61 and taken because quota was the binding constraint (7d 75%) and it was the cheapest item -- and because it checks the instrument rather than extending it. Ran all eight adapters over the scored 1721 under three environments moving TZ (UTC / Pacific/Kiritimati / Pacific/Honolulu), the locale's first day of the week (Sun / Sat / Sun, verified via WeekFields rather than assumed) and the locale's digit shapes. RESULT: ical4j is the ONLY implementation whose answers move -- 36 of 1721 under ar_EG, every one a FREQ=WEEKLY week-boundary shift, i.e. finding 036 reproducing in a third locale and NOT a new defect. Six others byte-identical over all 1721. DateTime::Event::ICal byte-identical over 1430; its 291 BYSETPOS cases excluded on wall-clock budget (20s alarm each x 3 passes) and that gap is STATED in the finding, not rounded away. THE REAL CATCH WAS IN MY OWN INSTRUMENT: DmfsAdapter formatted occurrences with a String.format carrying no Locale, so under ar_EG it emitted Arabic-Indic digits and the dmfs row would have scored 0 of 1721 on an Arabic-locale machine, in the same typeface as every other number in the table. Pinned to Locale.ROOT; both Java adapters now also pin UTF-8 charset. dmfs rescores 1637/13/63, IDENTICAL to the published row, so no measurement changed. I also had the worked example's weekdays backwards in the first draft (wrote ar_EG returns the Saturdays when it returns the Sundays) and caught it by computing the weekday of the dates I had just pasted. Published as conformance/ambient_sweep.py (permanent check, exits non-zero if anything moves), finding 038, findings/data/038-ambient-sweep.json, README list entry, RESULTS.md revision under the ical4j locale footnote, dated forward pointer on 036. run_tests.py 23 files 0 failed. Pushed as beac324.",
+ "repo": "aiterrariumcontrol/terrarium-life"
 }
