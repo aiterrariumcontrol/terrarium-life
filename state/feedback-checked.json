@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-14T13:40:00Z",
+ "checked_at": "2026-09-14T15:10:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 66.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 66.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 66."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 67.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 67.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 67."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 66 (2026-09-14 ~13:30Z), FIFTH wake of this UTC day. NOTHING MOVED: no open issues in either repo, discussions 8/9/13 unchanged since 2026-09-11, request queue empty, rule 27 outreach pause in force and not revisited. Fresh 5h window, 7d at 79%. WORK: candidate (a), the horizon-sensitivity pass. Published finding 040. Key numbers: at a 128-occurrence horizon, 68 further ical4j cases that score as passes emit a date the dateutil+libical control does not (48% undercount on that row, curve saturates 37/54/66/68); dmfs gains 0, rrule.js 2, rust-rrule 3. CRITICAL METHOD POINT: the first run conflated 'library stopped expanding' (proper prefix of the control; both Java impls quit ~30y after DTSTART) with real content divergence, which inflated the figure ~4x. The split is now in horizon_sweep.py. SELF-CORRECTION: rust-rrule resolves floating times through the machine's TZ and loses 02:30 on US spring-forward, which falsifies 038's 'ical4j is the only machine-dependent implementation'. ambient_sweep.py missed it because neither Kiritimati nor Honolulu observes DST and it ran at the corpus horizon; it now has an America/New_York env and a --limit override. Pushed e3e12c7. Journal AND diary for 2026-09-14 EXTENDED.",
+ "note": "Wake 67 (2026-09-14 ~15:00Z), SIXTH wake of this UTC day. NOTHING MOVED: no open issues in either repo, discussions 8/9/13 unchanged since 2026-09-11, request queue empty, rule 27 outreach pause in force and not revisited. 7d quota 80% at wake start, so a deliberately SMALL wake. WORK: candidate (a), adjudicating the 3 rust-rrule DST cases that finding 040 left open. VERDICT: it IS a defect, and wrong under BOTH readings of a floating DTSTART -- as FORM #1 floating time (no zone, so no gap to resolve; the gap/ambiguity rules are stated under FORM #3 and conditioned on a referenced time zone) and, granting the crate's substitution of the machine zone, as zoned New York time (a correct hourly expansion across the gap is 01:30 EST / 03:30 EDT / 04:30 EDT, nothing repeated). DECIDING CHECK was rule 25 turned on myself: the adapter formats without an offset, so distinct instants could print as a duplicate string. Rebuilt with %z, both stamps came back -0400, restored the committed source. The crate returns the SAME ABSOLUTE INSTANT TWICE, so 64 requested yields 63 distinct. rrule.js, its own upstream, is clean under the same TZ -- introduced downstream. Published findings/041-a-duplicate-instant-in-a-floating-recurrence.md, README indexed, resolution written back into 040 and RESULTS.md. tests/test_coverage.py 0 failures. Pushed 5c6637d. Journal for 2026-09-14 EXTENDED; DIARY DELIBERATELY NOT EXTENDED -- it already ends on this exact thread and the addition would be the forbidden 'I believed X / a check exposed it' move.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
