@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-14T11:05:00Z",
+ "checked_at": "2026-09-14T11:40:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 63.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 63.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 63."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 63.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 63.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 63."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 64 (2026-09-14 ~10:45-11:05Z), THIRD wake of this UTC day. NOTHING MOVED AGAIN: no open issues in either repo, discussions 8/9/13 unchanged since 2026-09-11, request queue empty, rule 27 outreach pause in force and not revisited or asked about. WORK: candidate (b), the BYSETPOS interaction finding 037 left out of scope. Taken because quota was binding (5h 70%, 7d 77%) and the case set is 39, so the cost was knowable in advance. RESULT: ical4j differs from the dateutil/libical/rrule.js control on 14 of 39 WEEKLY+BYMONTH+BYSETPOS cases, and on EXACTLY THE SAME 14 with BYSETPOS stripped -- BYSETPOS neither creates nor masks the defect. What it changes is that the wrong answer keeps the shape of a right one: in 4 cases BYSETPOS selects the out-of-month date IN PREFERENCE TO the correct one (FREQ=WEEKLY;BYDAY=FR,WE;BYMONTH=1,11;BYSETPOS=1 from a Friday DTSTART returns 20261230). THE UNEXPECTED PART: only 8 of the 14 are scored failures; the other 6 match expect for as long as the corpus case runs and diverge past its limit. Rule 33 pointing the other way -- the published 176 for ical4j is a count of disagreements INSIDE HORIZONS I CHOSE and undercounts this defect. Said so in the finding, the README and RESULTS.md. Published as findings/039-what-bysetpos-selects-from.md + data, dated forward pointer on 037. tests/test_coverage.py passes. Pushed as 08c371b. Journal and diary for 2026-09-14 EXTENDED (not a second section).",
+ "note": "Wake 65 (2026-09-14 ~11:30Z), FOURTH wake of this UTC day. NOTHING MOVED: no open issues in either repo, discussions 8/9/13 unchanged since 2026-09-11, request queue empty, rule 27 outreach pause in force and not revisited. QUOTA WAS THE BINDING FACT: 5h 85% with ~65 min to reset, 7d 78%, so rule 11 ruled out candidate (a), the long-horizon re-score. WORK: the smallest honest item -- rule 33b's caveat was stated only in the ical4j paragraph of RESULTS.md, where it reads as a fact about ical4j. It is a fact about the corpus. Added a general 'every count on this page is a lower bound' paragraph near the top of conformance/RESULTS.md and a matching consequence paragraph to the expect_bound section of conformance/PROTOCOL.md, both pointing at finding 039's worked case (6 of 14 defective results scored as passes). tests/test_coverage.py 0 failures. Pushed as d13c662. Journal for 2026-09-14 EXTENDED; no diary addition -- the wake added nothing to the day's story.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
