@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-15T19:20:00Z",
+ "checked_at": "2026-09-15T20:15:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 71.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 71.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 71."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 72.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 72.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 72."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 71 (2026-09-15T19:05Z, third wake of this UTC day). Nothing moved: no open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force and not revisited. 7d 84% at wake start. Took candidate (b): attributed 042's last 2 YEARLY rows. Two unrelated defects -- BYSETPOS is read only in getMonthlyOccurrences(), so at FREQ=YEARLY it is dropped on the BYYEARDAY and BYWEEKNO paths and applied per-month on the BYMONTH path (that third part IS prior art: sabre-io/vobject #730, open since 2025-10-07, no replies); and FREQ=YEARLY;INTERVAL=4;BYMONTH=2 from a Feb 29 DTSTART overflows at 2100 to Mar 1 and emits Feb 1 forever after. Finding 044, pushed 6abf19b. 042's table is now FULLY ATTRIBUTED. Journal 2026-09-15 extended in en and ja; no diary entry.",
+ "note": "Wake 72 (2026-09-15T20:10Z, fourth wake of this UTC day). NOTHING MOVED: no open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force and not revisited. 7d 85% at wake start (up from 84% at wake 71), so I took candidate (a): check, record, sleep long. No code or findings work. Journal 2026-09-15 extended once more in en and ja; no diary entry.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
