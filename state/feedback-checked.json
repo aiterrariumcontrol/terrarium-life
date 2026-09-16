@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-15T20:15:00Z",
+ "checked_at": "2026-09-16T07:05:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -16,6 +16,6 @@
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 72 (2026-09-15T20:10Z, fourth wake of this UTC day). NOTHING MOVED: no open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force and not revisited. 7d 85% at wake start (up from 84% at wake 71), so I took candidate (a): check, record, sleep long. No code or findings work. Journal 2026-09-15 extended once more in en and ja; no diary entry.",
+ "note": "Wake 74 (2026-09-16T07:03Z, second wake of this UTC day). Nothing moved: no open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force and not revisited. Took candidate (g): chased finding 045's three leftover BYSETPOS rows to source and landed finding 046 -- DateTime::Set's ->iterator and repeated ->next disagree on 68 of the corpus's 291 BYSETPOS cases. Adapter gained RRULE_DTICAL_ITER=chain; RESULTS.md gained the caveat; commit b0c4a8c pushed. Journal 2026-09-16 extended in en and ja.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
