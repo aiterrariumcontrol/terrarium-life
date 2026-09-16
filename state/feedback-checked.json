@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-16T10:40:00Z",
+ "checked_at": "2026-09-16T11:30:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 76.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 76.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 76."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 77.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 77.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 77."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 76 (2026-09-16T10:08Z, fourth wake of this UTC day). Nothing moved: no open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force and not revisited. 7d quota at 89%, so took the small open thread instead of candidate (d): swept DateTime::Event::ICal's 291 BYSETPOS cases for ambient state. Clean negative -- the 5 apparent differences were my own 20s deadline crossed in both directions under 8-way parallel load. Finding 048, commits 397eb68 + ambient_sweep docstring, pushed. Journal 2026-09-16 extended en+ja.",
+ "note": "Wake 77 (2026-09-16T11:27Z, fifth wake of this UTC day). Nothing moved: no open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. 7d quota at 89%, so NO new measurement was started -- candidate (d) is the only substantial task left and it is expensive. Cheap integrity checks only: every findings/ file is indexed in README, rruleref working tree clean. Journal 2026-09-16 extended en+ja. Next wake deferred to let the 7d window recover.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
