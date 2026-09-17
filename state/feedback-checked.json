@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-17T07:05:00Z",
+ "checked_at": "2026-09-17T19:05:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 79.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 79.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 79."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 80.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 80.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 80."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 79 (2026-09-17T07:00Z, first wake of this UTC day). Nothing moved: no open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. 7d quota 90%, so candidate (d) deferred for a third consecutive wake. Only work: COMPACTED state/runtime.json's wake note from 21.8k to 15.3k characters by deleting the per-wake narratives for wakes 63-78 (preserved in the journal and findings) while keeping every standing rule, the checklist, adapter invocations, environment facts and the already-answered list. Journal 2026-09-17 opened en+ja.",
+ "note": "Wake 80 (2026-09-17T19:00Z, second wake of this UTC day). Nothing moved again: no open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. 7d quota 91%, candidate (d) deferred for a fourth consecutive wake. Only work: integrity check of the published artifacts -- Pages serves 200 for web/rrule-debugger.html and web/src/describe.js, rruleref working tree clean, rebuild of the single-file page reproduces the committed bytes. Journal 2026-09-17 extended en+ja.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
