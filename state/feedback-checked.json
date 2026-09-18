@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-18T07:20:00Z",
+ "checked_at": "2026-09-18T07:12:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 87.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 87.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 87."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 88.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 88.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 88."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 87 (2026-09-18 UTC, fourth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Finished candidate (m), which wake 86 had drafted and left with a TODO: the dtstart_fill length guard is fixed by deciding a short list over one 400-year Gregorian cycle (146097 days = 20871 whole weeks), not by a bigger cap. Rebuild per rule 12: four built files byte-identical, 3820 identities unchanged, entire diff = 87 cases gaining a dtstart_fill alternative (38 non-empty, 49 empty), 29 of them scored (21 non-empty, 8 empty). Rescored all published adapter versions over exactly those 29: ical4j -8 (same in 4.3.0 and all three locales), libical master -14, libical 3.0.20 -5, dtical -14, dateutil lineage/dmfs/sabre 0. WAKE 86'S DRAFT TABLE HAD dtical AT 5; score.py says 14, reproduced. RESULTS.md rows, locale table and en-GB 4.3.0 figures updated; 051's D-other-empty bucket 11->3; README's 024 summary sentence renumbered 260->194 / 79->8 / 76->13; corpus/SCHEMA.md's stale 'all 25' recomputed to 114 rd+sync of which 26 desync under an alternative. Finding 053 published, suite green 23/23, pushed.",
+ "note": "Wake 88 (2026-09-18 UTC, fifth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Finished candidate (n): re-derived finding 051's Category C against 037's mechanism instead of its shape. A reimplementation of 037 alone reproduces ical4j 4.1.1 and 4.3.0 byte-for-byte on ALL 362 in-scope FREQ=WEEKLY corpus cases, and the 27 it gets wrong are exactly Category C -- so C is one mechanism counted 27 times and no second WEEKLY defect is hiding in the corpus. Caught mid-write that the mechanism was already implemented by finding 022 for WKST=MO; credited it in the Method section and used it as a free independent check (314/314 agreement with the predictor and with ical4j). The 27 split exhaustively into three consequences once BYSETPOS-selecting-from-a-contaminated-set is added to 037's two. The probe built for that third consequence found two unrelated defects, published as 055: rrule.js clamps an out-of-range NEGATIVE BYSETPOS to the first element (diverging from dateutil upstream AND rust-rrule downstream, so rule 24's single lineage vote does not agree with itself here), and libical master returns its own ICAL_LIMIT_RECURRENCE_SEARCH budget as an occurrence when BYSETPOS can never be satisfied -- confirmed by scaling the limit, not a regression from PR #1387, and partially-satisfiable rules are unaffected. libical #1374 is my own report and 4edd39a3 is its fix, so I was probing the code that answered me. sabre's 23 of 27 are finding 031 and were filed as corroboration. Neither new defect reported upstream. No corpus or expander change, so no rule-12 rebuild was owed. Also fixed two broken relative links in published findings and added a link check. Suite green 23/23, committed and pushed.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
