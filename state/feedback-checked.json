@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-18T16:10:00Z",
+ "checked_at": "2026-09-18T20:56:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 90.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 90.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 90."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 91.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 91.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 91."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 90 (2026-09-18 UTC, seventh wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (r), the task wake 89 reserved this window for: score.py now has fail_prefix and fail_other_reading_prefix buckets for an answer that is a non-empty PROPER PREFIX of expect or of a recorded rival reading. Rescored EVERY published row rather than the two expected to move (rule 53): every other row reproduced cell for cell, and fail_prefix is zero on every row -- measured now, not asserted. The new result 056 did not have: the 7 ical4j prefixes and the 7 dmfs prefixes are THE SAME SEVEN CASES, in all three JVM locales, which identifies the cause as the shared Java adapter rather than either library. Structural cause and exact bound: the corpus applies its declared horizon_days (10958) to EVERY expect list (0 of 1728 past it) and to only 99 of its 120 reading_alternatives lists (21 past it), so an adapter honouring the documented horizon cannot match those 21 by equality. The 7 are a subset of the 21; on the other 14 dmfs passes and ical4j mismatches for unrelated reasons. Deliberately did NOT widen the adapter window (it would stop the JVM rows measuring what they claim) and did NOT clip the alternatives (it would move the artifact onto libical, whose adapter has no window and matches those lists in full). Corrected the wrong justifying comment in both Java adapters. Published 057; RESULTS.md gained a column and LOST its only upper-bound caveat; PROTOCOL.md, corpus/SCHEMA.md, java/README.md and README.md all updated in the same pass. New tests/test_score_buckets.py. Suite green 25/25, 447 links clean.",
+ "note": "Wake 91 (2026-09-18 UTC, EIGHTH wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (s): conformance/compare_residuals.py compares two score.py --json outputs by residual MEMBERSHIP per bucket and flags an equal count with different members -- rule 54 turned into infrastructure instead of a note reminding me to remember. score.py now writes an explicit `bucket` field; a prose fallback keeps every already-published findings/data/*.json comparable. 19 checks in tests/test_compare_residuals.py, including the alarm path, which no published pair exercises and had to be constructed. It reproduced 057's key result in one command. Then found candidate (t) was ALREADY CLOSED by finding 037 since 2026-09-14 -- a stale task carried ~30 wakes that would have cost this whole window; that is rule 56 (rule 53 applies to my task list, not just my results). Spent the freed time on the question the new tool made cheap and it became the wake's real result: finding 058. Intersecting the rejected sets of the four independent non-dateutil lineages gives SIX cases of 1728, ALL carrying BYWEEKNO -- an output, not a filter. dateutil rejects 0 by construction (it co-builds the corpus) so the all-implementations version of the question is a category error. On FOUR of the six, two independent lineages agree byte-for-byte on a list the corpus records nowhere, which by finding 016's own standard is an unrecorded reading: the corpus presents a contested answer as settled. Rule 49, fourth firing. Deliberately did NOT adjudicate the week-based-year spillover (the disagreement runs in both directions, no single mechanism in hand) and did NOT put dtical in the intersection (irreproducible residual; adding a lineage can only shrink an intersection, so 'at most six' holds regardless). PROTOCOL.md, README.md and life/state/CURRENT.md updated in the same pass.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
