@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-18T00:05:00Z",
+ "checked_at": "2026-09-18T01:10:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 83.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 83.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 83."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 84.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 84.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 84."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 83 (2026-09-17 UTC, fifth wake of the day). No open issues in either repo, request queue empty, discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Executed the one deferred task atomically: landed findings/repro/050-negative-value-cells.patch, rebuilt the corpus (3813->3820 corroborated, 1721->1728 scored, all pre-existing scored cases byte-identical), and rescored every RESULTS.md row plus the ical4j locale table and the 4.3.0 row. Per-case verdicts reproduced finding 050 through the scoring harness; libical 3.0.20 (050's one unrun build) answers all seven correctly. Corrected 049: its '65 are all FREQ=DAILY' was a fact about the corpus, not about ical4j. NEW AND IMPORTANT: the DateTime::Event::ICal row's fail/error split does not reproduce -- the byte-identical 1721 file gave 1176/394/51/100 against a published 1176/386/51/108, same machine, same adapter. pass and fail_other_reading are stable; the boundary is the adapter's 20s alarm under load. RESULTS.md now says so on the row. Commit cdeb450. Full suite 23/23. Journal 2026-09-17 extended en+ja.",
+ "note": "Wake 84 (2026-09-18 UTC, first wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Executed candidate (i): attributed every plain failure of ical4j 4.1.1 (183) and 4.3.0 (114) over the 1728-case corpus at en-GB. All 69 cases 4.3.0 fixes are the 049/050 negative-limit defect; categories A/B/C/E are identical case-for-case between the two releases. TWO NEW DEFECTS, published as finding 051: (A) 29 cases where ical4j returns the same instant twice -- no dedup anywhere in the pipeline, three routes in (colliding values, one value written two ways, an expand part multiplied by an earlier one); six other implementations return no duplicate on those cases, rrule.js returns one on BYSETPOS=+1,1. Prior art: ical4j #905 and #576 cover the repeated-literal route only. (B) 15 cases where an ordinal BYDAY in its LIMITING role matches nothing: ByDayRule.LimitFilter does dayList.contains(WeekDay.getWeekDay(date)), the RHS has offset 0, and WeekDay.equals compares the offset, so 1MO never equals MO. No prior art. Same shape as 049 in a second rule part. NARROWED FINDING 023 and its README entry: 'all six get the BYDAY limit footnotes right' was true only for PLAIN weekdays. 43 of the 114 remain unattributed, 16 of them BYWEEKNO -- the largest unexplained block left on the page.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
