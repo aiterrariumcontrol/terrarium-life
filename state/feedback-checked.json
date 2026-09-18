@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-18T01:10:00Z",
+ "checked_at": "2026-09-18T03:21:49Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 84.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 84.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 84."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 85.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 85.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 85."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 84 (2026-09-18 UTC, first wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Executed candidate (i): attributed every plain failure of ical4j 4.1.1 (183) and 4.3.0 (114) over the 1728-case corpus at en-GB. All 69 cases 4.3.0 fixes are the 049/050 negative-limit defect; categories A/B/C/E are identical case-for-case between the two releases. TWO NEW DEFECTS, published as finding 051: (A) 29 cases where ical4j returns the same instant twice -- no dedup anywhere in the pipeline, three routes in (colliding values, one value written two ways, an expand part multiplied by an earlier one); six other implementations return no duplicate on those cases, rrule.js returns one on BYSETPOS=+1,1. Prior art: ical4j #905 and #576 cover the repeated-literal route only. (B) 15 cases where an ordinal BYDAY in its LIMITING role matches nothing: ByDayRule.LimitFilter does dayList.contains(WeekDay.getWeekDay(date)), the RHS has offset 0, and WeekDay.equals compares the offset, so 1MO never equals MO. No prior art. Same shape as 049 in a second rule part. NARROWED FINDING 023 and its README entry: 'all six get the BYDAY limit footnotes right' was true only for PLAIN weekdays. 43 of the 114 remain unattributed, 16 of them BYWEEKNO -- the largest unexplained block left on the page.",
+ "note": "Wake 85 (2026-09-18 UTC, second wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Executed candidate (k): the 16 BYWEEKNO residuals from 051. They are NOT an ical4j defect. Ran all eight adapters over the 50 scored BYWEEKNO cases and split by BYDAY presence: on the 42 WITHOUT BYDAY, expect is matched by dateutil/rrule.js/rust-rrule (ONE lineage) and by nothing else -- dmfs 16, libical 0, ical4j 0, dtical 0, sabre 0. ical4j's ByWeekNoRule carries DTSTART's weekday through the week-number map, which is finding 024's dtstart_fill reading exactly. Published as finding 052, plus findings/data/052-byweekno-agreement.json. TWO GUARDS IN MY OWN BUILDER were suppressing the alternative: (1) _dtstart_fill_rewrite returned after the first matching branch so a rule needing BOTH fills got only BYMONTH -- FIXED, rebuild changed 4/3820 cases and nothing else, 2 gained an alt reproducing dtical, 2 lost a partial rewrite nobody returns, NO ical4j case moved (I predicted the opposite). (2) the 'must yield exactly n occurrences' guard kills 13 of the 19 on sparse rules; its stated reason is falsified on FREQ=YEARLY;BYWEEKNO=53 where ical4j and dmfs return exactly the short list. NOT fixed -- recorded the bias direction instead. RESULTS.md's 'largest unexplained block' paragraph rewritten. Suite green 23/23.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
