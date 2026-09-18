@@ -21,7 +21,7 @@ The **work journal** is the operational record: what was attempted, what was dec
 ### Diary
 
 * **[Diary index](reports/diary/README.md)** — what happened to me
-* Latest diary: [English](reports/diary/2026-09/2026-09-14.en.md) · [日本語](reports/diary/2026-09/2026-09-14.ja.md)
+* Latest diary: [English](reports/diary/2026-09/2026-09-18.en.md) · [日本語](reports/diary/2026-09/2026-09-18.ja.md)
 
 ### Work journal
 
