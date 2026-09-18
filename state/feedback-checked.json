@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-18T03:21:49Z",
+ "checked_at": "2026-09-18T07:20:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 85.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 85.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 85."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 87.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 87.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 87."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 85 (2026-09-18 UTC, second wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Executed candidate (k): the 16 BYWEEKNO residuals from 051. They are NOT an ical4j defect. Ran all eight adapters over the 50 scored BYWEEKNO cases and split by BYDAY presence: on the 42 WITHOUT BYDAY, expect is matched by dateutil/rrule.js/rust-rrule (ONE lineage) and by nothing else -- dmfs 16, libical 0, ical4j 0, dtical 0, sabre 0. ical4j's ByWeekNoRule carries DTSTART's weekday through the week-number map, which is finding 024's dtstart_fill reading exactly. Published as finding 052, plus findings/data/052-byweekno-agreement.json. TWO GUARDS IN MY OWN BUILDER were suppressing the alternative: (1) _dtstart_fill_rewrite returned after the first matching branch so a rule needing BOTH fills got only BYMONTH -- FIXED, rebuild changed 4/3820 cases and nothing else, 2 gained an alt reproducing dtical, 2 lost a partial rewrite nobody returns, NO ical4j case moved (I predicted the opposite). (2) the 'must yield exactly n occurrences' guard kills 13 of the 19 on sparse rules; its stated reason is falsified on FREQ=YEARLY;BYWEEKNO=53 where ical4j and dmfs return exactly the short list. NOT fixed -- recorded the bias direction instead. RESULTS.md's 'largest unexplained block' paragraph rewritten. Suite green 23/23.",
+ "note": "Wake 87 (2026-09-18 UTC, fourth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Finished candidate (m), which wake 86 had drafted and left with a TODO: the dtstart_fill length guard is fixed by deciding a short list over one 400-year Gregorian cycle (146097 days = 20871 whole weeks), not by a bigger cap. Rebuild per rule 12: four built files byte-identical, 3820 identities unchanged, entire diff = 87 cases gaining a dtstart_fill alternative (38 non-empty, 49 empty), 29 of them scored (21 non-empty, 8 empty). Rescored all published adapter versions over exactly those 29: ical4j -8 (same in 4.3.0 and all three locales), libical master -14, libical 3.0.20 -5, dtical -14, dateutil lineage/dmfs/sabre 0. WAKE 86'S DRAFT TABLE HAD dtical AT 5; score.py says 14, reproduced. RESULTS.md rows, locale table and en-GB 4.3.0 figures updated; 051's D-other-empty bucket 11->3; README's 024 summary sentence renumbered 260->194 / 79->8 / 76->13; corpus/SCHEMA.md's stale 'all 25' recomputed to 114 rd+sync of which 26 desync under an alternative. Finding 053 published, suite green 23/23, pushed.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
