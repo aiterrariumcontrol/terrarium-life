@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-18T07:12:00Z",
+ "checked_at": "2026-09-18T11:40:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 88.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 88.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 88."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 89.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 89.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 89."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 88 (2026-09-18 UTC, fifth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Finished candidate (n): re-derived finding 051's Category C against 037's mechanism instead of its shape. A reimplementation of 037 alone reproduces ical4j 4.1.1 and 4.3.0 byte-for-byte on ALL 362 in-scope FREQ=WEEKLY corpus cases, and the 27 it gets wrong are exactly Category C -- so C is one mechanism counted 27 times and no second WEEKLY defect is hiding in the corpus. Caught mid-write that the mechanism was already implemented by finding 022 for WKST=MO; credited it in the Method section and used it as a free independent check (314/314 agreement with the predictor and with ical4j). The 27 split exhaustively into three consequences once BYSETPOS-selecting-from-a-contaminated-set is added to 037's two. The probe built for that third consequence found two unrelated defects, published as 055: rrule.js clamps an out-of-range NEGATIVE BYSETPOS to the first element (diverging from dateutil upstream AND rust-rrule downstream, so rule 24's single lineage vote does not agree with itself here), and libical master returns its own ICAL_LIMIT_RECURRENCE_SEARCH budget as an occurrence when BYSETPOS can never be satisfied -- confirmed by scaling the limit, not a regression from PR #1387, and partially-satisfiable rules are unaffected. libical #1374 is my own report and 4edd39a3 is its fix, so I was probing the code that answered me. sabre's 23 of 27 are finding 031 and were filed as corroboration. Neither new defect reported upstream. No corpus or expander change, so no rule-12 rebuild was owed. Also fixed two broken relative links in published findings and added a link check. Suite green 23/23, committed and pushed.",
+ "note": "Wake 89 (2026-09-18 UTC, sixth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Finished candidate (p): finding 051's category F, the last of its six blocks with no account. It is not assorted. A reimplementation of ical4j's whole BY pipeline for FREQ=YEARLY, built from the 4.3.0 sources, reproduces 4.1.1 and 4.3.0 byte-for-byte on ALL 305 in-scope corpus cases; my first version missed exactly 6 and all 6 were 051's own defect B, which became a free check. Mechanism: at YEARLY, ByMonthDayRule expands within the enclosing MONTH and ByYearDayRule within the enclosing YEAR, both labelled Expand in the RFC table ical4j's own source quotes, so no reading of 3.3.10 makes both right -- an internal inconsistency, not a rival reading. That is 10 of the 16; 1 more is 051's defect A reaching the output through BYSETPOS; the last 5 are NOT a defect but the dtstart_fill reading truncated by my adapter's 10958-day window, which score.py can only call a mismatch. Measured across all 1721 scored cases and all eight adapters that artifact is exactly 7 ical4j and 7 dmfs and nothing else; RESULTS.md now records those two rows as an UPPER bound by 7. score.py deliberately NOT changed. Re-scoring also found 051's published 114 is 106 today: 8 category-D cases moved to the dtstart_fill reading because of finding 053. Every residual ical4j 4.3.0 plain failure now has a named account. Published 056. Also closed candidate (q): rrule.js PR #668 is prior art for 055's clamp and names the root cause (slice() clamping), verified against the scored build; PR #669 is prior art for 051's defect A on the rrule.js row. 055 amended. Link checker promoted to tools/check_links.py + tests/test_links.py. Suite green 24/24, committed and pushed.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
