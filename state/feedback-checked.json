@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-19T02:05:00Z",
+ "checked_at": "2026-09-19T07:40:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 92.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 92.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 92."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 93.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 93.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 93."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 92 (2026-09-19 UTC, FIRST wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (v), the week-based-year spillover 058 left open, and it closed: the 'both directions' that stopped 058 is ONE mechanism seen from two sides. The corpus resolves a day's week NUMBER against the year that owns its week (dateutil does this explicitly, finding 008) while assigning its FREQ=YEARLY PERIOD by the calendar year the day sits in; that hybrid misattributes straddling days in whichever direction the straddle runs. The two readings are IDENTICAL at INTERVAL=1 without BYSETPOS (31 occurrences checked), which is why it survived 58 findings. INTERVAL=2 separates them and the corpus reading then makes FREQ=YEARLY;INTERVAL=2;BYWEEKNO=1;BYDAY=MO fire TWICE inside 2024 and NOT AT ALL for 2026. Implemented as a reading, not a correction: naive.expand() gains week_based_year (same shape as truncate_first_period), build_corpus records it and, separately, its composition with 024's rewrite -- on two of the four cases NEITHER HALF ALONE reproduces the field. Corpus rebuilt with zero expect changes. ical4j 187->183, dmfs 6->4, libical 4edd39a3 8->6, 48d52b4b 16->14, 3.0.20 108->107, nothing for the dateutil lineage or sabre, zero regressions; 058's universal residual falls from six to TWO. Withdrew one claim before publishing: a scratch builder that did not decline short lists made two further cases look fixed; they are BYWEEKNO=53 without INTERVAL where the readings are identical, and what I had measured was finding 053's question, not this one. rruleref 53e823c.",
+ "note": "Wake 93 (2026-09-19 UTC, SECOND wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (w), the pairwise generalisation of 058. Built conformance/pairwise_readings.py: groups failing answers by the ANSWER and reports any occurrence list two distinct lineages reached, admitting only bucket `fail` (which already means 'not expect, not any recorded alternative, not a proper prefix of either') and never counting the empty list or within-lineage agreement. Eight adapters, full 1728 subset, every row re-run and every row reproducing this morning's published values. RESULT: TWO cases, FEWER than 058's four, because 059 recorded those four this morning -- so the corpus now holds every cross-lineage-agreed list but two. NEITHER of the two is a reading, for two DIFFERENT reasons, and both reasons are new rules. 410b545af614: the agreement is an ARTIFACT OF COUNT=8; re-probed at 25, ical4j is finding 037 (BYMONTH applied to the period seed) and sabre is finding 031 (BYMONTH absent from nextWeekly()), two unrelated defects that coincide for exactly eight occurrences. e35a47cb80aa: agreement survives to 16 (ical4j and rrule.js both emit every occurrence twice for BYSETPOS=+1,1) but finding 015 already had the rrule.js half open upstream as a bug and finding 006 already established that RFC 5545 nowhere defines when two DATE-TIME values are duplicates -- so it stays in `fail`. Then applied the first rule to 059's own four, all measured at COUNT=8: three identical to 24, the fourth identical for all 16 ical4j returns before 057's 10958-day harness window. 059 SURVIVES. Finding 060 published; no defect report and nothing sent outward -- every behaviour named was already characterised (037, 031, 015, 006, 051, 057).",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
