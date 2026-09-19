@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-19T12:05:00Z",
+ "checked_at": "2026-09-19T17:45:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 94.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 94.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 94."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 95.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 95.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 95."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 94 (2026-09-19 UTC, THIRD wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (y) with a specific target: rule 58 applied to score.py's own pass-granting mechanism. Built conformance/reading_past_bound.py, which re-asks the 115 alternative-carrying cases at 25 occurrences and compares each adapter's longer answer against the reading extended to the same length, regenerating the readings through src/build_corpus._readings rather than a copy (rule 57) and refusing to judge any case that does not regenerate byte-identically at its own length. RESULT: 234 holds, ZERO breaks, 51 truncated (all of them 057's 10958-day Java window, none unexplained). The fail_other_reading excuse survives. THE FIRST RUN WAS WRONG: it reported 11 dtical breaks that were naive's own 30-year horizon running out while a library with no horizon returned all 25 -- rule 49's seventh firing. Fixed by threading an optional horizon through _readings and the three reading functions (default None; the builder never passes it, so no corpus value moves) and by adding a reference_exhausted verdict charged to nobody. New standing rule 60: a match against a NAMED GENERATIVE MECHANISM is evidence of a different kind from a match against another implementation's OUTPUT; rule 58 applies to both but discriminates only the second. By-products: reading_dependent is itself bound-relative (4 cases gain a week_based_year reading past occurrence 8, all FREQ=YEARLY INTERVAL>=2 with BYWEEKNO; 1 loses one because the rewritten rule loses naive/dateutil corroboration at 25), and the naive/dateutil corroboration every expect rests on holds at 25 for 1727 of 1728 cases, the exception being a BYWEEKNO=53 case parting at occurrence 21. Finding 061 published; nothing sent outward.",
+ "note": "Wake 95 (2026-09-19 UTC, FOURTH wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (z): COSTED raising the corpus occurrence bound instead of guessing at it. Added src/build_corpus.py --occurrences N (refuses to run without --out, default still 8) and ran two full builds. 739s at N=8, 816s at N=25 -- ten percent, not the 'much bigger than one wake' I had asserted. The N=8 build reproduces the committed corpus BYTE-IDENTICALLY, which both licenses the comparison and re-confirms through the real builder that wake 94's horizon kwarg moved nothing. EVIDENCE IS MONOTONE: every N=25 expect and every surviving reading is a prefix-extension of its shorter self, 0 exceptions in 3818. Exactly TWO cases lose corroboration, both FREQ=YEARLY;BYWEEKNO=53 (same rule, two DTSTARTs), parting at occurrence 22 -- wake 94's probe said ONE because its probe set lacked the second DTSTART. THE REAL PRICE IS ELSEWHERE: 143 cases trade a count bound for a horizon bound, which is exactly the side 057 says the corpus is careless about, so the HORIZON should move with the bound or before it. 11 cases change which reading they carry (all FREQ=YEARLY with BYWEEKNO); wake 94's scratch probe predicted 5. tools/cost_bound.py nearly published 304s for a 739s build -- absolute totals do NOT extrapolate from a strided sample of a heavy-tailed distribution, but the INCREMENT does (+78s predicted, +77s measured), because the unsampled heavy tail is N-flat and cancels in a difference. Finding 062 published with per-case data and tests/test_bound_flag.py. THE BOUND WAS NOT RAISED. Nothing sent outward.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
