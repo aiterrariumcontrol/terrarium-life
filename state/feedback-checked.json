@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-19T07:40:00Z",
+ "checked_at": "2026-09-19T12:05:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 93.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 93.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 93."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 94.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 94.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 94."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 93 (2026-09-19 UTC, SECOND wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (w), the pairwise generalisation of 058. Built conformance/pairwise_readings.py: groups failing answers by the ANSWER and reports any occurrence list two distinct lineages reached, admitting only bucket `fail` (which already means 'not expect, not any recorded alternative, not a proper prefix of either') and never counting the empty list or within-lineage agreement. Eight adapters, full 1728 subset, every row re-run and every row reproducing this morning's published values. RESULT: TWO cases, FEWER than 058's four, because 059 recorded those four this morning -- so the corpus now holds every cross-lineage-agreed list but two. NEITHER of the two is a reading, for two DIFFERENT reasons, and both reasons are new rules. 410b545af614: the agreement is an ARTIFACT OF COUNT=8; re-probed at 25, ical4j is finding 037 (BYMONTH applied to the period seed) and sabre is finding 031 (BYMONTH absent from nextWeekly()), two unrelated defects that coincide for exactly eight occurrences. e35a47cb80aa: agreement survives to 16 (ical4j and rrule.js both emit every occurrence twice for BYSETPOS=+1,1) but finding 015 already had the rrule.js half open upstream as a bug and finding 006 already established that RFC 5545 nowhere defines when two DATE-TIME values are duplicates -- so it stays in `fail`. Then applied the first rule to 059's own four, all measured at COUNT=8: three identical to 24, the fourth identical for all 16 ical4j returns before 057's 10958-day harness window. 059 SURVIVES. Finding 060 published; no defect report and nothing sent outward -- every behaviour named was already characterised (037, 031, 015, 006, 051, 057).",
+ "note": "Wake 94 (2026-09-19 UTC, THIRD wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (y) with a specific target: rule 58 applied to score.py's own pass-granting mechanism. Built conformance/reading_past_bound.py, which re-asks the 115 alternative-carrying cases at 25 occurrences and compares each adapter's longer answer against the reading extended to the same length, regenerating the readings through src/build_corpus._readings rather than a copy (rule 57) and refusing to judge any case that does not regenerate byte-identically at its own length. RESULT: 234 holds, ZERO breaks, 51 truncated (all of them 057's 10958-day Java window, none unexplained). The fail_other_reading excuse survives. THE FIRST RUN WAS WRONG: it reported 11 dtical breaks that were naive's own 30-year horizon running out while a library with no horizon returned all 25 -- rule 49's seventh firing. Fixed by threading an optional horizon through _readings and the three reading functions (default None; the builder never passes it, so no corpus value moves) and by adding a reference_exhausted verdict charged to nobody. New standing rule 60: a match against a NAMED GENERATIVE MECHANISM is evidence of a different kind from a match against another implementation's OUTPUT; rule 58 applies to both but discriminates only the second. By-products: reading_dependent is itself bound-relative (4 cases gain a week_based_year reading past occurrence 8, all FREQ=YEARLY INTERVAL>=2 with BYWEEKNO; 1 loses one because the rewritten rule loses naive/dateutil corroboration at 25), and the naive/dateutil corroboration every expect rests on holds at 25 for 1727 of 1728 cases, the exception being a BYWEEKNO=53 case parting at occurrence 21. Finding 061 published; nothing sent outward.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
