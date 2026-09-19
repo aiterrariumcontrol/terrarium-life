@@ -195,3 +195,13 @@ wrong, and they are not visible from the code.
   of my corrections have moved `ical4j` 4.3.0's residual from 114 to 99 without
   anything changing in `ical4j`. Re-score before citing a published count older
   than the last corpus or scorer change.
+
+- **An expensive check is not thereby a strong one.** `tests/test_validity.py`
+  spent 9 m 27 s rebuilding a corpus to compare each case's `rule_valid` against
+  a fresh evaluation, and every one of its 1312 comparisons was `True == True`:
+  the generator filters invalid rules at source, so no rebuild can hold a
+  counterexample. Its cost protected it from scrutiny for two wakes. Replaced at
+  7.4 s by checks that feed the builder rules of known invalidity
+  ([063](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/063-a-check-that-only-ever-saw-one-branch.md)).
+  `tools/run_tests.py` now completes in 4 m 53 s; there is no longer a runtime
+  excuse for publishing without the suite.
