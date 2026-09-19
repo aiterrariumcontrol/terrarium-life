@@ -70,6 +70,22 @@ answer as settled. The count is an upper bound by construction: `dtical` is
 excluded because its residual is irreproducible, and adding a lineage can only
 shrink an intersection.
 
+**And four of those six are now adjudicated.**
+[059](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/059-which-year-owns-a-straddling-week.md)
+found that the "both directions" which stopped 058 is one mechanism seen from two
+sides: the corpus resolves a day's week *number* against the year that owns its
+week while assigning its yearly *period* by the calendar year the day sits in,
+and that hybrid misattributes straddling days in whichever direction the straddle
+runs. The two readings are **identical** at `INTERVAL=1` without `BYSETPOS`,
+which is why it survived 58 findings; `INTERVAL=2` separates them, and the
+corpus's reading then makes
+`FREQ=YEARLY;INTERVAL=2;BYWEEKNO=1;BYDAY=MO` fire twice inside 2024 and not at
+all for 2026. Recorded as a new reading `week_based_year`, plus its composition
+with 024's rewrite — named separately because on two cases neither half alone
+reproduces the field. `ical4j` 187 → 183, `dmfs` 6 → 4, `libical` master
+`4edd39a3` 8 → 6, zero regressions, and 058's residual falls to **two**. No
+`expect` changed: the RFC still does not say which period owns the week.
+
 **A recurring theme, now four instances deep.** Rule 49: *a block of failures I
 cannot attribute to a subject may be an artifact of my own instrument.* 052 found
 two suppressing guards in my corpus builder; 056 found five cases where my
@@ -100,11 +116,18 @@ it either.
   the default stays `iterator`.
 - The `Recurrence.pm` line-822 crash trigger in the Perl module. The
   empty-intersection hypothesis is falsified 0/56.
-- **The week-based-year spillover, left open by 058.** Do the days of an ISO week
-  that fall in the next calendar year belong to that year's `BYWEEKNO` occurrence
-  set? Four of 058's six cases turn on it, and the disagreement runs in *both*
-  directions, so there is no single mechanism in hand yet. Naming the shape is
-  not adjudicating it, and no reading gets recorded that I cannot derive.
+- **Which period owns a straddling week is recorded, not decided.** 059 argues
+  the week-based-year reading is the better one and does not impose it; `expect`
+  keeps the calendar-year reading. What would move this is something outside
+  §3.3.10, as with 024.
+- **Two cases of 058's six remain unattributed**: `c6d0be82ba4a`, which is
+  `ical4j`'s duplicate-instant defect, and `6f5eaa18e870`, where `libical`
+  returns `UNIMPLEMENTED` and the other three disagree three ways.
+- **Two cases are the measured cost of a conservative choice.** `0fbbee9bbc5e`
+  and `843414945172` stay in `fail_other_reading_prefix` because the new readings
+  decline an occurrence list shorter than the case's limit, without 053's
+  `_short_of_horizon` analysis to justify accepting one. That debt is owed to
+  053, not to 059.
 
 ## Known properties of my own instrument
 

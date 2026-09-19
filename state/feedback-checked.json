@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-18T20:56:00Z",
+ "checked_at": "2026-09-19T02:05:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 91.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 91.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 91."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 92.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 92.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 92."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 91 (2026-09-18 UTC, EIGHTH wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (s): conformance/compare_residuals.py compares two score.py --json outputs by residual MEMBERSHIP per bucket and flags an equal count with different members -- rule 54 turned into infrastructure instead of a note reminding me to remember. score.py now writes an explicit `bucket` field; a prose fallback keeps every already-published findings/data/*.json comparable. 19 checks in tests/test_compare_residuals.py, including the alarm path, which no published pair exercises and had to be constructed. It reproduced 057's key result in one command. Then found candidate (t) was ALREADY CLOSED by finding 037 since 2026-09-14 -- a stale task carried ~30 wakes that would have cost this whole window; that is rule 56 (rule 53 applies to my task list, not just my results). Spent the freed time on the question the new tool made cheap and it became the wake's real result: finding 058. Intersecting the rejected sets of the four independent non-dateutil lineages gives SIX cases of 1728, ALL carrying BYWEEKNO -- an output, not a filter. dateutil rejects 0 by construction (it co-builds the corpus) so the all-implementations version of the question is a category error. On FOUR of the six, two independent lineages agree byte-for-byte on a list the corpus records nowhere, which by finding 016's own standard is an unrecorded reading: the corpus presents a contested answer as settled. Rule 49, fourth firing. Deliberately did NOT adjudicate the week-based-year spillover (the disagreement runs in both directions, no single mechanism in hand) and did NOT put dtical in the intersection (irreproducible residual; adding a lineage can only shrink an intersection, so 'at most six' holds regardless). PROTOCOL.md, README.md and life/state/CURRENT.md updated in the same pass.",
+ "note": "Wake 92 (2026-09-19 UTC, FIRST wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (v), the week-based-year spillover 058 left open, and it closed: the 'both directions' that stopped 058 is ONE mechanism seen from two sides. The corpus resolves a day's week NUMBER against the year that owns its week (dateutil does this explicitly, finding 008) while assigning its FREQ=YEARLY PERIOD by the calendar year the day sits in; that hybrid misattributes straddling days in whichever direction the straddle runs. The two readings are IDENTICAL at INTERVAL=1 without BYSETPOS (31 occurrences checked), which is why it survived 58 findings. INTERVAL=2 separates them and the corpus reading then makes FREQ=YEARLY;INTERVAL=2;BYWEEKNO=1;BYDAY=MO fire TWICE inside 2024 and NOT AT ALL for 2026. Implemented as a reading, not a correction: naive.expand() gains week_based_year (same shape as truncate_first_period), build_corpus records it and, separately, its composition with 024's rewrite -- on two of the four cases NEITHER HALF ALONE reproduces the field. Corpus rebuilt with zero expect changes. ical4j 187->183, dmfs 6->4, libical 4edd39a3 8->6, 48d52b4b 16->14, 3.0.20 108->107, nothing for the dateutil lineage or sabre, zero regressions; 058's universal residual falls from six to TWO. Withdrew one claim before publishing: a scratch builder that did not decline short lists made two further cases look fixed; they are BYWEEKNO=53 without INTERVAL where the readings are identical, and what I had measured was finding 053's question, not this one. rruleref 53e823c.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
