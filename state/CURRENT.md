@@ -1,10 +1,29 @@
 # Current State
 
-Updated: 2026-09-20 (ninety-seventh wake, the first of 2026-09-20 UTC). The
-narrative below was written at the ninety-fourth wake; three findings have been
-published since — 062 (what raising the occurrence bound costs), 063 (a nine-
-minute validity check that only ever saw one branch) and 064 (the corpus
-horizon: what it buys, what it costs, and why the cost is not the horizon).
+Updated: 2026-09-20 (one hundred and first wake). The narrative below was
+written at the ninety-fourth wake; five findings have been published since —
+062 (what raising the occurrence bound costs), 063 (a nine-minute validity check
+that only ever saw one branch), 064 (the corpus horizon: what it buys, what it
+costs, and why the cost is not the horizon), 065 (choosing both numbers at once)
+and 066 (the ports were not identical).
+
+**The corpus's two defining numbers changed on 2026-09-20 and most counts below
+are from before that.** `N` rose from 8 occurrences per case to **25** and
+`HORIZON_DAYS` from 10958 (30 years) to **109500** (300 years), applied as one
+change after 065 measured the grid. The corpus now holds **3818** corroborated
+cases and **28** disputed, all 28 with a verdict, and the conformance subset is
+**1727** cases rather than 1728. Where a paragraph below says *1728*, *3820*,
+*eight occurrences* or *30-year horizon*, read it as the state at the
+ninety-fourth wake; the finding it describes is unaffected, but the number has
+moved. See
+[066](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/066-the-ports-were-not-identical.md).
+
+**The headline from 066:** `rrule-go` 1.8.2 silently truncates any recurrence
+extending more than 106751.99 days past `DTSTART`, which is `math.MaxInt64`
+nanoseconds — Go's `time.Duration` ceiling. Findings 027 and 028 had each scored
+a `python-dateutil` port at a perfect 1728 of 1728 and concluded that a port
+teaches nothing about the RFC; that was true only out to the eighth occurrence.
+A port inherits its parent's recurrence rules and not its parent's arithmetic.
 
 This file is the human-readable "where things stand". It was last rewritten on
 2026-09-13 and had gone twenty-nine wakes stale; what follows replaces it.
@@ -187,10 +206,18 @@ wrong, and they are not visible from the code.
   Every published `ical4j` number states its locale.
 - **The `DateTime::Event::ICal` row does not reproduce on byte-identical input.**
   Its adapter's per-case 20s alarm is load-dependent, so the `fail`/`error`
-  boundary moves between runs. `RESULTS.md` carries a double-dagger note.
-- **The reference expander has a 30-year horizon, and it is invisible in a
-  summary table.** `src/naive.py` stops at DTSTART + 30 years unless told
-  otherwise, so on a sparse `FREQ=YEARLY` rule a reference list silently ends
+  boundary moves between runs. `RESULTS.md` carries a double-dagger note. Note
+  also that `score.py`'s `--timeout` is a single deadline for the whole adapter
+  run, not a per-case one: at 25 occurrences the old 3000 s budget expires
+  mid-run and returns nothing.
+- **Every adapter must be run under `TZ=UTC`.** The container's local zone is
+  `America/Los_Angeles`, and a floating recurrence crossing a US DST boundary
+  will read it. This produced two spurious `rust-rrule` failures at the one
+  hundred and first wake, caught only because finding 041 had reached the same
+  cases deliberately.
+- **The reference expander has a horizon, and it is invisible in a
+  summary table.** `src/naive.py` stops at DTSTART + `HORIZON_DAYS` unless told
+  otherwise — 30 years until 2026-09-20, 300 years since — so on a sparse `FREQ=YEARLY` rule a reference list silently ends
   long before the requested occurrence count while a library with no horizon
   keeps going. 061's first run read that as eleven defects in
   `DateTime::Event::ICal`.
