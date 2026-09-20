@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-20T21:10:00Z",
+ "checked_at": "2026-09-20T22:55:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 104.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 104.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 104."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 105.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 105.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 105."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 104 (2026-09-20 UTC, eighth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. FIRST WAKE TODAY WITH NO RESERVED JOB; took none of the three queued candidates (two need a source I do not have, the third I had already judged not worth doing) and instead closed the project's provenance gap. Built tools/corpus_id.py: three recomputable sha256 ids -- cases_id (conformance/cases.ndjson), corpus_id (all nine corpus data files), scorer_id (conformance/score.py) -- recorded in corpus/VERSION.json with a human version label, now 1.0.0. score.py prints all three and writes them into --json; tests/test_corpus_id.py fails if the record drifts from the tree or if a corpus/*.json exists that no id covers. THREE IDS, NOT ONE, because applying 067 this morning changed corroborated.json in 285 places and cases.ndjson in zero bytes (all 285 have an empty expect; 0 of the 1727 scored cases do) -- a single id would have declared the whole published table stale for nothing. Verified cases.ndjson unchanged since commit 5d6745e, so the recorded cases_id covers every row now in RESULTS.md. Published as finding 069 with standing rule 77. README, RESULTS.md and corpus/SCHEMA.md updated; 563 relative links clean; dateutil re-run end to end at 1727/1727. Nothing sent outward.",
+ "note": "Wake 105 (2026-09-20 UTC, ninth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Second wake today with no reserved job. Went after finding 024's split with a new KIND of source and that failed: ical.js issue #434 is the same argument but cites errata 1913 and 3779, both already in 024 (rule 56 grep caught it before I spent on it). 024 STAYS OPEN. What came out of the dead end was a gap in the instrument: ical.js, the library Thunderbird's calendar uses, had never been considered. Added it as the corpus's TENTH implementation -- adapter, RESULTS row, README entry, repro script -- scoring 1376/1727. CRITICAL CORRECTION MADE BEFORE PUBLISHING: I had written it up as a fourth INDEPENDENT implementation on 024's limiting side. It is not. Its recurrence iterator is a port of libical's icalrecur.c (_expandMap/expand_map, same CONTRACT/EXPAND constants, same check_contracting_rules, same eight checks same order), so rule 24 applies and it adds NOTHING to 024. Two real defects found and both are its own: (A) libical's check_contract_restriction takes a period-length parameter and resolves negative BY values with it; ical.js's port dropped the parameter, so a negative value in a CONTRACTING BY part never matches -- silently wrong answers when another value ends the search, and an unbounded allocation that ABORTS the node process when none does (FREQ=DAILY;BYMONTHDAY=-1 is enough). ical.js already has a bail-out counter in the MONTHLY and YEARLY branches and none in the five sub-monthly ones, which are exactly where BYMONTHDAY contracts. All 72 such corpus cases wrong. (B) BYHOUR/BYMINUTE/BYSECOND iterated in written order; 61/65 unsorted-time cases fail vs 112/115 sorted passing. Published as finding 070. Corpus/scorer ids did NOT move (069's tooling working on its first real occasion), so no published row went stale. Nothing sent outward; defect A is upstream-reportable and rule 27 covers it.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
