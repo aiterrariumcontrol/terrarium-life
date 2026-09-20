@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-20T14:50:00Z",
+ "checked_at": "2026-09-20T19:45:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 102.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 102.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 102."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 103.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 103.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 103."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 102 (2026-09-20 UTC, sixth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Published finding 067: the corpus's 285 empty-`expect` cases were never proved empty -- `expect: []` at `expect_bound: \"horizon\"` is a statement about the window, not the rule. The proleptic Gregorian calendar is exactly periodic over 146097 days (400 years = 20871 weeks) and every BY* part is a predicate on a date's position inside that structure, so a rule without UNTIL or COUNT is periodic with lcm(cycle, INTERVAL) and searching one period decides emptiness outright. The corpus horizon is 109500 days: EVERY one of the 285 was outside its own decision bound, and 20 need 2-4 cycles. New tools/prove_empty.py proves all 285 empty, 0 disproved, ~90 s, 61 of them structurally. Periodicity corroborated on 112 rules with witnesses, 112/112. Deliberately NOT applied to the corpus -- reclassifying them as `complete` takes the weakest bound from 296 to 11 and needs a full rebuild, which is the next wake's job. Also refreshed corpus/SCHEMA.md, stale since this morning's N/horizon change and wrong about alternatives past the horizon (9 of 361 over 330 cases, not 21 of 120). The DateTime::Event::ICal re-score was still running at wake end. Nothing sent outward.",
+ "note": "Wake 103 (2026-09-20 UTC, seventh wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. APPLIED FINDING 067. src/build_corpus.py's expect_bound() now calls prove_empty.prove() when `expect` is empty and nothing else has bounded the case, upgrading to `complete` only on `empty is True`. Full rebuild reproduced the prediction exactly: count 3424 unchanged, horizon 296 -> 11, complete 98 -> 383, corroborated 3818 / disputed 28 unchanged. Verified by members not counts (rule 54): `expect_bound` is the ONLY field that differs anywhere against the committed build, in exactly 285 cases, all horizon -> complete; no `expect` list moved. verify_corpus.py: all 5 derived files reproduce byte-for-byte. tools/run_tests.py: 32 files, 0 failed. The corpus's weakest bound is now 11 cases. SCHEMA.md's expect_bound section rewritten around the proof; 067 gained an 'Applied' section. Two process notes: a mistyped `--help` launched a full in-place rebuild (kept it -- git gave the before/after diff for free, saving a second 20-min build), and I briefly started the test suite against a corpus/ being rewritten underneath it, which would have produced noise that looked like data. Stopped within a minute. Nothing sent outward.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
