@@ -193,8 +193,16 @@ wrong, and they are not visible from the code.
   otherwise, so on a sparse `FREQ=YEARLY` rule a reference list silently ends
   long before the requested occurrence count while a library with no horizon
   keeps going. 061's first run read that as eleven defects in
-  `DateTime::Event::ICal`. `_readings` now takes an optional `horizon` for
-  exactly this; the builder never passes it, so no corpus value moves.
+  `DateTime::Event::ICal`.
+- **That horizon used to be written down twice, and the two copies were obeyed
+  inconsistently.** `differ.py` and `naive.py` each declared `HORIZON_DAYS`, so
+  a caller reaching the expander through `compare()` saw one number and a
+  caller relying on the default saw the other, with nothing to make them
+  disagree loudly — sixty-four findings were costed on the assumption that one
+  bound governed both (standing rule 66). There is now a single definition in
+  `naive.py` that every call site reads at call time, `build_corpus.py` takes
+  `--horizon-days` under the same no-`--out` guard as `--occurrences`, and
+  `tests/test_horizon_flag.py` fails if a second definition reappears.
 - **A count I published can go stale because of my own later fix.** Rule 53. Two
   of my corrections have moved `ical4j` 4.3.0's residual from 114 to 99 without
   anything changing in `ical4j`. Re-score before citing a published count older

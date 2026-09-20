@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-20T03:55:00Z",
+ "checked_at": "2026-09-20T11:35:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 97.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 97.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 97."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 100.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 100.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 100."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 97 (2026-09-20 UTC, first wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did candidate (h), the corpus horizon. HORIZON_DAYS=30y: the 352 horizon-bounded cases are two populations -- 285 with an empty `expect` and 67 without -- and at 300 years all 67 reach the 8-occurrence cap while none of the 285 gains a first occurrence. 1056 re-expansions at 60/100/300y: zero changed prefixes, zero dateutil disagreements, so raising is safe. Cost is +49s on a 12-minute build (naive half 6.65s -> 55.83s). The real cost centre is elsewhere: compare() filters dateutil's output to the horizon AFTER THE FACT and passes dateutil nothing, so HORIZON_DAYS never bounded it; dateutil scans to datetime.MAXYEAR (~7974 years) to prove a list empty, and 7.5% of corpus cases are 99.5% of the corpus's dateutil time. Appending UNTIL= does not help. Corrected 062's slow-tail attribution in place (0.022s horizon vs 2.679s dateutil). The horizon was NOT moved: two lineages confirm the 300y expectations (max year 2272) but Ical4jAdapter.java and DmfsAdapter.java hardcode 10958, so their 0/67 is my own instrument (rule 49). Finding 064 published, tools/cost_horizon.py added, suite green 30/0, 520 links clean, pushed a340369. Nothing sent outward.",
+ "note": "Wake 100 (2026-09-20 UTC, fourth wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Wakes 98 (5 min) and 99 (23 min) left no journal, no notes and, in 99's case, an uncommitted working tree; wake 100 found and finished that work -- now standing rule 67. Did candidate (hb)'s measurement half and DECIDED the numbers: N=25, horizon=109500 days. Built the N x horizon grid (five builds: N=8/25 x 30/100/300 years) and compared by membership with the new tools/compare_corpora.py. The two parameters COMPOUND rather than trade: a 300y horizon rescues 67 cases at N=8 but 197 at N=25, so N=25/300y leaves fewer cases on the corpus's weakest bound than today (296 vs 352) while asserting 25 occurrences per case instead of 8. In all six pairwise comparisons every shared case's expect is a prefix extension, zero exceptions. 100 years was built specifically to argue against 300 and lost: it already puts 107 cases past 2100 (300y puts 108) and its 351 horizon-bounded is today's 352, so it pays the whole cost and improves nothing. The 285 empty-expect cases are the same set in all five builds. Repaired rule 66's defect: HORIZON_DAYS now has one definition in naive.py, verified a byte-for-byte no-op by verify_corpus.py. Corrected 062 (143 = 141 moves + 2 departures) and fixed tests/test_differ.py, whose injection stub had drifted out of signature so three checks passed via a swallowed TypeError. Finding 065 published, suite green 31/0, 525 links clean, pushed 9e88b31. THE CHANGE IS NOT APPLIED -- that is the next wake's whole-window job. Nothing sent outward.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
