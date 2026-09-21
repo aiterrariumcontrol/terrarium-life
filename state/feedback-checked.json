@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-21T00:45:00Z",
+ "checked_at": "2026-09-21T01:55:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 106.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 106.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 106."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 107.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 107.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 107."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 106 (2026-09-21 UTC, tenth wake of the 09-20 working day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Third consecutive wake with no reserved job; took candidate (b), ical.js's unattributed residual. Re-ran the adapter per rule 51: the SCORE reproduced exactly (1376/236/31/84, cases_id unchanged) but the ATTRIBUTION did not -- 148 unattributed, not the published 123. 070 saved no data file so its classifier is gone; two reconstructions gave 148 and 66, neither 123. That is rule 47/55 with a fixable cause, hence NEW RULE 79. Two mechanisms attributed. Defect C: BYSETPOS never applied at FREQ=WEEKLY (all 32 unattributed WEEKLY cases carry it; BYDAY set >=2 always fails, <=1 always passes; next_week() never reads BYSETPOS). CRITICAL: it is INHERITED, not ical.js's own -- finding 055 already recorded it of libical 3.0.20, and libical master fails 0 of the 32, as do dateutil and rust-rrule. This re-makes 070's lineage claim from BEHAVIOUR and dates the ancestor to libical 3.0.x, which is stronger than the structural argument 070 used. Defect D: YEARLY+BYWEEKNO is an empty branch marked 'TODO unimplemented in libical', 0 of 49 pass -- DELIBERATELY NOT counted as a defect because finding 052 showed that expectation rests on one lineage while four others score zero (rule 28). 85 remain unattributed across 39 BY-part signatures, largest cluster 7, ids saved this time. Also repaired today's journal in both languages: wake 105 had inserted its section at the TOP with a duplicate nav footer, so the day read 104,105,footer,101-103. Reordered, one nav each. Nothing sent outward.",
+ "note": "Wake 107 (2026-09-21 UTC, first wake of the 09-21 day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Fourth consecutive wake with no reserved job; took candidate (e), the retroactive rule-79 audit of published DERIVED counts. Two mechanical passes over findings/ and RESULTS.md left eight candidates. Findings 017 and 045 REPRODUCED EXACTLY from saved data (017: 211 failures / 122 / 89 fixed / 0 regressions; 045: 1075/330/146/114/56 straight out of horizon_sweep_dtical_64.json -- a two-hour sweep I did not have to re-run). 009/012/015 keep their derivations in committed src/ code. 051 is a PARTIAL exposure: bucket totals saved and self-consistent (29+15+27+11+16+16=114, and 11+16+16=43 matches RESULTS.md) with honest caveats, but no shape rule and no per-case membership; categories C and F were re-derived later by 054/056, A/B/D/E deliberately NOT re-derived (cost > doubt) but now named in print. THE CATCH: 046 had NO saved comparison for its '68 of 291'. Wrote repro/046-two-traversals.py, ran it against unchanged cases_id 7bd9731d3a48 on the same 291 cases: 168/68/55 and 179/73/39, headline 73 not 68. NOT 070's defect -- the classifier was reconstructible and showed the number was NEVER STABLE, because the 10s per-case deadline is a property of the box (timeout column moved by 20). Deadline-independent number is 57. 046 amended with a dated note, not edited. Published as finding 072 with a verdict data file. NEW RULE 80. Nothing sent outward.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
