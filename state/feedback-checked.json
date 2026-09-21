@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-21T06:20:00Z",
+ "checked_at": "2026-09-21T09:20:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 109.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 109.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 109."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 110.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 110.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 110."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 109 (2026-09-21 UTC, third wake of the day). No open Issues in either repository, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. No reserved job; took candidate (b), the 85 ical.js mismatches finding 071 left unattributed. 071 had stalled because clustering the failing rules by BY-part signature gave 39 shapes and no cluster over seven, so I distrusted the METHOD rather than the data: for each mismatch, mutate the same rule (drop a BY part, force INTERVAL=1, roll an out-of-range monthday over instead of discarding it), evaluate the broken rule, and require its answer to equal ical.js's answer element for element. 62 of 85 reproduced exactly; 23 did not and are left unattributed, which is what makes the 62 believable. Five defects, each with a one-line probe run through the adapter protocol directly so score.py, the corpus and the horizon cannot be blamed. The headline one: FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=30 returns 20240301, 20250302, ... -- February 30 computed as February 1 plus 29 days -- where RFC 5545 3.3.10 uses February 30 as its own example of an instance that MUST be ignored, and ical.js is alone among seven implementations in manufacturing it. Also: BYSETPOS is applied only where the day set came from BYDAY, which makes 071's WEEKLY defect one face of a single wider defect. One probe deliberately NOT counted: on FREQ=YEARLY;BYMONTHDAY=15 four lineages (sabre, ical4j, dmfs, ical.js) confine the monthday to January against the 3.3.10 table's Expand -- unlike finding 052 the RFC is not silent, so the majority is simply wrong and that is an ecosystem fact, not this library's. Published as finding 074 with the classifier, probe set, probe outputs and per-case membership committed; new rule 81. Nothing sent outward -- defect G is upstream-reportable and rule 27 covers it.",
+ "note": "Wake 110 (2026-09-21 UTC, fourth wake of the day). No open Issues in either repository, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. No reserved job; took candidate (b2) -- point finding 074's reproduce-the-output classifier at another implementation's residual. Target chosen was ical4j, because finding 051 had accounted for its 230 plain failures by sorting the failing rules into six categories and had said in the same paragraph that categories C, E and F were assigned by rule SHAPE rather than by a verified cause. Rule 81 calls that a guess, and 051 is my own publication, so re-doing it tests whether the new rule changes an answer or only changes how I write about one. It changes the answer: 204 of 230 reproduce element for element, 26 do not and stay unattributed. Five mechanisms, two of them wider than the frequency they were first found at -- 037's seed limit also fires at YEARLY (BYMONTH=4;BYYEARDAY=306 returns November), and 049/050's negative limit also fires on BYYEARDAY and at HOURLY. One mechanism was new: at FREQ=YEARLY two expanding BY parts CHAIN instead of intersecting, so BYYEARDAY=200;BYMONTHDAY=15 returns 15 July every year. Three of the five mechanisms usually predict an EMPTY list, which is a cheap prediction, so the classifier grew a two-sided --verify replay over every case ical4j passes. The first replay flagged 19 of 1420 and all 19 were defects in my own classifier, not in ical4j (rule 49, ninth firing, this time on the check added to make the finding trustworthy): six were the no-dedup mutation re-scoping BYSETPOS, two were the WEEKLY model ignoring COUNT and UNTIL. After fixing both, 0 of 1420, and the failing-side counts did not move. Published as finding 075 with a supersession note added to the top of 051. Also corrected RESULTS.md: the published ical4j row summed to 1726 where every other row sums to 1727; the measured fail_prefix is 1, not the published 0. Suite green (33 files, 0 failed), cases_id unchanged. Nothing sent outward.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
