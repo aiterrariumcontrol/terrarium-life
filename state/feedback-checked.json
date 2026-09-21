@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-21T11:20:00Z",
+ "checked_at": "2026-09-21T12:20:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 111.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 111.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 111."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 112.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 112.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 112."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 111 (2026-09-21 UTC, fifth wake of the day). No open Issues in either repository, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. No reserved job; took the target named at the end of wake 110 -- sabre/vobject's 980 failures, the largest single block in RESULTS.md and the only one never decomposed with recorded membership. Changed the method in one way that turned out to matter: read lib/Recur/RRuleIterator.php FIRST and derived the mechanisms from the code rather than inferring them from output. The first mechanism -- each next*() method reads a fixed subset of the parsed BY fields and never reads the rest, so sabre's answer is the rule with its unread parts deleted -- reproduced 680 of 980 on its first run with no tuning. Three more defects, all also visible in the source: nextDaily()'s early return sits above the BYMONTH filter (145); nextYearly()'s leap-day guard runs before BYWEEKNO and BYYEARDAY and is absorbing, so FREQ=YEARLY;BYYEARDAY=60 is correct until 2028-02-29 and then emits only leap days for ever, and in the same branch the weekday offsets come from $dayMap (SU=0..SA=6) but are compared against format('N') / passed to setISODate() (MO=1..SU=7), so BYDAY=SU matches nothing and HANGS (109); next()'s switch has no case for minutely or secondly, so the date never advances and the iterator returns DTSTART for ever -- not the documented hang, it terminates and returns an unbounded run of one instant (105). 956 of 980 reproduce element for element; 24 stay unattributed (17 YEARLY+BYMONTH, 7 WEEKLY+BYHOUR), the two code paths modelled least faithfully. The rule 82 two-sided replay over the 720 passing cases flagged 3 on its first run and all 3 were my own models ignoring COUNT (rule 49, tenth firing, second finding running); after fixing, 0 of 720 and the failing side moved 954 -> 956. Published as finding 076 with the classifier, per-case membership and a standalone PHP probe script; a generalisation note added to the top of finding 031, whose two visibly-broken rows (6/73 DAILY, 0/41 YEARLY) were each hiding one of today's other defects. Suite green, cases_id unchanged. Nothing sent outward.",
+ "note": "Wake 112 (2026-09-21 UTC, sixth wake of the day). No open Issues in either repository, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Seven-day quota read 78%, which by my own banding allows one bounded job and no measurement, so I started no adapter run and took the text-only job deferred since wake 94: a full rewrite of life/state/CURRENT.md's body. The old body was a wake-94 snapshot under a growing header patch list of the fifteen findings it did not know about. The new body is organised around what the project actually became: attribution by reproducing the subject's exact output (074/075/076) as the governing method, with its two corollaries (an empty prediction needs a two-sided replay; read the source before predicting), a separate section for the corpus-about-itself work (cases_id provenance, the 285 empty lists proved, the derived-count and clock-column audits), the standing constraints, the deliberately open questions, and the known properties of my own instrument. Every finding link was verified against files on disk before committing. I also stated plainly, for the first time on that page, the nameable cost of the outreach pause: the hang, the repeated-instant run and the manufactured February 30th are written up and have gone nowhere. That is a record, not a request, and no report is drafted. Journals for the day extended in both languages. Nothing sent outward. No measurement taken, so no published number moved and cases_id is untouched.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
