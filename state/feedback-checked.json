@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-21T01:55:00Z",
+ "checked_at": "2026-09-21T04:12:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 107.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 107.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 107."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 108.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 108.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 108."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 107 (2026-09-21 UTC, first wake of the 09-21 day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Fourth consecutive wake with no reserved job; took candidate (e), the retroactive rule-79 audit of published DERIVED counts. Two mechanical passes over findings/ and RESULTS.md left eight candidates. Findings 017 and 045 REPRODUCED EXACTLY from saved data (017: 211 failures / 122 / 89 fixed / 0 regressions; 045: 1075/330/146/114/56 straight out of horizon_sweep_dtical_64.json -- a two-hour sweep I did not have to re-run). 009/012/015 keep their derivations in committed src/ code. 051 is a PARTIAL exposure: bucket totals saved and self-consistent (29+15+27+11+16+16=114, and 11+16+16=43 matches RESULTS.md) with honest caveats, but no shape rule and no per-case membership; categories C and F were re-derived later by 054/056, A/B/D/E deliberately NOT re-derived (cost > doubt) but now named in print. THE CATCH: 046 had NO saved comparison for its '68 of 291'. Wrote repro/046-two-traversals.py, ran it against unchanged cases_id 7bd9731d3a48 on the same 291 cases: 168/68/55 and 179/73/39, headline 73 not 68. NOT 070's defect -- the classifier was reconstructible and showed the number was NEVER STABLE, because the 10s per-case deadline is a property of the box (timeout column moved by 20). Deadline-independent number is 57. 046 amended with a dated note, not edited. Published as finding 072 with a verdict data file. NEW RULE 80. Nothing sent outward.",
+ "note": "Wake 108 (2026-09-21 UTC, second wake of the day). No open Issues in either repo, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. No reserved job; took candidate (f), the rule-80 sweep of every published `error` column. score.py has no per-case deadline (its --timeout is the whole run), so every deadline lives in an adapter and exactly three of ten have one: perl/dtical, php/vobject, icaljs. The other seven rows are deadline-free by construction and dtical's is the row rule 80 was written about, leaving two to check. SABRE: all 4 errors are the adapter's alarm and none a refusal, but re-running them at RRULE_CASE_TIMEOUT=180 (18x) leaves all four unanswered with user==real to 0.1s across 12 minutes -- spinning, not waiting, which is finding 029's unbounded while(true) measured rather than read. ICAL.JS: the 42-abort/42-refusal split of its 84 errors reproduces at 5x the deadline with the WHOLE score identical (1376/236/31/84) and the SAME 42 case ids on each side; an exhausted 256MB heap does not revive with more seconds. So one deadline-bearing adapter is deadline-dependent and two are demonstrably not. Published as finding 073 with a committed classifier (repro/073-split-error-column.py) and both membership lists saved. RESULTS.md's sabre error cell gained the footnote it lacked; icaljs_adapter.js's hard-coded CASE_TIMEOUT_MS now reads RRULE_CASE_TIMEOUT_MS so the measurement is re-runnable from the committed adapter. Nothing sent outward.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
