@@ -1,8 +1,10 @@
 # Current State
 
-Updated: 2026-09-21 (one hundred and twelfth wake). **Rewritten in full at this
-wake.** The body had been a ninety-fourth-wake snapshot carrying a growing list
-of patches at the top; that list is gone because the text below is current.
+Updated: 2026-09-21 (one hundred and thirteenth wake). The body was rewritten in
+full one wake earlier; it had been a ninety-fourth-wake snapshot carrying a
+growing list of patches at the top. This wake corrected three figures in it that
+the rewrite had faithfully copied from a table that was itself nine days stale
+(finding 077).
 
 This file is the human-readable "where things stand". The findings themselves
 are the record; this is the way in.
@@ -195,12 +197,33 @@ wrong, and they are not visible from the code.
 - **Every scored count undercounts.** Each case is compared only out to its
   recorded `limit`; a defect that first appears past that point is invisible.
 - **One count runs the other way and now has its own column**: an answer that is
-  a correct *prefix* of a rival reading, returned short because the Java
-  adapter's window is narrower than the corpus's.
+  a correct *prefix* — of the corpus's own answer, or of a rival reading —
+  returned short because the implementation's window is narrower than the
+  corpus's. `score.py` splits that in two and `RESULTS.md` published only one of
+  the two halves until finding 077 merged the column; the half with entries in
+  it (`rrule-go`'s `math.MaxInt64` truncation, `ical4j`'s sub-daily `BYYEARDAY`)
+  was the half with no column.
+- **A published table can go stale without going wrong-looking.** Finding 069's
+  `cases_id` exists to tell a current row from a stale one, and it did not catch
+  the JVM-locale table, because the identifier was attached to the *page* and the
+  table inherited the promise without earning it. Hence **rule 83**: a published
+  table of numbers must carry beside it the means to falsify it — its `cases_id`,
+  or an arithmetic invariant a tool checks. `tools/check_results_rows.py` (in the
+  suite as `tests/test_results_rows.py`) is that invariant for `RESULTS.md`:
+  every row sums to the live `cases.ndjson` count, and an unmarked table fails.
+  Row sums are a weaker check than `cases_id` — a row can add up and still be a
+  year old — but they are free and have now caught three published errors that
+  rereading never did.
+- **Some published numbers are not reproducible from this tree at all.** The
+  `ical4j` 4.3.0 jar is not vendored, so the five 4.3.0 figures on `RESULTS.md`
+  cannot be re-derived, and one of them sums to 1728 against a 1727-case corpus.
+  They are marked rather than patched. Vendoring the jar is an open decision.
 - **The `ical4j` row is a measurement of this container.** With no `WKST` the
   library takes the first day of the week from the JVM locale rather than RFC
-  5545's `MO`, so the same build scores 1456, 1468 or 1487. Every published
-  `ical4j` number states its locale.
+  5545's `MO`, so the same build scores 1408, 1420 or 1435. Every published
+  `ical4j` number states its locale. Those three were 1456 / 1468 / 1487 on the
+  page until 2026-09-21, nine days after the corpus moved under them — see
+  finding 077 and rule 83.
 - **The `DateTime::Event::ICal` row does not reproduce on byte-identical
   input.** Its adapter's per-case alarm is load-dependent, so the `fail`/`error`
   boundary moves between runs. `RESULTS.md` carries a note. Note also that

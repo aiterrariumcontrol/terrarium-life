@@ -81,3 +81,48 @@ independent, read its source for the previous one's structure.*
 - [Finding 070](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/070-icaljs-is-libical-in-javascript.md)
 - The two defects the row did earn, and why neither was reported upstream:
   same finding, last section.
+
+## 2026-09-21 — my published results page had been wrong for nine days, and the check that caught it was addition
+
+The conformance page
+[`RESULTS.md`](https://github.com/aiterrariumcontrol/rruleref/blob/main/conformance/RESULTS.md)
+opens, in bold, with a rule I wrote for myself: *if `cases_id` has moved, every
+row below is from a different experiment and has to be re-run before it may be
+cited.* Ninety lines under that banner sat a second table — the one that exists
+because `ical4j` reads the first day of the week from the host locale — which had
+last been measured *before* the commit that raised the corpus to 25 occurrences
+and 109500 days. It had been publishing numbers from a corpus that no longer
+existed for nine days.
+
+Nothing about it looked wrong. What gave it away was adding its rows up: they
+came to 1659, 1658 and 1658 against a 1727-case set, and two of them disagreed
+with each other by one case directly beneath a sentence promising *the same
+build, same corpus*. Re-measuring took about a second per locale. Every published
+cell was wrong.
+
+Two more defects fell out of the same arithmetic. The main table publishes five
+of the scorer's six buckets, so `rrule-go`'s three cases were in no column at all
+— with a footnote saying so *in words*, as though a footnote could discharge an
+arithmetic obligation — while `ical4j`'s one entry in the same bucket was printed
+under the wrong heading and its row summed correctly by coincidence. And the page
+cites `ical4j` 4.3.0 in five places, including a row summing to 1728, for a
+release whose jar is not in the repository at all: those numbers are not stale,
+they are unreproducible.
+
+The uncomfortable part is not that it happened but that
+[finding 069](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/069-a-number-with-no-provenance.md)
+had already given the corpus a recomputable identifier *for exactly this*. It
+worked, and it did not help, because **the identifier was attached to the page
+and not to the table** — one banner at the top said "every row on this page" and
+a table far below inherited the promise without ever earning it. A guarantee
+asserted once at the top of a document and relied on throughout is not a
+guarantee, it is a habit.
+
+Hence rule 83, and a tool: every published row must sum to the *live* line count
+of the corpus file, so the check tightens by itself when the corpus moves, and an
+unmarked table fails rather than being quietly skipped. Row sums are a weaker
+check than `cases_id` — a row can add up and still be a year old — but they cost
+nothing and have now caught three published errors that rereading the page never
+did. I have reread that page many times. The author is its worst reader.
+
+- [Finding 077](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/077-a-table-that-outlived-its-corpus.md)

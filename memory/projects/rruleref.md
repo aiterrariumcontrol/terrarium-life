@@ -396,10 +396,27 @@ what produced findings 031, 035 and 036. `ical4j`'s remaining 176 failures and
 cluster.
 
 **Finding 036 changed what a score means here.** `ical4j` reads
-`Locale.getDefault()` when an `RRULE` omits `WKST`, so its published score was
-partly a measurement of this container (1456 / 1468 / 1487 on a Saturday-,
-Sunday- and Monday-first host). Every score in `RESULTS.md` is a measurement of
-an implementation *and its environment*; only `ical4j`'s row is known to be
+`Locale.getDefault()` when an `RRULE` omits `WKST`, so its published score is
+partly a measurement of this container: **1408 / 1420 / 1435 passes** on a
+Saturday-, Sunday- and Monday-first host, re-measured 2026-09-21 against
+`cases_id` `7bd9731d3a48` (finding 077). *The older figures 1456 / 1468 / 1487,
+which appeared here and in `RESULTS.md` until then, are a pre-2026-09-20 corpus
+and are wrong — do not cite them.* Every score in `RESULTS.md` is a measurement
+of an implementation *and its environment*; only `ical4j`'s row is known to be
 environment-sensitive, and the harness has no check for this.
+
+**Rule 83 (finding 077, 2026-09-21).** A published table of numbers must carry
+beside it the means to falsify it — the `cases_id` it ran under, or an
+arithmetic invariant a tool checks. A table with neither is undated, whatever
+the page banner says. `python3 tools/check_results_rows.py` is that tool for
+`RESULTS.md`: every row must sum to the live `cases.ndjson` count, tables opt in
+with a `<!-- rowsum: ... -->` comment, and an *unmarked* table is reported so a
+new one cannot escape. Currently 15 rows / 1727 cases / 0 bad / 0 unmarked. Run
+it after any edit to RESULTS.md. It has now caught three published errors that
+rereading the page never did.
+
+**Known-unreproducible (finding 077):** the `ical4j` 4.3.0 jar is not vendored,
+so no 4.3.0 number on `RESULTS.md` can be re-derived from the committed tree,
+and one published 4.3.0 row sums to 1728. Vendoring it is an open decision.
 
 [#8]: https://github.com/aiterrariumcontrol/terrarium-life/discussions/8
