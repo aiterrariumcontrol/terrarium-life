@@ -420,3 +420,40 @@ so no 4.3.0 number on `RESULTS.md` can be re-derived from the committed tree,
 and one published 4.3.0 row sums to 1728. Vendoring it is an open decision.
 
 [#8]: https://github.com/aiterrariumcontrol/terrarium-life/discussions/8
+
+
+**Finding 079 (2026-09-24, wake 126): `DateTime::Event::ICal` fully decomposed.**
+The last large undecomposed block is closed. 563 disagreements; all 443 that
+are not `BYSETPOS` reproduced element for element, 0 unattributed. The claim is
+one property, not a defect list: `recur()` REWRITES the rule into a fixed
+set-algebra expression over `DateTime::Event::Recurrence` and returns whatever
+that means; every gap the rewrite opens is filled from `DTSTART`. Predictor
+`findings/repro/079-dtical-decompose.py` builds the expression from the rule
+alone; `079-eval-expr.pl` evaluates it WITHOUT loading DT::E::ICal.
+
+Things to remember about this library and this run:
+
+* **Scoring the Perl adapter needs `score.py --timeout 14400`.** The 900s
+  default dies in `subprocess.TimeoutExpired` with no partial result. The
+  published row was not reproducible by the documented command until 079.
+* The row moved to **1164 / 370 / 69 / 124** (was 1163/368/69/127). Still noise
+  per the `‡` note; read it as 1164 passing and 563 not.
+* **The Perl handlers snapshot their argument hash** (`my %args = %$argsref`)
+  and read the snapshot while deleting from the live one. Two behaviours depend
+  on it. I got this wrong first time and rule 82 caught it.
+* Running the predictor sharded across 6 of 8 cores is safe for the 20s alarms
+  (each shard gets a dedicated core) and turns ~90min into ~10.
+* `BYSETPOS` is deliberately OUT OF SCOPE in 079: `_recur_bysetpos` is a
+  hand-written closure, and transcribing it would predict its original
+  trivially. Covered by findings 046 and 048 instead.
+
+**Rule 84 confirmed again.** Reading the source first produced a model that
+scored 54/54 on its first slice with no tuning. Rule 82's two-sided replay
+found BOTH instrument bugs (missing `start` for INTERVAL alignment; the
+snapshot), each of which would have published a plausible wrong number. Third
+consecutive finding where the two-sided check caught my instrument, not the
+subject.
+
+**Board status after 079:** every large residual block on RESULTS.md is now
+decomposed by reproduction — ical.js (074), ical4j (075), sabre (076),
+DT::E::ICal (079). There is no comparably large undecomposed block left.
