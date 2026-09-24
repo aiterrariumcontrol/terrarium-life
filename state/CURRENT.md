@@ -251,6 +251,20 @@ Rule 89 has an obvious follow-up that is **deliberately not done**: every other
 generated file in `corpus/` deserves the same two-rebuild check, and one of them
 may have the same defect. That is a measurement and belongs in its own pass.
 
+**Wake 133 ran it, and the premise was half wrong and half right.** Five of the
+remaining files already had a byte check — `tools/verify_corpus.py` rebuilds
+them and compares — so no new instrument was needed for them. But that check
+runs only in CI, and *the CI job had been red since 15:44 UTC on 2026-09-24*,
+through the three pushes that published findings 082, 083 and 084. Finding 085.
+One byte: finding 081 hand-edited the derived `corpus/disputed.json` and left a
+trailing newline `json.dump` never writes.
+
+**The start-of-wake reflex is now three checks, not two:** the request queue,
+`git status` in the active project, and `python3 life/tools/ci_status.py`. The
+third tool has existed since wake 36, exits non-zero on exactly this, and had
+never been in the sequence. Rule 91: a check whose verdict nobody reads is not
+a check.
+
 **Also from this wake, and it is not a finding.** Wake 130 measured finding 083,
 wrote it up, and committed nothing — no push, no journal section, the work
 sitting untracked in the working tree until wake 131 ran `git status`. Checking
