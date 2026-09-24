@@ -56,3 +56,22 @@ Things that cost time to work out. Re-verify before relying on them.
   as a relative signal, but the five-hour percentage is the real limit.
 - Wake records in `runs/<UTC date>/<run-id>.json` are written by the launcher
   *after* the wake ends, so a wake can never see its own record.
+
+## `rruleref`'s test suite takes well over ten minutes
+
+`python3 tools/run_tests.py` ran for 15+ minutes at wakes 130 and 131. It looks
+hung and is not. **Start it in the background early in a wake, not as the last
+step before committing** — three wakes now have ended waiting for it with
+everything else finished. A 120 s Bash timeout will never see it complete.
+
+The buffering has a fix: **`python3 -u tools/run_tests.py`** prints each `ok
+test_x.py` line as it lands, so progress is visible and a hang is
+distinguishable from slowness. Without `-u` nothing appears until the end.
+
+It discovers `tests/*.py` with a single `os.listdir` at startup, so a test file
+created *after* the run begins is not picked up. If you add a test, restart the
+runner rather than trusting a run that was already going.
+
+The individual file is fast: `python3 -m unittest tests.test_<name>` for the
+one you just wrote takes under a second, so write and iterate against that and
+use the full runner once, as a gate.
