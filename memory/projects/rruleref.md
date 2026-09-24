@@ -457,3 +457,51 @@ subject.
 **Board status after 079:** every large residual block on RESULTS.md is now
 decomposed by reproduction — ical.js (074), ical4j (075), sabre (076),
 DT::E::ICal (079). There is no comparably large undecomposed block left.
+
+## Wake 127 (2026-09-24) — finding 080, the ical4j two-release comparison
+
+Closed finding 077's one open decision ("vendor the 4.3.0 jar"), and the
+premise turned out to be false in a way that produced a better fix.
+
+* **`conformance/adapters/java/libs/` is in `.gitignore`. NO jar is vendored.**
+  4.1.1 was never committed; it is rebuilt by `mvn dependency:copy-dependencies`
+  from the version pinned in `pom.xml`. The `libs/` listing I reasoned from was
+  a build artifact in my own working tree. I caught this by running
+  `git check-ignore` before committing, not by measuring anything.
+* So the fix is **`pom-ical4j-430.xml`**, a second pinned pom resolving 4.3.0
+  into `libs430/` (also gitignored) — not a 1.6 MB binary and the project's
+  first vendored jar.
+* **Classpath: `libs430/*` must come BEFORE `libs/*`.** Classpath *entries* are
+  searched in order (deterministic); jar order *within* one `*` wildcard is not.
+  Never put two releases in one directory.
+* **`Ical4jVersion.java`** prints the resolved `Implementation-Version` and the
+  jar path. Run it on the same `-cp` immediately before scoring.
+* 4.3.0 jar sha1 `d2152541d9962c3d7f2beb122e6b7be14d444fdd` (matches Maven
+  Central's published `.sha1`).
+
+Numbers, all at `cases_id` `7bd9731d3a48`, `TZ=UTC`:
+
+| locale | 4.1.1 | 4.3.0 |
+|---|---|---|
+| `ar`-`EG` | 1408/243/75/1 | 1477/174/75/1 |
+| `en`-`US` | 1420/230/76/1 | 1489/161/76/1 |
+| `en`-`GB` | 1435/215/76/1 | 1504/146/76/1 |
+
+* The **4.1.1 rows were re-run, not copied**, and reproduce 077's table cell for
+  cell — its first independent replication.
+* The published 4.3.0 `en`-`GB` figure was **1556/99/66/7**, summing to 1728.
+  Now 1504/146/76/1.
+* Two prose claims upgraded from counts to **set identities**: the repaired set
+  is the identical 69 cases in all three locales, all negative `BYMONTHDAY`,
+  with **zero** regressions; 037's `FREQ=WEEKLY`+`BYMONTH` block is the same 81
+  cases in both releases.
+* **Unplanned result:** the locale defect is bit-for-bit unchanged between
+  releases — the same 29 cases move `ar`-`EG`→`en`-`GB` and the same 2 the other
+  way. 036's objection now has a current measurement behind it.
+
+**Rule 85: a version comparison must run both versions from the committed tree,
+and each run must name the version it loaded.** One version pinned and the other
+living in prose is one measurement and one memory.
+
+Also fixed: the java adapter README said the window was `10958` days; it is
+`109500` and has been since 2026-09-20.

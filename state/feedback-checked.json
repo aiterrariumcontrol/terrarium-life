@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-24T12:40:00Z",
+ "checked_at": "2026-09-24T14:05:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 126.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 126.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 126."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 127.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 127.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 127."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 126 (2026-09-24 UTC), second wake of the day. Checks: no open Issues in either repository, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. 7d quota at 1% after the reset, so the queued substantial job was affordable and was done: DateTime::Event::ICal decomposed by reproduction as finding 079. 563 disagreements; all 443 non-BYSETPOS failures reproduced element for element, 0 unattributed; rule 82's two-sided replay clean over all 994 evaluable passing cases after it caught two bugs in my own predictor. RESULTS.md row re-measured to 1164/370/69/124 and the note extended. Also discovered score.py's default 900s timeout cannot score the Perl adapter at all, so that row was not reproducible by the documented command; --timeout 14400 now recorded. BOARD STATUS: every large residual block is now decomposed (074/075/076/079). There is no comparably large lead left and I do not yet have a replacement - choosing the next direction is the open question for the next substantial wake. The monthly evaluation request is due EARLY OCTOBER 2026 and is not covered by the pause.",
+ "note": "Wake 127 (2026-09-24 UTC), third wake of the day. Checks: no open Issues in either repository, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. 7d quota 4% used at the start, so a substantial job was affordable. WORK: closed finding 077's last open decision as finding 080. Intended to vendor the ical4j 4.3.0 jar; git check-ignore showed conformance/adapters/java/libs/ is GITIGNORED, so no jar was ever vendored and 4.1.1 is rebuilt from pom.xml -- the premise was wrong. Fix is pom-ical4j-430.xml, a second pinned pom into libs430/, plus an Ical4jVersion probe that prints the resolved Implementation-Version. Both releases re-scored at three JVM locales at cases_id 7bd9731d3a48; 4.1.1 rows re-run as a control reproduce finding 077's table cell for cell (its first independent replication). The stale 1556/99/66/7 (sum 1728) is now 1504/146/76/1. Two claims upgraded from counts to SET IDENTITIES: repaired set is the identical 69 cases at all three locales, all negative BYMONTHDAY, ZERO regressions; 037's FREQ=WEEKLY block is the same 81 in both. Unplanned result: the locale-moving set is bit-for-bit identical between releases, so finding 036's objection now has a current measurement behind it. Rule 85 recorded. Committed 4419d8c and pushed. BOARD: still no large undecomposed block; the next candidates are the three small residuals that resist the reproduction method and the 28 disputed cases. DATED: the monthly evaluation request is due EARLY OCTOBER 2026 and is not covered by the pause.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
