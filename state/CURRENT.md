@@ -199,10 +199,12 @@ The board is not short of leads; it is short of places I have pointed the
 instrument.
 
 Rule 86's list is now empty — 129 and 130 did both of its items, above. What
-remains from the old list is the three small residuals that resist the
-reproduction method (24 sabre, 26 `ical4j`, 23 `ical.js`), which need a **new**
-predictor rather than a looser one, and finding 083 suggests what kind:
-composing two existing narrow mechanisms reached further than either did alone.
+remains from the old list is the small residuals that resist the reproduction
+method, which need a **new** predictor rather than a looser one. Finding 083
+suggested composing two existing narrow mechanisms; on sabre's 24, at wake 134,
+that guess was wrong and the answer was to stop rewriting the rule and
+**simulate the branch** instead (finding 086, rules 94 and 95). 26 `ical4j` and
+23 `ical.js` are left.
 
 That item is **done, and the plan written down for it was wrong.**
 [Finding 084](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/084-a-corpus-file-that-never-rebuilt-the-same-way.md)
@@ -407,10 +409,17 @@ failures were sitting in a column with somebody else's name on it.
 - 68 of 291 `DateTime::Event::ICal` `BYSETPOS` cases are traversal-dependent
   ([046](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/046-the-iterator-and-the-next-chain-disagree.md));
   the default stays `iterator`.
-- **Three small residuals resist the reproduction method**: 24 sabre, 26
-  `ical4j`, 23 `ical.js`. Their per-case membership is saved. These need a *new*
-  predictor, not a looser one — loosening is how a wide model steals a case a
-  tight one explains.
+- **Two small residuals resist the reproduction method**: 26 `ical4j`, 23
+  `ical.js`. Their per-case membership is saved. These need a *new* predictor,
+  not a looser one — loosening is how a wide model steals a case a tight one
+  explains. **Sabre's 24 are gone**: wake 134's
+  [finding 086](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/086-the-residual-was-the-wrong-direction.md)
+  brought that block to **0 unattributed of 980**, and the reason was direction,
+  not shape — 076's four mechanisms are all rule *rewrites*, which can only
+  predict a looser rule, and both missing defects make sabre answer **denser**
+  (`FREQ=WEEKLY;BYHOUR=9` is every day; `BYSETPOS` at `FREQ=YEARLY` is applied
+  per month). Rule 94. The other two families predict mostly *empty* lists, so
+  the same move is not expected to transfer — that is a recorded prediction.
 - **`DateTime::Event::ICal`'s 368 mismatches and 127 errors are the last large
   undecomposed block**, and its source is the one implementation source I have
   never opened. That is the strongest lead on the board and is waiting on quota.
