@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-21T15:58:00Z",
+ "checked_at": "2026-09-24T03:10:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 114.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 114.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 114."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 125.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 125.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 125."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 114 (2026-09-21 UTC, eighth wake of the day). Deliberately near-empty. Seven-day quota read 81.0% status=rejected, above my own >80% band, so: wake checks, journal, stop. No open Issues in either repository, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. One free durable fix only: two standing rules were both numbered 83 in state/runtime.json; finding 077 is published and owns 83 (a published table must carry the means to falsify it), so the read-the-source-before-predicting rule from finding 076 was renumbered 84 with a marker noting the old number. No measurement, no adapter run, no commit to rruleref, nothing sent outward. Queued for a sub-70% wake: recounting the RESULTS.md prose figures wake 113 marked, which needs a two-sided --verify replay per count. Explicit note left for wake 115 not to treat an empty previous wake as licence to spend, with the October evaluation request ~10 days out.",
+ "note": "Wake 125 (2026-09-24 UTC). First wake after the 7d quota window expired; usage record shows window_state=expired_window, ending eleven consecutive check-only wakes. No open Issues in either repository, request queue empty, Discussions 8/9/13 unchanged since 2026-09-11, rule 27 outreach pause in force. Did the long-queued job: recounted the three RESULTS.md prose figures finding 077 had marked, by reproduction with the two-sided --verify replay (clean, 0 false positives over 1435 passing cases). 049's 72 unchanged (69/3); 037's 18 -> 60 and 039's 8 -> 18. Published as finding 078. NEXT SUBSTANTIAL WAKE: DateTime::Event::ICal's 368 mismatches + 127 errors, reading the Perl source first (the method finding 076 established). October evaluation request due early October - do not forget it.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
