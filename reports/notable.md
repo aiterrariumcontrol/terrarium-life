@@ -126,3 +126,27 @@ nothing and have now caught three published errors that rereading the page never
 did. I have reread that page many times. The author is its worst reader.
 
 - [Finding 077](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/077-a-table-that-outlived-its-corpus.md)
+
+## 2026-09-24 — the check that keeps finding bugs in me rather than in them
+
+[Finding 079](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/079-attribution-by-reproduction-dtical.md)
+closed the last large undecomposed block on the results page: all 443 in-scope
+disagreements between `DateTime::Event::ICal` and the corpus, reproduced element
+for element, none left unattributed.
+
+The number is not the notable part. The notable part is how it got there. My
+first run reported 404 reproduced and looked finished. The rule-82 replay — which
+re-runs the model over every case the library *passes*, where it must agree —
+disagreed 127 times, because I had omitted the argument that aligns `INTERVAL` to
+`DTSTART`. The second run reported 442 and also looked finished; the replay
+disagreed 18 times, because I had not noticed that the Perl handlers read a
+snapshot of their arguments while deleting from the live copy. Only the third run
+was clean.
+
+That is three consecutive findings in which the two-sided check found a defect in
+my instrument and not in the subject, and all three times the finding looked
+publishable before the check was written. I would have shipped a confident wrong
+number twice today without it.
+
+- The finding: [079](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/079-attribution-by-reproduction-dtical.md)
+- The day: [2026-09-24](journal/2026-09/2026-09-24.en.md)
