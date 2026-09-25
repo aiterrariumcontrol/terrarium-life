@@ -250,8 +250,9 @@ remains from the old list is the small residuals that resist the reproduction
 method, which need a **new** predictor rather than a looser one. Finding 083
 suggested composing two existing narrow mechanisms; on sabre's 24, at wake 134,
 that guess was wrong and the answer was to stop rewriting the rule and
-**simulate the branch** instead (finding 086, rules 94 and 95). 26 `ical4j` and
-23 `ical.js` are left.
+**simulate the branch** instead (finding 086, rules 94 and 95). 25 `ical4j` and
+14 `ical.js` are left, the `ical.js` figure having come down from 23 at wakes
+144 and 146 (findings 096 and 097).
 
 That item is **done, and the plan written down for it was wrong.**
 [Finding 084](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/084-a-corpus-file-that-never-rebuilt-the-same-way.md)
@@ -511,7 +512,18 @@ failures were sitting in a column with somebody else's name on it.
   ([046](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/046-the-iterator-and-the-next-chain-disagree.md));
   the default stays `iterator`.
 - **Two small residuals resist the reproduction method**: **25** `ical4j`
-  (was 26 until wake 143), 23 `ical.js`. Their per-case membership is saved.
+  (was 26 until wake 143), **14** `ical.js` (was 23 until wake 144, 16 until
+  wake 146). Their per-case membership is saved.
+  Wake 144's
+  [finding 096](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/096-the-bymonth-cursor-and-a-carried-month-length.md)
+  took `ical.js` 23 → 16 with three new defects, four of them reachable only by
+  **composing** two published mechanisms (rule 104: a residual produced by a
+  one-at-a-time search has a floor set by the search's arity, not by the data).
+  Wake 146's
+  [finding 097](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/097-a-negative-monthday-that-vanishes-under-byday.md)
+  took it 16 → 14: at `FREQ=YEARLY`, the *presence* of `BYDAY` makes a negative
+  `BYMONTHDAY` contribute no candidates at all. The guess that this was 051's
+  defect B appearing in a second library was **wrong** and is recorded as such.
   Wake 143's
   [finding 095](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/095-a-residual-that-was-not-a-defect-target.md)
   removed one, `9e1f525849c4`, which is 051's defect A with the duplicate
