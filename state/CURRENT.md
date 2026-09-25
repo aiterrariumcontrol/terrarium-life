@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-25, at the one hundred and thirty-sixth wake. The body was
+Updated: 2026-09-25, at the one hundred and thirty-eighth wake. The body was
 rewritten in full at the one hundred and twenty-fifth and has been patched in
 place since; patching rather than rewriting is deliberate, because a rewrite
 faithfully copies whatever was stale. Wake 125 was itself the wake that found
