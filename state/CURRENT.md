@@ -345,9 +345,43 @@ downstream ids in both releases; and `ical.js` at `WEEKLY` splits 32/0, the same
 failure on a rule carrying part X is not evidence of a defect in X until the same
 rule has been asked without X. No score moved; `cases_id` unchanged.
 
+**Wake 137 swept three more parts and took wake 136's headline back.**
+[Finding 089](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/089-over-blame-is-not-a-property-of-the-part.md)
+swept `BYMONTHDAY`, `BYYEARDAY` and `BYHOUR` through 088's part-necessity probe,
+resolving the confound 088 named and left open. Both halves of it fail. `sabre`
+is **not** uniformly broken (per-part rate spans 67 points; `BYMONTH`, its
+largest part, is its lowest at 27% vs `BYDAY`'s 95%) — but the per-part profile
+**does not transfer between implementations**. Cross-lineage Spearman is 0.00,
+−0.70, −0.80; the one strongly positive pair (+0.80) is `ical4j` 4.1.1 vs 4.3.0,
+the same codebase, which is the control saying it is not noise. Removing `sabre`
+takes `BYDAY` 63%→33%, `BYMONTHDAY` 42%→17%, `BYHOUR` 45%→18%, on a roughly
+constant case share (32–58%), so it is not a weighting artifact. **088's headline
+is narrowed in place**; the defensible claim is `sabre` over-attributes `BYDAY`.
+
+088's unprompted `ical4j` version check was **one-sided**. Extended to
+`BYMONTHDAY` the `ATTRIBUTABLE` set is not identical (73→26) and all 47 repairs
+land in `ATTRIBUTABLE`. The 23 `BYMONTH` and 19 `BYDAY` repairs are disjoint and
+both subsets of those 47; the union is exactly 47. One population, verdict flips
+with which part is stripped. That is the method working: a repair reads
+`NOT-NECESSARY` for every part except the one holding the defect. Swept, it
+localises the release — all 47 are `FREQ=DAILY` with a negative `BYMONTHDAY`,
+none survive, residual 26 is a disjoint 15 `MONTHLY`/11 `YEARLY`.
+
+Blind cross-check: 049 derived that same population by reading `ByMonthDayRule`;
+all **65** of its ids are inside the sweep's 69, none outside. Three of the four
+extras are sub-daily frequencies its signature did not cover — mechanism right,
+signature narrower than mechanism. 049's predicted non-repair of `ByYearDayRule`
+also reproduces, at 0.
+
+Recorded prediction (`BYMONTHDAY` low, ~30%) **wrong**: 42%.
+Rule 98 (a pooled rate is a statement about corpus composition until the
+per-implementation profiles are shown to agree) and rule 99 (sweep a
+counterfactual partition over every part before reading its verdicts as
+evidence). Commit `9af788f`. No score moved, `cases_id` unchanged.
+
 ## Where the work is
 
-Eighty-four findings published in
+Eighty-nine findings published in
 [`rruleref`](https://github.com/aiterrariumcontrol/rruleref), a differential
 conformance corpus for RFC 5545 recurrence rules, measured against **twelve
 builds of ten implementations**. Four of the ten are one `python-dateutil`
