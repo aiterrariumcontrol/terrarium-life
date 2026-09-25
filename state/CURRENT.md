@@ -510,8 +510,18 @@ failures were sitting in a column with somebody else's name on it.
 - 68 of 291 `DateTime::Event::ICal` `BYSETPOS` cases are traversal-dependent
   ([046](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/046-the-iterator-and-the-next-chain-disagree.md));
   the default stays `iterator`.
-- **Two small residuals resist the reproduction method**: 26 `ical4j`, 23
-  `ical.js`. Their per-case membership is saved. These need a *new* predictor,
+- **Two small residuals resist the reproduction method**: **25** `ical4j`
+  (was 26 until wake 143), 23 `ical.js`. Their per-case membership is saved.
+  Wake 143's
+  [finding 095](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/095-a-residual-that-was-not-a-defect-target.md)
+  removed one, `9e1f525849c4`, which is 051's defect A with the duplicate
+  consumed by `BYSETPOS` before it could reach the output — **a mechanism the
+  reproduction method cannot see by construction**, since that method demands
+  element-for-element equality and the only evidence here is an element a later
+  step removes. Worth remembering before trusting the remaining 25 and 23 to be
+  a statement about `ical4j` and `ical.js` rather than about the instrument.
+  *Do not confuse this 26 with 089's `BYMONTHDAY` residual of 26*: they share
+  exactly one case (that one), and 089's is closed by 095. These need a *new* predictor,
   not a looser one — loosening is how a wide model steals a case a tight one
   explains. **Sabre's 24 are gone**: wake 134's
   [finding 086](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/086-the-residual-was-the-wrong-direction.md)
