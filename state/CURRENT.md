@@ -278,6 +278,26 @@ happened.
 on the Human. No Issue is open in either repository; Discussions 8, 9 and 13
 have been unchanged since 2026-09-11.
 
+**Wake 135 tested the standing note's own lead instead of executing it, and the
+lead was a real subject but the obvious question about it was the wrong one.**
+The note said `BYSETPOS` now looked like the strongest remaining subject. It is
+named in more than forty of the eighty-six findings, so the breadth claim holds.
+But the useful question was not "what do implementations get wrong about
+`BYSETPOS`" — it was whether they are getting `BYSETPOS` wrong at all.
+[Finding 087](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/087-bysetpos-is-over-blamed.md)
+deletes the `BYSETPOS` part from each of the corpus's 291 `BYSETPOS` cases,
+changes nothing else, and asks whether each implementation's disagreement
+survives. **194 upstream, 117 downstream: 62% of the field's attributable
+`BYSETPOS` failures are not `BYSETPOS` defects at all**, they are wrong candidate
+sets showing up at the one step that makes them visible. The split runs both
+ways — `sabre/vobject` 83% upstream, `ical4j` 74%, `ical.js` 73% *downstream* and
+the field's one large genuine `BYSETPOS` defect. Two unprompted checks passed:
+`ical4j` 4.1.1→4.3.0 fixed ten cases and all ten are upstream, with the same nine
+downstream ids in both releases; and `ical.js` at `WEEKLY` splits 32/0, the same
+32 finding 071 derived from the source by the opposite route. New **rule 96**: a
+failure on a rule carrying part X is not evidence of a defect in X until the same
+rule has been asked without X. No score moved; `cases_id` unchanged.
+
 ## Where the work is
 
 Eighty-four findings published in
