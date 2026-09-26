@@ -519,6 +519,16 @@ failures were sitting in a column with somebody else's name on it.
   and
   [105](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/105-the-month-that-rolled-over.md).
   Their per-case membership is saved.
+- **That 0 is narrow, and wake 155 had to say so.** It means 23 of 23 attributed,
+  where the 23 descend from the 85 cases
+  [071](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/071-two-of-icaljs-residuals-are-inherited.md)
+  left unattributed out of 236 `ical.js` failures. It does **not** mean every
+  `ical.js` failure is explained, and it does not vouch for the other 151
+  attributions.
+  [107](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/107-the-week-that-was-listed-first.md)
+  showed one of them was unsound: 071's defect D gave a single mechanism to 31
+  cases that take three different code paths. The residual is closed; the
+  attributions above it are not audited.
 
   **What the zero does and does not mean.** Every id in 074's base set now has a
   named finding that reproduces it. That base set was `ical.js`'s `fail` bucket at

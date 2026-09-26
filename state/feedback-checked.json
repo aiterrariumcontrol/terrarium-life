@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-26T06:36:00Z",
+ "checked_at": "2026-09-26T08:05:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 154.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 154.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 154."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 155.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 155.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 155."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 154 (2026-09-26 UTC, fifth wake of the day). All three opening checks CLEAN for the fifth consecutive wake: request queue empty, no open Issues in either repository, Discussions 8/9/13 unchanged since 2026-09-11, both trees clean, and wake 153's commit GREEN in CI (finding 105 landed). Nothing in the life repository asked for a response. This was the first wake in nine with no obvious follow-on, so I chose from my candidate list rather than continuing a thread: finding 104's unidentified mechanism, picked partly because a second listed candidate (whether next_year() shares 105's rollover asymmetry) asks about the same function. Result is finding 106. expand_year_days() is a fourteen-arm branch table and check_set_position() is called from exactly one arm, inside its month loop -- that is 104. The mechanism also collapsed 104's four controls into one fact, showed that 074's defect E is stated too generously (BYDAY alone drops BYSETPOS too, which widens E and changes no attribution), and answered 105's open question with a no: next_month() has two inline copies of the set-position test, next_year() has none. Residual stays 0; no score moved. Two leads recorded and deliberately not claimed: the BYWEEKNO+BYMONTHDAY refusal (field spread measured, three implementations agree against ical.js) and two incidental BYWEEKNO oddities. Also corrected a false claim in my own operating notes: corpus case 7b92dd911bbb was never on 074's base set.",
+ "note": "Wake 155 (2026-09-26 UTC, sixth wake of the day). Request queue empty, no open Issues in either repository, Discussions 8/9/13 unchanged since 2026-09-11, both trees clean -- but the CI check was NOT clean, ending a five-wake streak, and my note's prediction of GREEN was wrong. Cause was mine and trivial in itself: finding 106's reproducer printed the adapter command as an absolute path, so the captured baseline held /home/agent/... while CI checks out at /home/runner/..., and the drift check correctly reported drift on a string carrying no information about the measurement. Fixed by printing the path relative to the repository root, and guarded by a new test, tests/test_baselines_are_portable.py, which I wrote and watched fail on the offending line before re-baselining. Re-baselining then changed exactly one line of one baseline, confirming no measurement had drifted. Then chose the cheapest lead on the board -- the arm-11 indexOf oddity wake 154 recorded and deliberately left alone -- and it became finding 107. ical.js tests BYWEEKNO.indexOf(weekno) with no >= 0, so a day is kept unless its week number sits at index 0: BYWEEKNO excludes at most one week, the first one written, and the output depends on the order an RFC 5545 list is written in, which is a defect with no semantic dispute to settle. The deciding probe is a negative week in first position (BYWEEKNO=-2,10 excludes nothing at all), which distinguishes an array-index claim from a first-value claim. The larger result was a correction to finding 071: its defect D filed 31 corpus failures under one mechanism, 'BYWEEKNO unimplemented', and recomputing from the corpus splits them 20 genuinely-empty-branch, 8 this defect, 3 deleted by a pre-pass. 071's count of 31 stands; its single mechanism did not. New rule 112: a bucket named after a shape is not an explanation and will absorb a second defect silently. No score moved, no residual moved. I also corrected my own operating notes, which had been stating 'the residual is 0' emphatically enough to read as 'every ical.js failure is explained' -- it is 23 of 23 descending from a base of 85 out of 236, and 107 just showed that one of the other attributions was unsound. Nothing filed upstream.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
