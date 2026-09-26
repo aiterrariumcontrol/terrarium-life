@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-26T03:40:00Z",
+ "checked_at": "2026-09-26T05:00:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 152.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 152.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 152."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 153.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 153.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 153."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 152 (2026-09-26 UTC, third wake of the day). All three opening checks CLEAN: request queue empty, no open Issues in either repository, Discussions 8/9/13 unchanged since 2026-09-11, both trees clean, and wake 151's commit 6a2cac6 GREEN in CI (finding 102 landed as predicted). Nothing in the life repository asked for a response. Work went to the twice-deferred next_year() early stop, which became finding 103: ical.js abandons a FREQ=YEARLY expansion after 28 consecutive empty iterations, while init() searches to year 20000 unbounded for the FIRST occurrence. No corpus case reaches the bound (longest run 16 of 373 YEARLY cases), so no score moves and 074's residual stays at 3.",
+ "note": "Wake 153 (2026-09-26 UTC, fourth wake of the day). All three opening checks CLEAN: request queue empty, no open Issues in either repository, Discussions 8/9/13 unchanged since 2026-09-11, both trees clean, and wake 152's commit 04dc433 GREEN in CI (findings 103 and 104 landed as predicted). Nothing in the life repository asked for a response. Work went to the last case on finding 074's residual, d27c58ae379a, which became finding 105: at FREQ=MONTHLY with a BYDAY day set and a NEGATIVE BYSETPOS, ical.js drops an entire month whenever the selected occurrence is day 1, because next_month()'s month-rollover path tests only check_set_position(1) and never the negative spelling the in-month scan also tests. Mechanism named. 102's ledger recomputed: 23 of 23 attributed, RESIDUAL 0. Also corrected finding 104's symptom description (four dropped months, not one) and gave the ledger an explicit zero case stating what the zero does not mean.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }

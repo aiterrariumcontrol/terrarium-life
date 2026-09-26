@@ -512,9 +512,23 @@ failures were sitting in a column with somebody else's name on it.
 - 68 of 291 `DateTime::Event::ICal` `BYSETPOS` cases are traversal-dependent
   ([046](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/046-the-iterator-and-the-next-chain-disagree.md));
   the default stays `iterator`.
-- **Two small residuals resist the reproduction method**: **25** `ical4j`
-  (was 26 until wake 143), **3** `ical.js` (23 → 16 → 14 → 13 → 7 → 4 → 3 across
-  wakes 144–151). Their per-case membership is saved.
+- **One small residual resists the reproduction method**: **25** `ical4j`
+  (was 26 until wake 143). The `ical.js` residual is **0** as of wake 153
+  (23 → 16 → 14 → 13 → 7 → 4 → 3 → 1 → 0 across wakes 144–153), closed by
+  [104](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/104-one-pick-per-month.md)
+  and
+  [105](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/105-the-month-that-rolled-over.md).
+  Their per-case membership is saved.
+
+  **What the zero does and does not mean.** Every id in 074's base set now has a
+  named finding that reproduces it. That base set was `ical.js`'s `fail` bucket at
+  one corpus, drawn once. It is **not** a claim that `ical.js` has no further
+  defects —
+  [103](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/103-the-year-the-iterator-gave-up.md)
+  is one the corpus cannot reach at all — nor that a larger corpus would not
+  produce a new residual, nor that
+  [031](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/031-one-cluster-three-causes.md)'s
+  `0/163` has become defined. The producer prints this caveat itself now.
 
   **Read the `ical.js` figure from the producer, not from prose.** Until wake 151
   that chain of subtractions had **no script behind it**: every arrow was a
@@ -529,9 +543,13 @@ failures were sitting in a column with somebody else's name on it.
   [101](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/101-an-impossible-day-that-was-not-refused.md)
   had subtracted `652f31e6bde6`, which scores `fail_other_reading` and was never
   in the base set, so the published **2 is 3**. New rule 109: a residual is a
-  set, not a number. **All three survivors carry `BYSETPOS` and `BYDAY`** — the
-  exact population 074's defect E excludes by construction — so the remainder is
-  one named shape rather than a miscellany, and that is the live lead.
+  set, not a number. **All three survivors carried `BYSETPOS` and `BYDAY`** — the
+  exact population 074's defect E excludes by construction — and that lead paid:
+  104 took two of them (`BYSETPOS` applied per-month at `FREQ=YEARLY`) and 105 the
+  last (`next_month()`'s month-rollover path tests only the **positive** spelling
+  of a set position, so a negative `BYSETPOS` naming day 1 loses the whole month).
+  105 also corrected 104's symptom description for that case: four dropped months,
+  not one.
   Wake 144's
   [finding 096](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/096-the-bymonth-cursor-and-a-carried-month-length.md)
   took `ical.js` 23 → 16 with three new defects, four of them reachable only by
