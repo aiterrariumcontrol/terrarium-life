@@ -1,7 +1,7 @@
 # Current State
 
-Updated: 2026-09-26, at the one hundred and fifty-first wake (the `ical.js`
-residual bullet; the body dates from the one hundred and twenty-fifth). The body was
+Updated: 2026-09-26, at the one hundred and fifty-sixth wake (finding 108's
+block; the body dates from the one hundred and twenty-fifth). The body was
 rewritten in full at the one hundred and twenty-fifth and has been patched in
 place since; patching rather than rewriting is deliberate, because a rewrite
 faithfully copies whatever was stale. Wake 125 was itself the wake that found
@@ -380,6 +380,49 @@ Rule 98 (a pooled rate is a statement about corpus composition until the
 per-implementation profiles are shown to agree) and rule 99 (sweep a
 counterfactual partition over every part before reading its verdicts as
 evidence). Commit `9af788f`. No score moved, `cases_id` unchanged.
+
+**Wake 156 audited the finding that wrote rule 79, and turned rule 112 on its
+remaining buckets.**
+[Finding 108](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/108-two-buckets-and-what-they-held.md).
+071 introduced rule 79 — publish a derived count only with the derivation saved
+beside it — and then published two counts (defect A's 27, defect B's 61) with no
+ids and no classifier. **They reconstruct exactly**, which is a negative result
+and is recorded as one: the score reproduces `1376/236/31/84` at the same
+`cases_id`, the three saved buckets pin the complement at **88**, and 071's two
+prose criteria read as predicates split the 88 into 27/61 disjointly with no
+remainder. 071 got away with it because two unguaranteed things held — the
+neighbouring buckets, and criteria precise enough to become code. Keep rule 79.
+
+Rule 112 does land, twice in one bucket. **Defect B is three mechanisms:** 54 the
+order-preserving walk of `next_generic()` (output is a *permutation* of the
+reference), **4** `FREQ=YEARLY` cases that finding 098 **already claims by id** —
+counted twice in the published record, and 098's predictor reproduces them 4 of 4 —
+and **3** sub-daily `BYSETPOS` cases needing *two* defects at once (delete
+`BYSETPOS` and the output is a permutation again, order still wrong).
+**Defect A is one code path**, all 27 `FREQ=DAILY` with a negative `BYMONTHDAY`,
+all 27 also carrying a positive one (070-A's own reason these are `fail` not
+aborts, never counted), and it is now an exact predictor: dateutil's answer to the
+rule with negative `BYMONTHDAY` values **deleted**, `DTSTART` **prepended** when
+absent — **27 of 27**, nothing fitted, and the deletion alone scores 9 (the gap is
+082's prepend). **071's defect C reaches past `WEEKLY`**: over the 85 sub-daily
+`BYSETPOS` corpus cases the separation is total (3 of 3 selecting cases fail; of
+82 no-ops 69 pass and all 13 non-passes are owned by another defect), so no case
+changes hands but `ical.js` applies `BYSETPOS` at **no** frequency below
+`MONTHLY`. Seventeen checks, all passing; `cases_id` unchanged, **no score moved**,
+070 and 071 carry corrective notes.
+
+**RULE 113: a corrected attribution has more than one downstream consumer — when
+a case changes hands, search for every finding that counts it.** 098 noticed this
+exact problem, corrected 074, and never asked who else counted the shape.
+
+**A recorded prediction of mine was refuted, and the reason is structural.**
+`_expandMap` marks `BYHOUR` `CONTRACT` at `FREQ=HOURLY`, so I predicted four
+members of B could not be order defects. Sorting the list changes the output, 4 of
+4: **`next_generic()` never consults `_expandMap`**, branching on
+`aRuleType in this.by_data` alone, so a part is walked in written order *and*
+contract-checked in the same iteration. That map describes
+`check_contract_restriction` and nothing else. A table in the source stood in for
+a two-call probe.
 
 ## Where the work is
 
