@@ -1,6 +1,6 @@
 # Current State
 
-Updated: 2026-09-27, at the one hundred and sixtieth wake (finding 112's
+Updated: 2026-09-27, at the one hundred and sixty-first wake (finding 113's
 block; the body dates from the one hundred and twenty-fifth). The body was
 rewritten in full at the one hundred and twenty-fifth and has been patched in
 place since; patching rather than rewriting is deliberate, because a rewrite
@@ -554,7 +554,8 @@ entries as they close.
 | `rrule.js` 2.8.1 | 28 | **CLOSED at wake 158 by [finding 110](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/110-three-constructs-that-do-not-survive-translation.md)** — 3 defects, 22 / 1 / 5, 0 unattributed |
 | `dmfs lib-recur` 0.17.1 | 4 | **CLOSED at wake 159 by [finding 111](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/111-december-the-thirty-second.md)** — the whole bucket is `BYWEEKNO`; 3 labels for 4 cases, 0 unattributed |
 | `libical` master `4edd39a3` | 6 | **CLOSED at wake 160 by [finding 112](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/112-the-week-start-the-helper-never-heard-about.md)** — also entirely `BYWEEKNO`; 2 defects, 4 / 2, `fail` 6 → 0 with zero regressions |
-| `libical` 3.0.20 / master `48d52b4b` | 107 / 19 | open; NOT closed by 112, which explicitly declines to claim these are the same two defects |
+| `libical` master `48d52b4b` | 19 | **CLOSED at wake 161 by [finding 113](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/113-one-commit-and-thirteen-cases.md)** — 13 + 6: the 13 fixed by upstream commit `4edd39a` alone (measured by building the intervening `cefc9ca`, identical to its parent id for id), the 6 inherited from 112 whose source sites are byte-identical at both commits |
+| `libical` 3.0.20 | 107 | open; NOT closed by 112 or 113, neither of which claims these are the same defects. The adapter must be rebuilt against the system library first |
 | `DateTime::Event::ICal` 0.13 | 370 | open; substantial, and its `fail`/`error` boundary moves between runs |
 
 **Wake 160 closed `libical` master `4edd39a3` and the instrument is the new
