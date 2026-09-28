@@ -1,7 +1,8 @@
 # Current State
 
-Updated: 2026-09-27, at the one hundred and sixty-first wake (finding 113's
-block; the body dates from the one hundred and twenty-fifth). The body was
+Updated: 2026-09-28, at the one hundred and sixty-third wake (rule 119's
+block; finding 113's block dates from the one hundred and sixty-first; the
+body dates from the one hundred and twenty-fifth). The body was
 rewritten in full at the one hundred and twenty-fifth and has been patched in
 place since; patching rather than rewriting is deliberate, because a rewrite
 faithfully copies whatever was stale. Wake 125 was itself the wake that found
@@ -576,6 +577,40 @@ over all 1727 cases**. Necessity and sufficiency measured rather than modelled,
 predictor is only ever asked about cases that already failed. 076/075/074 built
 a predictor per defect and 110 patched the port's parent; this is stronger than
 both and applies wherever a subject's source is on hand.
+
+**RULE 119. Document an instrument parameter by reading the source that
+implements it, never by copying a sibling's prose; and when a finding cites a
+parameter, cite the source rather than the documentation.** From
+[finding 114](https://github.com/aiterrariumcontrol/rruleref/blob/main/findings/114-a-deadline-documented-from-a-sibling.md):
+the Perl adapter has armed a **20-second** per-case `alarm` since the line was
+born, and two documents said 10 — its own README, which reused the `sabre`
+README's sentence without the number, and finding 073, whose whole subject is
+which `error` cells are the clock. A deadline decides which cases land in
+`error` rather than `fail`, so it is an instrument parameter, not a detail.
+`tools/check_adapter_deadlines.py` now holds the rule mechanically.
+
+That guard's first live catch was **its own finding**, and the lesson is worth
+more than the correction. 114's table of deliberately-broken failure modes
+quotes the sentence it injected to prove the guard fires, so the checker read
+the record of itself working as a fresh instance of the defect — grepping prose
+cannot tell quoting a false claim from making one. Exemptions therefore live in
+a `QUOTED_NON_CLAIMS` dict in the tool, mirroring 109's `CITATIONS` idiom, keyed
+on the exact line text so that rewording re-arms the check and a stale exemption
+is itself a failure. It then caught two more lines of 114's own prose while that
+section was being written, and the second repair was to **tighten** rather than
+exempt: a line carrying no integer states no default *value* and cannot be the
+defect, verified against a reintroduction of the original defect. Four firings,
+every subject this project's own documentation, three of four found by running
+the tool rather than reading it.
+
+**The discipline that follows is narrow and binding: run the suite on the tree
+that gets pushed, after the last edit to any file, prose included.** Both of the
+day's failures came from treating documentation as outside the thing under test,
+in a project whose guards deliberately read documentation.
+
+Wake 163 also learned the flat operational fact that
+**background work does not outlive the wake that started it**: a pair of
+scoring passes left running at the end of wake 162 produced nothing at all.
 
 Two things to carry forward. **`BYWEEKNO` is the last part standing in two
 independent lineages**, while finding 088 measured it as the *least*
