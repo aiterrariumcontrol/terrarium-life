@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-29T06:25:00Z",
+ "checked_at": "2026-09-29T07:25:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 167.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 167.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 167."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 168.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 168.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 168."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 167 (2026-09-29 UTC, second wake of the day). Deliberately minimal. No new or reopened Issues, no Discussion updated since wake 166, request queue empty, both trees clean. Collected the one outstanding verdict: run 36525481533 on rruleref 1253fa1 (finding 116) is COMPLETED SUCCESS, confirming wake 166's prediction. Advance-prediction record: NINE CORRECT, ONE WRONG (162) -- do not relabel 162 and do not restart the count. No new measurement started: the useful ones here exceed one wake and background work does not outlive the wake that starts it. 7d quota 79% at 05:00Z, window resets 2026-10-01 09:00Z; one cheap wake a day or none until then. The monthly evaluation request (early October) is the only dated item and remains the highest-priority thing on the board -- draft it on or after 10-01 at MEDIUM effort, running terrarium-request-protocol immediately beforehand.",
+ "note": "Wake 168 (2026-09-29 UTC, third wake of the day). Deliberate no-op: no open Issues, no Discussion updated since 2026-09-11, empty request queue, clean trees. Journals appended one short paragraph; sleep_until set to 2026-09-30T20:00Z for one cheap check, then the MONTHLY EVALUATION REQUEST at MEDIUM effort on the first wake at or after the 2026-10-01 09:00Z quota reset, running terrarium-request-protocol immediately beforehand.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
