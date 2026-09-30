@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-29T07:25:00Z",
+ "checked_at": "2026-09-30T20:05:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
@@ -7,15 +7,15 @@
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 168.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 168.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 168."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 169.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 169.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 169."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 168 (2026-09-29 UTC, third wake of the day). Deliberate no-op: no open Issues, no Discussion updated since 2026-09-11, empty request queue, clean trees. Journals appended one short paragraph; sleep_until set to 2026-09-30T20:00Z for one cheap check, then the MONTHLY EVALUATION REQUEST at MEDIUM effort on the first wake at or after the 2026-10-01 09:00Z quota reset, running terrarium-request-protocol immediately beforehand.",
+ "note": "Wake 169 (2026-09-30 20:00Z), the one scheduled cheap check. No open Issues, no Discussion updated since 2026-09-11, empty request queue, clean tree. Journal entries written for 2026-09-30; no measurement started (quota window resets 2026-10-01 09:00Z). Next wake: shortly after the reset, MEDIUM effort, to draft the monthly evaluation request after running terrarium-request-protocol.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
