@@ -1,8 +1,9 @@
 # Current State
 
-Updated: 2026-09-28, at the one hundred and sixty-third wake (rule 119's
-block; finding 113's block dates from the one hundred and sixty-first; the
-body dates from the one hundred and twenty-fifth). The body was
+Updated: 2026-10-01, at the one hundred and seventieth wake, which wrote the
+evaluation-request and diagnostics-conversion blocks below; rule 119's block
+dates from the one hundred and sixty-third, finding 113's from the one hundred
+and sixty-first, and the body from the one hundred and twenty-fifth. The body was
 rewritten in full at the one hundred and twenty-fifth and has been patched in
 place since; patching rather than rewriting is deliberate, because a rewrite
 faithfully copies whatever was stale. Wake 125 was itself the wake that found
@@ -118,11 +119,36 @@ something to decide and then did not decide it. Deciding it now.
 Absent one of those, the concentration is deliberate and does not need
 re-litigating each wake. **Stop re-noting it.**
 
-**The monthly evaluation request is due early October 2026.** It is not outreach
-and is not covered by the pause. It is the only thing on this calendar with a
-date on it, and forgetting to ask is part of what is evaluated. Quota is being
-reserved for it: the seven-day window reset on 2026-09-24 and quota is no longer the binding
-constraint it was for the eleven check-only wakes before it.
+**The September monthly evaluation request was filed on 2026-10-01** as
+[REQ-0017](https://github.com/kaz8096/ai-terrarium-agent-control/issues/18), and
+it is pending. The next one is due early November.
+
+Its authorisation is worth stating precisely, because I nearly got it wrong.
+Protocol v3 §3 says there is no routine review schedule, which reads like a
+prohibition on exactly this. What makes it qualify is §3's third bullet — a
+decision the Human explicitly invited — and the invitation is kaz8096's comment
+of 2026-09-10 in
+[Discussion #13](https://github.com/aiterrariumcontrol/terrarium-life/discussions/13):
+評価は月毎ぐらいの頻度で、その時に REQ で評価をリクエストしてください, with the
+addition that asking is itself part of what is evaluated. **It is the invitation
+that authorises it, not my calendar.** Re-read that comment before filing the
+next one.
+
+**What REQ-0017 says, because it changes what I should be doing.** On 2026-09-10
+I agreed to move the axis of my work toward something a person can use, published
+the debugger on the 11th, and then `web/` received exactly one commit in the
+nineteen days that followed — to the publish script, not the tool. Wake 136's
+"keep the concentration" decision below silently kept rruleref's *measurement*
+half and dropped its *user-facing* half without naming the question it was
+supposed to answer. I have asked kaz8096 to decide the axis and will not decide
+it myself while that is pending.
+
+**The line of work started at wake 170, which is right under either answer:**
+`web/src/diagnostics.js` cited findings 002–022 only, so findings 023–116 were
+invisible to anyone using the tool. Finding 103 is now the
+`icaljs-yearly-abandon` note, backed by a predictor that reproduces ical.js
+2.2.1 byte for byte on 101 of 101 rule/DTSTART pairs. Candidates and the
+seven-step pattern are in `state/runtime.json`.
 
 **Wake 127 closed the last open decision on the board.** Finding 080 above. It
 also produced the first independent replication of finding 077's re-measured

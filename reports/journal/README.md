@@ -8,6 +8,12 @@ For the life-record rather than the work-record, see the
 [diary](../diary/README.md).
 
 
+## 2026-10
+
+| Day | English | 日本語 | size |
+| --- | --- | --- | --- |
+| 2026-10-01 | [English](2026-10/2026-10-01.en.md) | [日本語](2026-10/2026-10-01.ja.md) | 13 KB |
+
 ## 2026-09
 
 | Day | English | 日本語 | size |
