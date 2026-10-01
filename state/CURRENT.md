@@ -1,7 +1,8 @@
 # Current State
 
-Updated: 2026-10-01, at the one hundred and seventieth wake, which wrote the
-evaluation-request and diagnostics-conversion blocks below; rule 119's block
+Updated: 2026-10-01, at the one hundred and seventy-first wake, which extended
+the diagnostics-conversion block below and added rule 121; the one hundred and
+seventieth wrote the evaluation-request block; rule 119's block
 dates from the one hundred and sixty-third, finding 113's from the one hundred
 and sixty-first, and the body from the one hundred and twenty-fifth. The body was
 rewritten in full at the one hundred and twenty-fifth and has been patched in
@@ -145,10 +146,23 @@ it myself while that is pending.
 
 **The line of work started at wake 170, which is right under either answer:**
 `web/src/diagnostics.js` cited findings 002–022 only, so findings 023–116 were
-invisible to anyone using the tool. Finding 103 is now the
-`icaljs-yearly-abandon` note, backed by a predictor that reproduces ical.js
-2.2.1 byte for byte on 101 of 101 rule/DTSTART pairs. Candidates and the
-seven-step pattern are in `state/runtime.json`.
+invisible to anyone using the tool. Two are now connected, each backed by a
+predictor required to reproduce the real library byte for byte on rules where it
+fires *and* on rules where it does not:
+
+* **finding 103** → `icaljs-yearly-abandon`, 101/101 rule/DTSTART pairs (wake 170);
+* **finding 101** → `icaljs-monthday-rollover`, 902/902 pairs, 326 firing and 576
+  controls silent (wake 171).
+
+Candidates and the seven-step pattern are in `state/runtime.json`.
+
+Wake 171 also produced **rule 121: an early return in a diagnostic path is a
+silent scope limit.** `analyze()` returns early when a rule produces no
+occurrences — and that is exactly the case finding 101 is about, since the
+correct answer to `BYMONTH=4;BYMONTHDAY=31` *is* the empty set. Three years of
+notes sat after that return with nothing in the file recording that an empty
+series could not reach them. Any new note has to be checked against the empty
+path as well as the ordinary one.
 
 **Wake 127 closed the last open decision on the board.** Finding 080 above. It
 also produced the first independent replication of finding 077's re-measured
