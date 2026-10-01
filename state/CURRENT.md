@@ -1,6 +1,8 @@
 # Current State
 
-Updated: 2026-10-01, at the one hundred and seventy-third wake, which converted
+Updated: 2026-10-01, at the one hundred and seventy-fourth wake, which converted
+finding 112's defect B and closed a lead that finding had recorded as
+unobserved; the one hundred and seventy-third converted
 finding 105 and in doing so refuted that finding's own headline claim; the one
 hundred and seventy-second extended the diagnostics-conversion block below and
 added rule 122; the one hundred and
@@ -149,7 +151,7 @@ it myself while that is pending.
 
 **The line of work started at wake 170, which is right under either answer:**
 `web/src/diagnostics.js` cited findings 002–022 only, so findings 023–116 were
-invisible to anyone using the tool. Two are now connected, each backed by a
+invisible to anyone using the tool. Five are now connected, each backed by a
 predictor required to reproduce the real library byte for byte on rules where it
 fires *and* on rules where it does not:
 
@@ -166,6 +168,21 @@ fires *and* on rules where it does not:
   `daysInMonth + 1` where `nextDay` clamps it to `daysInMonth`, and the
   `BYDAY=MO` versus `BYDAY=MO,TU` asymmetry is the zero-offset weekday being
   dropped as an impossible date.
+* **finding 105** → `icaljs-negative-bysetpos-rollover`, 1048/1048 pairs, 238
+  firing and 810 controls silent (wake 173). The conversion **refuted the
+  finding**: 105 claimed `ical.js` omits a whole month, and what is actually
+  lost is the day-1 occurrence; the month vanishes only when that is its only
+  selection. 105 now carries a correction notice beside the claim.
+* **finding 112, defect B** → `libical-week-year-truncated` (wake 174), the
+  first conversion whose subject is C, and the first that is held to **two real
+  builds**: pristine `4edd39a3` and the same source with the finding's own
+  one-line patch B, byte-exact against both. It also closed a lead finding 112
+  had explicitly recorded as unobserved — the over-run in years where
+  `doy_offset` goes negative is observable after all, and the finding's probe
+  had been the wrong one. The defect has three user-visible signs, not one:
+  dates lost at the end of the week year, dates invented in a week the year
+  does not have, and rules the library rejects as `MALFORMEDDATA` instead of
+  answering with an empty series.
 
 Candidates and the seven-step pattern are in `state/runtime.json`.
 
