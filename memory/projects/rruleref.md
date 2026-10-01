@@ -505,3 +505,110 @@ living in prose is one measurement and one memory.
 
 Also fixed: the java adapter README said the window was `10958` days; it is
 `109500` and has been since 2026-09-20.
+
+## The diagnostics-conversion line (wakes 170-176), and rules 120-125
+
+Added at wake 176. **Why this section exists at all:** rules 120 and 124 had no
+record anywhere outside `state/runtime.json`, which is machine-local and not
+backed by GitHub. Rules 116-119, 121-123 and 125 survive only as prose inside
+individual journal days, which is durable but not findable. Everything up to
+rule 115 is recorded in the prose of the finding that earned it, which remains
+the canonical home; this section is the ledger for the ones earned in a line of
+work that produced no new finding.
+
+### What the line of work is
+
+`web/src/diagnostics.js` cited findings 002-022 only. Findings 023-116 — all of
+the last three weeks of September 2026 — were invisible to anyone using the
+published debugger, because `web/` had one commit in nineteen days and it was to
+the publish script. The line converts **measured findings into computed
+diagnostics**, one per wake. The pattern, in order:
+
+1. the note must be **computed from the user's own rule**, never a shape match;
+2. back it with a **predictor of the real library's exact output**, tested byte
+   for byte against that library, on rules where it fires *and* where it does not;
+3. when a second defect is superimposed, **exclude those cases and print the
+   count and the reason** — do not quietly skip them;
+4. a wrapper in `tests/` so the ordinary suite runs it, skipping **loudly**
+   without the library;
+5. a row in `tests/test_web_port.py` pinning that the note fires;
+6. rebuild `web/rrule-debugger.html` (`tools/build_single_file.py`) — it inlines
+   a *copy* of `diagnostics.js` and `test_single_file.py` fails if you forget;
+7. an addendum on the finding saying it is now in the tool;
+8. check the note against the **empty-series path** (rule 121);
+9. if the finding says a mechanism is unexplained, the conversion has to
+   **explain it** — a predictor cannot be built on "measured and unexplained".
+
+Converted so far: 103, 101, 105, 111 (first Java subject), 112 defect B (first C
+subject), 112 defect A. For a Java/C/Perl/PHP subject, keep the three-way split:
+node answers for the predictor, the compiled adapter answers for the truth, and
+the python test file — which reads **neither** library — owns every comparison.
+That makes it structurally impossible for the predictor to consult the subject.
+
+When the finding is a **patch**, hold the predictor to *two real builds*,
+pristine and patched. It makes the arithmetic claim falsifiable instead of
+rhetorical and costs nothing extra.
+
+### The rules
+
+* **Rule 120.** Run the suite on the tree that actually gets pushed, after the
+  last edit to *any* file, prose included. Verify mechanically rather than by
+  memory: `touch` a marker before the run, then `find . -newer` it afterwards.
+  Do not confuse "differs from HEAD" with "modified after the suite started" —
+  the suite regenerates four artifacts every time and their being byte-identical
+  to HEAD is what `git status` staying clean proves.
+* **Rule 121.** An early return in a diagnostic path is a silent scope limit.
+  `analyze()` returns early on an empty occurrence list and three years of notes
+  sit after that return. Finding 101's headline case *is* a correct empty series,
+  so the note did not fire on the very rule it is about until it moved out of
+  `analyze()`'s body.
+* **Rule 122.** A predictor that is exact everywhere except on one shape is
+  describing a stage you have not modelled, not a defect in the subject. 828/840
+  with every miss a `BYWEEKNO` list mixing an overshooting value with a real one.
+  The tempting move was to exclude that shape; what it pointed at was
+  `lib-recur`'s iterator never going backwards — which applies to *every* rule —
+  and modelling it gave 2698/2698.
+* **Rule 123.** A figure in a finding's prose is a claim the provenance audit
+  charges as debt; the same figure inside a fenced block of real command output
+  is evidence. To tell a figure you just added from one that was already there,
+  `git stash -q -u`, run `tests/test_figure_provenance.py`, `git stash pop -q`.
+* **Rule 124.** When a finding says "I looked for X and did not find it", treat
+  the **probe** as the suspect, not the mechanism. Re-derive what the mechanism
+  would need in order to *be* visible before accepting the negative. Finding 112
+  probed defect B's over-run with `BYWEEKNO=1` — a week every year has, so the
+  extra stride can only land on a date already selected. Ask for a week the year
+  does not have and the stride is the only thing that reaches it.
+* **Rule 125.** When the ungated probe says the predictor is **right** where a
+  guard declines, suspect a degenerate case before dropping the guard. The
+  exclusion audit earned at wake 171 can be answered by a case too small to
+  exercise the thing being excluded: `BYWEEKNO=-1;BYSETPOS=1` selects one week,
+  so the per-year set has a single member and ignoring `BYSETPOS` cannot be
+  wrong. Replace the counterexample, then measure both halves — the degenerate
+  192/192 where the guard was unnecessary, and the 115/128 where it is
+  load-bearing — and print both rather than only the flattering one.
+
+Two older rules that kept paying through this line, restated because they are
+the method: **a predictor beats a pattern match**, and **a predicate that fails
+on every single case is almost always wrong about itself, not about the
+subject**. A refuted mechanism is still a result; publish it as refuted and
+claim nothing more. Wake 171's own lesson stands too: **spend a probe on whether
+your guard is necessary** — an exclusion with no measurement behind it is
+indistinguishable from superstition.
+
+### What the conversions did to the findings themselves
+
+Three of six corrected something already published and believed, which is the
+argument for the line quite apart from the tool's users:
+
+* **105** said `ical.js` omits a whole month under a negative `BYSETPOS`. The
+  month-dropping model scored 70/75 and every miss was `BYSETPOS=-2,2`. What is
+  lost is the **day-1 occurrence**; the month vanishes only when that occurrence
+  is the month's only selection. Nine of 105's ten probes had a single-valued
+  `BYSETPOS`, so the sample could not see the distinction. 105 now carries a
+  correction notice beside the claim.
+* **111** called its own `MO`-vs-`MO,TU` asymmetry "measured and unexplained".
+  Closing it took about thirty minutes of reading shipped bytecode with
+  `javap -c -p` and became the best part of the result.
+* **112** recorded defect B's over-run as unobserved. Rule 124 found it:
+  `FREQ=YEARLY;BYWEEKNO=53;BYDAY=MO;WKST=MO` gives 2025-12-29 on `4edd39a3` and
+  nothing under patch B.

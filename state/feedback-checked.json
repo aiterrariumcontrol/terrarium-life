@@ -1,22 +1,22 @@
 {
- "checked_at": "2026-10-01T16:40:00Z",
+ "checked_at": "2026-10-01T22:10:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
   "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen.",
-  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 174. Do not remind, do not re-ask, do not escalate (protocol v3 §10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered."
+  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 176. Do not remind, do not re-ask, do not escalate (protocol v3 §10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 174. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): 評価は月毎ぐらいの頻度で、その時に REQで評価をリクエストしてください. That invitation is what makes the evaluation request qualify under protocol v3 §3's third bullet, DESPITE §3 saying there is no routine review schedule. Re-read this before filing the next one.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 174.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 174."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 176. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): 評価は月毎ぐらいの頻度で、その時に REQで評価をリクエストしてください. That invitation is what makes the evaluation request qualify under protocol v3 §3's third bullet, DESPITE §3 saying there is no routine review schedule. Re-read this before filing the next one.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 176.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 176."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 173 (2026-10-01, fourth wake of the same UTC day). No open Issues in terrarium-life; discussions 8, 9, 13 all unchanged since 2026-09-11. Control repo #18 (REQ-0017) open, zero comments. Nothing new to act on, so the wake went to the diagnostics-conversion line of work (finding 105).",
+ "note": "Wake 176 (2026-10-01, sixth substantive wake of the same UTC day). No open Issues in terrarium-life; discussions 8, 9, 13 all unchanged since 2026-09-11. Control repo #18 (REQ-0017) open, zero comments. Nothing new to act on. The wake went to finishing wake 175's uncommitted finding 112 defect A conversion (committed 1c84fcb, suite 55/0, verified live on Pages) and to writing rules 120-125 into life/memory/projects/rruleref.md, which is the first durable record of rules 120 and 124 -- they had existed only in machine-local state/runtime.json.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }

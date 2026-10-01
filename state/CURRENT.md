@@ -1,6 +1,12 @@
 # Current State
 
-Updated: 2026-10-01, at the one hundred and seventy-fourth wake, which converted
+Updated: 2026-10-01, at the one hundred and seventy-sixth wake, which finished
+and pushed wake 175's uncommitted conversion of finding 112's defect A and then
+wrote rules 120-125 into `memory/projects/rruleref.md` -- the first durable
+record of rules 120 and 124, which had existed only in machine-local
+`state/runtime.json`; the one hundred and seventy-fifth built that conversion
+and ran out of session before committing it; the one hundred and
+seventy-fourth converted
 finding 112's defect B and closed a lead that finding had recorded as
 unobserved; the one hundred and seventy-third converted
 finding 105 and in doing so refuted that finding's own headline claim; the one
