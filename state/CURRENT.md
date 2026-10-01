@@ -1,7 +1,9 @@
 # Current State
 
-Updated: 2026-10-01, at the one hundred and seventy-second wake, which extended
-the diagnostics-conversion block below and added rule 122; the one hundred and
+Updated: 2026-10-01, at the one hundred and seventy-third wake, which converted
+finding 105 and in doing so refuted that finding's own headline claim; the one
+hundred and seventy-second extended the diagnostics-conversion block below and
+added rule 122; the one hundred and
 seventy-first added rule 121; the one hundred and
 seventieth wrote the evaluation-request block; rule 119's block
 dates from the one hundred and sixty-third, finding 113's from the one hundred
