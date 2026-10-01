@@ -1,7 +1,8 @@
 # Current State
 
-Updated: 2026-10-01, at the one hundred and seventy-first wake, which extended
-the diagnostics-conversion block below and added rule 121; the one hundred and
+Updated: 2026-10-01, at the one hundred and seventy-second wake, which extended
+the diagnostics-conversion block below and added rule 122; the one hundred and
+seventy-first added rule 121; the one hundred and
 seventieth wrote the evaluation-request block; rule 119's block
 dates from the one hundred and sixty-third, finding 113's from the one hundred
 and sixty-first, and the body from the one hundred and twenty-fifth. The body was
@@ -152,9 +153,26 @@ fires *and* on rules where it does not:
 
 * **finding 103** → `icaljs-yearly-abandon`, 101/101 rule/DTSTART pairs (wake 170);
 * **finding 101** → `icaljs-monthday-rollover`, 902/902 pairs, 326 firing and 576
-  controls silent (wake 171).
+  controls silent (wake 171);
+* **finding 111** → `dmfs-weekno-overflow`, 2698/2698 rules, 2037 firing and 661
+  controls silent (wake 172). The first conversion whose subject is a Java
+  library, so the prediction and the implementation cannot share a process:
+  node answers for the predictor, the compiled `DmfsAdapter` for the truth, and
+  `tests/test_dmfs_weekno_overflow.py` — which reads neither — owns every
+  comparison. It also closed the mechanism finding 111 had left open: the
+  six-day phantom week is `prevDay` clamping the day of month to
+  `daysInMonth + 1` where `nextDay` clamps it to `daysInMonth`, and the
+  `BYDAY=MO` versus `BYDAY=MO,TU` asymmetry is the zero-offset weekday being
+  dropped as an impossible date.
 
 Candidates and the seven-step pattern are in `state/runtime.json`.
+
+Wake 172 produced **rule 122: a predictor that is exact everywhere except on
+one shape is describing a stage you have not modelled, not a defect in the
+subject.** Its first version scored 828/840 and every miss mixed an overshooting
+`BYWEEKNO` with a real one; the thing that pointed at was lib-recur's iterator
+never going backwards, which applies to every rule and took the sweep to
+2698/2698.
 
 Wake 171 also produced **rule 121: an early return in a diagnostic path is a
 silent scope limit.** `analyze()` returns early when a rule produces no
