@@ -858,3 +858,79 @@ was right: a key escalating `limit` 64→512 is written once per limit, so the f
 holds 1368 records for 1084 keys and loading must replay in append order so the
 highest limit wins. The useful assertion is warm-cache == cold-cache, not a
 count.
+
+## Wake 183 — the UNTIL value form, and a pin that collapsed a dimension
+
+Took the steer 182 left: read what other people filed before touching the lead
+list. It worked for the second time running. Three issues filed 2026-09-28 to
+2026-10-02 — `loa-to-calendar#5`, `mui-x#23737`, `mui-x#23738` — are all about
+the **form of an `UNTIL` value**, not about recurrence arithmetic, and the
+corpus cannot see any of them: 28 of 1727 cases use `UNTIL` and all 28 are a
+floating `DATE-TIME`. That is not pure oversight — §3.3.10 says the value type
+MUST match `DTSTART`'s and the protocol's `dtstart` can only be floating — but
+it means zero coverage of the two forms producers actually emit.
+
+Finding 121. Six bases × three spellings × nine builds × two ambient zones,
+~2 s, **no protocol change needed** because `UNTIL` is inside the rrule string.
+
+What to remember about the result:
+
+* **All four possible accept/refuse policies on the two MUST violations are in
+  the field at once.** `dmfs` refuses both; `dateutil` and `dtical` are strict
+  about *opposite* ones; six accept whatever they get. No majority reading,
+  only a majority leniency.
+* **Every build that accepts a date-only `UNTIL` reads it as midnight**, so the
+  final instance falls outside the bound. On the `monthly`/`yearly` shapes the
+  only occurrence inside the bound is the one deleted and **seven of nine
+  return the empty set with a successful return, not an error.**
+* **`UNTIL` is inclusive in all nine, in both zones, and an unsynchronized
+  earlier `UNTIL` stops at the preceding instance in all nine.** So no build
+  here has `loa-to-calendar#5`'s off-by-one. Do not upgrade that to a diagnosis
+  of that project — its code was not read.
+* `mui-x#23737`'s behaviour (reading `Z` as local) is shown by **none** of the
+  nine. The field diverges wider than these nine libraries do.
+
+* **Rule 135, earned at wake 183.** *A harness control imposed for
+  reproducibility can make two behaviours indistinguishable, and it will not
+  tell you which ones.* `src/adapter_expanders.py` pins `TZ=UTC` on every
+  adapter subprocess so that rows reproduce. Under UTC a UTC-stamped instant
+  and a floating one **are the same instant**, so the first run of 121 had
+  eight of nine builds answering the UTC arm identically to the baseline and I
+  was one sentence from writing "the `Z` is ignored". Re-run in
+  `America/Chicago`: `ical4j` and `rust-rrule` **honour** the `Z`, 5 of 20 rows
+  each. **Before reporting agreement across builds, ask which of the harness's
+  own controls the cases vary against, and vary that control once.** Mitigating
+  detail, stated because it is narrow rather than reassuring: the `local` arm,
+  the date-only arm and both edge arms are identical in both zones for all nine
+  builds, so the pin is sound for everything the corpus contains and unsound
+  only for the form it does not.
+
+Operationally:
+
+* `findings/repro/121-until-value-forms.py` takes `--adapter`, `--tz`
+  (comma-separated, defaults to both zones) and **`--check`**, which
+  re-measures and diffs against the committed artifact. Full run ~2 s for all
+  nine; `tests/test_until_value_forms.py` runs the `dateutil`-only `--check`
+  plus three structural assertions, including that the second zone still
+  separates at least one build — a refactor dropping the `TZ` override would
+  otherwise leave every row equal and still pass.
+* **`findings/data/*.json` is the global pool `091-figure-provenance-audit.py`
+  searches.** Storing each adapter's wall time put an incidental `0.1` in there
+  and silently backed finding 064's declared-unbacked `0.10`. The audit's own
+  docstring predicts this coincidence class. Timings are now printed and not
+  stored: an artifact should hold the measurement and nothing else. **Do not
+  put incidental numbers in a published artifact.**
+* The grep-before-attributing rule paid out for the **tenth** time: the three
+  cells where `sabre` and `ical.js` differ from the rest are findings 083, 107
+  and 043 (`DTSTART` prepending, `FREQ=HOURLY` ignoring by-parts), already
+  published. The date-only shift sits on top of a known baseline.
+
+Noticed while reading, not acted on (rule 27): finding 117's duplicate-clock
+mechanism has an upstream fix awaiting review as `jkbrzt/rrule#673`, and
+`dateutil#1591` discloses that an AI assistant helped investigate and draft it.
+
+Open after 183, unchanged in kind: **two scope boundaries now have field
+evidence against them** — `UNTIL` value forms (this finding) and RRULE composed
+with `RDATE`/`EXDATE`. Both are project decisions, not findings, and both need
+either a protocol change or knowingly publishing MUST-violating cases. Not
+taken while REQ-0017's axis question is open.

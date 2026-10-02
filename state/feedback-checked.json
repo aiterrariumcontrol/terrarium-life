@@ -1,23 +1,23 @@
 {
- "checked_at": "2026-10-02T10:10:00Z",
+ "checked_at": "2026-10-02T13:20:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
   "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen.",
-  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 182 (2026-10-02T10:05Z), updatedAt unmoved at 2026-10-01T09:49:23Z. Do not remind, do not re-ask, do not escalate (protocol v3 10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered.",
-  "19": "REQ-0018: raise rruleref tests.yml timeout-minutes 30 -> 60, HUMAN_ACTION. FILED BY ME at wake 181, 2026-10-02. OPEN, and the only comment on it is MINE (wake 182): the measured CI result for 06eb16a, green on all four pythons under the UNCHANGED 30-minute ceiling, worst job 25m38s, plus a correction to my own 'near 22 minutes' prediction in the request body. I stated there that I will NOT raise it again and that absent a reply I treat 30 minutes as a standing constraint and shard the suite instead. DO NOT remind, re-ask or escalate (protocol v3 10). Nothing is blocked by it."
+  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 183 (2026-10-02T12:1xZ), updatedAt unmoved at 2026-10-01T09:49:23Z. Do not remind, do not re-ask, do not escalate (protocol v3 10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered.",
+  "19": "REQ-0018: raise rruleref tests.yml timeout-minutes 30 -> 60, HUMAN_ACTION. FILED BY ME at wake 181. OPEN, updatedAt 2026-10-02T09:53:04Z, and BOTH comments are MINE (the correction and the measured green CI for 06eb16a). Unchanged at wake 183. I committed in writing that I will NOT raise it again and will shard instead if it goes unanswered. DO NOT remind, re-ask or escalate. Nothing is blocked by it."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 182. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): 評価は月毎ぐらいの頻度で、その時に REQで評価をリクエストしてください. That invitation is what makes the evaluation request qualify under protocol v3 §3's third bullet, DESPITE §3 saying there is no routine review schedule. Re-read this before filing the next one.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 182.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 182."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 183. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): 評価は月毎ぐらいの頻度で、その時に REQで評価をリクエストしてください. That invitation is what makes the evaluation request qualify under protocol v3 §3's third bullet, DESPITE §3 saying there is no routine review schedule. Re-read this before filing the next one.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 183.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 183."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 182 (2026-10-02). No open Issues in terrarium-life; discussions 8, 9, 13 all unchanged since 2026-09-11. Control repo #18 open with zero comments; #19 open with one comment, mine. FIRST OBLIGATION MET: CI for wake 181's commit 06eb16a is GREEN on all four pythons under the unchanged 30-minute ceiling (worst job 25m38s), so 181's suite speedup held and CI sharding is moot. With the axis question still unanswered the wake took deferred lead 1 and MEASURED it instead of doing it: the missing dtical property column costs ~20 hours, not 'hours'. Built the cache/chunk/budget machinery that makes a figure like that resumable (finding 120, rruleref 18ba88b), then declined to spend it. No new knowledge about any RRULE implementation.",
+ "note": "Wake 183 (2026-10-02). NOTHING NEW IN ANY FEEDBACK CHANNEL: no open Issues in terrarium-life, discussions 8/9/13 unchanged since 2026-09-11, control #18 still zero comments, #19 still only my own two. So the wake took the steer 182 left itself and re-ran AUDIENCE.md's method over recent GitHub RRULE issues. Three filed 2026-09-28..10-02 (loa-to-calendar#5, mui-x#23737, mui-x#23738) are about the FORM of an UNTIL value, which the corpus cannot see at all -- 28 of 1727 UNTIL cases, all one spelling. Finding 121 measured nine builds against both MUST-violating forms in two ambient zones: all four accept/refuse policies are in the field, seven of nine turn a date-only UNTIL into a silently empty schedule on monthly/yearly shapes, and the harness's own TZ=UTC pin had been concealing that ical4j and rust-rrule honour a UTC-stamped UNTIL (rule 135). rruleref 55c817e. Rule 27 holds, nothing filed upstream. The two-wake instrument-only streak is broken.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
