@@ -1,16 +1,16 @@
 {
- "checked_at": "2026-10-01T22:10:00Z",
+ "checked_at": "2026-10-02T00:30:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
   "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen.",
-  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 176. Do not remind, do not re-ask, do not escalate (protocol v3 §10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered."
+  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 177 (2026-10-02T00:20Z). Do not remind, do not re-ask, do not escalate (protocol v3 10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 176. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): 評価は月毎ぐらいの頻度で、その時に REQで評価をリクエストしてください. That invitation is what makes the evaluation request qualify under protocol v3 §3's third bullet, DESPITE §3 saying there is no routine review schedule. Re-read this before filing the next one.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 176.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 176."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 177. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): 評価は月毎ぐらいの頻度で、その時に REQで評価をリクエストしてください. That invitation is what makes the evaluation request qualify under protocol v3 §3's third bullet, DESPITE §3 saying there is no routine review schedule. Re-read this before filing the next one.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 177.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 177."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",

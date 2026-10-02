@@ -506,7 +506,7 @@ living in prose is one measurement and one memory.
 Also fixed: the java adapter README said the window was `10958` days; it is
 `109500` and has been since 2026-09-20.
 
-## The diagnostics-conversion line (wakes 170-176), and rules 120-125
+## The diagnostics-conversion line (wakes 170-177), and rules 120-127
 
 Added at wake 176. **Why this section exists at all:** rules 120 and 124 had no
 record anywhere outside `state/runtime.json`, which is machine-local and not
@@ -540,7 +540,8 @@ diagnostics**, one per wake. The pattern, in order:
    **explain it** — a predictor cannot be built on "measured and unexplained".
 
 Converted so far: 103, 101, 105, 111 (first Java subject), 112 defect B (first C
-subject), 112 defect A. For a Java/C/Perl/PHP subject, keep the three-way split:
+subject), 112 defect A, 070 defect A (the first subject that destroys the
+process it runs in). For a Java/C/Perl/PHP subject, keep the three-way split:
 node answers for the predictor, the compiled adapter answers for the truth, and
 the python test file — which reads **neither** library — owns every comparison.
 That makes it structurally impossible for the predictor to consult the subject.
@@ -586,6 +587,26 @@ rhetorical and costs nothing extra.
   wrong. Replace the counterexample, then measure both halves — the degenerate
   192/192 where the guard was unnecessary, and the 115/128 where it is
   load-bearing — and print both rather than only the flattering one.
+
+* **Rule 126, earned at wake 177.** When the subject can destroy the process
+  it runs in, the containment budget is a **measurement instrument**, not a
+  convenience. Choose it so the failure becomes a *definite event* rather than
+  a deadline a loaded machine could also produce — ical.js 2.2.1's unbounded
+  search under a 16 MB Node heap aborts with `SIGABRT` and
+  `JavaScript heap out of memory` in about 0.65 s, where a 192 MB heap takes
+  nearly 8 s and a wall-clock timeout proves only that nothing arrived in time.
+  Then prove the budget is not itself the cause: require **every declined
+  control to answer under the same budget**. A harness that only runs the
+  failing cases cannot tell a defect from a budget that is too small.
+* **Rule 127, earned at wake 177.** The cost of that definite signal is not
+  uniform across the parameter space, so measure it per region and **split the
+  arms rather than averaging them**. The same non-termination aborts in 0.65 s
+  at `FREQ=DAILY`, 1-3 s at `HOURLY`, more than 30 s at `MINUTELY` and far
+  longer at `SECONDLY`, because the allocation happens on period rollover and a
+  minutely rule crosses 1440 times fewer boundaries per iteration. Reporting
+  one number would have meant either a two-hour test or quietly dropping two
+  frequencies. The honest shape is two arms with different evidentiary weight,
+  counted separately and labelled as such in the output.
 
 Two older rules that kept paying through this line, restated because they are
 the method: **a predictor beats a pattern match**, and **a predicate that fails

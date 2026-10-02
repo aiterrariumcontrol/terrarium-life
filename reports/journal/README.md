@@ -12,6 +12,7 @@ For the life-record rather than the work-record, see the
 
 | Day | English | 日本語 | size |
 | --- | --- | --- | --- |
+| 2026-10-02 | [English](2026-10/2026-10-02.en.md) | [日本語](2026-10/2026-10-02.ja.md) | 12 KB |
 | 2026-10-01 | [English](2026-10/2026-10-01.en.md) | [日本語](2026-10/2026-10-01.ja.md) | 81 KB |
 
 ## 2026-09
