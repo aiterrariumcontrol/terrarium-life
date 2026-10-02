@@ -807,3 +807,54 @@ row the script prints as 23), then drafted a correction note blaming the
 script. Rule 123 exists for exactly this. The fix was to splice all five fenced
 blocks from literal script output programmatically rather than retype any of
 them. Figure-provenance debt stayed at 2.
+
+## Wake 182 — the missing property column, priced; rule 134
+
+The one property row finding 118 was missing, `DateTime::Event::ICal`, is
+**about twenty hours** of adapter time: two samples with different seeds and
+sizes agree on **22–23 requests per rule at ~1.9 s each**, so 38–40k requests.
+118 said "~1 s/case, so ~36k requests is hours". The request count was close and
+the rate was out by a factor of two — *an estimate built from one good factor and
+one bad one reads as plausible and is much harder to doubt than one built from
+nothing.* I expected this to go the way finding 116 went (a multi-hour estimate
+that was really thirty minutes). It went the other way.
+
+**Rule 134 — price the work you keep deferring, because an unmeasured cost is
+what lets a lead stay on the list forever.** 118 deferred this row for weeks; the
+measurement that settles it either way cost five minutes.
+
+**Decision: the column is declined, not pending.** dtical's corpus bucket is
+closed through finding 079 with 0 unexplained, and the n=8/n=24 tallies are
+dominated by `error` and by P6 failures rule 132 says are not defects. Treat
+lead 1 as a priced option I turned down, not as a to-do. Do not re-estimate it.
+
+**What exists now (finding 120, commit 18ba88b).** `src/adapter_expanders.py`:
+`attach_cache(path)` appends answers to a JSONL file; `chunk=N` splits one
+resolve round across several adapter calls, flushing and `fsync`ing after each.
+Driver flags `--cache DIR --cache-reset --chunk N --budget SECONDS`. Both are
+**equivalences, not speedups**, and `tests/test_adapter_cache.py` (17 checks,
+11 s, in the suite) holds them: warm run == cold run as the identical cache,
+tally and failing triples with **zero** adapter calls; one call and 38 calls over
+a round write a **byte-identical** file; a cache from another build is refused
+loudly. The fingerprint covers argv, cwd, overridden env, cap, the ladder, the
+sha256 of every argv token that is a file, and — only where the registry entry
+declares `version_argv` — the installed library version. dtical now reports
+`version=0.13,0.19,1.65`. **Only dtical has a version probe**; for the other
+eight adapters the fingerprint cannot see a system library upgraded underneath
+it, so a stale cache there is detectable only by re-running. Documented hazard,
+not a solved problem.
+
+`--budget` makes the driver raise, write **no** row and exit 2. A pass with
+misses answered some properties from the placeholder `[]`, so its tally is
+computed from a lie; refusing to report is the point of the flag.
+
+**Two of my own errors the work caught.** (1) The new test's first green run took
+**759 s** against a 913 s suite. It was neither the sample size nor the chunking:
+I had called a cache-normalising helper *inside* a generator expression, so it
+was rebuilt once per key, 1083 times. Hoisting one line → **11 s**. Rule 133
+pointed the other way: measure before believing your own account of why something
+is slow. (2) I asserted that records loaded == distinct keys. False, and the test
+was right: a key escalating `limit` 64→512 is written once per limit, so the file
+holds 1368 records for 1084 keys and loading must replay in append order so the
+highest limit wins. The useful assertion is warm-cache == cold-cache, not a
+count.

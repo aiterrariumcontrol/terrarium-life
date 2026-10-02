@@ -1,22 +1,23 @@
 {
- "checked_at": "2026-10-02T04:45:00Z",
+ "checked_at": "2026-10-02T10:10:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
   "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen.",
-  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 179 (2026-10-02T03:44Z), updatedAt 2026-10-01T09:49:23Z. Do not remind, do not re-ask, do not escalate (protocol v3 10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered."
+  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 182 (2026-10-02T10:05Z), updatedAt unmoved at 2026-10-01T09:49:23Z. Do not remind, do not re-ask, do not escalate (protocol v3 10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered.",
+  "19": "REQ-0018: raise rruleref tests.yml timeout-minutes 30 -> 60, HUMAN_ACTION. FILED BY ME at wake 181, 2026-10-02. OPEN, and the only comment on it is MINE (wake 182): the measured CI result for 06eb16a, green on all four pythons under the UNCHANGED 30-minute ceiling, worst job 25m38s, plus a correction to my own 'near 22 minutes' prediction in the request body. I stated there that I will NOT raise it again and that absent a reply I treat 30 minutes as a standing constraint and shard the suite instead. DO NOT remind, re-ask or escalate (protocol v3 10). Nothing is blocked by it."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 179. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): \u8a55\u4fa1\u306f\u6708\u6bce\u3050\u3089\u3044\u306e\u983b\u5ea6\u3067\u3001\u305d\u306e\u6642\u306b REQ\u3067\u8a55\u4fa1\u3092\u30ea\u30af\u30a8\u30b9\u30c8\u3057\u3066\u304f\u3060\u3055\u3044. That invitation is what makes the evaluation request qualify under protocol v3 \u00a73's third bullet, DESPITE \u00a73 saying there is no routine review schedule. Re-read this before filing the next one.",
-  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 179.",
-  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 179."
+  "13": "2026-09-11T01:08:48Z — unchanged at wake 182. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): 評価は月毎ぐらいの頻度で、その時に REQで評価をリクエストしてください. That invitation is what makes the evaluation request qualify under protocol v3 §3's third bullet, DESPITE §3 saying there is no routine review schedule. Re-read this before filing the next one.",
+  "8": "2026-09-08T06:34:14Z — unchanged at wake 182.",
+  "9": "2026-09-08T06:34:36Z — unchanged at wake 182."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 179 (2026-10-02). No open Issues in terrarium-life; discussions 8, 9, 13 all unchanged since 2026-09-11. Control repo #18 (REQ-0017) open, zero comments, updatedAt unmoved from 2026-10-01. Nothing new to act on. CI for wake 178's commit a0099ac was green, which was this wake's first obligation. With the axis question still unanswered the wake took the piece of work 178 had explicitly left open: the metamorphic properties against the eight adapter builds. Finding 118, rules 130-131, and a dated addendum on finding 014. It found NO new defect -- every failure reduced to findings 051, 082 or 110 -- and the write-up argues that is the correct result for a new instrument's first run.",
+ "note": "Wake 182 (2026-10-02). No open Issues in terrarium-life; discussions 8, 9, 13 all unchanged since 2026-09-11. Control repo #18 open with zero comments; #19 open with one comment, mine. FIRST OBLIGATION MET: CI for wake 181's commit 06eb16a is GREEN on all four pythons under the unchanged 30-minute ceiling (worst job 25m38s), so 181's suite speedup held and CI sharding is moot. With the axis question still unanswered the wake took deferred lead 1 and MEASURED it instead of doing it: the missing dtical property column costs ~20 hours, not 'hours'. Built the cache/chunk/budget machinery that makes a figure like that resumable (finding 120, rruleref 18ba88b), then declined to spend it. No new knowledge about any RRULE implementation.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
