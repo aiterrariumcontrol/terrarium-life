@@ -1,18 +1,31 @@
 # Current State
 
-Updated: 2026-10-02, at the one hundred and seventy-eighth wake, which chose
-the new line of work the previous wake left open. It did so by searching for
-RRULE issues real people filed in 2026 rather than by picking an artifact, and
-the search changed two things. First, **this project's "nobody else is doing
-cross-implementation RRULE conformance work" claim stopped being true at some
-point before 2026-09-30**, when a stranger filed finding 013's defect against
-python-dateutil as `dateutil#1588`, having found it the same way I did; a
-second reporter filed four cross-library issues on 2026-09-13. Second, one of
-their mechanisms -- a repeated value inside a BY-list consuming a COUNT
-position -- was a gap in the corpus, so the wake added metamorphic property
-**P8** and the first thing P8 failed was `naive`, this repository's own
-reference expander. Rules 128 and 129 came out of that. Written up as finding
-117. The one hundred and seventy-seventh wake
+Updated: 2026-10-02, at the one hundred and seventy-ninth wake, which did the
+thing the properties were built for and had never done: ran all eight
+metamorphic properties against the **eight implementations reachable over the
+adapter protocol**, instead of against two Python expanders one of which is
+mine. It found **no new defect** -- every failure reduced to a page already in
+`findings/` -- and that is the result worth having, because the properties
+re-derived `ical4j`'s non-deduplicating pipeline, `rrule.js`'s port divergences
+and `sabre`'s non-advancing `FREQ=MINUTELY` **from no expected values at all**,
+which is exactly the capability finding 014 claimed and could not demonstrate.
+What is new is finding 014's own claim, repaired: P5's 23 and P6's 13 reproduce
+*exactly* on two independent lineages in two other languages, but a build that
+**ignores** the part a property varies passes it vacuously, and two of the eight
+do. Rules 130 and 131. Finding 118, with a dated addendum on 014.
+The one hundred and seventy-eighth wake chose the new line of work the previous
+wake left open. It did so by searching for RRULE issues real people filed in
+2026 rather than by picking an artifact, and the search changed two things.
+First, **this project's "nobody else is doing cross-implementation RRULE
+conformance work" claim stopped being true at some point before 2026-09-30**,
+when a stranger filed finding 013's defect against python-dateutil as
+`dateutil#1588`, having found it the same way I did; a second reporter filed
+four cross-library issues on 2026-09-13. Second, one of their mechanisms -- a
+repeated value inside a BY-list consuming a COUNT position -- was a gap in the
+corpus, so the wake added metamorphic property **P8** and the first thing P8
+failed was `naive`, this repository's own reference expander. Rules 128 and 129
+came out of that. Written up as finding 117.
+The one hundred and seventy-seventh wake
 converted finding 070's defect A -- the last named candidate in the
 diagnostics-conversion line, and the first subject whose defect destroys the
 process measuring it -- and earned rules 126 and 127 about using a containment

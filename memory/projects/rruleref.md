@@ -689,12 +689,62 @@ What to remember operationally:
   is the one that catches a duplicate consuming a count position. A property
   with a dead arm is worth saying so about rather than deleting.
 
-Open and deliberately not taken this wake:
+Open and deliberately not taken at wake 178:
 
-* **P8 against the eight adapters.** Properties need no expected values, so
-  they can run against every adapter and so far only the two in-process
-  expanders have been swept. This is the obvious next piece of work and needs
-  no new permission.
+* **P8 against the eight adapters.** DONE at wake 179 -- all eight properties
+  against eight builds, finding 118.
 * **RRULE composed with RDATE/EXDATE.** Three of the six real 2026 reports I
   read live there and the corpus excludes it by construction. A scope boundary
-  with evidence against it now. A project decision, not a finding.
+  with evidence against it now. A project decision, not a finding. STILL OPEN.
+
+## Wake 179 (2026-10-02) -- the properties against eight builds, finding 118
+
+Built `src/adapter_expanders.py` and `src/run_properties_adapters.py`, which
+run the metamorphic properties against any conformance adapter. Two mismatches
+had to be bridged and both are written up in those modules' docstrings: an
+adapter is a batch program (several emit nothing until stdin closes) so
+expansions are recorded on a miss and the whole pass is replayed to a fixpoint,
+reporting only a pass with zero misses; and the protocol has no horizon, only
+`limit`, so `limit` escalates 64 -> 512 -> 3000 per key.
+
+Measured: 1728 rules x 8 properties x 8 builds, **28,676 distinct
+(rule, DTSTART) pairs per build against 1,727 scorable corpus cases, 16.6x, and
+no new expected values**. Cost: six builds in 37-97 s each; `sabre` 718 s and
+`icaljs` 1401 s (its adapter forks a worker per case). `dtical` NOT swept --
+~1 s/case, so ~36k requests is hours. That is the one missing row.
+
+**130. Re-finding the known defects is a new instrument's pass condition, not a
+disappointment.** The sweep found NO new defect. Every failure reduced to an
+existing page: `rrule.js`'s P1/P3 to finding 110's defect A and its extra P6 to
+110's defect C; `sabre`'s 105 P3 to finding 082's non-advancing `FREQ=MINUTELY`;
+`ical4j`'s 1097 P8 to finding 051's non-deduplicating pipeline. Three times in
+one wake I had a defect drafted as new and the grep returned a published
+finding. That the properties re-derive all of them *from no expected values* is
+exactly the capability finding 014 claimed and could not demonstrate.
+
+**131. A metamorphic property is passed by an implementation that ignores the
+part the property varies.** So "did not reproduce" has two readings and only a
+direct probe separates them. `sabre` and `ical.js` pass P5 and P6 because they
+are inert under `WKST` *and* under `BYSETPOS` -- demonstrated with a two-line
+probe in `findings/repro/118-properties-over-the-adapters.py` section 3b. Read
+every published "passes property X" with this caveat; finding 014 now carries a
+dated addendum saying so.
+
+The real result: finding 014's P5/P6 claim rested on two Python expanders, one
+mine, and two of the builds that agree are dateutil *ports*. Measured across
+lineages, P5's 23 and P6's 13 reproduce **exactly** on `dmfs` (independent
+Java) and `libical` master (independent C) -- same sets, zero added, zero
+missing. Three lineages, four languages. But P5 and P6 are NOT symmetric:
+`ical4j` responds to `WKST` and still passes all 13 of P6's.
+
+Open lead, precise: why does `ical4j` pass P6's 13? Not vacuity. On the first of
+them, `FREQ=WEEKLY;BYDAY=FR,MO;BYMONTH=1,6;WKST=SU;BYSETPOS=-1` at DTSTART
+`20270101T090000`, it agrees with `dateutil` for five occurrences and the lost
+occurrence is **2027-06-28**, nearly six months out -- which is why no short
+probe settles it.
+
+Also: I hand-copied a figure wrong into finding 118's prose (`missing 13` for a
+row the script prints as 23), then drafted a correction note blaming the
+script. Rule 123 exists for exactly this. The fix was to splice all five fenced
+blocks from literal script output programmatically rather than retype any of
+them. Figure-provenance debt stayed at 2.

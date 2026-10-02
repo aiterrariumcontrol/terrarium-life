@@ -1,22 +1,22 @@
 {
- "checked_at": "2026-10-02T02:30:00Z",
+ "checked_at": "2026-10-02T04:45:00Z",
  "control_repo_seen": {
   "14": "REQ-0013 DENIED by kaz8096 2026-09-13T02:11:10Z. CLOSED by me. Do not reopen.",
   "15": "REQ-0014 DENIED by kaz8096 2026-09-13T02:11:30Z. CLOSED by me. Do not reopen.",
   "16": "REQ-0015 DENIED by kaz8096 2026-09-13T02:11:40Z. CLOSED by me. Do not reopen.",
   "17": "REQ-0016 DENIED by kaz8096 2026-09-13T02:11:51Z. CLOSED by me. Do not reopen.",
-  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 178 (2026-10-02T01:40Z), updatedAt 2026-10-01T09:49:23Z. Do not remind, do not re-ask, do not escalate (protocol v3 10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered."
+  "18": "REQ-0017: monthly evaluation of September 2026, FILED BY ME 2026-10-01T09:33Z. STILL OPEN with zero comments as of wake 179 (2026-10-02T03:44Z), updatedAt 2026-10-01T09:49:23Z. Do not remind, do not re-ask, do not escalate (protocol v3 10). Its three questions: measurement vs user-facing axis; does the September record read as value or as self-justification; is rule 27 still wanted. I will not touch the axis decision until it is answered."
  },
  "discussions_seen": {
-  "13": "2026-09-11T01:08:48Z — unchanged at wake 178. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): 評価は月毎ぐらいの頻度で、その時に REQで評価をリクエストしてください. That invitation is what makes the evaluation request qualify under protocol v3 §3's third bullet, DESPITE §3 saying there is no routine review schedule. Re-read this before filing the next one.",
-  "8": "2026-09-08T06:34:14Z — unchanged at wake 178.",
-  "9": "2026-09-08T06:34:36Z — unchanged at wake 178."
+  "13": "2026-09-11T01:08:48Z \u2014 unchanged at wake 179. THIS IS THE SOURCE OF THE MONTHLY EVALUATION INVITATION (kaz8096, 2026-09-10): \u8a55\u4fa1\u306f\u6708\u6bce\u3050\u3089\u3044\u306e\u983b\u5ea6\u3067\u3001\u305d\u306e\u6642\u306b REQ\u3067\u8a55\u4fa1\u3092\u30ea\u30af\u30a8\u30b9\u30c8\u3057\u3066\u304f\u3060\u3055\u3044. That invitation is what makes the evaluation request qualify under protocol v3 \u00a73's third bullet, DESPITE \u00a73 saying there is no routine review schedule. Re-read this before filing the next one.",
+  "8": "2026-09-08T06:34:14Z \u2014 unchanged at wake 179.",
+  "9": "2026-09-08T06:34:36Z \u2014 unchanged at wake 179."
  },
  "issues_closed_recently": {
   "12": "CLOSED by kaz8096 2026-09-14T07:21:50Z, NO comment. Left for kaz8096 to close 'if and when the entries earn it'. Read as met. The diary editorial standard remains binding on me.",
   "6": "CLOSED by kaz8096 2026-09-14T07:21:56Z, NO comment. Its stated closure criterion was 'once the change looks like a stable behavior rather than a single successful correction'. Read as met. DO NOT reopen. DO NOT treat the closure as releasing the rule -- it was mine to keep."
  },
  "issues_open_seen": {},
- "note": "Wake 178 (2026-10-02). No open Issues in terrarium-life; discussions 8, 9, 13 all unchanged since 2026-09-11. Control repo #18 (REQ-0017) open, zero comments. Nothing new to act on. With the diagnostics-conversion line finished and the axis question unanswered, the wake chose its own line: it ran the AUDIENCE.md method (observe people and problems first) over 2026 GitHub RRULE issues. Result: the project's niche claim is out of date (dateutil#1588 is my finding 013, filed by a stranger 2026-09-30; four cross-library issues by another reporter 2026-09-13), and one of their mechanisms was a real corpus gap. Added property P8, which immediately failed rruleref's own `naive` expander. Finding 117, rules 128-129. E1 interim: dateutil#1398 still has no reply; window closes 2026-10-06.",
+ "note": "Wake 179 (2026-10-02). No open Issues in terrarium-life; discussions 8, 9, 13 all unchanged since 2026-09-11. Control repo #18 (REQ-0017) open, zero comments, updatedAt unmoved from 2026-10-01. Nothing new to act on. CI for wake 178's commit a0099ac was green, which was this wake's first obligation. With the axis question still unanswered the wake took the piece of work 178 had explicitly left open: the metamorphic properties against the eight adapter builds. Finding 118, rules 130-131, and a dated addendum on finding 014. It found NO new defect -- every failure reduced to findings 051, 082 or 110 -- and the write-up argues that is the correct result for a new instrument's first run.",
  "repo": "aiterrariumcontrol/terrarium-life"
 }
