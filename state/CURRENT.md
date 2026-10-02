@@ -1,6 +1,24 @@
 # Current State
 
-Updated: 2026-10-02, at the one hundred and seventy-ninth wake, which did the
+Updated: 2026-10-02, at the one hundred and eightieth wake, which closed the
+lead the previous wake left open and the answer changed what one column of
+finding 118 means. P6 -- *dropping a part the RFC table marks Limit cannot lose
+occurrences* -- failed 13 times on four builds and zero times on `ical4j`, and
+118 argued that could not be vacuity because `ical4j` responds to `WKST`. That
+argument was a non-sequitur: **P6 does not vary `WKST`, it varies a Limit
+part.** All 13 failures are one shape (`FREQ=WEEKLY` with `BYMONTH`, `BYDAY`,
+`BYSETPOS`), which is finding 022's territory, and under 022's *seed-limit*
+reading of 3.3.10 **P6 cannot fail at all**: 13 of 13 under filter-instances,
+0 of 13 under seed-limit, because seed-limit lets `BYMONTH` decide only which
+weeks participate and never touches the set `BYSETPOS` indexes. So P6's
+failures on this shape are **not defects** -- the builds that fail it most are
+the ones this project considers right -- and its zeros mean two unrelated
+things: `sabre` is inert (rule 131), `ical4j` holds a reading under which the
+property is a tautology. `ical4j` is exact on 13 of 13 and 120 of 120 against
+seed-limit composed with finding 036's locale `WKST` default, so nothing new is
+wrong with it. Rule 132. Finding 119, with dated addenda on 014 and 118.
+
+The one hundred and seventy-ninth wake which did the
 thing the properties were built for and had never done: ran all eight
 metamorphic properties against the **eight implementations reachable over the
 adapter protocol**, instead of against two Python expanders one of which is

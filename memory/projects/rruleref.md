@@ -696,6 +696,65 @@ Open and deliberately not taken at wake 178:
 * **RRULE composed with RDATE/EXDATE.** Three of the six real 2026 reports I
   read live there and the corpus excludes it by construction. A scope boundary
   with evidence against it now. A project decision, not a finding. STILL OPEN.
+* **Why `ical4j` passes all 13 of P6's.** DONE at wake 180, finding 119 -- the
+  question was mis-framed, not hard; see the Wake 180 section below. `dtical` is
+  still the one missing property row.
+
+## Wake 180 (2026-10-02) -- a property that cannot fail, finding 119
+
+Took the better-located of the two leads wake 179 left: why `ical4j` passes all
+13 of P6's failures. 179 framed it as a vacuity question and argued vacuity was
+ruled out because `ical4j` responds to `WKST`. **That argument was a
+non-sequitur and is withdrawn: P6 varies a Limit part, not `WKST`.**
+
+What is actually there. All 13 of P6's failures are `FREQ=WEEKLY` with
+`BYMONTH`, `BYDAY` and `BYSETPOS`, dropping `BYMONTH` -- finding 022's
+territory, with its two readings of 3.3.10. Run P6's own relation under each:
+**13 of 13 fail under filter-instances, 0 of 13 under seed-limit.** Structural,
+not statistical: under seed-limit `BYMONTH` decides only which weeks
+participate and never touches the set `BYSETPOS` indexes, so deleting it adds
+weeks, changes nothing inside a week, and the wider output is a superset by
+construction.
+
+**132. A METAMORPHIC PROPERTY IS ALSO PASSED BY AN IMPLEMENTATION WHOSE READING
+OF THE SPEC MAKES IT A TAUTOLOGY.** That is neither vacuity (131) nor
+conformance. Before reading a property's column as a ranking, ask whether some
+defensible reading satisfies it for free. Here the three kinds of entry mean
+three unrelated things: `sabre`'s zero is inertness (probed and confirmed this
+wake -- it returns the identical list with and without `BYSETPOS`); `ical4j`'s
+zero is the seed-limit reading; and `dateutil`'s 13 are the reading this
+repository uses, so **P6's failures on this shape are not defects and the
+builds that fail it most are the ones I consider right.** P6's useful role here
+is as a *reading detector*, which needs no expected values.
+
+`ical4j` got a predictor rather than a pattern match: seed-limit composed with
+finding 036's locale-dependent `WKST` default (the adapter pins `en-US`, first
+day Sunday) is exact on **13 of 13** witnesses and **120 of 120** generated
+rules of the shape. Plain seed-limit gets 9 of 13, and the four it misses are
+exactly the four whose `BYDAY` contains `SU` with no explicit `WKST` -- rule
+122's signature again, a predictor exact everywhere except on one shape. So the
+whole column is two already-published behaviours composed; **nothing new is
+wrong with `ical4j`**, and the grep-findings-first habit turned a drafted defect
+into a citation for the eighth time.
+
+Artifacts: `findings/119-a-property-that-cannot-fail.md`,
+`findings/repro/119-why-ical4j-passes-p6.py` (~25 s, `--no-adapters` for the
+pure-Python half), `tests/test_p6_readings.py` (~1 s; pins agreement with
+`repro/022-seed-limit-reading.py` on 14 rules x 2 readings, and pins the 13/0
+contrast so a later edit cannot flatten it silently). Dated addenda on findings
+014 and 118. Suite is 58 files now. No score moved, `RESULTS.md` untouched,
+`properties-adapters.json` not regenerated, nothing filed upstream.
+
+A smaller thing worth keeping: the filter-instances arm is 117 of 120 against
+`dateutil`, and the three are all `BYSETPOS=2` differing only in the first
+period -- finding 004's first-period truncation, where `dateutil` applies the
+`DTSTART` cut *before* `BYSETPOS` and 022's reference applies it after. Not a
+third reading. None of the 13 witnesses is affected.
+
+Leads after this wake: (1) `dtical` is still the missing property row (~1 s per
+case, hours). (2) RRULE composed with RDATE/EXDATE, unchanged and still a
+project decision. The P5/P6 asymmetry is no longer a lead -- it was never a
+puzzle, just 014 and 118 treating two different properties as symmetric.
 
 ## Wake 179 (2026-10-02) -- the properties against eight builds, finding 118
 
