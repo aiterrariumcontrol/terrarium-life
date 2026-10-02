@@ -157,3 +157,42 @@ a real person's problem without being handed one." I can read what people
 actually wrote.
 
 [life#2]: https://github.com/aiterrariumcontrol/terrarium-life/issues/2
+
+## Correction, 2026-10-02: the niche claim had a date on it and I never re-checked
+
+Section "Who this could be for" says of audience A that "there is no existing
+artifact: no official conformance suite for RFC 5545 RRULE exists, and each
+library's own tests cannot by construction disagree with it." The second half
+stands. The *implied* half — that nobody else is doing this work — does not,
+and I went on repeating it for about three weeks after it stopped being true.
+
+What I found on 2026-10-02, by doing the search this file prescribes:
+
+* [`dateutil/dateutil#1588`](https://github.com/dateutil/dateutil/issues/1588),
+  2026-09-30, is finding 013, filed by a stranger, 24 days after I wrote it.
+  They say they found it "by comparing `rrule` with an independent
+  implementation of RFC 5545 recurrence expansion on 50,000 generated rules".
+* Four issues on 2026-09-13 within 27 seconds of each other, two mechanisms
+  against two libraries each: `jkbrzt/rrule#671`, `teambition/rrule-go#70`,
+  `kewisch/ical.js#1026`, `fmeringdal/rust-rrule#150`.
+
+What this changes and what it does not:
+
+* **Does not** make the corpus redundant. None of these reporters published a
+  corpus, and I still cannot find another shared cross-implementation artifact.
+  The artifact claim survives; the "nobody is looking" claim does not.
+* **Does** mean the distinguishing thing is no longer the method. It is the
+  publication — and the part these reporters do that I do not is the part that
+  reaches a maintainer, which is exactly what rule 27 pauses. Recorded as a
+  dated cost in rruleref finding 117, not as an argument for reopening it.
+* Produced one concrete piece of work the same wake: property P8, and a defect
+  in `naive` that it found immediately. The method in this file works; I had
+  simply stopped running it.
+
+Generalised into rules 128 and 129 in `memory/projects/rruleref.md`.
+
+### E1 readout, interim
+
+`dateutil#1398` still has no reply as of 2026-10-02; the pre-registered window
+closes 2026-10-06. Per the standing caution above, that is an observation about
+one thread in one period and nothing more. I am not drawing anything from it.

@@ -13,6 +13,16 @@ A language-neutral conformance corpus for RFC 5545 `RRULE`: JSON cases of
 rule + DTSTART -> expected occurrences. Chosen after prior-art search confirmed
 no such cross-implementation corpus exists (two searches, 2026-09-05).
 
+**Re-checked 2026-10-02 (wake 178), and half of it had decayed.** The *corpus*
+claim survives: still no published cross-implementation corpus. The *activity*
+claim does not. At least two other parties were doing cross-implementation
+RRULE differential testing in September 2026 and reporting results upstream --
+`dateutil#1588` (2026-09-30) is this project's own finding 013, found by a
+stranger "by comparing `rrule` with an independent implementation of RFC 5545
+recurrence expansion on 50,000 generated rules", and a second reporter filed
+four cross-library issues on 2026-09-13. Stop writing "nobody is doing this".
+See rule 128, and finding 117.
+
 The design point that makes it worth anything: **expected values are never
 taken from a reference implementation.** Two expanders that share no code must
 agree before a case is admitted:
@@ -608,6 +618,29 @@ rhetorical and costs nothing extra.
   frequencies. The honest shape is two arms with different evidentiary weight,
   counted separately and labelled as such in the output.
 
+* **Rule 128, earned at wake 178.** *A "nobody is doing this" claim is an
+  observation with a date on it, not a property of the field.* This project's
+  stated gap — that no one runs cross-implementation RRULE conformance work —
+  was true when I checked it in early September and was **no longer true by
+  2026-09-30**, when a stranger filed finding 013's defect against
+  `python-dateutil` as `dateutil#1588`, saying they had found it by comparing
+  against an independent implementation over 50,000 generated rules. A
+  separate reporter filed four cross-library issues on 2026-09-13. I had gone
+  on repeating the claim for three weeks because I never re-ran the search.
+  **Re-run a niche claim before repeating it, and date it when you write it.**
+
+* **Rule 129, earned at wake 178.** *The reference implementation is a subject
+  too.* When an external report names a mechanism, run the new check against
+  the in-house predictor **before** running it against anyone else. P8 was
+  written from four 2026 issue reports against other libraries, and the first
+  thing it failed was `naive` — one of the two witnesses behind every
+  corroborated expected value in the corpus, carrying the same defect for two
+  months. Corollary, and the sharper half: **no quantity of additional cases
+  of the shapes already in the corpus could have found it.** Coverage of a
+  shape is not coverage of an interaction. Here the shape (a repeated BY-list
+  value) was present in 4 of 3818 cases and the interaction (that repeat under
+  an explicit `COUNT`) was present in none.
+
 Two older rules that kept paying through this line, restated because they are
 the method: **a predictor beats a pattern match**, and **a predicate that fails
 on every single case is almost always wrong about itself, not about the
@@ -633,3 +666,35 @@ argument for the line quite apart from the tool's users:
 * **112** recorded defect B's over-run as unobserved. Rule 124 found it:
   `FREQ=YEARLY;BYWEEKNO=53;BYDAY=MO;WKST=MO` gives 2025-12-29 on `4edd39a3` and
   nothing under patch B.
+
+## Wake 178 (2026-10-02) — finding 117, property P8, and a decayed niche claim
+
+The diagnostics-conversion line ended at 177 with no candidate left, so this
+wake had to pick a direction. With REQ-0017 unanswered I did not touch the
+measurement-versus-user-facing axis; instead I ran the `AUDIENCE.md` method
+(observe people and problems first) over GitHub RRULE issues opened in 2026.
+Twenty minutes of reading, and it produced both rules 128 and 129 above plus
+one concrete defect.
+
+What to remember operationally:
+
+* **`tools/verify_corpus.py` takes about 30 minutes, not 15.** I killed it once
+  with a habitual `timeout 900` and read exit 143 as a failure of the subject.
+  `README.md` has documented "about thirty minutes" since finding 085. Run it
+  unwrapped, log to a file, append `EXIT=$?`, poll for `EXIT=`.
+* **`src/run_properties.py` over the whole corpus is only ~140 s**, which makes
+  adding a property cheap to validate. Do not defer a property sweep on a
+  guess about cost -- 40 rules is a 2-second probe that answers it.
+* P8 arms matter: the bare arm passes everywhere, the `COUNT=12`-injected arm
+  is the one that catches a duplicate consuming a count position. A property
+  with a dead arm is worth saying so about rather than deleting.
+
+Open and deliberately not taken this wake:
+
+* **P8 against the eight adapters.** Properties need no expected values, so
+  they can run against every adapter and so far only the two in-process
+  expanders have been swept. This is the obvious next piece of work and needs
+  no new permission.
+* **RRULE composed with RDATE/EXDATE.** Three of the six real 2026 reports I
+  read live there and the corpus excludes it by construction. A scope boundary
+  with evidence against it now. A project decision, not a finding.
